@@ -1,0 +1,205 @@
+body {
+  background: linear-gradient(135deg, #5f6ea7 0%, #bb6868 100%);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  background: #ebf6fc;
+  max-width: 3000px; /* Increased container width */
+  margin: 0 auto;
+  padding: 20px; /* Increased padding for the container */
+  display: grid;
+  grid-template-columns: 1fr; /* Changed to single column layout */
+  gap: 4rem;
+  align-items: center;
+}
+
+.content {
+  text-align: center; /* Center text within the content */
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #23275a;
+  line-height: 1.2;
+  margin-bottom: 1rem; /* Adjusted margin for better spacing */
+  font-weight: 700;
+  margin-top: 20px;
+}
+
+/* p {
+  font-size: 1.5rem; 
+  color: #23275a;
+  margin-bottom: 2rem; 
+} */
+
+.features {
+  margin: 2rem 0;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.feature-icon {
+  width: 24px;
+  height: 24px;
+  background: #e6e9ff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-text {
+  color: #4a4a4a;
+  font-size: 1rem;
+}
+
+.image-section {
+  position: relative;
+  text-align: center; /* Center the image section */
+}
+
+.main-image {
+  width: 80%;
+  max-width: none; /* Remove max-width restriction */
+  height: 650px; /* Increased height for a more impressive look */
+  object-fit: cover; /* Ensure the image covers the area without distortion */
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  margin: 0 auto; /* Center the image */
+}
+.floating-card {
+  position: absolute;
+  padding: 10px; /* Increased padding for better spacing */
+  border-radius: 12px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
+  transition: transform 0.3s; /* Smooth transition for hover effect */
+  text-align: center; /* Center text within the card */
+  width: 40%; /* Adjusted width for the floating card */
+  left: 30px; /* Move the floating card to the left */
+}
+
+.floating-card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+}
+
+.floating-card img {
+  width: 50%; /* Increased size for the floating card image */
+  height: auto; /* Maintain aspect ratio */
+  margin-bottom: 0.5rem; /* Space between image and text */
+  margin-top: 10px; /* Reduced margin-top for better spacing */
+}
+
+.card-2 {
+  bottom: 5px;
+  margin-top: 100px;
+  right: 500px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 100%;
+    grid-template-columns: 1fr 1fr; /* Two columns on medium screens */
+  }
+  .main-image {
+    width: 80%;
+    max-width: none; /* Remove max-width restriction */
+    height: 650px; /* Increased height for a more impressive look */
+    object-fit: cover; /* Ensure the image covers the area without distortion */
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    margin: 0 auto; /* Center the image */
+  }
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  p {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .floating-card {
+    width: 80%; /* Increase width for better readability on small screens */
+    left: 10%;
+  }
+
+  .main-image {
+    height: auto;
+    margin-left: 60px;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 20px;
+  }
+
+  p {
+    font-size: 1.2rem;
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  .floating-card {
+    width: 100%;
+    left: 0;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  h1 {
+    font-size: 1.75rem;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 20px;
+  }
+
+  p {
+    font-size: 1.2rem;
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+  .main-image {
+    height: auto;
+    margin-left: 60px;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  .floating-card {
+    width: 100%;
+    left: 0;
+    padding: 10px;
+  }
+}

@@ -1,0 +1,97 @@
+<app-navigation></app-navigation>
+
+<div class="bg-[#fafafa] min-h-screen pt-8 pb-20">
+  <div class="max-w-3xl mx-auto px-6 md:px-10">
+
+    <!-- Back link -->
+    <a routerLink="/community" class="inline-flex items-center gap-1.5 text-sm text-[#2e6276] font-semibold hover:underline mb-8 block">
+      ← Back to Community
+    </a>
+
+    <!-- Form card -->
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-8">
+
+      <h1 class="text-2xl font-extrabold text-[#272725] mb-2">Start a New Discussion</h1>
+      <p class="text-sm text-gray-400 mb-8">Ask a question, share an idea, or report a bug with the OptimaX community.</p>
+
+      <!-- Error -->
+      <div *ngIf="error" class="mb-6 px-4 py-3 bg-red-50 border border-red-200 rounded-xl text-sm text-red-600">
+        {{ error }}
+      </div>
+
+      <form (ngSubmit)="submit()">
+
+        <!-- Category select -->
+        <div class="mb-5">
+          <label class="block text-sm font-semibold text-[#272725] mb-1.5">Category</label>
+          <div class="relative">
+            <select
+              (change)="onCategoryChange($event)"
+              class="w-full appearance-none px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#2e6276]/30 focus:border-[#2e6276] transition bg-white text-gray-700 pr-10"
+            >
+              <option value="">Select a category…</option>
+              <option *ngFor="let cat of categories" [value]="cat.id">
+                {{ cat.name }}
+              </option>
+            </select>
+            <div class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </div>
+          <!-- Color indicator for selected category -->
+          <div *ngIf="categoryId !== null" class="mt-2 flex items-center gap-2">
+            <div class="w-3 h-3 rounded-full" [style.background-color]="getCategoryColor(categoryId)"></div>
+          </div>
+        </div>
+
+        <!-- Title input -->
+        <div class="mb-5">
+          <label class="block text-sm font-semibold text-[#272725] mb-1.5">Title</label>
+          <input
+            type="text"
+            [(ngModel)]="title"
+            name="title"
+            maxlength="500"
+            placeholder="Give your discussion a clear, descriptive title…"
+            class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#2e6276]/30 focus:border-[#2e6276] transition"
+          />
+          <p class="text-xs text-gray-400 mt-1 text-right">{{ title.length }}/500</p>
+        </div>
+
+        <!-- Content textarea -->
+        <div class="mb-8">
+          <label class="block text-sm font-semibold text-[#272725] mb-1.5">Description</label>
+          <textarea
+            [(ngModel)]="content"
+            name="content"
+            rows="8"
+            placeholder="Describe your question, idea, or issue in detail…"
+            class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#2e6276]/30 focus:border-[#2e6276] transition resize-none min-h-[200px]"
+          ></textarea>
+        </div>
+
+        <!-- Actions -->
+        <div class="flex items-center justify-between gap-4">
+          <a
+            routerLink="/community"
+            class="text-sm font-semibold text-gray-500 hover:text-[#272725] transition-colors"
+          >Cancel</a>
+          <button
+            type="submit"
+            [disabled]="loading || !title.trim() || !content.trim() || categoryId === null"
+            class="inline-flex items-center gap-2 px-7 py-3 bg-[#2e6276] text-white text-sm font-semibold rounded-xl hover:bg-[#245060] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            <svg *ngIf="loading" class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+            </svg>
+            {{ loading ? 'Posting…' : 'Post Discussion' }}
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

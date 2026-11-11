@@ -1,0 +1,115 @@
+<!-- HERO SECTION -->
+<section
+  class="bg-customBlue px-8 md:px-20 py-16 flex flex-col md:flex-row items-center justify-between gap-10 min-h-[calc(100vh-72px)]"
+>
+  <!-- Left: Copy -->
+  <div class="flex-1 max-w-lg">
+    <!-- Module label from active slide -->
+    <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-3 py-1 mb-6">
+      <span class="w-1.5 h-1.5 rounded-full bg-[#2EB270]"></span>
+      <span class="text-white/80 text-xs font-semibold tracking-wide uppercase">
+        {{ images[activeIndex].label || 'OptimaX Suites' }}
+      </span>
+    </div>
+
+    <h1 class="text-white font-semibold text-5xl leading-tight mb-5">
+      <span>Everything</span> your business needs. <br />
+      <span class="text-white/60 font-light text-4xl">Finally in one place.</span>
+    </h1>
+
+    <!-- Active slide caption -->
+    <p class="text-[#2EB270] font-medium text-base mb-3">
+      {{ images[activeIndex].caption }}
+    </p>
+
+    <p class="text-[#c1c1c1] text-sm leading-relaxed mb-8 max-w-sm">
+      Run finance, inventory, operations, reporting, and automation from one
+      intelligent system designed to keep your business moving.
+    </p>
+
+    <div class="flex items-center gap-4 flex-wrap">
+      <a
+        href="/get-started"
+        class="bg-[#2EB270] hover:bg-[#47e797] text-white font-semibold text-sm px-6 py-3 rounded-md transition-colors"
+      >
+        Get Started Free
+      </a>
+      <a
+        target="_blank"
+        href="https://docs.google.com/forms/d/e/1FAIpQLSep22HKqDrdDigPIj3TwqBwmMw72mNopDUlIYOAwH_HWd3ElA/viewform?usp=publish-editor"
+        class="border-2 border-white/50 text-white hover:border-white hover:bg-white/10 font-semibold text-sm px-6 py-3 rounded-md transition-colors"
+      >
+        Talk to Sales
+      </a>
+    </div>
+
+    <!-- Module quick-links -->
+    <div class="flex flex-wrap gap-2 mt-8">
+      <span class="text-white/40 text-xs self-center mr-1">Modules:</span>
+      <a href="/pos" class="text-white/70 hover:text-white text-xs bg-white/10 hover:bg-white/20 px-3 py-1 rounded-full transition-colors">POS</a>
+      <a href="/accounting" class="text-white/70 hover:text-white text-xs bg-white/10 hover:bg-white/20 px-3 py-1 rounded-full transition-colors">Accounting</a>
+      <a href="/hr" class="text-white/70 hover:text-white text-xs bg-white/10 hover:bg-white/20 px-3 py-1 rounded-full transition-colors">HR</a>
+      <a href="/crm" class="text-white/70 hover:text-white text-xs bg-white/10 hover:bg-white/20 px-3 py-1 rounded-full transition-colors">CRM</a>
+      <a href="/procurement" class="text-white/70 hover:text-white text-xs bg-white/10 hover:bg-white/20 px-3 py-1 rounded-full transition-colors">Procurement</a>
+      <a href="/expense" class="text-white/70 hover:text-white text-xs bg-white/10 hover:bg-white/20 px-3 py-1 rounded-full transition-colors">Expense</a>
+    </div>
+  </div>
+
+  <!-- Right: Vertical image carousel -->
+  <div class="flex-1 max-w-5xl h-fit w-full flex items-center gap-4">
+    <!-- Carousel stage -->
+    <div
+      class="relative flex-1"
+      style="aspect-ratio: 16/9"
+      (mousedown)="onDragStart($event)"
+      (touchstart)="onDragStart($event)"
+      (wheel)="onWheel($event)"
+    >
+      <div
+        *ngFor="let image of images; let i = index"
+        class="video-card"
+        style="aspect-ratio: 16/9"
+        [ngClass]="getCardState(i)"
+        (click)="activeIndex !== i && (activeIndex < i ? next() : prev())"
+      >
+        <img
+          [src]="image.src"
+          [alt]="image.alt"
+          width="1280"
+          height="720"
+          class="w-full h-full object-cover"
+          loading="lazy"
+        />
+        <!-- Slide overlay label -->
+        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+          <span class="text-white text-xs font-semibold uppercase tracking-widest opacity-90">{{ image.label }}</span>
+          <p class="text-white/80 text-sm leading-snug">{{ image.caption }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Arrow controls + dots -->
+    <div class="flex flex-col gap-3">
+      <button class="carousel-btn" (click)="prev()" aria-label="Previous">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+        </svg>
+      </button>
+
+      <div class="flex flex-col items-center gap-2 py-1">
+        <span
+          *ngFor="let image of images; let i = index"
+          class="rounded-full transition-all duration-300 cursor-pointer"
+          [ngClass]="i === activeIndex ? 'w-1.5 h-4 bg-white' : 'w-1.5 h-1.5 bg-white/25'"
+          (click)="goTo(i)"
+        ></span>
+      </div>
+
+      <button class="carousel-btn" (click)="next()" aria-label="Next">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>

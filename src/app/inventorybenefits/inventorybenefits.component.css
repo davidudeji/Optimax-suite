@@ -1,0 +1,447 @@
+/* Global styles */
+
+.heros {
+  margin-bottom: 40px;
+}
+.hero {
+  background-color: #2e6276;
+  color: white;
+  padding: 70px 30px;
+  text-align: left;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 10px;
+}
+
+.hero-text {
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 200px;
+}
+
+.hero-content {
+  max-width: 1200px;
+  margin: -250px auto 0; /* Pulls the content up to overlap with the hero section */
+  display: grid; /* Change to grid layout */
+  grid-template-columns: repeat(3, 1fr); /* 3 columns of equal width */
+  grid-template-rows: 1fr; /* 1 row */
+  gap: 10px; /* Optional: space between grid items */
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: 2.5em;
+  margin-bottom: 100px;
+}
+
+.right ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 20px;
+}
+
+.right li {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.right li::before {
+  content: "✓";
+  color: #a59494;
+  margin-right: 10px;
+}
+
+.sections {
+  height: 40vh;
+}
+
+.section {
+  max-width: 1000px;
+  margin: 50px auto;
+  text-align: center;
+  padding: 20px;
+  background-color: white;
+  margin-bottom: 10px;
+}
+
+.section h2 {
+  color: #4b4848;
+  font-size: 2em;
+  margin-bottom: 80px;
+}
+
+.section-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.section-contents {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  gap: 150px;
+}
+
+.section-images,
+.section-texts {
+  flex: 1;
+  margin: 10px;
+}
+
+.section-images img {
+  max-width: 80%;
+  border-radius: 10px;
+}
+
+.section-image,
+.section-text {
+  flex: 1;
+  margin: 10px;
+}
+
+.section-texts {
+  margin-top: 50px;
+  color: #646060;
+}
+
+.section-extra {
+  margin-top: 50px;
+  color: #646060;
+}
+
+.section-texts ul {
+  list-style-type: none;
+  padding: 0;
+}
+.section-extra ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.section-texts ul li {
+  font-size: 1.3em;
+  padding-bottom: 20px;
+}
+.section-extra ul li {
+  font-size: 1.3em;
+  padding-bottom: 20px;
+}
+
+.section-texts li::before {
+  content: "✓";
+  color: rgb(202, 67, 202);
+  margin-right: 10px;
+}
+
+.section-extra li::before {
+  content: "✓";
+  color: rgb(202, 67, 202);
+  margin-right: 10px;
+}
+
+.section-image img {
+  max-width: 80%;
+  border-radius: 10px;
+}
+
+.section-text ul {
+  list-style-type: none;
+  padding: 0;
+  margin-left: 100px;
+  margin-bottom: 30px;
+}
+
+.section-text li {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  font-size: 1.3em;
+  color: #4b4848;
+}
+
+.section-text li::before {
+  content: "✓";
+  color: #ebf3ec;
+  margin-right: 10px;
+  width: 20px; /* Adjust the size as needed */
+  height: 20px; /* Adjust the size as needed */
+  line-height: 20px; /* Center the checkmark vertically */
+  text-align: center;
+  border-radius: 50%; /* Make it a circle */
+  background-color: #54ad60;
+}
+
+.section-text h3,
+.section-text p,
+.section-text ul {
+  margin-bottom: 20px; /* Add margin to space out elements */
+}
+
+.section-text h3 {
+  font-size: 1.3em;
+  margin-bottom: 30px;
+  color: #4b4848;
+}
+
+.section-text {
+  margin-bottom: 100px;
+}
+
+/* texts */
+.section-textss ul {
+  list-style-type: none;
+  padding: 0;
+  margin-right: 60px;
+  margin-bottom: 50px;
+}
+
+.section-textss li {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  font-size: 1.3em;
+  color: #4b4848;
+}
+
+.section-textss li::before {
+  content: "✓";
+  color: #f7f4f7;
+  margin-right: 10px;
+  width: 20px; /* Adjust the size as needed */
+  height: 20px; /* Adjust the size as needed */
+  line-height: 20px; /* Center the checkmark vertically */
+  text-align: center;
+  border-radius: 50%; /* Make it a circle */
+  background-color: rgb(202, 67, 202);
+}
+
+.section-textss h3,
+.section-textss p,
+.section-textss ul {
+  margin-bottom: 20px; /* Add margin to space out elements */
+}
+
+.section-image img {
+  margin-left: 20px;
+}
+
+.section-textss h3 {
+  font-size: 1.4em;
+  margin-bottom: 30px;
+  color: #4b4848;
+}
+
+.section-textss {
+  margin-bottom: 100px;
+}
+
+@media (max-width: 768px) {
+  .hero-content,
+  .section-content {
+    flex-direction: column;
+  }
+
+  .hero-text,
+  .left,
+  .right {
+    text-align: center;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+}
+
+/* Responsive design for different screen sizes */
+@media (max-width: 1200px) {
+  .hero-content {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* Change to 2 columns on medium screens */
+  }
+
+  .hero h1 {
+    font-size: 2.2em; /* Adjust font size for medium screens */
+  }
+
+  .section h2 {
+    font-size: 1.8em; /* Adjust section heading size for medium screens */
+  }
+}
+
+@media (max-width: 992px) {
+  .hero {
+    flex-direction: column; /* Stack elements vertically on smaller screens */
+    height: auto; /* Adjust height for smaller screens */
+  }
+
+  .hero-content {
+    grid-template-columns: 1fr; /* Change to 1 column on smaller screens */
+  }
+  .left {
+    margin-left: 0; /* Remove left margin */
+    text-align: center; /* Center align text */
+  }
+
+  .right {
+    margin-right: 0; /* Remove right margin */
+    margin-top: 20px; /* Add top margin */
+  }
+
+  .right img {
+    margin-right: 0; /* Remove right margin */
+  }
+
+  .section h2 {
+    font-size: 1.6em; /* Adjust section heading size for smaller screens */
+  }
+}
+@media (max-width: 768px) and (max-width: 1020px) {
+  .hero {
+    padding: 80px 20px; /* Adjust padding for extra small screens */
+  }
+
+  .hero h1 {
+    font-size: 1.8em; /* Further adjust font size for extra small screens */
+  }
+
+  .section h2 {
+    font-size: 1.6em; /* Further adjust section heading size for extra small screens */
+  }
+  .section-text {
+    font-size: 1.2em; /* Adjust list item font size for extra small screens */
+    margin-right: 40px;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .section-text h3 {
+    margin-right: 50px;
+  }
+  .section-textss li {
+    font-size: 1.2em; /* Adjust list item font size for extra small screens */
+    margin-right: 10px;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+  .hero-content {
+    text-align: left;
+  }
+
+  .section-content h3 {
+    font-size: 1.5rem;
+  }
+
+  .section-images {
+    width: 80%;
+    margin-left: 60px;
+  }
+
+  .section-image {
+    width: 80%;
+    margin-left: 60px;
+  }
+
+  .section-extra {
+    margin-left: 60px;
+    width: 100%;
+  }
+
+  .section-textss {
+    margin-left: 100px;
+  }
+  .sec {
+    width: 80%;
+    margin-left: 80px;
+    margin-top: -150px;
+  }
+
+  .section-texts {
+    margin-left: 60px;
+    width: 100%;
+  }
+  .cta-button {
+    font-size: 0.9rem; /* Adjust button font size for extra small screens */
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .hero {
+    padding: 80px 20px; /* Adjust padding for extra small screens */
+  }
+
+  .hero h1 {
+    font-size: 1.8em; /* Further adjust font size for extra small screens */
+  }
+
+  .section h2 {
+    font-size: 1.6em; /* Further adjust section heading size for extra small screens */
+  }
+  .section-text {
+    font-size: 1.2em; /* Adjust list item font size for extra small screens */
+    margin-right: 40px;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .section-text h3 {
+    margin-right: 50px;
+  }
+  .section-textss li {
+    font-size: 1.2em; /* Adjust list item font size for extra small screens */
+    margin-right: 10px;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+  .hero-content {
+    text-align: left;
+  }
+
+  .section-content h3 {
+    font-size: 1.5rem;
+  }
+
+  .section-images {
+    width: 80%;
+    margin-left: 80px;
+  }
+
+  .sec {
+    width: 80%;
+    margin-left: 80px;
+    margin-top: -150px;
+  }
+
+  .section-extra {
+    margin-left: 60px;
+    width: 100%;
+  }
+
+  .section-texts {
+    margin-left: 60px;
+    width: 100%;
+  }
+
+  .section-textss {
+    margin-left: 100px;
+  }
+  .cta-button {
+    font-size: 0.9rem; /* Adjust button font size for extra small screens */
+  }
+}

@@ -1,0 +1,23 @@
+<section class="testimonials">
+  <div class="container">
+    <h2>What Our Clients Say</h2>
+    <div class="carousel">
+      <div class="carousel-inner">
+        <div
+          *ngFor="let testimonial of testimonials; let i = index"
+          [ngClass]="{ active: i === currentSlide }"
+          class="testimonial-item"
+        >
+          <i class="fas fa-quote-left quote-icon"></i>
+          <p class="testimonial-text">{{ testimonial.text }}</p>
+          <i class="fas fa-quote-right quote-icons"></i>
+          <h3 class="testimonial-author">{{ testimonial.author }}</h3>
+          <p class="text">{{ testimonial.position }}</p>
+        </div>
+      </div>
+
+      <button class="prev" (click)="changeSlide(-1)">&#10094;</button>
+      <button class="next" (click)="changeSlide(1)">&#10095;</button>
+    </div>
+  </div>
+</section>

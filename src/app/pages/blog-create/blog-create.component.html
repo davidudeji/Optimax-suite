@@ -1,0 +1,378 @@
+<app-navigation></app-navigation>
+
+<div class="min-h-screen bg-[#f5f5f5] pt-28 pb-20 px-4 md:px-8">
+  <div class="max-w-4xl mx-auto">
+
+    <!-- Top bar -->
+    <div class="flex items-center justify-between mb-6">
+      <div>
+        <h1 class="text-2xl font-extrabold text-[#272725]">New Blog Post</h1>
+        <p class="text-sm text-gray-400 mt-0.5">
+          Writing as <span class="font-semibold text-[#2e6276]">{{ user?.fullname }}</span>
+        </p>
+      </div>
+      <div class="flex items-center gap-2">
+        <!-- Edit / Preview toggle -->
+        <div *ngIf="!submitted" class="flex items-center bg-white border border-gray-200 rounded-xl p-1 gap-1">
+          <button
+            type="button"
+            (click)="previewMode && togglePreview()"
+            [class.bg-[#272725]]="!previewMode" [class.text-white]="!previewMode"
+            class="px-3 py-1.5 rounded-lg text-sm font-semibold transition-all"
+            [class.text-gray-500]="previewMode"
+          >Edit</button>
+          <button
+            type="button"
+            (click)="!previewMode && togglePreview()"
+            [class.bg-[#272725]]="previewMode" [class.text-white]="previewMode"
+            class="px-3 py-1.5 rounded-lg text-sm font-semibold transition-all"
+            [class.text-gray-500]="!previewMode"
+          >Preview</button>
+        </div>
+        <a routerLink="/blog/admin" class="text-sm px-4 py-2 border border-gray-200 rounded-xl text-gray-600 bg-white hover:bg-gray-50 transition-colors">Manage</a>
+        <a routerLink="/blog" class="text-sm text-gray-500 hover:text-[#2e6276] transition-colors px-2">Blog</a>
+        <button (click)="logout()" class="text-sm px-4 py-2 border border-gray-200 rounded-xl text-gray-600 bg-white hover:bg-gray-50 transition-colors">Sign Out</button>
+      </div>
+    </div>
+
+    <!-- Success state -->
+    <div *ngIf="submitted" class="bg-white rounded-2xl shadow-sm border border-gray-100 p-12 text-center">
+      <div class="w-16 h-16 rounded-full bg-[#2EB270]/10 flex items-center justify-center mx-auto mb-5">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-[#2EB270]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+        </svg>
+      </div>
+      <h2 class="text-xl font-bold text-[#272725] mb-2">Post Published!</h2>
+      <p class="text-gray-500 text-sm mb-8">Your article is now live on the blog.</p>
+      <div class="flex items-center justify-center gap-3">
+        <button (click)="viewPost()" class="px-6 py-2.5 bg-[#2e6276] text-white text-sm font-semibold rounded-xl hover:bg-[#245060] transition-colors">View Post →</button>
+        <button (click)="goAdmin()" class="px-6 py-2.5 border border-gray-200 text-sm font-semibold rounded-xl text-gray-600 bg-white hover:bg-gray-50 transition-colors">Manage Posts</button>
+        <button (click)="writeAnother()" class="px-6 py-2.5 border border-gray-200 text-sm font-semibold rounded-xl text-gray-600 bg-white hover:bg-gray-50 transition-colors">Write Another</button>
+      </div>
+    </div>
+
+    <!-- ── Preview panel ──────────────────────────────────────────────── -->
+    <div *ngIf="!submitted && previewMode" class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden mb-4">
+
+      <!-- Preview label -->
+      <div class="flex items-center justify-between px-5 py-3 border-b border-gray-100 bg-amber-50">
+        <div class="flex items-center gap-2 text-amber-600">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+          </svg>
+          <span class="text-xs font-bold uppercase tracking-wider">Preview — this is how the published post will look</span>
+        </div>
+        <button type="button" (click)="togglePreview()" class="text-xs font-semibold text-amber-600 hover:text-amber-800 transition-colors">← Back to Editor</button>
+      </div>
+
+      <!-- Hero image -->
+      <div class="relative overflow-hidden h-64 md:h-80 bg-gray-100">
+        <img [src]="previewImage" [alt]="imageAlt || title || 'Cover image'" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+        <span
+          class="absolute top-5 left-5 px-4 py-1.5 text-white text-xs font-bold rounded-full"
+          [style.background-color]="previewCategoryColor"
+        >{{ category }}</span>
+      </div>
+
+      <!-- Article body -->
+      <div class="max-w-2xl mx-auto px-6 md:px-10 py-10">
+
+        <!-- Title -->
+        <h1 class="text-3xl md:text-4xl font-extrabold text-[#272725] leading-tight mb-5">
+          {{ title || 'Your post title will appear here' }}
+        </h1>
+
+        <!-- Meta -->
+        <div class="flex items-center gap-3 mb-8 pb-8 border-b border-gray-200">
+          <img *ngIf="authorImage" [src]="authorImage" alt="Author" class="w-10 h-10 rounded-full object-cover flex-shrink-0" />
+          <div *ngIf="!authorImage"
+            class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
+            [style.background-color]="previewCategoryColor"
+          >{{ authorInitial }}</div>
+          <div>
+            <p class="text-sm font-semibold text-[#272725]">{{ author || 'Author' }}</p>
+            <p class="text-xs text-gray-400">{{ previewDate }} &bull; {{ previewReadTime }}</p>
+          </div>
+        </div>
+
+        <!-- Excerpt (as lead paragraph) -->
+        <p *ngIf="excerpt" class="text-gray-500 text-base italic mb-6 leading-relaxed border-l-4 border-gray-200 pl-4">
+          {{ excerpt }}
+        </p>
+
+        <!-- Content -->
+        <div
+          class="prose-blog text-[#3a3a3a] text-[15px] leading-relaxed"
+          [innerHTML]="content || '<p class=\'text-gray-300\'>Start writing in the editor and your content will appear here…</p>'"
+        ></div>
+
+        <!-- Footer CTA (mirrors live post) -->
+        <div class="mt-12 pt-8 border-t border-gray-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div>
+            <p class="text-sm font-semibold text-[#272725]">Found this useful?</p>
+            <p class="text-xs text-gray-400">Share it with your team.</p>
+          </div>
+          <span class="inline-flex items-center gap-2 px-6 py-3 bg-[#2e6276] text-white text-sm font-semibold rounded-xl opacity-60 cursor-default">
+            Try OptimaX Free →
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Publish bar (shown in preview mode) -->
+    <div *ngIf="!submitted && previewMode" class="flex items-center justify-end gap-3">
+      <button type="button" (click)="togglePreview()" class="px-5 py-2.5 text-sm font-semibold text-gray-500 hover:text-[#272725] transition-colors">← Edit</button>
+      <button
+        type="button"
+        (click)="submit()"
+        [disabled]="submitting || !title || !excerpt"
+        class="px-8 py-2.5 bg-[#2e6276] hover:bg-[#245060] text-white text-sm font-semibold rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+      >
+        <svg *ngIf="submitting" class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+        </svg>
+        {{ submitting ? 'Publishing…' : 'Publish Post' }}
+      </button>
+    </div>
+
+    <!-- Form -->
+    <form *ngIf="!submitted" [class.hidden]="previewMode" (ngSubmit)="submit()" #postForm="ngForm">
+      <div class="space-y-4">
+
+        <!-- Title -->
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
+          <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Title <span class="text-red-400">*</span></label>
+          <input
+            type="text"
+            [(ngModel)]="title"
+            name="title"
+            required
+            placeholder="Give your post a clear, compelling title…"
+            class="w-full text-xl font-bold text-[#272725] border-none outline-none placeholder-gray-300 bg-transparent"
+          />
+        </div>
+
+        <!-- Excerpt -->
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
+          <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Summary <span class="text-red-400">*</span> <span class="text-gray-300 font-normal normal-case">— shown on the blog list</span></label>
+          <textarea
+            [(ngModel)]="excerpt"
+            name="excerpt"
+            required
+            rows="2"
+            placeholder="A 1–2 sentence overview of what readers will learn…"
+            class="w-full text-sm text-gray-600 border-none outline-none placeholder-gray-300 bg-transparent resize-none"
+          ></textarea>
+        </div>
+
+        <!-- Cover Image -->
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
+          <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">Cover Image</label>
+
+          <!-- Preview -->
+          <div *ngIf="imagePreview" class="relative mb-4 rounded-xl overflow-hidden h-52">
+            <img [src]="imagePreview" alt="Cover preview" class="w-full h-full object-cover" />
+            <button
+              type="button"
+              (click)="clearImage()"
+              class="absolute top-2 right-2 w-8 h-8 bg-black/60 hover:bg-black/80 text-white rounded-full flex items-center justify-center transition-colors"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Upload + URL row -->
+          <div class="flex flex-col sm:flex-row gap-3">
+            <!-- Upload button -->
+            <input #coverFileInput type="file" accept="image/*" class="hidden" (change)="onFileSelected($event)" />
+            <button
+              type="button"
+              (click)="triggerFilePicker()"
+              class="flex items-center gap-2 px-4 py-2.5 border-2 border-dashed border-gray-200 hover:border-[#2e6276] rounded-xl text-sm text-gray-500 hover:text-[#2e6276] transition-colors"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+              </svg>
+              Upload image
+            </button>
+            <!-- URL input -->
+            <input
+              type="url"
+              [(ngModel)]="imageUrl"
+              name="imageUrl"
+              placeholder="…or paste an image URL"
+              (input)="imagePreview = imageUrl"
+              class="flex-1 px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#2e6276]/30 focus:border-[#2e6276] transition"
+            />
+          </div>
+          <p *ngIf="imageError" class="text-red-500 text-xs mt-2">{{ imageError }}</p>
+          <p class="text-xs text-gray-400 mt-2">Max 5 MB. JPG/PNG/WebP. Images are compressed to ~1200px wide.</p>
+        </div>
+
+        <!-- Rich Text Editor -->
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+          <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider px-5 pt-5 mb-3">Content <span class="text-red-400">*</span></label>
+
+          <!-- Toolbar -->
+          <div class="flex flex-wrap items-center gap-0.5 px-4 pb-2 border-b border-gray-100">
+
+            <!-- Text style -->
+            <button type="button" (click)="format('bold')"
+              [class.bg-[#2e6276]]="activeFormats['bold']" [class.text-white]="activeFormats['bold']"
+              class="w-8 h-8 rounded-lg flex items-center justify-center text-gray-500 hover:bg-gray-100 transition-colors font-bold text-sm">B</button>
+            <button type="button" (click)="format('italic')"
+              [class.bg-[#2e6276]]="activeFormats['italic']" [class.text-white]="activeFormats['italic']"
+              class="w-8 h-8 rounded-lg flex items-center justify-center text-gray-500 hover:bg-gray-100 transition-colors italic text-sm">I</button>
+            <button type="button" (click)="format('underline')"
+              [class.bg-[#2e6276]]="activeFormats['underline']" [class.text-white]="activeFormats['underline']"
+              class="w-8 h-8 rounded-lg flex items-center justify-center text-gray-500 hover:bg-gray-100 transition-colors underline text-sm">U</button>
+            <button type="button" (click)="format('strikeThrough')"
+              class="w-8 h-8 rounded-lg flex items-center justify-center text-gray-500 hover:bg-gray-100 transition-colors line-through text-sm">S</button>
+
+            <div class="w-px h-5 bg-gray-200 mx-1"></div>
+
+            <!-- Headings -->
+            <button type="button" (click)="insertHeading('H2')"
+              class="h-8 px-2.5 rounded-lg flex items-center justify-center text-gray-500 hover:bg-gray-100 transition-colors text-xs font-bold">H2</button>
+            <button type="button" (click)="insertHeading('H3')"
+              class="h-8 px-2.5 rounded-lg flex items-center justify-center text-gray-500 hover:bg-gray-100 transition-colors text-xs font-bold">H3</button>
+
+            <div class="w-px h-5 bg-gray-200 mx-1"></div>
+
+            <!-- Lists -->
+            <button type="button" (click)="format('insertUnorderedList')"
+              [class.bg-[#2e6276]]="activeFormats['insertUnorderedList']" [class.text-white]="activeFormats['insertUnorderedList']"
+              title="Bullet list"
+              class="w-8 h-8 rounded-lg flex items-center justify-center text-gray-500 hover:bg-gray-100 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+              </svg>
+            </button>
+            <button type="button" (click)="format('insertOrderedList')"
+              [class.bg-[#2e6276]]="activeFormats['insertOrderedList']" [class.text-white]="activeFormats['insertOrderedList']"
+              title="Numbered list"
+              class="w-8 h-8 rounded-lg flex items-center justify-center text-gray-500 hover:bg-gray-100 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+              </svg>
+            </button>
+            <button type="button" (click)="format('formatBlock', 'BLOCKQUOTE')"
+              title="Blockquote"
+              class="w-8 h-8 rounded-lg flex items-center justify-center text-gray-500 hover:bg-gray-100 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1zm12 0c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/>
+              </svg>
+            </button>
+
+            <div class="w-px h-5 bg-gray-200 mx-1"></div>
+
+            <!-- Link & Image -->
+            <button type="button" (click)="insertLink()" title="Insert link"
+              class="w-8 h-8 rounded-lg flex items-center justify-center text-gray-500 hover:bg-gray-100 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+              </svg>
+            </button>
+            <button type="button" (click)="insertImage()" title="Insert image from URL"
+              class="w-8 h-8 rounded-lg flex items-center justify-center text-gray-500 hover:bg-gray-100 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+            </button>
+
+            <div class="w-px h-5 bg-gray-200 mx-1"></div>
+
+            <!-- Undo / Redo -->
+            <button type="button" (click)="format('undo')" title="Undo"
+              class="w-8 h-8 rounded-lg flex items-center justify-center text-gray-500 hover:bg-gray-100 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l6 6M3 10l6-6" />
+              </svg>
+            </button>
+            <button type="button" (click)="format('redo')" title="Redo"
+              class="w-8 h-8 rounded-lg flex items-center justify-center text-gray-500 hover:bg-gray-100 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 10H11a8 8 0 00-8 8v2M21 10l-6 6m6-6l-6-6" />
+              </svg>
+            </button>
+            <button type="button" (click)="format('removeFormat')" title="Clear formatting"
+              class="w-8 h-8 rounded-lg flex items-center justify-center text-gray-500 hover:bg-gray-100 transition-colors text-xs font-bold">Tx</button>
+          </div>
+
+          <!-- Editable area -->
+          <div
+            #editorContent
+            contenteditable="true"
+            (input)="syncContent()"
+            (keyup)="refreshFormats()"
+            (mouseup)="refreshFormats()"
+            (paste)="onEditorPaste($event)"
+            class="prose-blog min-h-[360px] px-5 py-4 text-[15px] text-[#3a3a3a] leading-relaxed focus:outline-none"
+            [attr.data-placeholder]="'Start writing your article here… Use the toolbar above to add headings, lists, bold text, links, and images.'"
+          ></div>
+        </div>
+
+        <!-- Meta row -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+
+          <!-- Category -->
+          <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
+            <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Category</label>
+            <select
+              [(ngModel)]="category"
+              name="category"
+              class="w-full text-sm text-[#272725] border-none outline-none bg-transparent font-semibold"
+            >
+              <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+            </select>
+          </div>
+
+          <!-- Author (read-only) -->
+          <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
+            <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Author</label>
+            <div class="flex items-center gap-2">
+              <img *ngIf="authorImage" [src]="authorImage" alt="Author" class="w-7 h-7 rounded-full object-cover flex-shrink-0" />
+              <div *ngIf="!authorImage" class="w-7 h-7 rounded-full bg-[#2e6276] flex items-center justify-center text-white text-xs font-bold flex-shrink-0">{{ authorInitial }}</div>
+              <span class="text-sm font-semibold text-[#272725] truncate">{{ author }}</span>
+            </div>
+          </div>
+
+          <!-- Read time -->
+          <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
+            <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Read Time <span class="text-gray-300 font-normal normal-case">(auto)</span></label>
+            <input
+              type="text"
+              [(ngModel)]="readTime"
+              name="readTime"
+              placeholder="e.g. 5 min read"
+              class="w-full text-sm text-[#272725] border-none outline-none bg-transparent placeholder-gray-300"
+            />
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <div class="flex items-center justify-end gap-3 pt-1">
+          <a routerLink="/blog" class="px-5 py-2.5 text-sm font-semibold text-gray-500 hover:text-[#272725] transition-colors">Cancel</a>
+          <button
+            type="submit"
+            [disabled]="submitting || !title || !excerpt"
+            class="px-8 py-2.5 bg-[#2e6276] hover:bg-[#245060] text-white text-sm font-semibold rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+          >
+            <svg *ngIf="submitting" class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+            </svg>
+            {{ submitting ? 'Publishing…' : 'Publish Post' }}
+          </button>
+        </div>
+
+      </div>
+    </form>
+
+  </div>
+</div>

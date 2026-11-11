@@ -1,0 +1,19 @@
+<div class="counter-section-container">
+  <div class="counter-header">
+    <p>We are proud to share some key metrics showcasing our success.</p>
+  </div>
+  <div class="counter-section">
+    <div class="counter-item" *ngFor="let counter of counters; let last = last">
+      <div class="counter-content">
+        <div class="icon-container">
+          <i [ngClass]="getIconClass(counter.label)"></i>
+        </div>
+        <div class="counter-info">
+          <div class="counter-value">{{ counter.value | number }}</div>
+          <div class="counter-label">{{ counter.label }}</div>
+        </div>
+      </div>
+      <div *ngIf="!last" class="separator"></div>
+    </div>
+  </div>
+</div>

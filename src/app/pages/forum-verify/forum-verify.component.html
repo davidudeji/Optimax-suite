@@ -1,0 +1,45 @@
+<app-navigation></app-navigation>
+
+<div class="min-h-screen bg-[#fafafa] flex items-center justify-center px-6 pt-20 pb-20">
+  <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-10 max-w-md w-full text-center">
+
+    <!-- Verifying -->
+    <div *ngIf="state === 'verifying'">
+      <svg class="w-10 h-10 animate-spin text-[#2e6276] mx-auto mb-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-20" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-80" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+      </svg>
+      <p class="text-sm text-gray-500">Verifying your email…</p>
+    </div>
+
+    <!-- Success -->
+    <div *ngIf="state === 'success'">
+      <div class="w-16 h-16 bg-[#2EB270]/10 rounded-full flex items-center justify-center mx-auto mb-5">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-[#2EB270]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+        </svg>
+      </div>
+      <h1 class="text-2xl font-extrabold text-[#272725] mb-2">Email verified!</h1>
+      <p class="text-sm text-gray-500 mb-8">Your account is now fully verified. You can participate in all community discussions.</p>
+      <button
+        (click)="goToCommunity()"
+        class="w-full py-3 bg-[#2e6276] text-white font-semibold rounded-xl hover:bg-[#245060] transition-colors"
+      >Go to Community</button>
+    </div>
+
+    <!-- Error -->
+    <div *ngIf="state === 'error'">
+      <div class="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-5">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </div>
+      <h1 class="text-2xl font-extrabold text-[#272725] mb-2">Verification failed</h1>
+      <p class="text-sm text-gray-500 mb-8">{{ errorMessage }}</p>
+      <a routerLink="/community" class="inline-block w-full py-3 bg-[#2e6276] text-white font-semibold rounded-xl hover:bg-[#245060] transition-colors text-center">
+        Back to Community
+      </a>
+    </div>
+
+  </div>
+</div>

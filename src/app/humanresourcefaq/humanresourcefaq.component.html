@@ -1,0 +1,58 @@
+<!-- <div class="qa-container">
+  <div class="faq"><h2>HR FAQ</h2></div>
+  <div class="qa-item" *ngFor="let item of qaList">
+    <div class="question" (click)="toggleAnswer(item)">
+      <p>{{ item.question }}</p>
+      <span class="toggle-icon">
+        <i [ngClass]="item.expanded ? 'fas fa-minus' : 'fas fa-plus'"></i>
+      </span>
+    </div>
+    <div class="answer" [ngClass]="{ active: item.expanded }">
+      <p>{{ item.answer }}</p>
+    </div>
+  </div>
+</div> -->
+<section>
+  <div class="w-full">
+    <div
+      class="mx-auto max-w-6xl rounded-xl p-4 sm:p-6 grid grid-cols-1 gap-4 lg:grid-cols-[auto_1fr_auto] md:items-center"
+    >
+      <!-- Icon -->
+      <div class="flex justify-start">
+        <img
+          src="/assets/images/AiImage.jpg"
+          alt="AI illustration"
+          class="w-[80px] md:w-[80px]"
+        />
+      </div>
+
+      <!-- Text -->
+      <div class="text-left max-w-xl">
+        <h3 class="text-lg font-semibold">
+          Smarter HR management, powered by AI
+        </h3>
+        <p class="mt-1 text-sm text-gray-600">
+          Onboard employees, manage records, and automate routine HR tasks with
+          intelligent insights that help you act faster and more accurately.
+        </p>
+      </div>
+
+      <!-- Buttons -->
+      <div
+        class="flex flex-col gap-2 sm:flex-row sm:w-full lg:flex-col md:w-auto max-w-xl"
+      >
+        <button
+          class="w-full rounded-lg bg-black/90 px-10 lg:px-24 py-2 text-sm font-medium text-white hover:bg-black/80 transition text-nowrap"
+        >
+          Get Started
+        </button>
+
+        <button
+          class="w-full rounded-lg border-[1.5px] px-10 lg:px-24 py-2 text-sm font-medium hover:bg-gray-50 transition text-nowrap"
+        >
+          Learn more
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

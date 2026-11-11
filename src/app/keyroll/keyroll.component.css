@@ -1,0 +1,118 @@
+/* Center the header */
+.keys {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+/* Grid layout styles */
+.key-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Defines 3 equal-width columns */
+  grid-template-rows: repeat(
+    2,
+    auto
+  ); /* Defines 2 rows with automatic height */
+  gap: 30px;
+  margin-left: 250px;
+  margin-right: 20px;
+  margin-bottom: 70px;
+  padding: 30px;
+}
+
+.optin {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1.5em;
+  color: #1d1a1a;
+}
+
+.container h2 {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 2.5em;
+  color: #0a0202;
+}
+
+.key-item {
+  background: #f5f1f1;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s; /* Smooth transition for background color */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-right: 5px;
+}
+
+.key-item:hover {
+  background-color: #669ae9; /* Change this to your desired hover color */
+  transform: translateY(-10px);
+}
+
+.key-item:hover .item,
+.key-item:hover .list {
+  color: white; /* Change text color to white on hover */
+}
+
+.item {
+  font-size: 1.7rem;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.list {
+  font-size: 1.3rem;
+  color: rgba(0, 0, 0, 0.815);
+  word-spacing: 3px;
+}
+
+/* Responsive design for mobile screens */
+@media (max-width: 768px) {
+  .key-list {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* Change to 2 columns for medium screens */
+    margin-left: 20px; /* Adjust left margin for smaller screens */
+    margin-right: 20px; /* Adjust right margin for smaller screens */
+  }
+
+  .item {
+    font-size: 1.5rem; /* Adjust font size for smaller screens */
+  }
+
+  .list {
+    font-size: 1.3rem; /* Adjust font size for smaller screens */
+  }
+  .optin {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .key-list {
+    grid-template-columns: 1fr; /* Change to 1 column for small screens */
+    margin-left: 10px; /* Further adjust left margin for extra small screens */
+    margin-right: 10px; /* Further adjust right margin for extra small screens */
+  }
+
+  .optin {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+
+  .item {
+    font-size: 1.5rem; /* Further adjust font size for extra small screens */
+  }
+
+  .list {
+    font-size: 1.3rem; /* Further adjust font size for extra small screens */
+  }
+
+  .container h2 {
+    font-size: 2em; /* Adjust heading size for extra small screens */
+  }
+}

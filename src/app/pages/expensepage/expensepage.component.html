@@ -1,0 +1,322 @@
+<!-- ═══════════════════════════════════════════════════════
+     OPTIMAX EXPENSE MANAGEMENT — PRODUCT PAGE
+     Design system: #fafafa bg, #272725 dark, #2e6276 brand
+═══════════════════════════════════════════════════════ -->
+
+<app-navigation></app-navigation>
+
+<!-- ── HERO ── -->
+<section class="bg-white pt-28 pb-20 px-8 md:px-20 overflow-hidden">
+  <div class="max-w-8xl mx-auto">
+    <!-- Label -->
+    <div class="flex items-center gap-3 mb-4">
+      <span class="w-3 h-3 bg-[#2e6276] rounded-sm shrink-0"></span>
+      <span class="text-xs font-bold tracking-widest text-gray-500 uppercase">OptimaX Expense Management</span>
+    </div>
+    <hr class="border-[#2e6276]/50 mb-14" />
+
+    <div class="flex flex-col lg:flex-row items-start gap-14 lg:gap-20">
+      <!-- Left -->
+      <div class="lg:w-[46%] shrink-0">
+        <h1 class="text-5xl md:text-6xl font-bold text-[#272725] leading-[1.1] mb-6">
+          Expense management that actually works.
+        </h1>
+        <p class="text-gray-500 text-base leading-relaxed mb-4 max-w-lg">
+          OptimaX Expense Management delivers real-time tracking, configurable approval workflows, automatic
+          policy enforcement, and seamless reimbursement automation — so your team gets paid faster and your
+          finance team stays in control.
+        </p>
+        <p class="text-gray-400 text-sm leading-relaxed mb-10 max-w-lg">
+          Replace slow paper-based claims and emailed receipts with a structured, mobile-friendly expense
+          process. From submission to payroll integration, every step is tracked, audited, and automated.
+        </p>
+        <div class="flex flex-wrap items-center gap-4">
+          <a
+            href="/get-started"
+            class="inline-block text-white text-sm font-bold px-7 py-3.5 rounded-xl transition-colors"
+            style="background-color: #2e6276"
+          >
+            Start Free Trial
+          </a>
+          <a
+            href="#"
+            class="inline-flex items-center gap-2 text-sm font-semibold px-7 py-3.5 rounded-xl border-2 transition-colors hover:bg-gray-100"
+            style="border-color: #2e6276; color: #2e6276"
+          >
+            Schedule Demo
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Trust badges -->
+        <div class="flex flex-wrap items-center gap-6 mt-10">
+          <div class="flex items-center gap-2 text-sm text-gray-400">
+            <svg class="w-4 h-4" style="color: #2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+            Mobile receipt capture
+          </div>
+          <div class="flex items-center gap-2 text-sm text-gray-400">
+            <svg class="w-4 h-4" style="color: #2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+            Policy auto-enforcement
+          </div>
+          <div class="flex items-center gap-2 text-sm text-gray-400">
+            <svg class="w-4 h-4" style="color: #2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+            Payroll integrated
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Hero image -->
+      <div class="lg:w-[54%] w-full">
+        <div class="rounded-2xl overflow-hidden shadow-xl border border-gray-200">
+          <img
+            src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1280&q=80"
+            alt="Expense management and reimbursements"
+            class="w-full h-auto object-cover block"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── STATS BAR ── -->
+<section class="bg-[#272725] py-10 px-8 md:px-20">
+  <div class="max-w-8xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 divide-x divide-gray-700">
+    <div class="text-center px-4">
+      <p class="text-3xl font-bold text-white mb-1">40%</p>
+      <p class="text-xs text-gray-400 uppercase tracking-widest">Faster Reimbursements</p>
+    </div>
+    <div class="text-center px-4">
+      <p class="text-3xl font-bold text-white mb-1">99%</p>
+      <p class="text-xs text-gray-400 uppercase tracking-widest">Policy Compliance Rate</p>
+    </div>
+    <div class="text-center px-4">
+      <p class="text-3xl font-bold text-white mb-1">Zero</p>
+      <p class="text-xs text-gray-400 uppercase tracking-widest">Manual Data Entry</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── FEATURES GRID ── -->
+<section class="bg-[#fafafa] py-24 px-8 md:px-20">
+  <div class="max-w-8xl mx-auto">
+    <div class="flex items-center gap-3 mb-4">
+      <span class="w-3 h-3 bg-[#2e6276] rounded-sm shrink-0"></span>
+      <span class="text-xs font-bold tracking-widest text-gray-500 uppercase">Core Features</span>
+    </div>
+    <hr class="border-[#2e6276]/50 mb-12" />
+
+    <div class="mb-12">
+      <h2 class="text-4xl md:text-5xl font-bold text-[#272725] leading-tight mb-4">
+        Built for employees. Controlled by finance.
+      </h2>
+      <p class="text-gray-500 text-base max-w-2xl">
+        OptimaX Expense Management makes submitting claims effortless for employees while giving finance
+        complete visibility, control, and automated compliance enforcement.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Card 1 -->
+      <div class="bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-md transition-shadow">
+        <div class="w-11 h-11 rounded-xl bg-[#2e6276]/10 flex items-center justify-center mb-4">
+          <svg class="w-5 h-5 text-[#2e6276]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414A1 1 0 0119 9.414V19a2 2 0 01-2 2z" />
+          </svg>
+        </div>
+        <h3 class="text-lg font-bold text-[#272725] mb-2">Expense Submission</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">
+          Employees submit expenses on any device with a clean, guided form. Categorise expenses, attach
+          receipts, enter amounts in any currency, and add notes — all in under two minutes. Submissions
+          are automatically routed to the correct approver without manual forwarding.
+        </p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-md transition-shadow">
+        <div class="w-11 h-11 rounded-xl bg-[#2e6276]/10 flex items-center justify-center mb-4">
+          <svg class="w-5 h-5 text-[#2e6276]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+          </svg>
+        </div>
+        <h3 class="text-lg font-bold text-[#272725] mb-2">Approval Workflows</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">
+          Configure multi-level approval chains by department, expense type, or amount threshold. Approvers
+          receive real-time notifications and can approve or reject with a single tap — from desktop or
+          mobile. Escalation rules prevent claims from sitting unreviewed.
+        </p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-md transition-shadow">
+        <div class="w-11 h-11 rounded-xl bg-[#2e6276]/10 flex items-center justify-center mb-4">
+          <svg class="w-5 h-5 text-[#2e6276]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        </div>
+        <h3 class="text-lg font-bold text-[#272725] mb-2">Receipt Scanning</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">
+          Snap a photo of any receipt with a smartphone camera. OptimaX extracts merchant name, date,
+          and amount automatically, pre-filling the expense form. Receipts are stored securely and linked
+          to each claim for audit purposes — eliminating paper filing permanently.
+        </p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-md transition-shadow">
+        <div class="w-11 h-11 rounded-xl bg-[#2e6276]/10 flex items-center justify-center mb-4">
+          <svg class="w-5 h-5 text-[#2e6276]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
+        </div>
+        <h3 class="text-lg font-bold text-[#272725] mb-2">Policy Enforcement</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">
+          Define spend limits, allowable categories, and meal caps per role or grade. The system
+          automatically flags or blocks out-of-policy claims before they reach approvers, so your
+          expense policy is enforced consistently without any manual review effort.
+        </p>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-md transition-shadow">
+        <div class="w-11 h-11 rounded-xl bg-[#2e6276]/10 flex items-center justify-center mb-4">
+          <svg class="w-5 h-5 text-[#2e6276]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        </div>
+        <h3 class="text-lg font-bold text-[#272725] mb-2">Mileage &amp; Per Diem</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">
+          Log business trips and calculate mileage reimbursement using configurable rate cards. Set daily
+          per diem allowances by location, seniority, or trip duration. All calculations are automatic,
+          consistent, and fully auditable.
+        </p>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-md transition-shadow">
+        <div class="w-11 h-11 rounded-xl bg-[#2e6276]/10 flex items-center justify-center mb-4">
+          <svg class="w-5 h-5 text-[#2e6276]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+          </svg>
+        </div>
+        <h3 class="text-lg font-bold text-[#272725] mb-2">Integration with Payroll</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">
+          Approved expense claims sync directly with OptimaX Payroll for reimbursement in the next payroll
+          run. No re-entering data, no delays, no disconnected systems. Employees get reimbursed on time,
+          every time, with a full paper trail for finance.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section class="bg-white py-24 px-8 md:px-20">
+  <div class="max-w-4xl mx-auto">
+    <div class="flex items-center gap-3 mb-4">
+      <span class="w-3 h-3 bg-[#2e6276] rounded-sm shrink-0"></span>
+      <span class="text-xs font-bold tracking-widest text-gray-500 uppercase">Frequently Asked Questions</span>
+    </div>
+    <hr class="border-[#2e6276]/50 mb-12" />
+
+    <h2 class="text-4xl font-bold text-[#272725] mb-10">Common questions about OptimaX Expense Management</h2>
+
+    <div class="space-y-4">
+      <details class="bg-[#fafafa] border border-gray-200 rounded-2xl overflow-hidden group">
+        <summary class="flex items-center justify-between px-6 py-5 cursor-pointer font-semibold text-[#272725] text-base list-none">
+          Can employees submit expenses on mobile devices?
+          <svg class="w-5 h-5 text-[#2e6276] transition-transform group-open:rotate-180 shrink-0 ml-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </summary>
+        <div class="px-6 pb-6 text-sm text-gray-500 leading-relaxed border-t border-gray-100 pt-4">
+          Yes. The OptimaX Expense Management interface is fully responsive and optimised for mobile browsers.
+          Employees can capture receipts, complete submission forms, and track reimbursement status entirely
+          from their smartphone — no separate app download required.
+        </div>
+      </details>
+
+      <details class="bg-[#fafafa] border border-gray-200 rounded-2xl overflow-hidden group">
+        <summary class="flex items-center justify-between px-6 py-5 cursor-pointer font-semibold text-[#272725] text-base list-none">
+          How are out-of-policy expenses handled?
+          <svg class="w-5 h-5 text-[#2e6276] transition-transform group-open:rotate-180 shrink-0 ml-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </summary>
+        <div class="px-6 pb-6 text-sm text-gray-500 leading-relaxed border-t border-gray-100 pt-4">
+          When an expense violates a configured policy rule — such as exceeding a meal cap or using a
+          disallowed category — the system immediately flags it with a clear explanation. Depending on your
+          settings, the claim can be blocked outright or passed to a senior approver for exception handling.
+          All exceptions are logged for audit review.
+        </div>
+      </details>
+
+      <details class="bg-[#fafafa] border border-gray-200 rounded-2xl overflow-hidden group">
+        <summary class="flex items-center justify-between px-6 py-5 cursor-pointer font-semibold text-[#272725] text-base list-none">
+          Does OptimaX Expense handle foreign currency claims?
+          <svg class="w-5 h-5 text-[#2e6276] transition-transform group-open:rotate-180 shrink-0 ml-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </summary>
+        <div class="px-6 pb-6 text-sm text-gray-500 leading-relaxed border-t border-gray-100 pt-4">
+          Yes. Employees travelling internationally can submit expenses in any currency. The system converts
+          amounts to the base currency using either the rate on the transaction date or a configurable
+          company rate. The original foreign currency amount and rate are always preserved for reference.
+        </div>
+      </details>
+
+      <details class="bg-[#fafafa] border border-gray-200 rounded-2xl overflow-hidden group">
+        <summary class="flex items-center justify-between px-6 py-5 cursor-pointer font-semibold text-[#272725] text-base list-none">
+          How long does it take to set up expense policies?
+          <svg class="w-5 h-5 text-[#2e6276] transition-transform group-open:rotate-180 shrink-0 ml-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </summary>
+        <div class="px-6 pb-6 text-sm text-gray-500 leading-relaxed border-t border-gray-100 pt-4">
+          Most organisations configure their core expense policies in under an hour using the admin settings
+          panel. Our onboarding team provides a guided setup session to help you translate your existing
+          expense policy document into system rules. Changes can be made at any time without technical
+          assistance.
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ── BOTTOM CTA ── -->
+<section class="bg-[#2e6276] py-20 px-8 md:px-20">
+  <div class="max-w-4xl mx-auto text-center">
+    <h2 class="text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+      Reimburse faster. Enforce smarter.
+    </h2>
+    <p class="text-white/70 text-base leading-relaxed mb-10 max-w-xl mx-auto">
+      Give your employees a painless claims experience and give your finance team the control
+      they need. OptimaX Expense Management does both, automatically.
+    </p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a
+        href="/get-started"
+        class="inline-block bg-white text-[#2e6276] font-bold text-sm px-8 py-4 rounded-xl hover:bg-gray-100 transition-colors"
+      >
+        Start Free Trial
+      </a>
+      <a
+        href="#"
+        class="inline-block border-2 border-white text-white font-semibold text-sm px-8 py-4 rounded-xl hover:bg-white/10 transition-colors"
+      >
+        Talk to Sales
+      </a>
+    </div>
+  </div>
+</section>

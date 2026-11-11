@@ -1,0 +1,194 @@
+<app-navigation></app-navigation>
+
+<!-- Hero -->
+<section class="bg-[#fafafa] pt-28 pb-16 px-6 md:px-20 text-center border-b border-gray-100">
+  <div class="max-w-3xl mx-auto">
+    <span class="inline-block px-4 py-1 rounded-full bg-[#2e6276]/10 text-[#2e6276] text-xs font-semibold tracking-widest uppercase mb-4">OptimaX Insights</span>
+    <h1 class="text-4xl md:text-5xl font-extrabold text-[#272725] leading-tight mb-4">
+      ERP knowledge, business strategy &amp; product updates
+    </h1>
+    <p class="text-gray-500 text-lg max-w-xl mx-auto">
+      Practical guides and expert thinking to help African businesses grow smarter with technology.
+    </p>
+
+    <!-- Admin write button (visible when logged in) -->
+    <div *ngIf="auth.isAuthenticated()" class="mt-6">
+      <a
+        routerLink="/blog/admin/new"
+        class="inline-flex items-center gap-2 px-5 py-2.5 bg-[#2e6276] text-white text-sm font-semibold rounded-xl hover:bg-[#245060] transition-colors"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+        </svg>
+        Write a Post
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Category Filter Tabs -->
+<section class="bg-[#fafafa] py-8 px-6 md:px-20 border-b border-gray-100">
+  <div class="max-w-6xl mx-auto flex flex-wrap gap-3 justify-center">
+    <button
+      *ngFor="let cat of categories"
+      (click)="applyFilter(cat)"
+      class="px-5 py-2 rounded-full text-sm font-semibold transition-all"
+      [ngClass]="activeCategory === cat
+        ? 'bg-[#2e6276] text-white'
+        : 'bg-white border border-gray-200 text-gray-600 hover:bg-[#2e6276] hover:text-white'"
+    >{{ cat }}</button>
+  </div>
+</section>
+
+<!-- Blog Grid -->
+<section class="bg-[#fafafa] py-16 px-6 md:px-20">
+  <div class="max-w-6xl mx-auto">
+
+    <!-- Empty state -->
+    <div *ngIf="displayedPosts.length === 0" class="text-center py-20">
+      <p class="text-gray-400 text-lg">No posts in this category yet.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <article
+        *ngFor="let post of displayedPosts"
+        class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 flex flex-col hover:shadow-md transition-shadow group"
+      >
+        <div class="relative overflow-hidden h-48">
+          <img
+            [src]="post.image"
+            [alt]="post.imageAlt"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+          <span
+            class="absolute top-3 left-3 px-3 py-1 text-white text-xs font-semibold rounded-full"
+            [style.background-color]="post.categoryColor"
+          >{{ post.category }}</span>
+        </div>
+
+        <div class="p-6 flex flex-col flex-1">
+          <h2 class="text-[#272725] font-bold text-lg leading-snug mb-2 group-hover:text-[#2e6276] transition-colors">
+            {{ post.title }}
+          </h2>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4 flex-1">
+            {{ post.excerpt }}
+          </p>
+          <div class="flex items-center justify-between text-xs text-gray-400 border-t border-gray-50 pt-4">
+            <div class="flex items-center gap-2">
+              <img *ngIf="post.authorImage" [src]="post.authorImage" alt="{{ post.author }}" class="w-7 h-7 rounded-full object-cover flex-shrink-0" />
+              <div *ngIf="!post.authorImage"
+                class="w-7 h-7 rounded-full flex items-center justify-center text-white font-bold text-xs"
+                [style.background-color]="post.authorColor"
+              >{{ post.authorInitial }}</div>
+              <span class="font-medium text-gray-600">{{ post.author }}</span>
+            </div>
+            <span>{{ post.date }} &bull; {{ post.readTime }}</span>
+          </div>
+          <div class="flex items-center gap-4 text-xs text-gray-400 pt-3">
+            <span class="flex items-center gap-1">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+              </svg>
+              {{ engagement(post.id).likeCount }}
+            </span>
+            <span class="flex items-center gap-1">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+              </svg>
+              {{ engagement(post.id).commentCount }}
+            </span>
+          </div>
+          <a
+            [routerLink]="['/blog', post.slug]"
+            class="mt-4 text-[#2e6276] font-semibold text-sm hover:underline inline-flex items-center gap-1"
+          >
+            Read More <span class="text-base">&rarr;</span>
+          </a>
+
+          <!-- Social share icons -->
+          <div class="flex items-center gap-3 mt-4 pt-4 border-t border-gray-50">
+            <span class="text-xs text-gray-400 mr-1">Share:</span>
+
+            <button
+              type="button"
+              (click)="share.shareToTwitter(post)"
+              aria-label="Share on Twitter/X"
+              title="Share on Twitter/X"
+              class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-50 text-gray-500 hover:bg-[#1DA1F2] hover:text-white transition-colors"
+            >
+              <i class="fa-brands fa-x-twitter text-sm"></i>
+            </button>
+
+            <button
+              type="button"
+              (click)="share.shareToLinkedIn(post)"
+              aria-label="Share on LinkedIn"
+              title="Share on LinkedIn"
+              class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-50 text-gray-500 hover:bg-[#0A66C2] hover:text-white transition-colors"
+            >
+              <i class="fa-brands fa-linkedin-in text-sm"></i>
+            </button>
+
+            <button
+              type="button"
+              (click)="share.shareToFacebook(post)"
+              aria-label="Share on Facebook"
+              title="Share on Facebook"
+              class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-50 text-gray-500 hover:bg-[#1877F2] hover:text-white transition-colors"
+            >
+              <i class="fa-brands fa-facebook-f text-sm"></i>
+            </button>
+
+            <button
+              type="button"
+              (click)="shareOnInstagram(post)"
+              aria-label="Share on Instagram"
+              title="Share on Instagram"
+              class="relative w-8 h-8 flex items-center justify-center rounded-full bg-gray-50 text-gray-500 hover:bg-gradient-to-tr hover:from-[#feda75] hover:via-[#d62976] hover:to-[#4f5bd5] hover:text-white transition-colors"
+            >
+              <i class="fa-brands fa-instagram text-sm"></i>
+            </button>
+
+            <span
+              *ngIf="shareToastPostId === post.id"
+              class="text-[11px] text-gray-400 ml-1 animate-pulse"
+            >{{ shareToastMessage }}</span>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Load More -->
+    <div *ngIf="hasMore" class="text-center mt-12">
+      <button
+        (click)="loadMore()"
+        class="px-8 py-3 border-2 border-[#2e6276] text-[#2e6276] font-semibold rounded-xl hover:bg-[#2e6276] hover:text-white transition-all"
+      >
+        Load More Articles
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- Newsletter Signup -->
+<section class="bg-[#2e6276] py-16 px-6 md:px-20">
+  <div class="max-w-2xl mx-auto text-center">
+    <h2 class="text-3xl font-bold text-white mb-3">Stay ahead of the curve</h2>
+    <p class="text-white/70 mb-8">Get the latest ERP insights, product updates and business strategies delivered to your inbox every two weeks.</p>
+    <form class="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto" action="#" onsubmit="return false;">
+      <input
+        type="email"
+        placeholder="Enter your email address"
+        class="flex-1 px-5 py-3 rounded-xl bg-white text-[#272725] placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-white/40"
+      />
+      <button
+        type="submit"
+        class="px-6 py-3 bg-[#2EB270] hover:bg-[#27a064] text-white font-semibold rounded-xl transition-colors whitespace-nowrap text-sm"
+      >
+        Subscribe
+      </button>
+    </form>
+    <p class="text-white/40 text-xs mt-4">No spam. Unsubscribe anytime. Read by 3,000+ business leaders.</p>
+  </div>
+</section>

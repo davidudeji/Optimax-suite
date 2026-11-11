@@ -1,0 +1,91 @@
+/* Container styling */
+.features {
+  padding: 2rem 0;
+  background-color: #f9f9f9;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-weight: 500;
+}
+
+h2.bold {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2.5rem;
+  color: #333;
+}
+
+/* Grid layout for feature list */
+.feature-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+/* Feature card styling */
+.feature-item {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.feature-item:hover {
+  transform: translateY(-10px);
+}
+
+/* Full-width image styling */
+.feature-image {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-bottom: 2px solid #eee;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* Text block styling */
+.textBlock {
+  padding: 1rem;
+}
+.bold {
+  color: rgb(55, 126, 55);
+}
+
+.textBlock h3 {
+  font-size: 1.4rem;
+  color: #333;
+  margin: 0.5rem 0;
+}
+
+.textBlock p {
+  font-size: 1.2rem;
+  color: #666;
+  margin: 0.5rem 0 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) and (max-width: 1020px) {
+  .feature-list {
+    grid-template-columns: 1fr;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .feature-list {
+    grid-template-columns: 1fr;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+}

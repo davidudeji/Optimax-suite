@@ -1,0 +1,8 @@
+<div class="navigation-dots">
+  <div 
+    class="dot" 
+    *ngFor="let step of steps; let i = index" 
+    [class.active]="planService.getCurrentStep() === (i + 1)"
+    (click)="planService.goToStep(i + 1)">
+  </div>
+</div>

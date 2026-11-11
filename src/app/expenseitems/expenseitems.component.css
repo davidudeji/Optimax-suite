@@ -1,0 +1,134 @@
+.hero-section {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  background-color: #94ceb0;
+  color: #252527;
+}
+
+.left-content {
+  max-width: 40%;
+  margin-top: 50px;
+  margin-left: 100px;
+}
+
+.left-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.left-content p {
+  font-size: 1.5rem;
+  margin-bottom: 1.3rem;
+  word-spacing: 1px;
+}
+
+.right-content {
+  background-color: whitesmoke;
+  color: #293972;
+  padding: 60px;
+  border-radius: 8px;
+  max-width: 40%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 auto; /* Center the content */
+  position: relative; /* Position relative for better control */
+  top: 220px;
+}
+
+.testimonial {
+  position: relative;
+  padding: 20px; /* Add padding for better spacing */
+}
+
+.testimonial h2 {
+  font-size: 2.3rem; /* Adjusted font size for the heading */
+  color: #223475; /* Set a color for the heading */
+  margin-bottom: 30px; /* Space below the heading */
+  font-weight: 600;
+}
+
+.quote {
+  font-size: 1.1rem;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.feature-list {
+  list-style: none; /* Remove default list styling */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+}
+
+.feature-list li {
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Center items vertically */
+  margin-bottom: 15px; /* Space between list items */
+  font-size: 1.3rem; /* Font size for list items */
+  color: #414e7e; /* Text color */
+}
+
+.feature-list li i {
+  color: #4caf50; /* Icon color */
+  margin-right: 20px; /* Space between icon and text */
+  font-size: 1.2rem; /* Size of the icon */
+}
+/* Responsive design for mobile screens */
+@media (max-width: 768px) and (max-width: 1020px) {
+  .left-content,
+  .right-content {
+    max-width: 100%; /* Full width on smaller screens */
+    margin-left: 0; /* Remove left margin */
+    margin-right: 0; /* Remove right margin */
+    padding: 20px; /* Adjust padding for smaller screens */
+  }
+
+  .hero-section {
+    flex-direction: column; /* Stack elements vertically on smaller screens */
+    align-items: center; /* Center align items */
+  }
+
+  .left-content {
+    margin-top: 20px; /* Adjust top margin for smaller screens */
+  }
+
+  .left-content h1 {
+    font-size: 2rem; /* Adjust heading size for smaller screens */
+  }
+
+  .left-content p {
+    font-size: 1.2rem; /* Adjust paragraph size for smaller screens */
+  }
+  .right-content {
+    top: 0; /* Reset top position for smaller screens */
+    margin-bottom: 20px; /* Add margin below the right content */
+  }
+
+  .testimonial h2 {
+    font-size: 1.8rem; /* Adjust heading size for testimonials */
+  }
+
+  .quote {
+    font-size: 1rem; /* Adjust quote size for smaller screens */
+  }
+
+  .feature-list li {
+    font-size: 1.1rem; /* Adjust list item size for smaller screens */
+  }
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .left-content h1 {
+    font-size: 1.5rem; /* Further adjust heading size for extra small screens */
+  }
+
+  .left-content p {
+    font-size: 1rem; /* Further adjust paragraph size for extra small screens */
+  }
+
+  .testimonial h2 {
+    font-size: 1.5rem; /* Further adjust heading size for testimonials */
+  }
+
+  .quote {
+    font-size: 0.9rem; /* Further adjust quote size for extra small screens */
+  }
+}

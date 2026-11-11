@@ -1,0 +1,28 @@
+<div class="subscribe-container" id="features">
+  <div class="subscribe-right">
+    <h2 class="subscribe-title">What is Optimax ERP?</h2>
+    <p>
+      Optimax ERP is a comprehensive, cloud-based Enterprise Resource Planning
+      (ERP) solution designed to help businesses streamline and manage their
+      core operations in one centralized platform. It integrates various
+      business functions such as inventory management, finance, sales, human
+      resources, customer relationship management (CRM), and supply chain
+      operations into a unified system, enabling businesses to optimize
+      productivity and improve decision-making through real-time data insights.
+    </p>
+  </div>
+
+  <div class="subscribe-left">
+    <div class="video-player-container">
+      <video
+        #videoPlayer
+        [src]="videoSource"
+        controls
+        (play)="isPlaying = true"
+        (pause)="isPlaying = false"
+      >
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</div>

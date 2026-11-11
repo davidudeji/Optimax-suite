@@ -1,0 +1,91 @@
+.finance {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: #9fd6f6;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.finance .right,
+.finance .left {
+  flex: 1 1 45%;
+  margin: 10px;
+}
+
+.finance .right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 100px;
+}
+
+.finance .right h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.finance .right ul {
+  list-style-type: disc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.finance .right ul li {
+  font-size: 1.3em;
+  line-height: 1.6;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.finance .left img {
+  max-width: 90%;
+  margin-right: 100px;
+}
+/* Responsive design for mobile screens */
+@media (max-width: 768px) and (max-width: 1020px) {
+  .finance .right,
+  .finance .left {
+    flex: 1 1 100%; /* Change to full width on smaller screens */
+    margin-left: 0; /* Remove left margin */
+    margin-right: 0; /* Remove right margin */
+  }
+
+  .finance .right {
+    margin-left: 0; /* Remove left margin for right section */
+  }
+
+  .finance .right h2 {
+    font-size: 2em; /* Adjust font size for smaller screens */
+    margin-left: 30px;
+    margin-top: 20px;
+    font-weight: 500;
+  }
+
+  .finance .right ul li {
+    font-size: 1.3em; /* Adjust list item font size for smaller screens */
+    margin-left: 40px;
+    margin-right: 30px;
+  }
+
+  .finance .left img {
+    max-width: 100%; /* Ensure image is responsive */
+    margin-right: 0; /* Remove right margin */
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .finance .right h2 {
+    font-size: 2em; /* Adjust font size for smaller screens */
+    margin-left: 30px;
+    margin-top: 20px;
+    font-weight: 500;
+  }
+
+  .finance .right ul li {
+    font-size: 1.3em; /* Further adjust list item font size for extra small screens */
+    margin-left: 40px;
+    margin-right: 30px;
+  }
+}

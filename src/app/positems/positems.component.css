@@ -1,0 +1,128 @@
+/* h2 {
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 80px;
+  font-size: 2.5em;
+} */
+.icon-section {
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Space between columns */
+  margin: 20px 0; /* Margin for spacing */
+  padding: 0 80px; /* Padding for left and right */
+  margin-bottom: 200px;
+  margin-left: 80px;
+  margin-right: 80px;
+}
+
+.icon-item {
+  flex: 1; /* Allow each icon item to take equal space */
+  margin: 0 10px; /* Margin between icon items */
+  padding: 20px; /* Padding inside each icon item */
+  background-color: #f9f9f9; /* Background color for each icon item */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+  text-align: center; /* Center text */
+  transition: transform 0.3s; /* Smooth transition for hover effect */
+}
+
+.icon-item:hover {
+  transform: scale(1.05); /* Scale up on hover */
+}
+
+.icon {
+  font-size: 40px; /* Increase icon size */
+  margin-bottom: 10px; /* Space below the icon */
+}
+
+.icon-text h3 {
+  margin: 10px 0; /* Space above and below the heading */
+  margin-top: 50px;
+  font-size: 22px;
+}
+
+.icon-text p {
+  color: #555; /* Text color */
+  font-size: 18px;
+  margin-bottom: 50px;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Full viewport height */
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.container img {
+  max-width: 100%; /* Make the image responsive */
+  max-height: 100%;
+  object-fit: cover;
+  position: relative;
+  z-index: 2;
+}
+
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background-color: #d8e2dc; /* Semi-transparent background color */
+  z-index: 1; /* Ensure overlay is below the image */
+}
+
+/* Responsive design for mobile screens */
+@media (max-width: 768px) and (max-width: 1020px) {
+  h2 {
+    font-size: 2em; /* Adjust font size for small screens */
+  }
+
+  .icon-section {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+    padding: 0 20px; /* Reduce padding for smaller screens */
+    margin-left: 0; /* Remove left margin */
+    margin-right: 0; /* Remove right margin */
+  }
+
+  .icon-item {
+    margin: 10px 0; /* Adjust margin for icon items */
+    padding: 15px; /* Reduce padding for smaller screens */
+  }
+
+  .icon-text h3 {
+    font-size: 18px; /* Adjust heading size for smaller screens */
+  }
+
+  .icon-text p {
+    font-size: 16px; /* Adjust paragraph size for smaller screens */
+    margin-bottom: 30px; /* Adjust margin for smaller screens */
+  }
+
+  .container {
+    height: auto; /* Allow height to adjust based on content */
+    padding: 20px; /* Add padding for smaller screens */
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  h2 {
+    font-size: 1.8em; /* Further adjust font size for extra small screens */
+  }
+
+  .icon-text h3 {
+    font-size: 20px; /* Further adjust heading size for extra small screens */
+  }
+
+  .icon-text p {
+    font-size: 18px; /* Further adjust paragraph size for extra small screens */
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .icon-item {
+    padding: 10px; /* Further reduce padding for extra small screens */
+  }
+}

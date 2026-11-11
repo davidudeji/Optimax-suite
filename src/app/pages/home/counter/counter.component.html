@@ -1,0 +1,55 @@
+<section class="bg-[#1a3a47] py-20 px-6 md:px-20 relative overflow-hidden">
+  <!-- Decorative background elements -->
+  <div class="absolute top-0 left-1/4 w-72 h-72 rounded-full bg-[#2e6276]/20 blur-3xl pointer-events-none"></div>
+  <div class="absolute bottom-0 right-1/4 w-64 h-64 rounded-full bg-[#2EB270]/10 blur-3xl pointer-events-none"></div>
+
+  <div class="relative max-w-5xl mx-auto">
+    <!-- Stats Grid -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-0 divide-x divide-white/10">
+
+      <!-- Clients -->
+      <div class="text-center px-6 py-4">
+        <div class="text-5xl md:text-6xl font-extrabold text-white mb-2 tabular-nums">
+          {{ clients | number }}<span class="text-[#2EB270]">+</span>
+        </div>
+        <div class="text-white/60 text-sm font-medium uppercase tracking-wider">Clients</div>
+      </div>
+
+      <!-- Active Users -->
+      <div class="text-center px-6 py-4">
+        <div class="text-5xl md:text-6xl font-extrabold text-white mb-2 tabular-nums">
+          {{ users | number }}<span class="text-[#2EB270]">+</span>
+        </div>
+        <div class="text-white/60 text-sm font-medium uppercase tracking-wider">Active Users</div>
+      </div>
+
+      <!-- Modules -->
+      <div class="text-center px-6 py-4 border-t border-white/10 lg:border-t-0">
+        <div class="text-5xl md:text-6xl font-extrabold text-white mb-2 tabular-nums">
+          {{ modules }}<span class="text-[#2EB270]"></span>
+        </div>
+        <div class="text-white/60 text-sm font-medium uppercase tracking-wider">Modules</div>
+      </div>
+
+      <!-- Countries -->
+      <div class="text-center px-6 py-4 border-t border-white/10 lg:border-t-0">
+        <div class="text-5xl md:text-6xl font-extrabold text-white mb-2 tabular-nums">
+          {{ countries }}<span class="text-[#2EB270]">+</span>
+        </div>
+        <div class="text-white/60 text-sm font-medium uppercase tracking-wider">Countries</div>
+      </div>
+
+    </div>
+
+    <!-- Subtitle -->
+    <div class="text-center mt-10 pt-10 border-t border-white/10">
+      <p class="text-white/50 text-sm font-medium">
+        Growing every month — built for businesses across Africa and beyond
+      </p>
+      <div class="flex items-center justify-center gap-2 mt-3">
+        <span class="w-2 h-2 rounded-full bg-[#2EB270] animate-pulse"></span>
+        <span class="text-white/40 text-xs">Live stats updated in real time</span>
+      </div>
+    </div>
+  </div>
+</section>

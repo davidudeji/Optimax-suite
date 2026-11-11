@@ -1,0 +1,14 @@
+<div class="qa-container">
+  <div class="faq"><h2>Account FAQ</h2></div>
+  <div class="qa-item" *ngFor="let item of qaList">
+    <div class="question" (click)="toggleAnswer(item)">
+      <p>{{ item.question }}</p>
+      <span class="toggle-icon">
+        <i [ngClass]="item.expanded ? 'fas fa-minus' : 'fas fa-plus'"></i>
+      </span>
+    </div>
+    <div class="answer" [ngClass]="{ active: item.expanded }">
+      <p>{{ item.answer }}</p>
+    </div>
+  </div>
+</div>

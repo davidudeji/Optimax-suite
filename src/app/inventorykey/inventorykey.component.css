@@ -1,0 +1,130 @@
+/* Center the header */
+.keys {
+  text-align: center;
+  margin-bottom: 50px;
+  background: #f2f0e9;
+  padding-top: 90px;
+  padding-bottom: 40px;
+}
+
+/* Grid layout styles */
+.key-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Defines 3 equal-width columns */
+  grid-template-rows: repeat(
+    2,
+    auto
+  ); /* Defines 2 rows with automatic height */
+  gap: 30px;
+  margin-right: -100px;
+  margin-bottom: 70px;
+  margin-left: 150px;
+  padding: 30px;
+}
+
+.optin {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1.2em;
+  color: #084dcef3;
+  margin-left: 30px;
+}
+
+.container h2 {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #0a0202;
+}
+
+.key-item {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease; /* Added transitions for smooth color change */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-right: 5px;
+}
+
+.key-item:hover {
+  transform: translateY(-10px);
+  background-color: rgb(71, 131, 199); /* Changes background color to black */
+  color: white; /* Changes text color to white */
+}
+
+.key-item:hover .item,
+.key-item:hover .list {
+  color: white; /* Ensures text inside also changes color */
+}
+
+.item {
+  font-size: 1.7rem;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.list {
+  font-size: 1.3rem;
+  color: rgba(0, 0, 0, 0.815);
+  word-spacing: 3px;
+}
+
+/* Responsive design for mobile screens */
+@media (max-width: 768px) and (max-width: 1020px) {
+  .key-list {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* Change to 2 columns on smaller screens */
+    margin-left: 20px; /* Adjust margins for smaller screens */
+    margin-right: 20px; /* Adjust margins for smaller screens */
+  }
+
+  .container h2 {
+    font-size: 2em; /* Adjust heading size for smaller screens */
+    margin-top: 30px; /* Adjust margin for smaller screens */
+  }
+
+  .key-item {
+    margin-right: 0; /* Remove right margin for smaller screens */
+    padding: 15px; /* Adjust padding for smaller screens */
+  }
+  .item {
+    font-size: 1.5rem; /* Adjust font size for smaller screens */
+  }
+
+  .list {
+    font-size: 1.1rem; /* Adjust font size for smaller screens */
+  }
+
+  .optin {
+    font-size: 1em; /* Adjust font size for opt-in text */
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .key-list {
+    grid-template-columns: 1fr; /* Change to 1 column on extra small screens */
+  }
+
+  .container h2 {
+    font-size: 1.8em; /* Further adjust heading size for extra small screens */
+  }
+  .item {
+    font-size: 1.5rem; /* Further adjust font size for extra small screens */
+    font-weight: 400;
+  }
+
+  .list {
+    font-size: 1.2rem; /* Further adjust font size for extra small screens */
+  }
+
+  .optin {
+    font-size: 0.9em; /* Further adjust font size for opt-in text */
+  }
+}

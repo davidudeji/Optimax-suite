@@ -1,0 +1,479 @@
+<nav
+  [ngClass]="isScrolled ? 'nav-scrolled' : ''"
+  class="site-navigation fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 md:px-16 bg-black/30 backdrop-blur-sm border-b border-white/5"
+>
+  <div class="max-w-8xl mx-auto flex items-center justify-between">
+    <a routerLink="/" class="flex items-center gap-2 shrink-0" aria-label="OptimaX home">
+  <img 
+    src="/assets/images/Logo-green.png" 
+    alt="OptimaX Logo" 
+    class="h-12 w-auto"
+  />
+</a>
+
+    <ul
+      class="hidden lg:flex items-center gap-1 text-sm font-medium navbar-dropdown-wrapper"
+    >
+
+      <li class="relative">
+        <button
+          (click)="toggleDropdown('products'); $event.stopPropagation()"
+          [attr.aria-expanded]="activeDropdown === 'products'"
+          aria-haspopup="true"
+          class="flex items-center gap-1.5 px-4 py-2 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-all duration-200"
+          [ngClass]="
+            activeDropdown === 'products' ? 'bg-white/10 text-white' : ''
+          "
+        >
+          Products
+          <svg
+            class="w-3.5 h-3.5 transition-transform duration-200"
+            [ngClass]="activeDropdown === 'products' ? 'rotate-180' : ''"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </button>
+
+
+        <div
+          class="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[620px] transition-all duration-300 origin-top"
+          [ngClass]="
+            activeDropdown === 'products'
+              ? 'opacity-100 scale-y-100 translate-y-0 pointer-events-auto'
+              : 'opacity-0 scale-y-95 -translate-y-2 pointer-events-none'
+          "
+        >
+          <div
+            class="bg-white rounded-2xl shadow-2xl shadow-black/20 border border-gray-100 overflow-hidden"
+          >
+
+            <div class="px-6 py-4 border-b border-gray-100 bg-gray-50/50">
+              <p
+                class="text-xs font-semibold text-gray-400 uppercase tracking-widest"
+              >
+                Platform Modules
+              </p>
+            </div>
+
+            <div class="p-4 grid grid-cols-3 gap-2">
+              <ng-container *ngFor="let product of products">
+                <a
+                 [href]="product.path || '#'"
+                  class="group relative flex flex-col gap-2 p-4 rounded-xl transition-all duration-200"
+                  [ngClass]="
+                    product.active
+                      ? 'hover:bg-gray-50 cursor-pointer'
+                      : 'opacity-50 cursor-not-allowed pointer-events-none'
+                  "
+                >
+
+                  <div
+                    class="w-9 h-9 rounded-lg flex items-center justify-center transition-colors duration-200"
+                    [ngClass]="
+                      product.active
+                        ? 'bg-customBlue/10 group-hover:bg-customBlue/15'
+                        : 'bg-gray-100'
+                    "
+                  >
+                    <svg
+                      class="w-4.5 h-4.5"
+                      [ngClass]="
+                        product.active ? 'text-customBlue' : 'text-gray-400'
+                      "
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        [attr.d]="product.icon"
+                      />
+                    </svg>
+                  </div>
+                  <!-- Text -->
+                  <div>
+                    <div class="flex items-center gap-2">
+                      <p class="text-sm font-semibold text-gray-800">
+                        {{ product.name }}
+                      </p>
+                      <span
+                        *ngIf="!product.active"
+                        class="text-[9px] font-semibold bg-amber-100 text-amber-600 px-1.5 py-0.5 rounded-full uppercase tracking-wide"
+                        >Soon</span
+                      >
+                    </div>
+                    <p class="text-xs text-gray-400 leading-relaxed mt-0.5">
+                      {{ product.description }}
+                    </p>
+                  </div>
+                  <!-- Hover arrow -->
+                  <span
+                    *ngIf="product.active"
+                    class="absolute top-3 right-3 text-customBlue opacity-0 group-hover:opacity-100 transition-opacity text-sm"
+                    >→</span
+                  >
+                </a>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- Pricing -->
+      <li>
+        <a
+          routerLink="/pricing"
+          class="flex items-center px-4 py-2 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-all duration-200"
+        >
+          Pricing
+        </a>
+      </li>
+
+      <!-- Industries -->
+      <li class="relative">
+        <button
+          (click)="toggleDropdown('industries'); $event.stopPropagation()"
+          [attr.aria-expanded]="activeDropdown === 'industries'"
+          aria-haspopup="true"
+          class="flex items-center gap-1.5 px-4 py-2 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-all duration-200"
+          [ngClass]="
+            activeDropdown === 'industries' ? 'bg-white/10 text-white' : ''
+          "
+        >
+          Industries
+          <svg
+            class="w-3.5 h-3.5 transition-transform duration-200"
+            [ngClass]="activeDropdown === 'industries' ? 'rotate-180' : ''"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </button>
+
+        <!-- Industries Dropdown -->
+        <div
+          class="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[580px] transition-all duration-300 origin-top"
+          [ngClass]="
+            activeDropdown === 'industries'
+              ? 'opacity-100 scale-y-100 translate-y-0 pointer-events-auto'
+              : 'opacity-0 scale-y-95 -translate-y-2 pointer-events-none'
+          "
+        >
+          <div
+            class="bg-white rounded-2xl shadow-2xl shadow-black/20 border border-gray-100 overflow-hidden"
+          >
+            <div class="px-6 py-4 border-b border-gray-100 bg-gray-50/50">
+              <p
+                class="text-xs font-semibold text-gray-400 uppercase tracking-widest"
+              >
+                Industries We Serve
+              </p>
+            </div>
+            <div class="p-4 grid grid-cols-2 gap-1">
+              <a
+                *ngFor="let industry of industries"
+                [routerLink]="['/industries', industry.slug]"
+                class="group flex items-start gap-3 p-3 rounded-xl hover:bg-gray-50 transition-all duration-200 cursor-pointer"
+              >
+                <div
+                  class="w-8 h-8 rounded-lg bg-customBlue/8 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-customBlue/12 transition-colors"
+                >
+                  <svg
+                    class="w-4 h-4 text-customBlue"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      [attr.d]="industry.icon"
+                    />
+                  </svg>
+                </div>
+                <div class="min-w-0">
+                  <p
+                    class="text-sm font-semibold text-gray-800 group-hover:text-customBlue transition-colors"
+                  >
+                    {{ industry.name }}
+                  </p>
+                  <p
+                    class="text-xs text-gray-400 leading-relaxed mt-0.5 truncate"
+                  >
+                    {{ industry.description }}
+                  </p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- Contact -->
+      <li>
+        <a
+          routerLink="/contact"
+          class="flex items-center px-4 py-2 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-all duration-200"
+        >
+          Contact
+        </a>
+      </li>
+
+      <!-- Blog -->
+      <li>
+        <a
+          routerLink="/blog"
+          class="flex items-center px-4 py-2 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-all duration-200"
+        >
+          Blog
+        </a>
+      </li>
+
+      <!-- Community -->
+      <li>
+        <a
+          routerLink="/community"
+          class="flex items-center px-4 py-2 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-all duration-200"
+        >
+          Community
+        </a>
+      </li>
+    </ul>
+
+    <!-- Right: Register + Mobile Toggle -->
+    <div class="flex items-center gap-3">
+      <a
+        routerLink="/contact"
+        class="nav-demo-btn hidden lg:inline-flex items-center"
+      >
+        Request a demo
+      </a>
+
+      <!-- Mobile hamburger -->
+      <button
+        (click)="toggleMobileMenu(); $event.stopPropagation()"
+        [attr.aria-expanded]="mobileMenuOpen"
+        aria-label="Toggle navigation menu"
+        class="lg:hidden p-2 rounded-lg text-white/80 hover:bg-white/10 transition mobile-menu-wrapper"
+      >
+        <svg
+          *ngIf="!mobileMenuOpen"
+          class="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+        </svg>
+        <svg
+          *ngIf="mobileMenuOpen"
+          class="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div
+    class="lg:hidden mobile-menu-wrapper overflow-hidden transition-all duration-300"
+    [ngClass]="
+      mobileMenuOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'
+    "
+  >
+    <div class="pt-4 pb-6 space-y-1 border-t border-white/10 mt-3">
+      <!-- Mobile Products Accordion -->
+      <div>
+        <button
+          (click)="toggleMobileAccordion('products')"
+          class="w-full flex items-center justify-between px-4 py-3 text-white/80 hover:text-white hover:bg-white/10 rounded-lg text-sm font-medium transition"
+        >
+          Products
+          <svg
+            class="w-4 h-4 transition-transform duration-200"
+            [ngClass]="mobileAccordion === 'products' ? 'rotate-180' : ''"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </button>
+        <div
+          class="overflow-hidden transition-all duration-300"
+          [ngClass]="mobileAccordion === 'products' ? 'max-h-96' : 'max-h-0'"
+        >
+          <div class="pl-4 pr-2 py-2 space-y-1">
+            <a
+              *ngFor="let product of products"
+              [href]="product.path || '#'"
+              class="flex items-center gap-3 px-3 py-2 rounded-lg transition text-sm"
+              [ngClass]="
+                product.active
+                  ? 'text-white/80 hover:bg-white/10 hover:text-white'
+                  : 'text-white/30 pointer-events-none'
+              "
+            >
+              <svg
+                class="w-4 h-4 shrink-0"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  [attr.d]="product.icon"
+                />
+              </svg>
+              {{ product.name }}
+              <span
+                *ngIf="!product.active"
+                class="ml-auto text-[9px] bg-amber-500/20 text-amber-400 px-1.5 py-0.5 rounded-full"
+                >Soon</span
+              >
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Pricing -->
+      <a
+        routerLink="/pricing"
+        class="block px-4 py-3 text-white/80 hover:text-white hover:bg-white/10 rounded-lg text-sm font-medium transition"
+      >
+        Pricing
+      </a>
+
+      <!-- Mobile Industries Accordion -->
+      <div>
+        <button
+          (click)="toggleMobileAccordion('industries')"
+          class="w-full flex items-center justify-between px-4 py-3 text-white/80 hover:text-white hover:bg-white/10 rounded-lg text-sm font-medium transition"
+        >
+          Industries
+          <svg
+            class="w-4 h-4 transition-transform duration-200"
+            [ngClass]="mobileAccordion === 'industries' ? 'rotate-180' : ''"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </button>
+        <div
+          class="overflow-hidden transition-all duration-300"
+          [ngClass]="
+            mobileAccordion === 'industries'
+              ? 'max-h-96 overflow-y-auto'
+              : 'max-h-0'
+          "
+        >
+          <div class="pl-4 pr-2 py-2 space-y-1">
+            <a
+              *ngFor="let industry of industries"
+              [routerLink]="['/industries', industry.slug]"
+              class="flex items-center gap-3 px-3 py-2 rounded-lg text-white/80 hover:bg-white/10 hover:text-white transition text-sm"
+            >
+              <svg
+                class="w-4 h-4 shrink-0"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  [attr.d]="industry.icon"
+                />
+              </svg>
+              {{ industry.name }}
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Contact -->
+      <a
+        routerLink="/contact"
+        class="block px-4 py-3 text-white/80 hover:text-white hover:bg-white/10 rounded-lg text-sm font-medium transition"
+      >
+        Contact
+      </a>
+
+      <!-- Mobile Blog -->
+      <a
+        routerLink="/blog"
+        class="block px-4 py-3 text-white/80 hover:text-white hover:bg-white/10 rounded-lg text-sm font-medium transition"
+      >
+        Blog
+      </a>
+
+      <!-- Mobile Community -->
+      <a
+        routerLink="/community"
+        class="block px-4 py-3 text-white/80 hover:text-white hover:bg-white/10 rounded-lg text-sm font-medium transition"
+      >
+        Community
+      </a>
+
+      <!-- Mobile Register -->
+      <div class="pt-2 px-2">
+        <a
+          routerLink="/contact"
+          class="nav-demo-btn block text-center"
+        >
+          Request a demo
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Spacer so content doesn't hide under fixed navbar -->
+<div class="h-[72px]"></div>

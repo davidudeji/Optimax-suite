@@ -1,0 +1,244 @@
+body {
+  background: linear-gradient(135deg, #f5f7ff 0%, #ffffff 100%);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.text {
+  text-align: center; /* Center the text within the section */
+  margin: 20px 0; /* Add some margin for spacing */
+}
+
+.text h2 {
+  font-size: 2.5rem;
+  color: #4a4a4a;
+  line-height: 1.2;
+  font-weight: 700; /* Make the text bold */
+  margin-top: 100px;
+}
+.color {
+  background-color: whitesmoke;
+}
+
+.colors {
+  background-color: whitesmoke;
+}
+
+.container {
+  max-width: 1200px; /* Set a reasonable max-width for better layout */
+  margin: 0 auto;
+  padding: 10px; /* Increased padding for the container */
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two-column layout */
+  gap: 50px;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.image-section {
+  position: relative;
+  text-align: center; /* Center the image section */
+}
+
+.main-image {
+  width: 85%; /* Set width to 100% for responsiveness */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 12px;
+  transition: box-shadow 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.content {
+  padding-left: 2rem; /* Add padding to the left for spacing */
+  text-align: left; /* Align text to the left */
+}
+
+h1 {
+  font-size: 2rem;
+  color: #4a4a4a;
+  line-height: 1.2;
+  margin-bottom: 1rem; /* Adjusted margin for better spacing */
+  font-weight: 700;
+}
+
+p {
+  font-size: 1.5rem; /* Increased font size for better readability */
+  color: #4a4a4a; /* Set a color for the paragraph */
+  margin-bottom: 2rem; /* Added margin for spacing below the paragraph */
+}
+
+.features {
+  margin: 2rem 0;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.feature-icon {
+  width: 24px;
+  height: 24px;
+  background: #e6e9ff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-text {
+  color: #4a4a4a;
+  font-size: 1.3rem;
+}
+
+.containers {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+  gap: 150px;
+  margin-bottom: 30px;
+  margin-top: 100px;
+}
+
+.image-sections {
+  flex: 1;
+}
+
+.main-images {
+  width: 90%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.contents {
+  padding-left: 2rem; /* Add padding to the left for spacing */
+  text-align: left; /* Align text to the left */
+}
+
+.featuress {
+  margin: 2rem 0;
+}
+.featuress h1 {
+  margin-bottom: 30px;
+}
+
+.feature-items {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.feature-icons {
+  font-size: 1.5rem;
+  color: rgb(175, 65, 65);
+  margin-right: 10px;
+}
+
+.feature-texts {
+  font-size: 1.3rem;
+  color: #333;
+}
+
+/* Adjustments for screen sizes */
+@media (max-width: 1200px) {
+  .container,
+  .containers {
+    gap: 30px; /* Reduce gap on large screens */
+  }
+
+  .text h2 {
+    font-size: 2.2rem; /* Adjust heading size */
+  }
+
+  .main-image,
+  .main-images {
+    width: 80%;
+  }
+}
+
+@media (max-width: 992px) {
+  .container,
+  .containers {
+    grid-template-columns: 1fr; /* Stack elements vertically */
+    text-align: center;
+  }
+
+  .content,
+  .contents {
+    padding-left: 0; /* Remove padding on smaller screens */
+    text-align: center;
+  }
+
+  .text h2,
+  h1 {
+    font-size: 2rem; /* Adjust font size */
+  }
+
+  p {
+    font-size: 1.2rem; /* Adjust paragraph font size */
+  }
+}
+
+@media (max-width: 768px) and (max-width: 1020px) {
+  .main-image,
+  .main-images {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .content {
+    margin-bottom: 50px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 576px) {
+  .container,
+  .containers {
+    margin: 0 10px; /* Further reduce margin for small screens */
+    text-align: left;
+  }
+
+  .text h2 {
+    font-size: 2rem; /* Adjust font size for extra small screens */
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .feature-text {
+    text-align: left;
+    margin-left: 10px;
+  }
+
+  .feature-texts {
+    text-align: left;
+    margin-left: 10px;
+  }
+  h1 {
+    font-size: 1.6rem; /* Further adjust font size */
+  }
+
+  .content {
+    margin-bottom: 50px;
+  }
+
+  p {
+    font-size: 1.2rem;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 40px;
+    margin-top: 30px;
+  }
+}

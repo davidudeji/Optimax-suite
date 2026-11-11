@@ -1,0 +1,49 @@
+<div class="demo">
+  <h2>Welcome to Optima<b class="bold">X</b></h2>
+
+  <form (ngSubmit)="handleSubmit()">
+    <div class="input">
+      <input
+        class="input"
+        type="text"
+        name="Username"
+        [(ngModel)]="contact.Username"
+        placeholder="Username"
+        required
+      />
+      <input
+        *ngIf="isSignUp"
+        class="input"
+        type="email"
+        name="Email"
+        [(ngModel)]="contact.Email"
+        placeholder="Email"
+        required
+      />
+      <input
+        class="input"
+        type="password"
+        name="Password"
+        [(ngModel)]="contact.Password"
+        placeholder="Password"
+        required
+      />
+      <input
+        *ngIf="isSignUp"
+        class="input"
+        type="password"
+        name="ConfirmPassword"
+        [(ngModel)]="contact.ConfirmPassword"
+        placeholder="Rewrite Password"
+        required
+      />
+    </div>
+    <button class="submit" type="submit">
+      {{ isSignUp ? "Sign Up" : "Sign In" }}
+    </button>
+    <div class="signin" (click)="toggleMode()">
+      {{ isSignUp ? "Switch to Sign In" : "Switch to Sign Up" }}
+    </div>
+  </form>
+  <p class="message">{{ message }}</p>
+</div>

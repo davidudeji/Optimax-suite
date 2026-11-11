@@ -1,0 +1,122 @@
+/* Signup Section */
+.signup-section {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 0;
+    margin: 0;
+}
+
+.signup-container {
+    display: flex;
+    width: 85%;
+    max-width: 1200px;
+    height: 80%;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.signup-left, .signup-right {
+    flex: 1;
+    padding: 35px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-left {
+    max-width: 600px;
+}
+
+.signup-left h3 {
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.signup-left p {
+    color: #555;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.signup-left form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signup-left label {
+    margin-top: 10px;
+    color: #333;
+    width: 100%;
+    text-align: left;
+}
+
+.signup-left input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.signup-left .btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.signup-left .btn:hover {
+    background-color: #218838;
+}
+
+/* Plan Navigation */
+.navigation-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #28a745;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .signup-left, .signup-right {
+        max-width: 45%;
+        flex-basis: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    .signup-left, .signup-right {
+        max-width: 90%;
+        flex-basis: 90%;
+    }
+}

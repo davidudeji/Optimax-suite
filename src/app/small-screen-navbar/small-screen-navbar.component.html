@@ -1,0 +1,25 @@
+<nav class="small-screen-navbar">
+  <div class="navbar-content">
+    <div class="logo">
+      <img
+        routerLink="/"
+        src="/assets/images/optimax-app-logo.png"
+        alt="OptimaX logo"
+        class="logo"
+      />
+    </div>
+    <div class="menu-icon" (click)="toggleMenu()">
+      <i [ngClass]="menuOpen ? 'fas fa-times' : 'fas fa-bars'"></i>
+    </div>
+  </div>
+  <div class="btn">
+    <div class="menu-items" *ngIf="menuOpen">
+      <!-- Your menu items go here -->
+      <a routerLink="faq">Resource</a>
+      <a href="#">Request a Demo</a>
+      <a routerLink="pricing">Pricing</a>
+      <a routerLink="get-started">SignUp</a>
+      <a routerLink="contact-us" class="btn">Contact Us</a>
+    </div>
+  </div>
+</nav>

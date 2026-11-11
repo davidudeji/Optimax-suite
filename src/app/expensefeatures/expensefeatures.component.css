@@ -1,0 +1,267 @@
+body {
+  background: linear-gradient(135deg, #f5f7ff 0%, #ffffff 100%);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.text {
+  text-align: center; /* Center the text within the section */
+  margin: 20px 0; /* Add some margin for spacing */
+  margin-top: 300px;
+}
+
+.text h2 {
+  font-size: 2.5rem;
+  color: #4a4a4a;
+  line-height: 1.2;
+  font-weight: 700; /* Make the text bold */
+  margin-top: 100px;
+}
+.color {
+  background-color: whitesmoke;
+}
+
+.colors {
+  background-color: whitesmoke;
+  padding: 30px;
+}
+
+.container {
+  max-width: 1200px; /* Set a reasonable max-width for better layout */
+  margin: 0 auto;
+  padding: 10px; /* Increased padding for the container */
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two-column layout */
+  gap: 50px;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.image-section {
+  position: relative;
+  text-align: center; /* Center the image section */
+}
+
+.main-image {
+  width: 85%; /* Set width to 100% for responsiveness */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 12px;
+  transition: box-shadow 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.content {
+  padding-left: 2rem; /* Add padding to the left for spacing */
+  text-align: left; /* Align text to the left */
+}
+
+h1 {
+  font-size: 2rem;
+  color: #4a4a4a;
+  line-height: 1.2;
+  margin-bottom: 1rem; /* Adjusted margin for better spacing */
+  font-weight: 700;
+}
+
+p {
+  font-size: 1.5rem; /* Increased font size for better readability */
+  color: #4a4a4a; /* Set a color for the paragraph */
+  margin-bottom: 2rem; /* Added margin for spacing below the paragraph */
+}
+
+.features {
+  margin: 2rem 0;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.feature-icon {
+  width: 30px;
+  height: 20px;
+  background: rgb(232, 235, 232);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-text {
+  color: #4a4a4a;
+  font-size: 1.3rem;
+}
+
+.featured {
+  text-align: center; /* Center the text */
+  margin: 40px 0; /* Add vertical margin for spacing */
+  padding: 200px; /* Add padding for better spacing */
+  background-color: #94ceb0; /* Light background color for contrast */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.featured h2 {
+  font-size: 2rem; /* Increase font size for the heading */
+  color: #292727; /* Dark color for the text */
+  margin: 0; /* Remove default margin */
+}
+
+.containers {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+  gap: 80px;
+  margin-bottom: 30px;
+  margin-top: 100px;
+}
+
+.image-sections {
+  flex: 1;
+}
+
+.main-images {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.contents {
+  padding-left: 2rem; /* Add padding to the left for spacing */
+  text-align: left; /* Align text to the left */
+}
+
+.featuress {
+  margin: 2rem 0;
+  margin-top: 30px;
+}
+
+.feature-items {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.feature-icons {
+  font-size: 1.5rem;
+  color: rgb(46, 221, 198);
+  margin-right: 10px;
+}
+
+.feature-texts {
+  font-size: 1.3rem;
+  color: #333;
+}
+@media (max-width: 768px) and (max-width: 1020px) {
+  .containers {
+    flex-direction: column; /* Stack elements vertically */
+    text-align: center; /* Center align text */
+  }
+
+  .contents {
+    padding-left: 0; /* Remove left padding on smaller screens */
+  }
+
+  .main-images {
+    width: 80%; /* Adjust image width for smaller screens */
+    margin: 0 auto; /* Center the image */
+  }
+
+  .container {
+    grid-template-columns: 1fr; /* Stack elements on smaller screens */
+    gap: 2rem; /* Adjust gap for smaller screens */
+  }
+
+  .content {
+    padding-left: 0; /* Remove left padding on smaller screens */
+  }
+  h1 {
+    font-size: 2rem; /* Adjust heading size for smaller screens */
+  }
+
+  p {
+    font-size: 1rem; /* Adjust paragraph font size for smaller screens */
+  }
+
+  .text h2 {
+    font-size: 2rem; /* Adjust text heading size for smaller screens */
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .feature-text {
+    font-size: 1.1rem; /* Adjust feature text size for smaller screens */
+  }
+  .text h2 {
+    font-size: 1.5rem; /* Further adjust text heading size for extra small screens */
+  }
+
+  .feature-text {
+    font-size: 1.2rem; /* Further adjust feature text size for extra small screens */
+  }
+  .content {
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 20px;
+  }
+  .featuress {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+
+  .main-image {
+    margin-left: 50px;
+    width: 80%;
+  }
+  .featured {
+    padding: 100px; /* Reduce padding for smaller screens */
+  }
+
+  .featured h2 {
+    font-size: 1.3rem; /* Adjust heading size for smaller screens */
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  h1 {
+    font-size: 1.5rem; /* Further adjust heading size for extra small screens */
+  }
+  .featured {
+    padding: 50px; /* Further reduce padding for extra small screens */
+  }
+
+  .featured h2 {
+    font-size: 1.3rem; /* Further adjust heading size for extra small screens */
+  }
+  p {
+    font-size: 0.9rem; /* Further adjust paragraph font size for extra small screens */
+  }
+
+  .text h2 {
+    font-size: 1.5rem; /* Further adjust text heading size for extra small screens */
+  }
+
+  .feature-text {
+    font-size: 1.2rem; /* Further adjust feature text size for extra small screens */
+  }
+  .content {
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 20px;
+  }
+  .featuress {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+
+  .main-image {
+    margin-left: 50px;
+    width: 80%;
+  }
+}

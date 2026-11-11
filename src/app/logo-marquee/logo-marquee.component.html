@@ -1,0 +1,8 @@
+<div class="container">
+  <h3>BRANDS THAT TRUST US</h3>
+  <div class="marquee">
+    <div class="marquee-content" *ngFor="let logo of logos">
+      <img [src]="logo.src" [alt]="logo.alt" class="logo" />
+    </div>
+  </div>
+</div>

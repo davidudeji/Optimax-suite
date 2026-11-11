@@ -1,0 +1,306 @@
+.contact-section {
+  width: 100%; /* Full width of the viewport */
+  display: flex; /* Use flexbox for layout */
+  justify-content: center; /* Center the content */
+  align-items: stretch;
+  padding: 10px; /* Padding around the content */
+  background-image: url("/assets/images/contactus.jpg");
+  background-size: cover; /* Cover the entire section */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat;
+  min-height: 50vh;
+  margin-top: 10px;
+}
+
+.icon {
+  font-size: 15px;
+  color: #e94b5b;
+}
+
+.container {
+  display: flex;
+  width: 95%;
+}
+
+.left {
+  flex: 1; /* Equal space for the left column */
+  display: flex; /* Center the image */
+  justify-content: center; /* Center the image horizontally */
+  align-items: center; /* Center the image vertically */
+}
+
+.right {
+  flex: 1;
+  padding: 15px;
+}
+
+.banner-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  max-width: 100%;
+}
+
+.moving-title {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 95%; /* Width of the moving title */
+  box-sizing: border-box;
+  margin: 0 auto; /* Center the title */
+  padding: 30px 10px; /* Padding around the title */
+  animation: slideInOut 6s linear infinite; /* Animation properties */
+}
+@keyframes slideInOut {
+  0% {
+    transform: translateX(60%);
+    opacity: 0.1;
+  }
+  100% {
+    transform: translateX(-80%);
+    opacity: 5;
+  }
+}
+
+.contact--form--container {
+  max-width: 650px; /* Optional: limit the width of the form */
+  width: 50%; /* Full width of the right column */
+  padding-left: 120px;
+  padding-top: 70px;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: repeat(5, auto);
+  row-gap: 2px;
+}
+
+.contact--form--container h2 {
+  font-size: 4rem;
+  color: #15357c;
+  font-weight: 800;
+}
+.contact--label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  flex: 1 0 0;
+  width: 100%;
+  color: rgb(75, 73, 73);
+  font-size: 17px;
+}
+
+.contact--input {
+  display: flex;
+  padding: 0px;
+  align-items: center;
+  align-self: stretch;
+  border-radius: 8px;
+  border: 2.6px solid var(--primary);
+  padding: 10px;
+  margin-bottom: 3px;
+  background-color: #eceaea;
+}
+
+.contact--inputs {
+  border-radius: 8px;
+  border: 2.6px solid var(--primary);
+  padding: 12px;
+  margin-bottom: 3px;
+  background-color: #eceaea;
+  align-items: center;
+  align-self: stretch;
+  font-size: 17px;
+  margin-bottom: 9px;
+}
+
+.btn {
+  width: 30%; /* Make the button full width of its container */
+  padding: 12px 20px;
+  background-color: #4a75cf;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 20px 20px; /* Padding for button */
+  margin-bottom: 50px;
+}
+
+.btn:hover {
+  background-color: #3e39c0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.contact--input {
+  font-size: 17px;
+}
+
+.btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.error-message {
+  color: #dc3545;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.success-message {
+  color: #28a745;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+/* Form Groups */
+.form-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group label:last-child {
+  grid-column: 1 / -1;
+}
+
+.form-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.form-field {
+  flex: 1 1 30%; /* For phone number, it takes 30% of the width */
+  display: flex;
+  flex-direction: column;
+}
+
+.email-field {
+  flex: 2 1 45%; /* For email, it takes 60% of the width */
+}
+
+.invalid-feedback {
+  color: #e74c3c;
+  font-size: 15px;
+  margin-top: 5px;
+}
+
+.custom-ng-select {
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  border-radius: 8px;
+  border: 1.6px solid var(--primary);
+  padding: 5px;
+  margin-bottom: 3px;
+  background-color: #eceaea;
+}
+
+:host ::ng-deep .ng-select {
+  background-color: #eceaea;
+}
+
+:host ::ng-deep .ng-select .ng-select-container {
+  background-color: #eceaea;
+  border: none;
+  font-size: 20px;
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    background-size: contain; /* Change to contain for smaller screens */
+    background-position: top center; /* Adjust position for better visibility */
+    min-height: 100vh; /* Reduce min-height for smaller screens */
+    padding: 10px; /* Adjust padding for smaller screens */
+    background-color: whitesmoke;
+  }
+  .container {
+    width: 100%; /* Full width for the container */
+    flex-direction: column; /* Stack left and right sections */
+  }
+
+  .left,
+  .right {
+    width: 100%; /* Full width for both columns */
+    padding: 10px; /* Add padding for better spacing */
+  }
+
+  .form-group {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack form fields vertically */
+    margin-bottom: 1rem; /* Add margin for spacing */
+  }
+
+  .form-group label {
+    margin-bottom: 5px; /* Add space between label and input */
+  }
+
+  .form-field {
+    flex: 1 1 100%; /* Full width for form fields */
+    margin-bottom: 10px; /* Add margin for spacing between fields */
+  }
+
+  .email-field {
+    flex: 1 1 100%; /* Full width for email field */
+  }
+
+  .contact--form--container {
+    width: 80%; /* Adjust form width for small screens */
+    padding-left: 0; /* Remove left padding */
+    padding-top: 80px; /* Adjust top padding */
+    margin: 0 auto; /* Center the form */
+    margin-left: 50px;
+  }
+
+  .contact--form--container h2 {
+    font-size: 2.5rem; /* Smaller font size for headings */
+  }
+
+  .btn {
+    width: 50%; /* Full width for buttons */
+    padding: 12px; /* Adjust padding for buttons */
+    margin-bottom: 20px; /* Adjust margin for buttons */
+  }
+
+  .form-field {
+    flex: 1 1 100%; /* Full width for form fields */
+  }
+
+  .email-field {
+    flex: 1 1 100%; /* Full width for email field */
+  }
+
+  .moving-title {
+    width: 100%; /* Full width for moving title */
+    padding: 20px 5px; /* Adjust padding for smaller screens */
+  }
+
+  .error-message,
+  .success-message {
+    font-size: 14px; /* Smaller font size for messages */
+    padding: 8px; /* Adjust padding for messages */
+  }
+  .contact-section {
+    margin-top: -15px;
+  }
+}

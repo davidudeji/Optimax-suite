@@ -1,0 +1,175 @@
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  background: url("/assets/images/pos.jpg") no-repeat center center/cover;
+  margin-top: 60px;
+}
+
+.bold {
+  color: rgb(150, 79, 150);
+}
+
+.text {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 100px;
+  margin-left: 150px;
+}
+
+.text h2 {
+  font-size: 3.5em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: rgb(80, 76, 76);
+}
+
+.text p {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color: #1d1a1a;
+  margin-bottom: 17px;
+  /* word-spacing: 1px; */
+  padding-bottom: 8px;
+}
+
+.cta-button {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  color: white;
+  background-color: rgb(150, 79, 150);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+  width: fit-content; /* Adjust the width to fit the content */
+  align-self: flex-start; /* Align the button to the start of the flex container */
+}
+
+.cta-button:hover {
+  background-color: rgb(209, 180, 209);
+}
+
+.right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 80px;
+  box-shadow: #d85959;
+}
+
+.right img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-right: 70px;
+}
+
+/* Responsive design for mobile screens */
+@media (max-width: 1200px) {
+  .text {
+    margin-left: 80px; /* Adjust margin for medium screens */
+  }
+
+  .text h2 {
+    font-size: 3em; /* Adjust font size for medium screens */
+  }
+
+  .text p {
+    font-size: 1.4rem; /* Adjust font size for medium screens */
+  }
+}
+
+@media (max-width: 992px) {
+  .hero {
+    flex-direction: column; /* Stack elements vertically on smaller screens */
+    height: auto; /* Adjust height for smaller screens */
+  }
+  .text {
+    margin-left: 0; /* Remove left margin */
+    align-items: center; /* Center align text */
+    text-align: center; /* Center align text */
+    margin-bottom: 50px; /* Adjust bottom margin */
+  }
+
+  .right {
+    margin-right: 0; /* Remove right margin */
+    margin-top: 20px; /* Add top margin */
+  }
+
+  .right img {
+    margin-right: 0; /* Remove right margin */
+  }
+}
+
+@media (max-width: 768px) {
+  .text {
+    padding: 10px; /* Adjust padding for extra small screens */
+  }
+
+  .text h2 {
+    font-size: 2em; /* Adjust font size for extra small screens */
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .text p {
+    font-size: 1.3rem; /* Adjust font size for extra small screens */
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+
+  .cta-button {
+    font-size: 0.9rem; /* Adjust button font size for extra small screens */
+    margin-left: 50px;
+  }
+
+  .right img {
+    margin-right: 0; /* Remove margin for extra small screens */
+    display: none;
+  }
+
+  .hero {
+    margin-top: -20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .text {
+    padding: 10px; /* Adjust padding for extra small screens */
+  }
+
+  .text h2 {
+    font-size: 2em; /* Adjust font size for extra small screens */
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .text p {
+    font-size: 1.3rem; /* Adjust font size for extra small screens */
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+
+  .cta-button {
+    font-size: 0.9rem; /* Adjust button font size for extra small screens */
+    margin-left: 50px;
+  }
+
+  .right img {
+    margin-right: 0; /* Remove margin for extra small screens */
+    display: none;
+  }
+
+  .hero {
+    margin-top: -20px;
+  }
+}

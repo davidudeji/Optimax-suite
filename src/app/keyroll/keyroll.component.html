@@ -1,0 +1,17 @@
+<section class="keys" #featureSection>
+  <div class="container">
+    <h2>Key Features of Sales OptimaX ERP</h2>
+    <p class="optin">
+      The key features of Sales Optimax ERP typically focus on enhancing sales
+      processes <br />
+      and ensuring smooth integration with other business functions.
+    </p>
+    <div class="key-list">
+      <div class="key-item" *ngFor="let service of services" #serviceItem>
+        <i class="key-icon" [class]="service.iconClass"></i>
+        <h3 class="item">{{ service.title }}</h3>
+        <p class="list">{{ service.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,318 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600;700&display=swap');
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.user-info-wrapper {
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: #f5f7fa;
+  align-items: center;
+}
+
+.user-info-section {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 1200px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+  color: #224957;
+  line-height: 1;
+  color: var(--bs-heading-color);
+  margin-bottom: 1rem;
+  font-family: Roboto Slab, serif;
+  font-weight: 500;
+  margin-top: 0;
+}
+
+.section-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.input-group {
+  flex: 1;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2px;
+ 
+}
+
+.input-group label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  font-size: 12px;
+  height: 12px;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 12px;
+  background-color: #fff;
+  height: 10px;
+  margin-bottom: 0px;
+}
+
+.input-group textarea {
+  resize: vertical;
+}
+.others{
+  flex: 1;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+ 
+
+  
+}
+.others label {
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+  }
+
+  .others input,
+  .others select,
+  .others textarea {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  //font-size: 0.7rem;
+  background-color: #fff;
+  height: 36px;
+  }
+
+.image-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.image-upload img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+}
+
+.upload-btn {
+  background-color: #224957;
+  color: white;
+  padding: 0.8rem 1.8rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.submit-row {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.submit-row button {
+  background-color: #25925b;
+  color: white;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.required {
+  color: red;
+}
+
+.full-width {
+  width: 100%;
+}
+.user-info-header {
+  width: 100%;
+  padding: 1rem 2rem;
+  background-color: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  height: 30px;
+  top: 0;
+  margin-top: 0px;
+  z-index: 10;
+
+  .logo-container img {
+    height: 60px;
+    margin-left: 20px;
+  }
+
+  .user-info-display {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #333;
+  margin-right: 20px;
+
+    i {
+      font-size: 1.2rem;
+      color: #224957;
+    }
+  }
+}
+.user-info-sectiony {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 7px;
+  width: 100%;
+  max-width: 1200px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+/* Flex wrapper for horizontal layout */
+.info-flex {
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.text-fields {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.image-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.profile-img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+}
+
+.upload-btn {
+  padding: 0.8rem 1.8rem;
+  background-color: #224957;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+@media (max-width: 768px) {
+  .user-info-wrapper {
+    padding: 1rem;
+  }
+
+  .user-info-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    height: auto;
+
+    .logo-container {
+      justify-content: center;
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    .logo-container img {
+      height: 50px;
+      margin-left: 0;
+    }
+
+    .user-info-display {
+      justify-content: flex-start;
+      width: 100%;
+      margin-right: 0;
+    }
+  }
+
+  .user-info-section,
+  .user-info-sectiony {
+    padding: 1.5rem;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .section-row {
+    flex-direction: column;
+  }
+
+  .input-group,
+  .others,
+  .full-width {
+    min-width: 100%;
+    width: 100%;
+  }
+
+  .image-upload img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .text-fields {
+    gap: 1rem;
+  }
+
+  .submit-row {
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .submit-row button {
+    width: 100%;
+  }
+
+  .upload-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 1.25rem;
+  }
+
+  .input-group input,
+  .input-group select,
+  .input-group textarea,
+  .others input,
+  .others select {
+    font-size: 0.9rem;
+    height: auto;
+  }
+}
+

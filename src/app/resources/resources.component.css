@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.email-personalization {
+  background: url("/assets/images/wire.jpg"); /* Background image */
+  background-size: cover; /* Ensure the background image covers the entire section */
+  background-position: center; /* Center the background image */
+  padding: 20px;
+  align-items: center;
+  width: 100vw;
+  height: 80vh;
+  box-sizing: border-box;
+  margin-top: 60px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Optional: Add shadow for depth */
+  display: flex; /* Use flexbox for alignment */
+  flex-direction: column; /* Stack children vertically */
+  justify-content: center; /* Center content vertically */
+  text-align: center; /* Center text horizontally */
+}
+.email-personalization h1 {
+  font-size: 5em;
+  margin-bottom: 30px;
+  font-weight: 700;
+  color: rgb(77, 76, 76);
+}
+
+.email-personalization p {
+  font-size: 1.7rem;
+  margin-bottom: 50px;
+}
+
+.bold {
+  color: rgb(45, 45, 136);
+}
+
+.content {
+  margin-bottom: 20px; /* Space between the content and icons */
+}
+
+.icons {
+  display: flex; /* Use flexbox for icon layout */
+  justify-content: center; /* Center icons horizontally */
+  flex-wrap: wrap; /* Allow icons to wrap to the next line if needed */
+  margin-top: 20px; /* Add space above the icons */
+}
+.icons img {
+  margin: 10px;
+  width: 25%;
+  height: 350px;
+  animation: float 2s infinite ease-in-out;
+}
+
+.icon {
+  display: flex; /* Use flexbox for icon layout */
+  justify-content: center; /* Center icons horizontally */
+  flex-wrap: wrap; /* Allow icons to wrap to the next line if needed */
+  margin-top: 20px; /* Add space above the icons */
+}
+.icon img {
+  margin: 10px;
+  width: 18%;
+  height: 200px;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.icon-envelope {
+  position: absolute;
+  margin-bottom: 10px;
+  transform: translateX(-50%);
+}
+
+.icon-user {
+  position: absolute; /* Use absolute positioning */
+  right: 0; /* Align to the left edge of the container */
+  top: 50%; /* Center vertically within the container */
+
+  margin-right: 10px; /* Optional: Add some margin from the left edge */
+}
+
+.icon-user {
+  padding: 10px;
+  border-radius: 50%;
+}

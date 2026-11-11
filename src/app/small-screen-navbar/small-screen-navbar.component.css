@@ -1,0 +1,107 @@
+.small-screen-navbar {
+  display: none; /* Default hide for large screens */
+}
+
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px; /* Increased padding for better spacing */
+  background-color: #ffffff; /* White background for contrast */
+  color: #333;
+  height: 70px; /* Increased height for a more spacious look */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.logo img {
+  height: 50px; /* Increased logo height for better visibility */
+  width: auto; /* Maintain aspect ratio */
+  margin-top: 4px;
+}
+
+.logo {
+  font-size: 1.8rem; /* Increased font size for better readability */
+  font-weight: bold; /* Bold logo for emphasis */
+  color: #224957; /* Darker color for the logo */
+  margin-left: 5px;
+}
+
+.menu-icon {
+  font-size: 2rem; /* Increased icon size for better touch targets */
+  cursor: pointer;
+  color: #224957; /* Match the color with the logo */
+  margin-right: 10px;
+}
+
+.menu-items {
+  display: flex;
+  flex-direction: column;
+  background-color: #224957; /* Dark background for the menu */
+  padding: 1rem;
+  border-radius: 8px; /* Rounded corners for a softer look */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+.menu-items a {
+  color: #fff; /* White text for contrast */
+  text-decoration: none;
+  padding: 0.75rem 1rem; /* Increased padding for better touch targets */
+  border-radius: 5px; /* Rounded corners for menu items */
+  transition: background-color 0.3s ease; /* Smooth background transition */
+}
+
+.menu-items a:hover {
+  background-color: #10305a; /* Green background on hover */
+  color: white; /* Keep text white on hover */
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-weight: bolder;
+}
+
+.nav-item {
+  position: relative;
+  margin: 0 1rem;
+}
+
+.nav-item a {
+  color: #224957; /* Dark color for nav links */
+  text-decoration: none;
+  font-size: 1.1rem; /* Slightly larger font size */
+  transition: color 0.3s ease;
+}
+
+.nav-item a:hover {
+  color: #28a745; /* Green color on hover */
+}
+
+.btn {
+  padding: 0.6rem 1rem; /* Increased padding for a more substantial button */
+  font-size: 1.1rem; /* Slightly larger font size for better readability */
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease; /* Smooth transitions */
+  font-weight: bold; /* Bold text for emphasis */
+  text-transform: uppercase; /* Uppercase text for a more modern look */
+}
+
+/* Hover effect */
+/* Active state */
+.btn:active {
+  transform: translateY(1px); /* Pressed effect */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduce shadow on active */
+}
+
+/* Focus state for accessibility */
+
+@media (max-width: 768px) {
+  .small-screen-navbar {
+    display: block; /* Show on small screens */
+  }
+}

@@ -1,0 +1,71 @@
+:host-context(.home-page) .site-navigation {
+  color: #172b36;
+  border-color: rgba(7, 29, 51, .08) !important;
+  background: rgba(255, 255, 255, .94) !important;
+  backdrop-filter: blur(18px);
+  box-shadow: 0 1px 0 rgba(7, 29, 51, .04);
+}
+
+:host-context(.home-page) .site-navigation.nav-scrolled {
+  background: rgba(255, 255, 255, .98) !important;
+  box-shadow: 0 8px 26px rgba(7, 29, 51, .08);
+}
+
+:host-context(.home-page) .site-navigation .navbar-dropdown-wrapper > li > button,
+:host-context(.home-page) .site-navigation .navbar-dropdown-wrapper > li > a {
+  color: #405563;
+}
+
+:host-context(.home-page) .site-navigation .navbar-dropdown-wrapper > li > button:hover,
+:host-context(.home-page) .site-navigation .navbar-dropdown-wrapper > li > a:hover {
+  color: #087c70;
+  background: #f0f8f6;
+}
+
+:host-context(.home-page) .site-navigation .nav-demo-btn {
+  min-height: 40px;
+  justify-content: center;
+  padding: 0 17px;
+  border: 1px solid #00a995;
+  border-radius: 6px;
+  color: #062b32;
+  background: #55e6c1;
+  font-size: 12px;
+  font-weight: 800;
+  transition: background .2s ease, transform .2s ease;
+}
+
+:host-context(.home-page) .site-navigation .nav-demo-btn:hover {
+  background: #7aefd2;
+  transform: translateY(-1px);
+}
+
+:host-context(.home-page) .site-navigation .mobile-menu-wrapper {
+  border-color: #e5ebef;
+  background: #fff;
+  color: #405563;
+}
+
+:host-context(.home-page) .site-navigation .mobile-menu-wrapper a,
+:host-context(.home-page) .site-navigation .mobile-menu-wrapper button {
+  color: #405563;
+}
+
+:host-context(.home-page) .site-navigation .mobile-menu-wrapper a:hover,
+:host-context(.home-page) .site-navigation .mobile-menu-wrapper button:hover {
+  color: #087c70;
+  background: #f0f8f6;
+}
+
+:host-context(.home-page) .site-navigation .mobile-menu-wrapper .nav-demo-btn {
+  color: #062b32;
+}
+
+:host-context(.home-page) .site-navigation .mobile-menu-wrapper {
+  border-radius: 0 0 12px 12px;
+}
+
+:host-context(.home-page) .site-navigation .mobile-menu-wrapper .text-white\/80,
+:host-context(.home-page) .site-navigation .mobile-menu-wrapper .text-white\/30 {
+  color: #405563;
+}

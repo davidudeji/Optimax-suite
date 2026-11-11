@@ -1,0 +1,175 @@
+.subscribe-container {
+  background-color: #f9f9f9; /* Light background for the container */
+  padding: 10px; /* Padding around the container */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  max-width: 1200px; /* Max width for the form */
+  margin: 20px auto; /* Center the container */
+  text-align: center; /* Center text */
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.bold {
+  color: rgb(101, 187, 101);
+}
+
+.subscribe-form {
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Stack form elements vertically */
+  gap: 20px; /* Space between form elements */
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.email-label {
+  font-weight: bold; /* Bold label for emphasis */
+  color: #333; /* Dark color for the label */
+  font-size: 1.2rem;
+  margin-top: 25px;
+}
+
+.email-input {
+  padding: 25px; /* Padding inside the input */
+  border: 1px solid #007bff; /* Light border */
+  border-radius: 4px; /* Rounded corners */
+  font-size: 1.3rem; /* Font size */
+  outline: none; /* Remove outline on focus */
+  transition: border-color 0.3s; /* Smooth transition for border color */
+  width: 100%; /* Reduce width of the input */
+  max-width: 800px; /* Set a max width for the input */
+  margin: 0 auto;
+}
+
+.email-input:focus {
+  border-color: #007bff; /* Change border color on focus */
+}
+
+.subscribe-button {
+  padding: 20px; /* Padding for the button */
+  background-color: #1770cf; /* Primary color */
+  color: white; /* Text color */
+  border: none; /* Remove default border */
+  border-radius: 4px; /* Rounded corners */
+  font-size: 1.9rem; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s, transform 0.3s; /* Smooth transition for hover effects */
+  width: 100%; /* Reduce width of the input */
+  max-width: 300px; /* Set a max width for the input */
+  margin: 0 auto;
+}
+
+.subscribe-button:hover {
+  background-color: #007bff; /* Darker shade on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.subscribe-title {
+  font-size: 2.5rem;
+  color: #007bff;
+  font-weight: 500;
+  margin-top: 20px;
+}
+
+.subscribe-right p {
+  font-size: 1.7rem;
+  margin-top: 20px;
+}
+
+/* Responsive design for different screen sizes */
+@media (max-width: 1200px) {
+  .subscribe-title {
+    font-size: 2rem; /* Adjust title font size for medium screens */
+  }
+
+  .email-label {
+    font-size: 1.1rem; /* Adjust label font size for medium screens */
+  }
+
+  .email-input {
+    font-size: 1.2rem; /* Adjust input font size for medium screens */
+  }
+
+  .subscribe-button {
+    font-size: 1.4rem; /* Adjust button font size for medium screens */
+  }
+}
+.subscribe-right p {
+  font-size: 1.2rem; /* Adjust paragraph font size for medium screens */
+}
+
+@media (max-width: 992px) {
+  .subscribe-container {
+    padding: 15px; /* Reduce padding for smaller screens */
+  }
+
+  .subscribe-title {
+    font-size: 1.8rem; /* Adjust title font size for smaller screens */
+  }
+
+  .email-label {
+    font-size: 1rem; /* Adjust label font size for smaller screens */
+  }
+
+  .email-input {
+    font-size: 1rem; /* Adjust input font size for smaller screens */
+  }
+
+  .subscribe-button {
+    font-size: 1.2rem; /* Adjust button font size for smaller screens */
+  }
+
+  .subscribe-right p {
+    font-size: 1rem; /* Adjust paragraph font size for smaller screens */
+  }
+}
+
+@media (max-width: 768px) and (max-width: 767px) {
+  .subscribe-container {
+    padding: 5px; /* Further reduce padding for extra small screens */
+  }
+
+  .subscribe-title {
+    font-size: 1.8rem; /* Further adjust title font size for extra small screens */
+  }
+
+  .email-label {
+    font-size: 1.3rem; /* Further adjust label font size for extra small screens */
+  }
+
+  .email-input {
+    font-size: 1rem; /* Further adjust input font size for extra small screens */
+    max-width: 80%; /* Ensure it fits within the container */
+    padding: 20px; /* Further reduce padding for extra small screens */
+  }
+  .subscribe-right p {
+    font-size: 1.3rem; /* Further adjust paragraph font size for extra small screens */
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .subscribe-container {
+    padding: 5px; /* Further reduce padding for extra small screens */
+  }
+
+  .subscribe-title {
+    font-size: 1.8rem; /* Further adjust title font size for extra small screens */
+  }
+
+  .email-label {
+    font-size: 1.3rem; /* Further adjust label font size for extra small screens */
+  }
+
+  .email-input {
+    font-size: 1rem; /* Further adjust input font size for extra small screens */
+    max-width: 80%; /* Ensure it fits within the container */
+    padding: 20px; /* Further reduce padding for extra small screens */
+  }
+  .subscribe-right p {
+    font-size: 1.3rem; /* Further adjust paragraph font size for extra small screens */
+  }
+}
+
+.subscribe-button {
+  font-size: 1.3rem; /* Further adjust button font size for extra small screens */
+}

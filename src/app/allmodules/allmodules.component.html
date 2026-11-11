@@ -1,0 +1,22 @@
+<section class="services" #featureSection>
+  <div class="container">
+    <h2>Features</h2>
+    <p class="opti">
+      OptimaX software offers a comprehensive suite of features designed to
+      address the unique needs <br />
+      and requirements of your organization.
+    </p>
+    <div class="service-list-wrapper">
+      <div class="service-list">
+        <div class="service-item" *ngFor="let service of services" #serviceItem>
+          <i class="service-icon" [class]="service.iconClass"></i>
+          <h3 class="item">{{ service.title }}</h3>
+          <p class="list">{{ service.description }}</p>
+          <a [routerLink]="service.url">
+            <p>Learn More</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

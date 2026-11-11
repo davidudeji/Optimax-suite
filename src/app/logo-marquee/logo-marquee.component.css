@@ -1,0 +1,136 @@
+.container {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  background-color: #fff;
+  margin-top: 80px;
+}
+
+.container h3 {
+  text-align: center;
+  color: #0a0202;
+  font-size: 1.5rem;
+  margin-top: 10px;
+  margin-bottom: 100px;
+  font-weight: 300;
+  padding-top: 10px;
+}
+
+.marquee {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 80%;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.clients {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  font-size: 1.2em;
+  color: #0a0202;
+}
+
+.marquee-content {
+  display: inline-block;
+  padding: 0 10px;
+  animation: marquee 8s linear infinite;
+}
+
+.logo {
+  width: 190px;
+  height: 100px;
+  background-color: white;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Responsive design for different screen sizes */
+@media (max-width: 1200px) {
+  .container h3 {
+    font-size: 1.3rem; /* Adjust font size for medium screens */
+    margin-top: 50px;
+    margin-bottom: 40px;
+  }
+
+  .clients {
+    font-size: 1.1em; /* Adjust font size for medium screens */
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  .logo {
+    width: 160px; /* Adjust logo size for medium screens */
+    height: 80px;
+  }
+}
+
+@media (max-width: 992px) {
+  .container h3 {
+    font-size: 1.2rem; /* Adjust font size for smaller screens */
+    margin-top: 40px;
+    margin-bottom: 30px;
+  }
+
+  .clients {
+    font-size: 1em; /* Adjust font size for smaller screens */
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .logo {
+    width: 140px; /* Adjust logo size for smaller screens */
+    height: 70px;
+  }
+}
+
+@media (max-width: 768px) and (max-width: 1020px) {
+  .container h3 {
+    font-size: 1.1rem; /* Adjust font size for small screens */
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+
+  .clients {
+    font-size: 0.9em; /* Adjust font size for small screens */
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .logo {
+    width: 120px; /* Adjust logo size for small screens */
+    height: 60px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767) {
+  .container h3 {
+    font-size: 1rem; /* Adjust font size for extra small screens */
+    margin-top: 5px;
+    margin-bottom: 50px;
+  }
+
+  .clients {
+    font-size: 1em; /* Adjust font size for extra small screens */
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .logo {
+    width: 100px; /* Adjust logo size for extra small screens */
+    height: 60px;
+  }
+  .container {
+    margin-bottom: 80px;
+  }
+}

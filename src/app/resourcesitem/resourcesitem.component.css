@@ -1,0 +1,76 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+.faq-section {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  margin-top: 200px;
+}
+
+.faq-section h1 {
+  font-size: 3rem;
+  color: #363535;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.faq-section p {
+  font-size: 1.6rem;
+  margin-bottom: 30px;
+  color: #555;
+  display: flex;
+  word-spacing: 1px;
+  flex-wrap: wrap;
+}
+
+.personalization {
+  margin-bottom: 30px;
+}
+
+.personalization h2 {
+  font-size: 2rem;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.personalization p {
+  font-size: 1.4rem;
+  color: #555;
+  word-spacing: 1px;
+}
+
+.personalization a {
+  color: #00aaff;
+  text-decoration: none;
+}
+
+.personalization a:hover {
+  text-decoration: underline;
+}
+
+ul {
+  list-style-type: none; /* Remove default bullet points */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+}
+
+li {
+  font-size: 1.4rem;
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px; /* Padding inside list items */
+  margin-bottom: 10px; /* Space between list items */
+  color: #555;
+}
+
+li::before {
+  content: "✔"; /* Checkmark icon before each list item */
+  color: #00796b; /* Color for the checkmark */
+  margin-right: 10px; /* Space between icon and text */
+  font-weight: bold; /* Make the icon bold */
+}

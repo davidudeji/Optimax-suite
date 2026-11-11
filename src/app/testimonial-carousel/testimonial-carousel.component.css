@@ -1,0 +1,175 @@
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  margin-top: 20px;
+}
+
+.container {
+  margin-left: 100px;
+}
+
+.testimonials {
+  padding: 20px;
+  color: rgb(56, 56, 112);
+  margin-top: 100px;
+  background-color: whitesmoke;
+}
+
+.testimonial-item h3 {
+  font-size: 1.3rem;
+}
+
+.text {
+  font-size: 1.3rem;
+}
+
+.quote-icon {
+  font-size: 1.5rem;
+  text-align: right;
+}
+
+.quote-icons {
+  font-size: 1.5rem;
+  text-align: left;
+}
+
+.container h2 {
+  text-align: center;
+  font-size: 1.6rem;
+}
+.testimonial-text {
+  text-align: center; /* Centers the text */
+  font-size: 1.6rem;
+  white-space: normal; /* Ensure text wraps naturally */
+  word-wrap: break-word; /* Ensure long words break if necessary */
+  width: 50%;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.testimonial-item {
+  min-width: 100%;
+  box-sizing: border-box;
+  display: none;
+  text-align: center;
+}
+
+.testimonial-item.active {
+  display: block;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 30%;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  transform: translateY(-50%);
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.prev {
+  left: 10px;
+  font-size: 1.5rem;
+}
+
+.next {
+  right: 10px;
+  font-size: 1.5rem;
+  background-color: none;
+}
+
+@media (max-width: 768px) {
+  .testimonials {
+    margin-top: 50px; /* Reduce margin for smaller screens */
+    padding: 10px; /* Reduce padding for smaller screens */
+  }
+
+  .testimonial-text {
+    font-size: 1.5rem; /* Reduce font size for testimonial text */
+    width: 90%; /* Increase width for smaller screens */
+  }
+
+  .testimonial-item h3 {
+    font-size: 1.2rem; /* Reduce font size for headings */
+  }
+
+  .text {
+    font-size: 1.2rem; /* Reduce font size for text */
+  }
+
+  .quote-icon,
+  .quote-icons {
+    font-size: 1.2rem; /* Reduce font size for quote icons */
+  }
+  .container h2 {
+    font-size: 1.4rem; /* Reduce font size for container heading */
+  }
+
+  .prev,
+  .next {
+    margin-left: 3px; /* Reduce margin for navigation buttons */
+    margin-right: 3px; /* Reduce margin for navigation buttons */
+    font-size: 1.2rem; /* Reduce font size for navigation buttons */
+  }
+
+  .carousel-inner {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+
+  .container {
+    margin-left: 0px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .testimonials {
+    margin-top: 20px; /* Further reduce margin for extra small screens */
+  }
+
+  .carousel-inner {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+
+  .container {
+    margin-left: 0px;
+  }
+
+  .testimonial-text {
+    font-size: 1.3rem; /* Further reduce font size for testimonial text */
+  }
+
+  .testimonial-item h3 {
+    font-size: 1rem; /* Further reduce font size for headings */
+  }
+
+  .text {
+    font-size: 1rem; /* Further reduce font size for text */
+  }
+
+  .quote-icon,
+  .quote-icons {
+    font-size: 1rem; /* Further reduce font size for quote icons */
+  }
+
+  .container h2 {
+    font-size: 1.2rem; /* Further reduce font size for container heading */
+  }
+
+  .prev,
+  .next {
+    margin-left: 3px; /* Further reduce margin for navigation buttons */
+    margin-right: 3px; /* Further reduce margin for navigation buttons */
+    font-size: 1.2rem; /* Further reduce font size for navigation buttons */
+  }
+}

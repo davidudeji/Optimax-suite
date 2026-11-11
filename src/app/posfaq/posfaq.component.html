@@ -1,0 +1,85 @@
+<!-- <div class="qa-container">
+  <div class="faq"><h2>POS FAQ</h2></div>
+  <div class="qa-item" *ngFor="let item of qaList">
+    <div class="question" (click)="toggleAnswer(item)">
+      <p>{{ item.question }}</p>
+      <span class="toggle-icon">
+        <i [ngClass]="item.expanded ? 'fas fa-minus' : 'fas fa-plus'"></i>
+      </span>
+    </div>
+    <div class="answer" [ngClass]="{ active: item.expanded }">
+      <p>{{ item.answer }}</p>
+    </div>
+  </div>
+</div> -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <!-- Text Content -->
+      <div>
+        <h2 class="text-4xl font-extrabold text-gray-900 mb-6">
+          Ready to transform your business operations?
+        </h2>
+        <p class="text-lg text-gray-600 mb-8">
+          Join thousands of businesses already using OptimaX POS to streamline
+          operations, boost sales, and make smarter decisions. Start your
+          journey today with our 30-day free trial.
+        </p>
+        <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
+          <button
+            class="bg-[#2C341B] text-white px-6 py-3 rounded-lg flex items-center gap-2"
+          >
+            Get Started
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path d="M5 12h14"></path>
+              <path d="M13 5l7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
+        <div class="mt-8 flex flex-wrap gap-6 text-sm text-gray-500">
+          <div class="flex items-center">
+            <span class="w-2 h-2 bg-green-600 rounded-full mr-2"></span>
+            No setup fees
+          </div>
+          <div class="flex items-center">
+            <span class="w-2 h-2 bg-green-600 rounded-full mr-2"></span>
+            Cancel anytime
+          </div>
+          <div class="flex items-center">
+            <span class="w-2 h-2 bg-green-600 rounded-full mr-2"></span>
+            24/7 support
+          </div>
+        </div>
+      </div>
+
+      <!-- Image / Visual -->
+      <div class="relative hidden lg:block">
+        <img
+          data-ai="generate"
+          data-slot="cta-visual"
+          data-prompt="Abstract illustration of business success and growth with upward trending elements, connected devices, and modern geometric shapes in white and green tones on light background"
+          data-ar="1:1"
+          src="https://cdn.ailandingpage.ai/landingpage_io/user-generate/111ee50b-8c94-4e3b-bf13-bb7b0d73d991/111ee50b-8c94-4e3b-bf13-bb7b0d73d991/cta/cta-visual-1cbfdd26da454935aa272b55eff2ed21.png"
+          alt="Start with OptimaX POS"
+          width="600"
+          height="600"
+          class="w-full rounded-2xl object-cover shadow-lg opacity-95"
+          loading="lazy"
+          decoding="async"
+          fetchpriority="auto"
+        />
+        <div
+          class="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-medium shadow"
+        >
+          30-Day Free Trial
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

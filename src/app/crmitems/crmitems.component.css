@@ -1,0 +1,159 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f9ff;
+}
+
+.sales-section {
+  text-align: center;
+  padding: 150px 0;
+  background: linear-gradient(to right, whitesmoke, #e5f1fc);
+  position: relative;
+}
+
+.sales-content h2 {
+  font-size: 28px;
+  color: #002244;
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+
+.logo-container {
+  display: grid; /* Use CSS Grid for layout */
+  grid-template-columns: repeat(3, 1fr); /* Create three equal columns */
+  gap: 30px; /* Space between columns */
+  margin-top: 50px;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-bottom: 20px;
+}
+
+.logo-box {
+  background-color: white;
+  padding: 60px; /* Adjusted padding for a more balanced look */
+  border-radius: 12px; /* Slightly increased border radius for softer corners */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition for hover effect */
+  text-align: left; /* Center text within the box */
+}
+
+.logo-box:hover {
+  transform: scale(1.1);
+  color: #052546;
+}
+
+.logo-box p {
+  margin: 0; /* Remove default margin from paragraphs */
+  color: #052546; /* Text color */
+  font-size: 1.3rem; /* Font size */
+}
+
+.logo-box:hover p,
+.logo-box:hover h3 {
+  color: #052546;
+}
+
+.logo-box h3 {
+  margin: 0; /* Remove default margin from paragraphs */
+  color: #002244; /* Text color */
+  font-size: 1.7rem; /* Font size */
+  padding-bottom: 10px;
+  font-weight: 520;
+}
+
+.background-graphic {
+  position: absolute;
+  bottom: 0;
+  right: 10%;
+}
+
+@media (max-width: 768px) {
+  .logo-container {
+    flex-direction: column;
+  }
+
+  .background-graphic img {
+    width: 100px;
+  }
+}
+
+.custom-shape-divider-bottom-1729596827 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1729596827 svg {
+  position: relative;
+  display: block;
+  width: calc(291% + 1.3px);
+  height: 214px;
+}
+
+.custom-shape-divider-bottom-1729596827 .shape-fill {
+  fill: #fff;
+}
+
+@media (max-width: 1200px) {
+  .sales-content h2 {
+    font-size: 2.2rem; /* Adjust font size for medium screens */
+  }
+
+  .logo-container {
+    margin: 50px 50px; /* Adjust margins for medium screens */
+  }
+}
+
+@media (max-width: 992px) {
+  .logo-container {
+    grid-template-columns: repeat(2, 1fr); /* Two columns on medium screens */
+  }
+
+  .sales-content h2 {
+    font-size: 2rem; /* Adjust font size for medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .logo-container {
+    grid-template-columns: 1fr; /* Single column on small screens */
+    margin: 20px 20px; /* Adjust margins for small screens */
+  }
+  .sales-content h2 {
+    font-size: 1.8rem; /* Adjust font size for small screens */
+  }
+
+  .background-graphic img {
+    width: 80px; /* Adjust image size for small screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .sales-content h2 {
+    font-size: 1.5rem; /* Further adjust font size for extra small screens */
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .logo-box {
+    padding: 30px; /* Reduce padding for smaller boxes */
+  }
+
+  .logo-box p {
+    font-size: 1.2rem; /* Adjust paragraph font size for extra small screens */
+  }
+
+  .sales-content h2 {
+    margin-bottom: 50px;
+    margin-top: -40px;
+  }
+
+  .logo-box h3 {
+    font-size: 1.5rem; /* Adjust heading font size for extra small screens */
+  }
+}
