@@ -74,7 +74,7 @@
           <p class="plan-copy">{{ plan.description }}</p>
 
           <div class="plan-details" *ngIf="plan.id !== 'enterprise'">
-            <h3>Included features</h3>
+            <h3>{{ plan.id === 'growth' ? 'Everything in Starter, plus:' : 'Included features' }}</h3>
             <ul>
               <li *ngFor="let feature of plan.features">{{ feature }}</li>
             </ul>
