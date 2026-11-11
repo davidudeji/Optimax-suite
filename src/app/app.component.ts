@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { HeroComponent } from './pages/home/hero/hero.component';
 import { FeaturesComponent } from './pages/home/features/features.component';
 import { CommonModule } from '@angular/common';
+import { TawkService } from './tawk.service';
 
 @Component({
   selector: 'app-root',
@@ -14,4 +15,8 @@ import { CommonModule } from '@angular/common';
 })
 export class AppComponent {
   title = 'landingpageOpti';
+
+  constructor(tawkService: TawkService) {
+    tawkService.initialize();
+  }
 }

@@ -1,547 +1,384 @@
-<app-navigation></app-navigation>
+﻿<app-navigation></app-navigation>
 
-<section class="bg-[#fafafa] py-24 px-8 md:px-20" id="pricing">
-  <div class="max-w-7xl mx-auto">
-
-    <!-- Section Label -->
-    <div class="flex items-center gap-3 mb-4">
-      <span class="w-3 h-3 bg-[#2e6276] rounded-sm shrink-0"></span>
-      <span class="text-xs font-bold tracking-widest text-gray-500 uppercase">Pricing</span>
-    </div>
-    <hr class="border-[#2e6276]/50 mb-14" />
-
-    <!-- Header + Toggle -->
-    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
-      <div class="md:max-w-xl">
-        <h2 class="text-4xl md:text-5xl font-bold text-[#272725] leading-tight mb-4">
-          Simple pricing.<br/>No surprises.
-        </h2>
-        <p class="text-gray-500 text-sm leading-relaxed max-w-md">
-          Choose the plan that fits your business. Every OptimaX product is priced independently — pay only for what you use, and scale whenever you're ready.
-        </p>
+<section class="pricing-page" id="pricing">
+  <div class="container-large">
+    <header class="page-header">
+      <div class="eyebrow-wrap">
+        <span class="eyebrow-dot"></span>
+        <span class="eyebrow-text">OPTIMAX ERP PRICING</span>
       </div>
 
-      <!-- Billing Toggle -->
-      <div class="flex items-center gap-3 self-start md:self-auto">
-        <span class="text-sm" [ngClass]="!isYearly ? 'text-[#272725] font-semibold' : 'text-gray-400'">Monthly</span>
-        <button (click)="toggleBilling()"
-          class="relative w-12 h-6 rounded-full transition-colors duration-300 focus:outline-none"
-          [style.background-color]="'#2e6276'">
-          <span class="absolute top-1 left-1 w-4 h-4 bg-white rounded-full shadow transition-transform duration-300"
-            [style.transform]="isYearly ? 'translateX(24px)' : 'translateX(0)'"></span>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <h1>The Right ERP Solution for Every Stage of Your Business</h1>
+          <p>
+            Choose a ready-made ERP package or build a custom solution around your business operations.
+            With Optimax ERP, you get the tools, visibility, and control to manage your entire business
+            from one connected platform.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#pricing-plan-grid">Explore Plans</a>
+            <a class="btn btn-secondary" routerLink="/contact">Book a Demo</a>
+          </div>
+          <div class="trust-line">14-day free trial. No credit card required.</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="billing-row">
+      <div class="billing-labels">
+        <button
+          class="billing-option"
+          [class.active]="billingCycle === 'annual'"
+          type="button"
+          (click)="billingCycle = 'annual'"
+        >
+          <span>Annual Billing</span>
+          <em>Save 20%</em>
         </button>
-        <span class="text-sm" [ngClass]="isYearly ? 'text-[#272725] font-semibold' : 'text-gray-400'">
-          Yearly
-          <span class="ml-1 text-[10px] font-bold text-white px-1.5 py-0.5 rounded-full" style="background-color:#2e6276;">Save 10%</span>
-        </span>
+        <button
+          class="billing-option"
+          [class.active]="billingCycle === 'monthly'"
+          type="button"
+          (click)="billingCycle = 'monthly'"
+        >
+          <span>Monthly Billing</span>
+          <em>Flexible payments</em>
+        </button>
       </div>
+      <div class="billing-disclaimer">All prices are in Nigerian Naira (₦) and exclude 7.5% VAT.</div>
     </div>
 
-    <!-- Product Tabs -->
-    <div class="flex items-center gap-1 mb-12 border-b border-gray-200">
-      <button (click)="switchTab('pos')" class="px-5 py-3 text-sm font-semibold border-b-2 -mb-px transition-colors"
-        [ngClass]="activeTab === 'pos' ? 'border-[#2e6276] text-[#2e6276]' : 'border-transparent text-gray-400 hover:text-gray-700'">
-        OptimaX POS
-      </button>
-      <button (click)="switchTab('hr')" class="px-5 py-3 text-sm font-semibold border-b-2 -mb-px transition-colors"
-        [ngClass]="activeTab === 'hr' ? 'border-[#2e6276] text-[#2e6276]' : 'border-transparent text-gray-400 hover:text-gray-700'">
-        OptimaX HR
-      </button>
-      <button (click)="switchTab('accounting')" class="px-5 py-3 text-sm font-semibold border-b-2 -mb-px transition-colors"
-        [ngClass]="activeTab === 'accounting' ? 'border-[#2e6276] text-[#2e6276]' : 'border-transparent text-gray-400 hover:text-gray-700'">
-        Accounting
-      </button>
-    </div>
-
-    <!-- ═══════════════════════════════════════════
-         POS PLANS
-    ═══════════════════════════════════════════ -->
-    <div *ngIf="activeTab === 'pos'">
-      <p class="text-sm text-gray-500 mb-10 max-w-2xl">
-        OptimaX POS is a powerful ERP-powered Point of Sale solution for retailers, restaurants, and multi-location businesses. Choose a tier that matches your scale.
-      </p>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
-
-        <!-- BRONZE -->
-        <div class="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col hover:shadow-lg transition-shadow duration-300">
-          <div class="flex items-center gap-2 mb-5">
-            <span class="w-3 h-3 rounded-full shrink-0" style="background-color:#cd7f32;"></span>
-            <span class="text-xs font-bold tracking-widest uppercase" style="color:#cd7f32;">Bronze</span>
+    <section class="plans-section" id="pricing-plan-grid">
+      <div class="plan-grid">
+        <article class="plan-card" *ngFor="let plan of plans" [class.featured]="plan.recommended">
+          <div class="plan-badge" *ngIf="plan.badge">{{ plan.badge }}</div>
+          <div class="plan-header">
+            <span class="plan-label">{{ plan.label }}</span>
           </div>
-          <div class="mb-1">
-            <div class="flex items-baseline gap-1">
-              <span class="text-3xl font-bold text-[#272725]">₦{{ price('pos','bronze') }}</span>
-              <span class="text-gray-400 text-xs">/ mo</span>
-            </div>
-            <p class="text-[11px] text-gray-400 mt-1 leading-snug">{{ note('pos','bronze') }}</p>
+
+          <div class="plan-price-wrap">
+            <span class="plan-price">₦{{ getPlanPrice(plan) }}</span>
+            <span class="plan-period">/ month</span>
           </div>
-          <hr class="border-gray-100 my-5" />
-          <!-- Limits -->
-          <div class="space-y-2 text-xs mb-5">
-            <div class="flex justify-between text-gray-600"><span>Users</span><span class="font-semibold text-[#272725]">2</span></div>
-            <div class="flex justify-between text-gray-600"><span>Outlets</span><span class="font-semibold text-[#272725]">1</span></div>
-            <div class="flex justify-between text-gray-600"><span>Products</span><span class="font-semibold text-[#272725]">Unlimited</span></div>
+
+          <div class="plan-annual-total" *ngIf="billingCycle === 'annual' && plan.id !== 'enterprise'">
+            Annual total: ₦{{ plan.annualTotal.toLocaleString('en-NG') }}
           </div>
-          <hr class="border-gray-100 mb-4" />
-          <ul class="space-y-2 text-xs text-gray-600 flex-1">
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Basic POS & inventory tracking</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Store & product discounts</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Barcode scanning</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Basic reporting</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Hold orders on checkout</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Reorder & expiry alerts</li>
-            <li class="flex items-start gap-2 text-gray-300"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Split payments</li>
-            <li class="flex items-start gap-2 text-gray-300"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Reconciliation</li>
-            <li class="flex items-start gap-2 text-gray-300"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Kitchen display & tables</li>
-            <li class="flex items-start gap-2 text-gray-300"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Loyalty & gift cards</li>
-          </ul>
-          <div class="mt-6">
-            <a href="/get-started" class="block w-full text-center text-xs font-bold py-3 rounded-xl border-2 transition-all hover:bg-[#272725] hover:text-white hover:border-[#272725]" style="border-color:#cd7f32; color:#cd7f32;">
-              Get started
+          <div class="plan-annual-total" *ngIf="billingCycle === 'monthly' && plan.id !== 'enterprise'">
+            Monthly billing: ₦{{ plan.monthly.toLocaleString('en-NG') }}/month
+          </div>
+          <div class="plan-annual-total" *ngIf="plan.id === 'enterprise'">From ₦1,200,000/month</div>
+
+          <div class="plan-user-limit">User limit: {{ plan.userLimit }}</div>
+          <p class="plan-copy">{{ plan.description }}</p>
+
+          <div class="plan-details" *ngIf="plan.id !== 'enterprise'">
+            <h3>Included features</h3>
+            <ul>
+              <li *ngFor="let feature of plan.features">{{ feature }}</li>
+            </ul>
+          </div>
+
+          <div class="plan-details" *ngIf="plan.id === 'enterprise'">
+            <h3>Everything in Growth, plus:</h3>
+            <ul>
+              <li *ngFor="let feature of plan.features">{{ feature }}</li>
+            </ul>
+          </div>
+
+          <div class="plan-details excluded-details" *ngIf="plan.excluded.length">
+            <h3>Not included</h3>
+            <ul class="excluded-list">
+              <li *ngFor="let feature of plan.excluded">{{ feature }}</li>
+            </ul>
+          </div>
+
+          <div class="plan-footer">
+            <a class="btn" [ngClass]="plan.buttonClass" [routerLink]="plan.id === 'enterprise' ? '/contact' : '/get-started'">
+              {{ plan.cta }}
             </a>
-          </div>
-        </div>
-
-        <!-- SILVER -->
-        <div class="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col hover:shadow-lg transition-shadow duration-300">
-          <div class="flex items-center gap-2 mb-5">
-            <span class="w-3 h-3 rounded-full shrink-0" style="background-color:#94a3b8;"></span>
-            <span class="text-xs font-bold tracking-widest uppercase" style="color:#64748b;">Silver</span>
-          </div>
-          <div class="mb-1">
-            <div class="flex items-baseline gap-1">
-              <span class="text-3xl font-bold text-[#272725]">₦{{ price('pos','silver') }}</span>
-              <span class="text-gray-400 text-xs">/ mo</span>
+            <div class="plan-additional" *ngIf="plan.id !== 'enterprise'">
+            Additional users: {{ plan.id === 'starter' ? '₦5,000/user/month' : plan.id === 'growth' ? '₦6,500/user/month' : 'Unlimited' }}
             </div>
-            <p class="text-[11px] text-gray-400 mt-1 leading-snug">{{ note('pos','silver') }}</p>
-          </div>
-          <hr class="border-gray-100 my-5" />
-          <div class="space-y-2 text-xs mb-5">
-            <div class="flex justify-between text-gray-600"><span>Users</span><span class="font-semibold text-[#272725]">5</span></div>
-            <div class="flex justify-between text-gray-600"><span>Outlets</span><span class="font-semibold text-[#272725]">2</span></div>
-            <div class="flex justify-between text-gray-600"><span>Products</span><span class="font-semibold text-[#272725]">Unlimited</span></div>
-          </div>
-          <hr class="border-gray-100 mb-4" />
-          <ul class="space-y-2 text-xs text-gray-600 flex-1">
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Everything in Bronze</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Split payments</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Bill generation</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>SMS (up to 2 contacts)</li>
-            <li class="flex items-start gap-2 text-gray-300"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Reconciliation</li>
-            <li class="flex items-start gap-2 text-gray-300"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Custom pricing</li>
-            <li class="flex items-start gap-2 text-gray-300"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Kitchen display & tables</li>
-            <li class="flex items-start gap-2 text-gray-300"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Advanced reporting</li>
-          </ul>
-          <div class="mt-6">
-            <a href="/get-started" class="block w-full text-center text-xs font-bold py-3 rounded-xl border-2 transition-all hover:bg-[#272725] hover:text-white hover:border-[#272725]" style="border-color:#94a3b8; color:#64748b;">
-              Get started
-            </a>
-          </div>
-        </div>
-
-        <!-- GOLD -->
-        <div class="bg-white border-2 rounded-2xl p-6 flex flex-col hover:shadow-xl transition-shadow duration-300 relative" style="border-color:#d4a574;">
-          <div class="absolute -top-3 left-1/2 -translate-x-1/2">
-            <span class="text-[10px] font-bold text-white px-3 py-1 rounded-full whitespace-nowrap" style="background-color:#d4a574;">Most Popular</span>
-          </div>
-          <div class="flex items-center gap-2 mb-5 mt-1">
-            <span class="w-3 h-3 rounded-full shrink-0" style="background-color:#d4a574;"></span>
-            <span class="text-xs font-bold tracking-widest uppercase" style="color:#c4853a;">Gold</span>
-          </div>
-          <div class="mb-1">
-            <div class="flex items-baseline gap-1">
-              <span class="text-3xl font-bold text-[#272725]">₦{{ price('pos','gold') }}</span>
-              <span class="text-gray-400 text-xs">/ mo</span>
+            <div class="plan-additional" *ngIf="plan.id === 'enterprise'">
+              Additional users: Unlimited, subject to the agreed enterprise deployment.
             </div>
-            <p class="text-[11px] text-gray-400 mt-1 leading-snug">{{ note('pos','gold') }}</p>
           </div>
-          <hr class="border-gray-100 my-5" />
-          <div class="space-y-2 text-xs mb-5">
-            <div class="flex justify-between text-gray-600"><span>Users</span><span class="font-semibold text-[#272725]">Unlimited</span></div>
-            <div class="flex justify-between text-gray-600"><span>Outlets</span><span class="font-semibold text-[#272725]">5</span></div>
-            <div class="flex justify-between text-gray-600"><span>Products</span><span class="font-semibold text-[#272725]">Unlimited</span></div>
-          </div>
-          <hr class="border-gray-100 mb-4" />
-          <ul class="space-y-2 text-xs text-gray-600 flex-1">
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Everything in Silver</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Reconciliation</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Returns management</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Kitchen display & tables</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Loyalty programs & gift cards</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Optimerce (menu, online & intl. payments)</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Item level tracking</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Custom pricing</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>SMS (up to 5 contacts)</li>
-            <li class="flex items-start gap-2 text-gray-300"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Advanced reporting</li>
-          </ul>
-          <div class="mt-6">
-            <a href="/get-started" class="block w-full text-center text-xs font-bold py-3 rounded-xl text-white transition-all" style="background-color:#d4a574;">
-              Get started
-            </a>
-          </div>
-        </div>
-
-        <!-- PLATINUM -->
-        <div class="rounded-2xl p-6 flex flex-col hover:shadow-xl transition-shadow duration-300 relative overflow-hidden" style="background-color:#272725;">
-          <div class="absolute top-0 right-0 w-40 h-40 rounded-full opacity-10 pointer-events-none" style="background:radial-gradient(circle, #2e6276, transparent); transform:translate(30%,-30%);"></div>
-          <div class="flex items-center gap-2 mb-5">
-            <span class="w-3 h-3 rounded-full shrink-0" style="background: linear-gradient(135deg, #e5e4e2, #a0a0a0);"></span>
-            <span class="text-xs font-bold tracking-widest uppercase text-gray-300">Platinum</span>
-          </div>
-          <div class="mb-1">
-            <div class="flex items-baseline gap-1">
-              <span class="text-3xl font-bold text-white">₦{{ price('pos','platinum') }}</span>
-              <span class="text-gray-400 text-xs">/ mo</span>
-            </div>
-            <p class="text-[11px] text-gray-500 mt-1 leading-snug">{{ note('pos','platinum') }}</p>
-          </div>
-          <hr class="border-gray-700 my-5" />
-          <div class="space-y-2 text-xs mb-5">
-            <div class="flex justify-between text-gray-400"><span>Users</span><span class="font-semibold text-white">Unlimited</span></div>
-            <div class="flex justify-between text-gray-400"><span>Outlets</span><span class="font-semibold text-white">10+</span></div>
-            <div class="flex justify-between text-gray-400"><span>Products</span><span class="font-semibold text-white">Unlimited</span></div>
-          </div>
-          <hr class="border-gray-700 mb-4" />
-          <ul class="space-y-2 text-xs text-gray-300 flex-1">
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Everything in Gold</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Advanced reporting</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>International payments</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Unlimited SMS</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Offline mode (₦50,000 one-time)</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Dedicated account manager</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Priority support & SLA</li>
-          </ul>
-          <div class="mt-6">
-            <a href="/get-started" class="block w-full text-center text-xs font-bold py-3 rounded-xl text-[#272725] bg-white hover:bg-gray-100 transition-colors">
-              Get started
-            </a>
-          </div>
-        </div>
-
+        </article>
       </div>
-    </div>
+    </section>
 
-    <!-- ═══════════════════════════════════════════
-         HR PLANS
-    ═══════════════════════════════════════════ -->
-    <div *ngIf="activeTab === 'hr'">
-      <p class="text-sm text-gray-500 mb-10 max-w-2xl">
-        OptimaX HR is a complete workforce management platform — payroll, attendance, leave, and performance. Pick the tier that fits your team size.
-      </p>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
-
-        <!-- BRONZE -->
-        <div class="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col hover:shadow-lg transition-shadow duration-300">
-          <div class="flex items-center gap-2 mb-5">
-            <span class="w-3 h-3 rounded-full shrink-0" style="background-color:#cd7f32;"></span>
-            <span class="text-xs font-bold tracking-widest uppercase" style="color:#cd7f32;">Bronze</span>
-          </div>
-          <div class="mb-1">
-            <div class="flex items-baseline gap-1">
-              <span class="text-3xl font-bold text-[#272725]">₦{{ price('hr','bronze') }}</span>
-              <span class="text-gray-400 text-xs">/ mo</span>
-            </div>
-            <p class="text-[11px] text-gray-400 mt-1 leading-snug">{{ note('hr','bronze') }}</p>
-          </div>
-          <hr class="border-gray-100 my-5" />
-          <div class="space-y-2 text-xs mb-5">
-            <div class="flex justify-between text-gray-600"><span>Employees</span><span class="font-semibold text-[#272725]">Up to 20</span></div>
-            <div class="flex justify-between text-gray-600"><span>Branches</span><span class="font-semibold text-[#272725]">1</span></div>
-          </div>
-          <hr class="border-gray-100 mb-4" />
-          <ul class="space-y-2 text-xs text-gray-600 flex-1">
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Employee records & profiles</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Basic payroll processing</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Attendance tracking</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Leave requests & approvals</li>
-            <li class="flex items-start gap-2 text-gray-300"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Recruitment module</li>
-            <li class="flex items-start gap-2 text-gray-300"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Performance management</li>
-          </ul>
-          <div class="mt-6">
-            <a href="/get-started" class="block w-full text-center text-xs font-bold py-3 rounded-xl border-2 transition-all hover:bg-[#272725] hover:text-white hover:border-[#272725]" style="border-color:#cd7f32; color:#cd7f32;">Get started</a>
-          </div>
-        </div>
-
-        <!-- SILVER -->
-        <div class="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col hover:shadow-lg transition-shadow duration-300">
-          <div class="flex items-center gap-2 mb-5">
-            <span class="w-3 h-3 rounded-full shrink-0" style="background-color:#94a3b8;"></span>
-            <span class="text-xs font-bold tracking-widest uppercase" style="color:#64748b;">Silver</span>
-          </div>
-          <div class="mb-1">
-            <div class="flex items-baseline gap-1">
-              <span class="text-3xl font-bold text-[#272725]">₦{{ price('hr','silver') }}</span>
-              <span class="text-gray-400 text-xs">/ mo</span>
-            </div>
-            <p class="text-[11px] text-gray-400 mt-1 leading-snug">{{ note('hr','silver') }}</p>
-          </div>
-          <hr class="border-gray-100 my-5" />
-          <div class="space-y-2 text-xs mb-5">
-            <div class="flex justify-between text-gray-600"><span>Employees</span><span class="font-semibold text-[#272725]">Up to 50</span></div>
-            <div class="flex justify-between text-gray-600"><span>Branches</span><span class="font-semibold text-[#272725]">3</span></div>
-          </div>
-          <hr class="border-gray-100 mb-4" />
-          <ul class="space-y-2 text-xs text-gray-600 flex-1">
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Everything in Bronze</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Automated payroll calculations</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Department & role organisation</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Document management</li>
-            <li class="flex items-start gap-2 text-gray-300"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Recruitment pipeline</li>
-            <li class="flex items-start gap-2 text-gray-300"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Performance reviews</li>
-          </ul>
-          <div class="mt-6">
-            <a href="/get-started" class="block w-full text-center text-xs font-bold py-3 rounded-xl border-2 transition-all hover:bg-[#272725] hover:text-white hover:border-[#272725]" style="border-color:#94a3b8; color:#64748b;">Get started</a>
-          </div>
-        </div>
-
-        <!-- GOLD -->
-        <div class="bg-white border-2 rounded-2xl p-6 flex flex-col hover:shadow-xl transition-shadow duration-300 relative" style="border-color:#d4a574;">
-          <div class="absolute -top-3 left-1/2 -translate-x-1/2">
-            <span class="text-[10px] font-bold text-white px-3 py-1 rounded-full whitespace-nowrap" style="background-color:#d4a574;">Most Popular</span>
-          </div>
-          <div class="flex items-center gap-2 mb-5 mt-1">
-            <span class="w-3 h-3 rounded-full shrink-0" style="background-color:#d4a574;"></span>
-            <span class="text-xs font-bold tracking-widest uppercase" style="color:#c4853a;">Gold</span>
-          </div>
-          <div class="mb-1">
-            <div class="flex items-baseline gap-1">
-              <span class="text-3xl font-bold text-[#272725]">₦{{ price('hr','gold') }}</span>
-              <span class="text-gray-400 text-xs">/ mo</span>
-            </div>
-            <p class="text-[11px] text-gray-400 mt-1 leading-snug">{{ note('hr','gold') }}</p>
-          </div>
-          <hr class="border-gray-100 my-5" />
-          <div class="space-y-2 text-xs mb-5">
-            <div class="flex justify-between text-gray-600"><span>Employees</span><span class="font-semibold text-[#272725]">Up to 200</span></div>
-            <div class="flex justify-between text-gray-600"><span>Branches</span><span class="font-semibold text-[#272725]">10</span></div>
-          </div>
-          <hr class="border-gray-100 mb-4" />
-          <ul class="space-y-2 text-xs text-gray-600 flex-1">
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Everything in Silver</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Recruitment & onboarding pipeline</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Performance management cycles</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Goal setting & KPI tracking</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Workforce analytics dashboard</li>
-          </ul>
-          <div class="mt-6">
-            <a href="/get-started" class="block w-full text-center text-xs font-bold py-3 rounded-xl text-white transition-all" style="background-color:#d4a574;">Get started</a>
-          </div>
-        </div>
-
-        <!-- PLATINUM -->
-        <div class="rounded-2xl p-6 flex flex-col hover:shadow-xl transition-shadow duration-300 relative overflow-hidden" style="background-color:#272725;">
-          <div class="absolute top-0 right-0 w-40 h-40 rounded-full opacity-10 pointer-events-none" style="background:radial-gradient(circle, #2e6276, transparent); transform:translate(30%,-30%);"></div>
-          <div class="flex items-center gap-2 mb-5">
-            <span class="w-3 h-3 rounded-full shrink-0" style="background: linear-gradient(135deg, #e5e4e2, #a0a0a0);"></span>
-            <span class="text-xs font-bold tracking-widest uppercase text-gray-300">Platinum</span>
-          </div>
-          <div class="mb-1">
-            <div class="flex items-baseline gap-1">
-              <span class="text-3xl font-bold text-white">₦{{ price('hr','platinum') }}</span>
-              <span class="text-gray-400 text-xs">/ mo</span>
-            </div>
-            <p class="text-[11px] text-gray-500 mt-1 leading-snug">{{ note('hr','platinum') }}</p>
-          </div>
-          <hr class="border-gray-700 my-5" />
-          <div class="space-y-2 text-xs mb-5">
-            <div class="flex justify-between text-gray-400"><span>Employees</span><span class="font-semibold text-white">Unlimited</span></div>
-            <div class="flex justify-between text-gray-400"><span>Branches</span><span class="font-semibold text-white">Unlimited</span></div>
-          </div>
-          <hr class="border-gray-700 mb-4" />
-          <ul class="space-y-2 text-xs text-gray-300 flex-1">
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Everything in Gold</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Advanced workforce analytics</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Custom HR workflows</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Dedicated account manager</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Priority support & SLA</li>
-          </ul>
-          <div class="mt-6">
-            <a href="/get-started" class="block w-full text-center text-xs font-bold py-3 rounded-xl text-[#272725] bg-white hover:bg-gray-100 transition-colors">Get started</a>
-          </div>
-        </div>
-
+    <section class="panel compare-panel">
+      <div class="section-heading">
+        <h2>Compare Plans. Find Your Fit.</h2>
+        <p>See exactly what each Optimax ERP package includes before making your decision.</p>
       </div>
-    </div>
 
-    <!-- ═══════════════════════════════════════════
-         ACCOUNTING PLANS
-    ═══════════════════════════════════════════ -->
-    <div *ngIf="activeTab === 'accounting'">
-      <p class="text-sm text-gray-500 mb-10 max-w-2xl">
-        OptimaX Accounting gives you full financial visibility — invoicing, expense tracking, P&L, and tax tools. Choose the tier that matches your financial complexity.
-      </p>
+      <div class="comparison-list">
+        <div class="compare-group" *ngFor="let group of comparisonGroups">
+          <button type="button" class="compare-toggle" [attr.aria-expanded]="group.open" (click)="toggleComparisonGroup(group)">
+            <span>{{ group.title }}</span>
+            <span>{{ group.open ? '−' : '+' }}</span>
+          </button>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
-
-        <!-- BRONZE -->
-        <div class="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col hover:shadow-lg transition-shadow duration-300">
-          <div class="flex items-center gap-2 mb-5">
-            <span class="w-3 h-3 rounded-full shrink-0" style="background-color:#cd7f32;"></span>
-            <span class="text-xs font-bold tracking-widest uppercase" style="color:#cd7f32;">Bronze</span>
+          <div class="compare-table-wrap" *ngIf="group.open">
+            <table class="compare-table">
+              <thead>
+                <tr>
+                  <th>Feature</th>
+                  <th>Starter</th>
+                  <th>Growth</th>
+                  <th>Enterprise</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let feature of group.features">
+                  <td>{{ feature.name }}</td>
+                  <td>
+                    <span *ngIf="feature.starter === true">✓</span>
+                    <span *ngIf="feature.starter === false">–</span>
+                    <span *ngIf="feature.starter !== true && feature.starter !== false">{{ feature.starter }}</span>
+                  </td>
+                  <td>
+                    <span *ngIf="feature.growth === true">✓</span>
+                    <span *ngIf="feature.growth === false">–</span>
+                    <span *ngIf="feature.growth !== true && feature.growth !== false">{{ feature.growth }}</span>
+                  </td>
+                  <td>
+                    <span *ngIf="feature.enterprise === true">✓</span>
+                    <span *ngIf="feature.enterprise === false">–</span>
+                    <span *ngIf="feature.enterprise !== true && feature.enterprise !== false">{{ feature.enterprise }}</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <div class="mb-1">
-            <div class="flex items-baseline gap-1">
-              <span class="text-3xl font-bold text-[#272725]">₦{{ price('accounting','bronze') }}</span>
-              <span class="text-gray-400 text-xs">/ mo</span>
-            </div>
-            <p class="text-[11px] text-gray-400 mt-1 leading-snug">{{ note('accounting','bronze') }}</p>
-          </div>
-          <hr class="border-gray-100 my-5" />
-          <ul class="space-y-2 text-xs text-gray-600 flex-1">
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Chart of accounts & bookkeeping</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Invoicing & payment tracking</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Expense management</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Basic P&L and balance sheet</li>
-            <li class="flex items-start gap-2 text-gray-300"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Multi-entity consolidation</li>
-            <li class="flex items-start gap-2 text-gray-300"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Tax preparation & filing</li>
-          </ul>
-          <div class="mt-6">
-            <a href="/get-started" class="block w-full text-center text-xs font-bold py-3 rounded-xl border-2 transition-all hover:bg-[#272725] hover:text-white hover:border-[#272725]" style="border-color:#cd7f32; color:#cd7f32;">Get started</a>
-          </div>
-        </div>
-
-        <!-- SILVER -->
-        <div class="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col hover:shadow-lg transition-shadow duration-300">
-          <div class="flex items-center gap-2 mb-5">
-            <span class="w-3 h-3 rounded-full shrink-0" style="background-color:#94a3b8;"></span>
-            <span class="text-xs font-bold tracking-widest uppercase" style="color:#64748b;">Silver</span>
-          </div>
-          <div class="mb-1">
-            <div class="flex items-baseline gap-1">
-              <span class="text-3xl font-bold text-[#272725]">₦{{ price('accounting','silver') }}</span>
-              <span class="text-gray-400 text-xs">/ mo</span>
-            </div>
-            <p class="text-[11px] text-gray-400 mt-1 leading-snug">{{ note('accounting','silver') }}</p>
-          </div>
-          <hr class="border-gray-100 my-5" />
-          <ul class="space-y-2 text-xs text-gray-600 flex-1">
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Everything in Bronze</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Bank reconciliation</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Advanced expense categories</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Cash flow reports</li>
-            <li class="flex items-start gap-2 text-gray-300"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Multi-entity consolidation</li>
-            <li class="flex items-start gap-2 text-gray-300"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Tax preparation</li>
-          </ul>
-          <div class="mt-6">
-            <a href="/get-started" class="block w-full text-center text-xs font-bold py-3 rounded-xl border-2 transition-all hover:bg-[#272725] hover:text-white hover:border-[#272725]" style="border-color:#94a3b8; color:#64748b;">Get started</a>
-          </div>
-        </div>
-
-        <!-- GOLD -->
-        <div class="bg-white border-2 rounded-2xl p-6 flex flex-col hover:shadow-xl transition-shadow duration-300 relative" style="border-color:#d4a574;">
-          <div class="absolute -top-3 left-1/2 -translate-x-1/2">
-            <span class="text-[10px] font-bold text-white px-3 py-1 rounded-full whitespace-nowrap" style="background-color:#d4a574;">Most Popular</span>
-          </div>
-          <div class="flex items-center gap-2 mb-5 mt-1">
-            <span class="w-3 h-3 rounded-full shrink-0" style="background-color:#d4a574;"></span>
-            <span class="text-xs font-bold tracking-widest uppercase" style="color:#c4853a;">Gold</span>
-          </div>
-          <div class="mb-1">
-            <div class="flex items-baseline gap-1">
-              <span class="text-3xl font-bold text-[#272725]">₦{{ price('accounting','gold') }}</span>
-              <span class="text-gray-400 text-xs">/ mo</span>
-            </div>
-            <p class="text-[11px] text-gray-400 mt-1 leading-snug">{{ note('accounting','gold') }}</p>
-          </div>
-          <hr class="border-gray-100 my-5" />
-          <ul class="space-y-2 text-xs text-gray-600 flex-1">
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Everything in Silver</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Multi-entity consolidation</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Tax preparation & filing tools</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Advanced financial dashboards</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0" style="color:#2e6276" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Audit trail & compliance reports</li>
-          </ul>
-          <div class="mt-6">
-            <a href="/get-started" class="block w-full text-center text-xs font-bold py-3 rounded-xl text-white transition-all" style="background-color:#d4a574;">Get started</a>
-          </div>
-        </div>
-
-        <!-- PLATINUM -->
-        <div class="rounded-2xl p-6 flex flex-col hover:shadow-xl transition-shadow duration-300 relative overflow-hidden" style="background-color:#272725;">
-          <div class="absolute top-0 right-0 w-40 h-40 rounded-full opacity-10 pointer-events-none" style="background:radial-gradient(circle, #2e6276, transparent); transform:translate(30%,-30%);"></div>
-          <div class="flex items-center gap-2 mb-5">
-            <span class="w-3 h-3 rounded-full shrink-0" style="background: linear-gradient(135deg, #e5e4e2, #a0a0a0);"></span>
-            <span class="text-xs font-bold tracking-widest uppercase text-gray-300">Platinum</span>
-          </div>
-          <div class="mb-1">
-            <div class="flex items-baseline gap-1">
-              <span class="text-3xl font-bold text-white">₦{{ price('accounting','platinum') }}</span>
-              <span class="text-gray-400 text-xs">/ mo</span>
-            </div>
-            <p class="text-[11px] text-gray-500 mt-1 leading-snug">{{ note('accounting','platinum') }}</p>
-          </div>
-          <hr class="border-gray-700 my-5" />
-          <ul class="space-y-2 text-xs text-gray-300 flex-1">
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Everything in Gold</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Multi-currency support</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Scheduled financial reports</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Dedicated finance consultant</li>
-            <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 mt-0.5 shrink-0 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Priority support & SLA</li>
-          </ul>
-          <div class="mt-6">
-            <a href="/get-started" class="block w-full text-center text-xs font-bold py-3 rounded-xl text-[#272725] bg-white hover:bg-gray-100 transition-colors">Get started</a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Enterprise CTA -->
-    <div class="mt-10 rounded-2xl border border-gray-200 bg-white px-8 py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-      <div>
-        <p class="text-sm font-bold text-[#272725] mb-1">Need a custom plan for your enterprise?</p>
-        <p class="text-xs text-gray-500">Get volume pricing, dedicated support, custom integrations, and SLA guarantees tailored to your organisation.</p>
-      </div>
-      <a href="#" class="shrink-0 inline-flex items-center gap-2 text-sm font-semibold px-5 py-3 rounded-xl text-white transition-colors" style="background-color:#2e6276;">
-        Talk to sales
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-
-    <!-- Self-Hosted / Dedicated Deployment CTA -->
-    <div class="mt-6 rounded-2xl overflow-hidden border border-amber-200">
-      <div class="bg-amber-50 px-8 py-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center shrink-0 mt-0.5">
-            <svg class="w-5 h-5" style="color:#d97706" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/><rect x="2" y="3" width="20" height="14" rx="2" stroke-width="1.5"/><path d="M8 21h8M12 17v4" stroke-linecap="round"/></svg>
-          </div>
-          <div>
-            <p class="text-sm font-bold text-[#272725] mb-1">Own Your Infrastructure</p>
-            <p class="text-xs text-gray-600 max-w-xl">Deploy OptimaX ERP on your own servers or cloud — full data ownership, compliance-ready, no shared infrastructure. Available as <strong>Dedicated Cloud</strong> (OptimaX-managed) or <strong>Self-Hosted</strong> (you manage).</p>
-            <div class="flex flex-wrap gap-3 mt-3">
-              <span class="inline-flex items-center gap-1.5 text-xs font-medium text-amber-700 bg-amber-100 px-2.5 py-1 rounded-full">
-                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                Dedicated Cloud from $299/mo
-              </span>
-              <span class="inline-flex items-center gap-1.5 text-xs font-medium text-amber-700 bg-amber-100 px-2.5 py-1 rounded-full">
-                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                Self-Hosted annual license
-              </span>
-              <span class="inline-flex items-center gap-1.5 text-xs font-medium text-amber-700 bg-amber-100 px-2.5 py-1 rounded-full">
-                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                One-click installer
-              </span>
-            </div>
-          </div>
-        </div>
-        <div class="flex flex-col gap-2 shrink-0">
-          <a href="/get-started?plan=dedicated" class="inline-flex items-center justify-center gap-2 text-xs font-bold px-5 py-2.5 rounded-xl text-white transition-colors" style="background-color:#2e6276;">
-            Dedicated Cloud
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <a href="/get-started?plan=self-hosted" class="inline-flex items-center justify-center gap-2 text-xs font-bold px-5 py-2.5 rounded-xl border-2 border-amber-400 text-amber-700 bg-white hover:bg-amber-50 transition-colors">
-            Self-Hosted License
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <a href="/assets/deployment-guide.html" target="_blank" class="inline-flex items-center justify-center gap-2 text-xs font-medium px-5 py-2 rounded-xl text-gray-500 hover:text-amber-700 transition-colors underline-offset-2 hover:underline">
-            Deployment Guide
-            <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-          </a>
         </div>
       </div>
-    </div>
+    </section>
 
+    <section class="panel builder-panel">
+      <div class="section-heading left-aligned">
+        <h2>Build an ERP Package Around Your Business</h2>
+        <p>Only pay for the modules your business needs. Select your preferred modules and calculate your estimated monthly subscription.</p>
+      </div>
+
+      <div class="builder-layout">
+        <div class="module-selector">
+          <div class="module-group" *ngFor="let group of moduleGroups">
+            <div class="module-group-header">{{ group.title }}</div>
+            <button
+              type="button"
+              *ngFor="let module of group.modules"
+              class="module-option"
+              [class.selected]="isSelected(module.name)"
+              [attr.aria-pressed]="isSelected(module.name)"
+              (click)="toggleModule(module.name)"
+            >
+              <div class="module-info">
+                <span>{{ module.name }}</span>
+                <small>{{ formatNaira(module.price) }}</small>
+              </div>
+              <span class="module-check">{{ isSelected(module.name) ? '✓' : '+' }}</span>
+            </button>
+          </div>
+        </div>
+
+        <aside class="builder-summary">
+          <div class="summary-top">
+            <h3>Estimated monthly cost</h3>
+            <div class="summary-price">₦{{ getCustomMonthlyTotal().toLocaleString('en-NG') }}</div>
+            <p>Base Platform: ₦50,000/month</p>
+          </div>
+
+          <div class="summary-controls">
+            <label for="userCount">Number of users</label>
+            <input id="userCount" type="number" min="1" step="1" [ngModel]="customUsers" (ngModelChange)="updateCustomUsers($event)" />
+          </div>
+
+          <div class="summary-breakdown">
+            <div><span>Selected modules</span><strong>{{ selectedModules.length }}</strong></div>
+            <div class="selected-module-list" *ngIf="selectedModules.length">
+              <div *ngFor="let module of selectedModules"><span>{{ module }}</span><strong>{{ formatNaira(getModulePrice(module)) }}</strong></div>
+            </div>
+            <div><span>Base platform</span><strong>₦50,000</strong></div>
+            <div><span>Additional users</span><strong>₦{{ getAdditionalUserCharge().toLocaleString('en-NG') }}</strong></div>
+            <div><span>Module subtotal</span><strong>₦{{ getSelectedModuleTotal().toLocaleString('en-NG') }}</strong></div>
+            <div><span>Estimated total</span><strong>₦{{ getCustomMonthlyTotal().toLocaleString('en-NG') }}</strong></div>
+            <div><span>Estimated annual total</span><strong>₦{{ getCustomAnnualTotal().toLocaleString('en-NG') }}</strong></div>
+          </div>
+
+          <div class="summary-actions">
+            <a class="btn btn-primary full-width" routerLink="/contact" [queryParams]="customQuoteQueryParams">Request My Custom Quote</a>
+            <button class="btn btn-ghost full-width" type="button" (click)="resetCustomBuilder()">Reset</button>
+          </div>
+
+          <p class="summary-note">
+            Your custom package estimate is indicative. Final pricing may depend on deployment requirements,
+            configuration, integrations, and support arrangements.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="panel extras-panel">
+      <div class="section-heading">
+        <h2>Extend Your Optimax ERP Experience</h2>
+      </div>
+
+      <div class="service-grid">
+        <article class="info-card" *ngFor="let service of addOnServices">
+          <div class="info-header">
+            <h3>{{ service.title }}</h3>
+            <span>{{ service.price }}</span>
+          </div>
+          <p>{{ service.description }}</p>
+          <small>{{ service.note }}</small>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel hosting-panel">
+      <div class="section-heading">
+        <h2>Choose How Your Business Runs Optimax</h2>
+      </div>
+
+      <div class="cards-grid triple-grid">
+        <article class="hosting-card" *ngFor="let option of hostingOptions">
+          <div class="hosting-head">
+            <h3>{{ option.title }}</h3>
+            <span>{{ option.price }}</span>
+          </div>
+          <p>{{ option.description }}</p>
+          <ul>
+            <li *ngFor="let feature of option.features">{{ feature }}</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel implementation-panel">
+      <div class="section-heading">
+        <h2>Get Your Business Up and Running with Expert Implementation</h2>
+      </div>
+
+      <div class="cards-grid triple-grid">
+        <article class="implementation-card" *ngFor="let package of implementationPackages">
+          <h3>{{ package.title }}</h3>
+          <div class="price-tag">{{ package.price }}</div>
+          <p>{{ package.description }}</p>
+          <ul>
+            <li *ngFor="let feature of package.features">{{ feature }}</li>
+          </ul>
+        </article>
+      </div>
+      <p class="training-note">Additional training: two-hour virtual session, ₦25,000; full-day virtual session, ₦60,000; on-site training, ₦80,000/day plus travel; custom training video, ₦50,000.</p>
+      <div class="section-actions">
+        <a class="btn btn-secondary" routerLink="/contact">Discuss Implementation</a>
+      </div>
+    </section>
+
+    <section class="panel support-panel">
+      <div class="section-heading">
+        <h2>Support That Keeps Your Business Moving</h2>
+      </div>
+
+      <div class="support-table-wrap">
+        <table class="support-table">
+          <thead>
+            <tr>
+              <th>Plan</th>
+              <th>Included with</th>
+              <th>Response time</th>
+              <th>Cost</th>
+              <th>Key features</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let support of supportPackages">
+              <td>{{ support.name }}</td>
+              <td>{{ support.included || 'Add-on' }}</td>
+              <td>{{ support.response }}</td>
+              <td>{{ support.price || 'Included in plan' }}</td>
+              <td>
+                <ul>
+                  <li *ngFor="let feature of support.features">{{ feature }}</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel white-label-panel">
+      <div class="section-heading">
+        <h2>Launch Your Own Branded ERP Platform</h2>
+        <p>Partner with Optimax to deliver a business management platform under your own brand.</p>
+      </div>
+
+      <div class="cards-grid triple-grid">
+        <article class="white-card" *ngFor="let whiteLabel of whiteLabelPackages">
+          <h3>{{ whiteLabel.title }}</h3>
+          <div class="mini-label">Setup: {{ whiteLabel.setup }}</div>
+          <div class="mini-label accent">Subscription: {{ whiteLabel.subscription }}</div>
+          <ul>
+            <li *ngFor="let feature of whiteLabel.features">{{ feature }}</li>
+          </ul>
+        </article>
+      </div>
+      <div class="section-actions">
+        <a class="btn btn-secondary" routerLink="/contact">Become an Optimax Partner</a>
+      </div>
+    </section>
+
+    <section class="panel licensing-panel">
+      <div class="section-heading">
+        <h2>Explore Long-term Licensing Options</h2>
+      </div>
+
+      <div class="cards-grid four-grid">
+        <article class="licence-card" *ngFor="let option of licensingOptions">
+          <h3>{{ option.title }}</h3>
+          <p class="licence-summary">{{ option.summary }}</p>
+          <div class="licence-value">{{ option.value }}</div>
+          <small>{{ option.detail }}</small>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel faq-panel">
+      <div class="section-heading">
+        <h2>Frequently Asked Questions</h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item" *ngFor="let faq of faqs; let i = index">
+          <button class="faq-question" type="button" [attr.aria-expanded]="faqOpenIndex === i" (click)="faqOpenIndex = faqOpenIndex === i ? null : i">
+            <span>{{ faq.question }}</span>
+            <span>{{ faqOpenIndex === i ? '−' : '+' }}</span>
+          </button>
+          <div class="faq-answer" *ngIf="faqOpenIndex === i">
+            {{ faq.answer }}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="final-cta-inner">
+        <h2>Ready to Bring Your Entire Business Together?</h2>
+        <p>
+          From sales and inventory to finance, HR, procurement, and business intelligence, Optimax ERP gives
+          your organisation one connected platform to operate with greater visibility and control.
+        </p>
+        <div class="final-actions">
+          <a class="btn btn-primary" routerLink="/get-started">Start Your 14-Day Free Trial</a>
+          <a class="btn btn-secondary" routerLink="/contact">Book a Personalised Demo</a>
+        </div>
+        <div class="final-note">No credit card required. Talk to our team to find the right solution for your business.</div>
+      </div>
+    </section>
   </div>
 </section>

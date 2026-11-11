@@ -194,61 +194,12 @@
 .hero-visual {
   position: relative;
   min-width: 0;
-  padding: 34px 0 40px;
 }
 
 .dashboard-window {
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,.23);
-  border-radius: 13px;
-  background: #fff;
-  box-shadow: 0 36px 100px rgba(0,0,0,.4), 0 0 0 8px rgba(255,255,255,.035);
-  transform: perspective(1400px) rotateY(-5deg) rotateX(1deg);
-  animation: dashboard-enter .8s cubic-bezier(.2,.8,.2,1) both;
+  margin: 0;
 }
 
-.dashboard-topbar {
-  display: flex;
-  height: 42px;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 0 15px;
-  color: #475569;
-  background: #fbfcfd;
-  border-bottom: 1px solid #e8edf0;
-  font-size: 8px;
-  font-weight: 800;
-  letter-spacing: .09em;
-}
-
-.dashboard-topbar b {
-  color: #0c6070;
-}
-
-.window-controls,
-.dashboard-status {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.window-controls i {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #d4dce1;
-}
-
-.dashboard-status {
-  color: #74838e;
-  font-weight: 600;
-  letter-spacing: 0;
-}
-
-.dashboard-status i,
 .video-caption i {
   width: 6px;
   height: 6px;
@@ -260,87 +211,8 @@
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 1.62;
-  object-fit: cover;
-  object-position: top;
-}
-
-.visual-orbit {
-  position: absolute;
-  z-index: 0;
-  border: 1px solid rgba(85,230,193,.12);
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-.orbit-one {
-  top: -34px;
-  right: -42px;
-  width: 470px;
-  height: 470px;
-}
-
-.orbit-two {
-  top: 5px;
-  right: -2px;
-  width: 390px;
-  height: 390px;
-}
-
-.floating-note {
-  position: absolute;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  gap: 11px;
-  padding: 12px 15px;
-  border: 1px solid rgba(229,235,239,.8);
-  border-radius: 9px;
-  color: #172b36;
-  background: rgba(255,255,255,.97);
-  box-shadow: 0 14px 36px rgba(2,20,34,.22);
-}
-
-.finance-note {
-  top: -3px;
-  left: -38px;
-}
-
-.inventory-note {
-  right: -21px;
-  bottom: 8px;
-}
-
-.float-icon {
-  display: grid;
-  width: 32px;
-  height: 32px;
-  place-items: center;
-  border-radius: 7px;
-  color: #087c70;
-  background: #e6f8f3;
-  font-size: 18px;
-}
-
-.inventory-icon {
-  color: #345b7a;
-  background: #edf3fa;
-}
-
-.floating-note b,
-.floating-note small {
-  display: block;
-}
-
-.floating-note b {
-  font-size: 11px;
-  line-height: 1.4;
-}
-
-.floating-note small {
-  margin-top: 2px;
-  color: #72808b;
-  font-size: 9px;
+  max-width: 100%;
+  object-fit: contain;
 }
 
 .scroll-cue {
@@ -635,19 +507,11 @@
 
 .challenge-row {
   display: grid;
-  grid-template-columns: 36px minmax(0, 1fr) minmax(150px, .62fr);
+  grid-template-columns: minmax(0, 1fr) minmax(150px, .62fr);
   align-items: center;
   gap: 16px;
   min-height: 101px;
   border-bottom: 1px solid rgba(255,255,255,.16);
-}
-
-.challenge-index {
-  align-self: start;
-  padding-top: 25px;
-  color: #68d9c2;
-  font-size: 10px;
-  font-weight: 800;
 }
 
 .challenge-row h3 {
@@ -1022,13 +886,6 @@
 .industry-services { background: linear-gradient(145deg, #123746, #086d68); }
 .industry-logistics { background: linear-gradient(145deg, #10243b, #315c66); }
 
-.industry-number {
-  color: rgba(255,255,255,.56);
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: .1em;
-}
-
 .industry-name {
   position: relative;
   z-index: 1;
@@ -1069,14 +926,8 @@
   border-top: 1px solid #cdd9de;
 }
 
-.principles-grid article > span {
-  color: #058c7f;
-  font-size: 10px;
-  font-weight: 800;
-}
-
 .principles-grid h3 {
-  margin: 21px 0 9px;
+  margin: 0 0 9px;
   color: #1c3440;
   font-size: 14px;
   font-weight: 800;
@@ -1234,11 +1085,6 @@
   color: rgba(255,255,255,.57);
 }
 
-@keyframes dashboard-enter {
-  from { opacity: 0; transform: perspective(1400px) translateY(18px) rotateY(-5deg) rotateX(1deg); }
-  to { opacity: 1; transform: perspective(1400px) translateY(0) rotateY(-5deg) rotateX(1deg); }
-}
-
 @media (max-width: 980px) {
   .hero-section {
     min-height: 0;
@@ -1260,9 +1106,6 @@
     width: min(100%, 760px);
     margin-inline: auto;
   }
-
-  .finance-note { left: -12px; }
-  .inventory-note { right: -8px; }
 
   .intro-strip {
     align-items: flex-start;
@@ -1324,43 +1167,6 @@
     width: 100%;
   }
 
-  .hero-visual {
-    padding: 27px 2px 37px;
-  }
-
-  .dashboard-topbar {
-    height: 34px;
-    padding-inline: 9px;
-    font-size: 7px;
-  }
-
-  .dashboard-status {
-    font-size: 7px;
-  }
-
-  .floating-note {
-    gap: 7px;
-    padding: 8px 9px;
-  }
-
-  .finance-note {
-    top: -3px;
-    left: 0;
-  }
-
-  .inventory-note {
-    right: 0;
-    bottom: 2px;
-  }
-
-  .float-icon {
-    width: 27px;
-    height: 27px;
-    font-size: 15px;
-  }
-
-  .floating-note b { font-size: 9px; }
-  .floating-note small { font-size: 7px; }
   .scroll-cue { left: 20px; }
 
   .intro-strip {
@@ -1422,17 +1228,12 @@
   }
 
   .challenge-row {
-    grid-template-columns: 27px 1fr;
+    grid-template-columns: 1fr;
     gap: 10px;
     padding-block: 15px;
   }
 
-  .challenge-index {
-    padding-top: 1px;
-  }
-
   .challenge-result {
-    grid-column: 2;
     justify-self: start;
     margin-top: 2px;
   }
@@ -1480,17 +1281,6 @@
   .principles-grid {
     grid-template-columns: 1fr;
     gap: 27px;
-  }
-
-  .principles-grid article {
-    display: grid;
-    grid-template-columns: 34px 1fr;
-    column-gap: 12px;
-  }
-
-  .principles-grid article > span {
-    grid-row: span 2;
-    padding-top: 2px;
   }
 
   .principles-grid h3 {
