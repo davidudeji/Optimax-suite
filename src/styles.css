@@ -624,3 +624,34 @@ video {
   color: #d1d5db;
   pointer-events: none;
 }
+
+.product-hero {
+  position: relative;
+  isolation: isolate;
+  color: #fff;
+  background: linear-gradient(112deg, #2e6276 0%, #1f4251 52%, #2eb270 100%);
+}
+
+.product-hero h1 {
+  color: #fff;
+}
+
+.product-hero h1 ~ p {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.product-hero > div > div:first-child span.text-gray-500 {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.product-hero > div > hr {
+  border-color: rgba(255, 255, 255, 0.38);
+}
+
+.product-hero a[href="/get-started"] {
+  background-color: var(--brand-green) !important;
+}
+
+.product-hero a[href="/get-started"]:hover {
+  background-color: var(--brand-green-hover) !important;
+}
