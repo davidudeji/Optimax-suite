@@ -6,13 +6,12 @@
   height: 105vh;
   padding: 20px;
   box-sizing: border-box;
-  background: url("/assets/images/expensebackground.jpg") no-repeat center
-    center/cover;
+  background: linear-gradient(120deg, rgba(46, 98, 118, 0.96) 0%, rgba(31, 66, 81, 0.96) 48%, rgba(46, 178, 112, 0.86) 100%);
   margin-top: 60px;
 }
 
 .bold {
-  color: #51e0a4;
+  color: #2EB270;
 }
 
 .left {
@@ -45,18 +44,18 @@
   padding: 10px 20px;
   font-size: 1.2rem;
   color: white;
-  background-color: #3de49e;
+  background-color: #2EB270;
   border: none;
-  border-radius: 5px;
+  border-radius: 999px;
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin-top: 10px;
-  width: fit-content; /* Adjust the width to fit the content */
-  align-self: flex-start; /* Align the button to the start of the flex container */
+  width: fit-content;
+  align-self: flex-start;
 }
 
 .cta-button:hover {
-  background-color: #0bec8e;
+  background-color: #47e797;
 }
 
 .right {

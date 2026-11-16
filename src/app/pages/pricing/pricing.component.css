@@ -13,8 +13,8 @@ a {
 }
 
 .pricing-page {
-  background: #f6f8fb;
-  color: #1b2430;
+  background: #F3F6F8;
+  color: #172B36;
   padding: 32px 0 72px;
   font-family: 'Segoe UI', Tahoma, sans-serif;
 }
@@ -46,7 +46,7 @@ a {
 .eyebrow-dot {
   width: 12px;
   height: 12px;
-  background: linear-gradient(135deg, #0d9aa2, #1c3047);
+  background: linear-gradient(135deg, #2EB270, #2E6276);
   border-radius: 4px;
 }
 
@@ -118,9 +118,9 @@ a:focus-visible {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #0d9aa2, #0f7d8a);
+  background: linear-gradient(135deg, #2E6276, #2EB270);
   color: #fff;
-  box-shadow: 0 10px 24px rgba(13, 154, 162, 0.22);
+  box-shadow: 0 10px 24px rgba(46, 98, 118, 0.22);
 }
 
 .btn-secondary {
@@ -176,9 +176,9 @@ a:focus-visible {
 }
 
 .billing-option.active {
-  background: rgba(13, 154, 162, 0.12);
-  border-color: rgba(13, 154, 162, 0.4);
-  color: #0c2e3b;
+  background: rgba(46, 98, 118, 0.12);
+  border-color: rgba(46, 98, 118, 0.4);
+  color: #1f4251;
 }
 
 .billing-option span {
@@ -245,9 +245,9 @@ a:focus-visible {
 }
 
 .plan-card.featured {
-  border: 2px solid rgba(13, 154, 162, 0.75);
+  border: 2px solid rgba(46, 98, 118, 0.75);
   transform: translateY(-3px);
-  box-shadow: 0 18px 36px rgba(13, 154, 162, 0.12);
+  box-shadow: 0 18px 36px rgba(46, 98, 118, 0.12);
 }
 
 .plan-badge {
@@ -255,7 +255,7 @@ a:focus-visible {
   top: -14px;
   left: 50%;
   transform: translateX(-50%);
-  background: linear-gradient(135deg, #0d9aa2, #1c3047);
+  background: linear-gradient(135deg, #2E6276, #2EB270);
   color: #fff;
   border-radius: 999px;
   padding: 7px 14px;

@@ -6,7 +6,7 @@
   height: 100vh;
   padding: 20px;
   box-sizing: border-box;
-  background: url("/assets/images/hero3.jpg") no-repeat center center/cover;
+  background: linear-gradient(120deg, rgba(46, 98, 118, 0.96) 0%, rgba(31, 66, 81, 0.96) 48%, rgba(46, 178, 112, 0.86) 100%);
   margin-top: 60px;
 }
 
@@ -24,13 +24,13 @@
   font-size: 4.5em;
   font-weight: bold;
   margin-bottom: 10px;
-  color: rgb(80, 76, 76);
+  color: #ffffff;
 }
 
 .left p {
   font-size: 1.6rem;
   line-height: 1.5;
-  color: #1d1a1a;
+  color: rgba(255, 255, 255, 0.9);
   margin-bottom: 17px;
   word-spacing: 3px;
   padding-bottom: 8px;
@@ -40,36 +40,37 @@
   padding: 10px 20px;
   font-size: 1.2rem;
   color: white;
-  background-color: #007bff;
+  background-color: #2EB270;
   border: none;
-  border-radius: 5px;
+  border-radius: 999px;
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin-top: 10px;
-  width: fit-content; /* Adjust the width to fit the content */
-  align-self: flex-start; /* Align the button to the start of the flex container */
+  width: fit-content;
+  align-self: flex-start;
 }
 
 .cta-button:hover {
-  background-color: #0056b3;
+  background-color: #47e797;
 }
 
 .inq-button {
   padding: 10px 20px;
   font-size: 1.2rem;
-  color: #007bff;
-  border: 2px solid #007bff;
-  border-radius: 5px;
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 999px;
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin-top: 10px;
-  width: fit-content; /* Adjust the width to fit the content */
-  align-self: flex-start; /* Align the button to the start of the flex container */
+  width: fit-content;
+  align-self: flex-start;
+  background: transparent;
 }
 
-/* .start-button:hover {
-  background-color: #0056b3;
-} */
+.inq-button:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
 
 .right {
   flex: 1;
@@ -89,7 +90,7 @@
 }
 
 .bold {
-  color: #007bff;
+  color: #2EB270;
 }
 
 /* Responsive design for different screen sizes */

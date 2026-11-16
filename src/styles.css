@@ -7,6 +7,54 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --brand-blue: #2E6276;
+  --brand-blue-deep: #1f4251;
+  --brand-green: #2EB270;
+  --brand-green-hover: #47e797;
+  --brand-surface: #F3F6F8;
+  --brand-white: #FFFFFF;
+  --brand-text: #172B36;
+  --brand-muted: #64748B;
+  --brand-border: #E5EBEF;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--brand-surface);
+  color: var(--brand-text);
+  font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6,
+p {
+  color: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+.btn,
+.cta-button,
+.inq-button {
+  transition: all 0.2s ease-in-out;
+}
+
+.section-surface {
+  background: var(--brand-white);
+  border: 1px solid var(--brand-border);
+}
+
+::selection {
+  background: rgba(46, 178, 112, 0.22);
+  color: var(--brand-text);
+}
+
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;

@@ -18,10 +18,10 @@ body {
   }
    */
 ::selection {
-  background-color: #ffcc00; /* New highlight color */
-  color: #000000; /* New text color */
+  background-color: rgba(46, 178, 112, 0.22);
+  color: #172B36;
 }
 ::-moz-selection {
-  background-color: #ffcc00; /* Firefox support */
-  color: #000000;
+  background-color: rgba(46, 178, 112, 0.22);
+  color: #172B36;
 }
