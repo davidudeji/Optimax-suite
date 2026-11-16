@@ -1,71 +1,87 @@
 :host-context(.home-page) .site-navigation {
-  color: #172b36;
-  border-color: rgba(7, 29, 51, .08) !important;
-  background: rgba(255, 255, 255, .94) !important;
+  min-height: 72px;
+  color: #fff;
+  border-color: rgba(255, 255, 255, .12) !important;
+  background: rgba(11, 27, 51, .72) !important;
   backdrop-filter: blur(18px);
-  box-shadow: 0 1px 0 rgba(7, 29, 51, .04);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .04);
 }
 
 :host-context(.home-page) .site-navigation.nav-scrolled {
-  background: rgba(255, 255, 255, .98) !important;
-  box-shadow: 0 8px 26px rgba(7, 29, 51, .08);
+  background: rgba(11, 27, 51, .96) !important;
+  box-shadow: 0 8px 26px rgba(7, 29, 51, .18);
+}
+
+:host-context(.home-page) .site-navigation > div:first-child {
+  min-height: 72px;
+}
+
+:host-context(.home-page) .site-navigation + div {
+  height: 0 !important;
 }
 
 :host-context(.home-page) .site-navigation .navbar-dropdown-wrapper > li > button,
 :host-context(.home-page) .site-navigation .navbar-dropdown-wrapper > li > a {
-  color: #405563;
+  color: rgba(255, 255, 255, .82);
 }
 
 :host-context(.home-page) .site-navigation .navbar-dropdown-wrapper > li > button:hover,
 :host-context(.home-page) .site-navigation .navbar-dropdown-wrapper > li > a:hover {
-  color: #087c70;
-  background: #f0f8f6;
+  color: #fff;
+  background: rgba(255, 255, 255, .1);
 }
 
 :host-context(.home-page) .site-navigation .nav-demo-btn {
   min-height: 40px;
   justify-content: center;
   padding: 0 17px;
-  border: 1px solid #00a995;
-  border-radius: 6px;
-  color: #062b32;
-  background: #55e6c1;
+  border: 1px solid #00a6a6;
+  border-radius: 7px;
+  color: #fff;
+  background: #00a6a6;
   font-size: 12px;
   font-weight: 800;
   transition: background .2s ease, transform .2s ease;
 }
 
 :host-context(.home-page) .site-navigation .nav-demo-btn:hover {
-  background: #7aefd2;
+  background: #008f8f;
   transform: translateY(-1px);
 }
 
 :host-context(.home-page) .site-navigation .mobile-menu-wrapper {
-  border-color: #e5ebef;
-  background: #fff;
-  color: #405563;
+  border-color: rgba(255, 255, 255, .12);
+  background: rgba(11, 27, 51, .98);
+  color: #fff;
 }
 
 :host-context(.home-page) .site-navigation .mobile-menu-wrapper a,
 :host-context(.home-page) .site-navigation .mobile-menu-wrapper button {
-  color: #405563;
+  color: rgba(255, 255, 255, .86);
 }
 
 :host-context(.home-page) .site-navigation .mobile-menu-wrapper a:hover,
 :host-context(.home-page) .site-navigation .mobile-menu-wrapper button:hover {
-  color: #087c70;
-  background: #f0f8f6;
+  color: #fff;
+  background: rgba(255, 255, 255, .1);
 }
 
 :host-context(.home-page) .site-navigation .mobile-menu-wrapper .nav-demo-btn {
-  color: #062b32;
+  color: #fff;
 }
 
-:host-context(.home-page) .site-navigation .mobile-menu-wrapper {
+:host-context(.home-page) .site-navigation > .mobile-menu-wrapper {
   border-radius: 0 0 12px 12px;
+  box-shadow: 0 18px 34px rgba(7, 29, 51, .18);
 }
 
 :host-context(.home-page) .site-navigation .mobile-menu-wrapper .text-white\/80,
 :host-context(.home-page) .site-navigation .mobile-menu-wrapper .text-white\/30 {
-  color: #405563;
+  color: rgba(255, 255, 255, .86);
+}
+
+:host-context(.home-page) .site-navigation > .mobile-menu-wrapper.opacity-100 {
+  max-height: calc(100dvh - 72px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
