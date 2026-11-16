@@ -1,0 +1,427 @@
+<div class="cloud-page">
+  <app-navigation></app-navigation>
+  <main>
+    <section class="cloud-hero" aria-labelledby="cloud-page-title">
+      <div class="cloud-container">
+        <nav class="cloud-breadcrumbs" aria-label="Breadcrumb">
+          <a routerLink="/">Home</a>
+          <span aria-hidden="true">/</span>
+          <a routerLink="/optima-xcloud/">OptimaXCloud</a>
+          <ng-container *ngIf="page.id !== 'overview'">
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">{{ page.eyebrow }}</span>
+          </ng-container>
+          <span *ngIf="page.id === 'overview'" class="visually-hidden" aria-current="page">Overview</span>
+        </nav>
+
+        <div class="cloud-hero-grid">
+          <div class="cloud-hero-copy">
+            <p class="cloud-eyebrow">{{ page.eyebrow }}</p>
+            <h1 id="cloud-page-title">{{ page.heading }}</h1>
+            <p class="cloud-hero-intro">{{ page.intro }}</p>
+            <div class="cloud-actions">
+              <a class="cloud-button cloud-button-primary" [routerLink]="page.primaryPath">
+                {{ page.primaryLabel }} <span aria-hidden="true">↗</span>
+              </a>
+              <a class="cloud-button cloud-button-secondary" [routerLink]="page.secondaryPath">
+                {{ page.secondaryLabel }}
+              </a>
+            </div>
+            <a *ngIf="page.id === 'overview'" class="cloud-tertiary-link" routerLink="/optima-xcloud/integrations/">
+              Explore Integrations <span aria-hidden="true">→</span>
+            </a>
+          </div>
+
+          <div
+            *ngIf="page.id === 'overview'"
+            class="cloud-visual"
+            role="img"
+            aria-label="Conceptual cloud operations illustration connecting applications and customer environments through infrastructure, networking, and operations."
+          >
+            <div class="visual-caption"><span></span> CONCEPTUAL CLOUD WORKFLOW</div>
+            <div class="visual-platform">
+              <div class="visual-platform-mark" aria-hidden="true">O<span>.</span></div>
+              <div>
+                <strong>Cloud operations</strong>
+                <small>Product workspace</small>
+              </div>
+              <span class="visual-platform-tag">OptimaXCloud</span>
+            </div>
+            <div class="visual-connector" aria-hidden="true"><i></i><i></i><i></i></div>
+            <div class="visual-services">
+              <div><span class="visual-icon" aria-hidden="true">01</span><strong>Compute</strong></div>
+              <div><span class="visual-icon" aria-hidden="true">02</span><strong>Networking</strong></div>
+              <div><span class="visual-icon" aria-hidden="true">03</span><strong>Applications</strong></div>
+            </div>
+            <div class="visual-connector visual-connector-short" aria-hidden="true"><i></i><i></i><i></i></div>
+            <div class="visual-workloads">
+              <span>Customer environments</span>
+              <span>Managed workloads</span>
+              <span>Operations</span>
+            </div>
+            <p class="visual-note">Illustrative architecture — provider connections and capabilities depend on implementation.</p>
+          </div>
+
+          <div *ngIf="page.id !== 'overview'" class="cloud-hero-aside">
+            <span class="aside-index">{{ page.id === 'platform' ? '01' : page.id === 'integrations' ? '02' : page.id === 'solutions' ? '03' : page.id === 'migration' ? '04' : page.id === 'pricing' ? '05' : '06' }}</span>
+            <p>OptimaXCloud</p>
+            <span class="aside-rule"></span>
+            <small>Cloud infrastructure<br />&amp; application operations</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="cloud-subnav" aria-label="OptimaXCloud pages">
+      <div class="cloud-container cloud-subnav-inner">
+        <span class="subnav-label">EXPLORE</span>
+        <a
+          *ngFor="let item of cloudPages"
+          [routerLink]="item.path"
+          [attr.aria-current]="isActive(item.path) ? 'page' : null"
+          [class.active]="isActive(item.path)"
+        >{{ item.label }}</a>
+      </div>
+    </nav>
+
+    <ng-container [ngSwitch]="page.id">
+      <ng-container *ngSwitchCase="'overview'">
+        <section class="cloud-section cloud-intro-section" aria-labelledby="connected-title">
+          <div class="cloud-container cloud-intro-grid">
+            <div>
+              <p class="cloud-section-kicker">A CONNECTED APPROACH</p>
+              <h2 id="connected-title">One connected approach to cloud operations.</h2>
+            </div>
+            <p class="cloud-lead">Cloud environments involve more than servers. Infrastructure, applications, networking, access, billing, backups, and support all need to work together. OptimaXCloud brings these operational concerns into one product experience, helping teams manage cloud services through a more consistent and structured workflow.</p>
+          </div>
+        </section>
+
+        <section class="cloud-section cloud-tint-section" aria-labelledby="capabilities-title">
+          <div class="cloud-container">
+            <div class="cloud-section-heading">
+              <div><p class="cloud-section-kicker">WHAT IT CONNECTS</p><h2 id="capabilities-title">Cloud capabilities, considered together.</h2></div>
+              <p>Explore the documented approach. Availability varies by provider, service package, and implementation.</p>
+            </div>
+            <div class="cloud-card-grid cloud-card-grid-three">
+              <article class="cloud-card capability-card" *ngFor="let feature of overviewFeatures; let i = index">
+                <span class="card-index" aria-hidden="true">0{{ i + 1 }}</span>
+                <h3>{{ feature.title }}</h3>
+                <p>{{ feature.description }}</p>
+                <a [routerLink]="feature.path">{{ feature.linkLabel }} <span aria-hidden="true">→</span></a>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="cloud-section" aria-labelledby="workflow-title">
+          <div class="cloud-container">
+            <div class="cloud-section-heading">
+              <div><p class="cloud-section-kicker">A TYPICAL JOURNEY</p><h2 id="workflow-title">From infrastructure selection to managed delivery.</h2></div>
+              <p>The exact workflow depends on the selected infrastructure provider, service package, and implementation.</p>
+            </div>
+            <div class="workflow-grid">
+              <article class="workflow-step" *ngFor="let step of workflowSteps">
+                <span>{{ step.number }}</span><h3>{{ step.title }}</h3><p>{{ step.description }}</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="cloud-section cloud-tint-section" aria-labelledby="workloads-title">
+          <div class="cloud-container">
+            <div class="cloud-section-heading">
+              <div><p class="cloud-section-kicker">WORKLOADS</p><h2 id="workloads-title">Built around the workloads organizations depend on.</h2></div>
+              <a class="cloud-text-link" routerLink="/optima-xcloud/solutions/">Explore all solutions <span aria-hidden="true">↗</span></a>
+            </div>
+            <div class="workload-grid">
+              <a class="workload-item" *ngFor="let workload of workloads" routerLink="/optima-xcloud/solutions/">
+                <span aria-hidden="true">↗</span><h3>{{ workload.title }}</h3><p>{{ workload.description }}</p>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section class="cloud-section" aria-labelledby="integration-preview-title">
+          <div class="cloud-container integration-preview">
+            <div class="integration-preview-copy">
+              <p class="cloud-section-kicker">PROVIDER-ADAPTER APPROACH</p>
+              <h2 id="integration-preview-title">An integration strategy for different infrastructure environments.</h2>
+              <p>Explore how CloudStack, Terraform, and Proxmox can fit into a provider-specific architecture. Active connections and availability require confirmation.</p>
+              <a class="cloud-text-link" routerLink="/optima-xcloud/integrations/">Explore Integrations <span aria-hidden="true">↗</span></a>
+            </div>
+            <div class="integration-preview-list">
+              <div *ngFor="let integration of integrations">
+                <span class="integration-symbol" aria-hidden="true">{{ integration.name === 'Terraform' ? 'TF' : integration.name === 'Proxmox' ? 'PX' : 'CS' }}</span>
+                <div><strong>{{ integration.name }}</strong><small>Contact us to confirm availability</small></div>
+                <span aria-hidden="true">↗</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="cloud-section cloud-tint-section">
+          <div class="cloud-container preview-panels">
+            <article>
+              <p class="cloud-section-kicker">CLOUD MIGRATION</p>
+              <h2>Move your workloads with a plan.</h2>
+              <p>Infrastructure, databases, DNS, email, security configuration, and application dependencies all need consideration. Plan the transition, prepare the destination, validate services, and coordinate cutover and recovery procedures.</p>
+              <a class="cloud-text-link" routerLink="/optima-xcloud/migration/">Explore Cloud Migration <span aria-hidden="true">↗</span></a>
+            </article>
+            <article>
+              <p class="cloud-section-kicker">INDICATIVE PRICING</p>
+              <h2>Cloud services aligned with your requirements.</h2>
+              <p>Choose a starting point based on your workload, then confirm infrastructure requirements, support needs, application dependencies, and the full cost of operation.</p>
+              <a class="cloud-text-link" routerLink="/optima-xcloud/pricing/">Explore Pricing <span aria-hidden="true">↗</span></a>
+            </article>
+          </div>
+        </section>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'platform'">
+        <section class="cloud-section" aria-labelledby="platform-capabilities-title">
+          <div class="cloud-container">
+            <div class="cloud-section-heading">
+              <div><p class="cloud-section-kicker">INFRASTRUCTURE & OPERATIONS</p><h2 id="platform-capabilities-title">A clearer view of the cloud service lifecycle.</h2></div>
+              <p>Capabilities and workflows described here depend on provider integration and service configuration.</p>
+            </div>
+            <div class="detail-grid">
+              <article class="detail-card" *ngFor="let section of platformSections">
+                <h3>{{ section.title }}</h3><p>{{ section.description }}</p>
+                <ul><li *ngFor="let item of section.items">{{ item }}</li></ul>
+                <p class="detail-note" *ngIf="section.note">{{ section.note }}</p>
+              </article>
+            </div>
+          </div>
+        </section>
+        <section class="cloud-section cloud-tint-section">
+          <div class="cloud-container">
+            <div class="cloud-section-heading">
+              <div><p class="cloud-section-kicker">CONCEPTUAL WORKFLOW</p><h2>From customer request to service handover.</h2></div>
+              <p>This workflow is illustrative; the live implementation may differ.</p>
+            </div>
+            <div class="platform-flow">
+              <span>Customer request</span><b aria-hidden="true">→</b><span>Plan validation</span><b aria-hidden="true">→</b><span>Order and payment</span><b aria-hidden="true">→</b><span>Provisioning job</span><b aria-hidden="true">→</b><span>Provider</span><b aria-hidden="true">→</b><span>Application configuration</span><b aria-hidden="true">→</b><span>Validation and handover</span>
+            </div>
+          </div>
+        </section>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'integrations'">
+        <section class="cloud-section" aria-labelledby="architecture-title">
+          <div class="cloud-container">
+            <div class="cloud-section-heading">
+              <div><p class="cloud-section-kicker">CONCEPTUAL ARCHITECTURE</p><h2 id="architecture-title">Separate the service experience from provider operations.</h2></div>
+              <p>A conceptual model for connecting service workflows with infrastructure-specific operations.</p>
+            </div>
+            <div class="architecture-diagram" aria-label="Conceptual OptimaXCloud architecture">
+              <div class="architecture-layer">
+                <strong>Customer and operator experience</strong>
+                <span>Product workspace</span><span>Service catalog</span><span>Orders</span><span>Tenant management</span><span>Billing and service status</span>
+              </div>
+              <span class="architecture-arrow" aria-hidden="true">↓</span>
+              <div class="architecture-layer">
+                <strong>Application and orchestration layer</strong>
+                <span>Request validation</span><span>Provider adapters</span><span>Provisioning jobs</span><span>Lifecycle orchestration</span><span>Status reconciliation</span>
+              </div>
+              <span class="architecture-arrow" aria-hidden="true">↓</span>
+              <div class="architecture-layer architecture-layer-accent">
+                <strong>Infrastructure and automation</strong>
+                <span>Apache CloudStack</span><span>Terraform</span><span>Proxmox</span>
+              </div>
+              <span class="architecture-arrow" aria-hidden="true">↓</span>
+              <div class="architecture-layer architecture-layer-workloads">
+                <strong>Workloads</strong>
+                <span>Virtual machines</span><span>Networks</span><span>Websites</span><span>Business applications</span><span>Managed workloads</span>
+              </div>
+              <p>This diagram illustrates the intended integration model. The exact architecture and active provider connections depend on the deployed implementation.</p>
+            </div>
+          </div>
+        </section>
+        <section class="cloud-section cloud-tint-section" aria-labelledby="integration-catalog-title">
+          <div class="cloud-container">
+            <div class="cloud-section-heading">
+              <div><p class="cloud-section-kicker">TECHNOLOGY REFERENCES</p><h2 id="integration-catalog-title">Explore the integration approach.</h2></div>
+              <p>Integration availability is not inferred from the existence of a guide. Contact the team to confirm status for your environment.</p>
+            </div>
+            <div class="integration-card-grid">
+              <article class="integration-card" *ngFor="let integration of integrations">
+                <p class="integration-category">INFRASTRUCTURE & AUTOMATION</p>
+                <h3>{{ integration.name }}</h3><p>{{ integration.role }}</p>
+                <p class="integration-use-case">{{ integration.useCases }}</p>
+                <p class="availability-note"><span aria-hidden="true">i</span> Contact us to confirm availability.</p>
+                <div class="integration-links">
+                  <a [href]="integration.officialUrl">Official documentation <span aria-hidden="true">↗</span></a>
+                  <a [href]="integration.guideUrl">OptimaXCloud guide <span aria-hidden="true">↗</span></a>
+                </div>
+              </article>
+            </div>
+            <aside class="architecture-principles">
+              <h3>Architecture considerations</h3>
+              <p>Asynchronous provisioning, job status, retry handling, provider error reporting, resource reconciliation, tenant isolation, permission enforcement, secrets management, and audit logs are important considerations. Their implementation must be confirmed for each deployment.</p>
+            </aside>
+          </div>
+        </section>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'solutions'">
+        <section class="cloud-section" aria-labelledby="solutions-title">
+          <div class="cloud-container">
+            <div class="cloud-section-heading">
+              <div><p class="cloud-section-kicker">WORKLOAD OPTIONS</p><h2 id="solutions-title">Start with the application and its requirements.</h2></div>
+              <p>Deployment support and package availability must be confirmed for each application.</p>
+            </div>
+            <div class="detail-grid solution-grid">
+              <article class="detail-card solution-card" *ngFor="let group of solutionGroups">
+                <span class="solution-mark" aria-hidden="true">+</span>
+                <h3>{{ group.title }}</h3><p>{{ group.description }}</p>
+                <ul><li *ngFor="let item of group.items">{{ item }}</li></ul>
+                <p class="detail-note" *ngIf="group.note">{{ group.note }}</p>
+              </article>
+            </div>
+          </div>
+        </section>
+        <section class="cloud-section cloud-tint-section" aria-labelledby="requirements-title">
+          <div class="cloud-container requirements-panel">
+            <div><p class="cloud-section-kicker">WORKLOAD PLANNING</p><h2 id="requirements-title">What to bring to a workload conversation.</h2><p>These are planning considerations, not a self-service capacity calculator.</p></div>
+            <ul><li *ngFor="let requirement of planningRequirements">{{ requirement }}</li></ul>
+          </div>
+        </section>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'migration'">
+        <section class="cloud-section" aria-labelledby="migration-plan-title">
+          <div class="cloud-container">
+            <div class="cloud-section-heading">
+              <div><p class="cloud-section-kicker">A STRUCTURED TRANSITION</p><h2 id="migration-plan-title">A migration plan shaped around your environment.</h2></div>
+              <p>Migration steps, compatibility, and cutover decisions depend on the source environment and application requirements.</p>
+            </div>
+            <div class="migration-list">
+              <article *ngFor="let step of migrationSteps; let i = index">
+                <span class="migration-number">0{{ i + 1 }}</span>
+                <div><h3>{{ step.title }}</h3><p>{{ step.description }}</p><ul><li *ngFor="let item of step.items">{{ item }}</li></ul></div>
+              </article>
+            </div>
+          </div>
+        </section>
+        <section class="cloud-section cloud-tint-section">
+          <div class="cloud-container migration-reference">
+            <div><p class="cloud-section-kicker">IONOS & PLESK</p><h2>Plan the details behind a hosting migration.</h2></div>
+            <div><p>Review Plesk subscriptions, website files, databases, domains, email accounts, DNS, and SSL certificates as part of the migration scope. Compatibility depends on the existing hosting configuration.</p><a class="cloud-text-link" href="https://be.optimaxsuites.com/iaas/xcw/migration-ionos-plesk.html">Read the IONOS and Plesk migration guide <span aria-hidden="true">↗</span></a></div>
+          </div>
+        </section>
+        <section class="cloud-section">
+          <div class="cloud-container migration-reference">
+            <div><p class="cloud-section-kicker">MANAGED CLOUD SERVICES</p><h2>Connect migration planning to ongoing cloud operations.</h2></div>
+            <div><p>Discuss cloud infrastructure planning, cloud migration, cloud environment management, application deployment, backup and disaster recovery planning, and cloud application development with the team.</p><a class="cloud-text-link" routerLink="/contact">Discuss managed services <span aria-hidden="true">↗</span></a></div>
+          </div>
+        </section>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'pricing'">
+        <section class="cloud-section" aria-labelledby="plans-title">
+          <div class="cloud-container">
+            <div class="cloud-section-heading">
+              <div><p class="cloud-section-kicker">PUBLISHED INDICATIVE PLANS</p><h2 id="plans-title">A starting point for the cloud conversation.</h2></div>
+              <p>Published ranges reproduced from the current product pricing page; confirm the approved commercial offer before purchase.</p>
+            </div>
+            <div class="pricing-grid">
+              <article class="pricing-card" *ngFor="let plan of plans">
+                <p class="pricing-label">OPTIMAXCLOUD PLAN</p><h3>{{ plan.name }}</h3>
+                <p class="pricing-amount">{{ plan.price }}</p><p class="pricing-positioning">{{ plan.positioning }}</p>
+                <ul><li *ngFor="let feature of plan.features">{{ feature }}</li></ul>
+                <a class="cloud-button cloud-button-outline" routerLink="/contact">Request a Cloud Quote <span aria-hidden="true">↗</span></a>
+              </article>
+            </div>
+            <aside class="pricing-disclaimer">
+              <strong>Pricing clarification</strong>
+              <p>Published prices are indicative. Final pricing may vary depending on the infrastructure provider, service configuration, software package, support requirements, and partner arrangements. Confirm the complete quotation before placing an order.</p>
+            </aside>
+            <p class="pricing-source">Source: <a href="https://be.optimaxsuites.com/iaas/xcw/pricing.html">published OptimaXCloud pricing page <span aria-hidden="true">↗</span></a></p>
+          </div>
+        </section>
+        <section class="cloud-section cloud-tint-section">
+          <div class="cloud-container pricing-faq">
+            <div><p class="cloud-section-kicker">COMMON QUESTIONS</p><h2>What affects a cloud quotation?</h2></div>
+            <div class="faq-list">
+              <details><summary>What is included in each plan?</summary><p>The published plan descriptions are indicative. Confirm the full service configuration, support, and operational scope with the team.</p></details>
+              <details><summary>Are prices fixed?</summary><p>No. Published prices are indicative and may vary by provider, configuration, software package, support requirements, and partner arrangements.</p></details>
+              <details><summary>Is application deployment included?</summary><p>Deployment options depend on the application and selected plan. Discuss application requirements before confirming a quotation.</p></details>
+              <details><summary>What determines GPU pricing?</summary><p>GPU pricing is custom and depends on the selected infrastructure environment, capacity, and workload requirements.</p></details>
+              <details><summary>Can existing applications be migrated?</summary><p>Migration can be assessed based on the source environment, application dependencies, and destination requirements.</p></details>
+              <details><summary>What backup and support options are available?</summary><p>Backup and support arrangements depend on the plan and service configuration. Confirm the available options and responsibilities with the team.</p></details>
+              <details><summary>How do I request a custom quotation?</summary><p><a routerLink="/contact">Contact the cloud team</a> with your application, infrastructure, and operational requirements.</p></details>
+            </div>
+          </div>
+        </section>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'documentation'">
+        <section class="cloud-section" aria-labelledby="resources-title">
+          <div class="cloud-container">
+            <div class="cloud-section-heading">
+              <div><p class="cloud-section-kicker">PRODUCT RESOURCES</p><h2 id="resources-title">Browse the original product guides.</h2></div>
+              <p>These links open the original OptimaXCloud resource in the same tab.</p>
+            </div>
+            <div class="resource-grid">
+              <a class="resource-card" *ngFor="let resource of resources" [href]="resource.url">
+                <span class="resource-category">{{ resource.category }}</span>
+                <h3>{{ resource.title }} <span aria-hidden="true">↗</span></h3>
+                <p>{{ resource.description }}</p>
+                <span class="resource-link-label">Open resource</span>
+              </a>
+            </div>
+          </div>
+        </section>
+      </ng-container>
+    </ng-container>
+
+    <section class="cloud-cta" aria-labelledby="cloud-cta-title">
+      <div class="cloud-container cloud-cta-inner">
+        <div><p class="cloud-section-kicker">START A CONVERSATION</p>
+          <h2 id="cloud-cta-title">{{ page.id === 'overview' ? 'Let’s plan your next cloud deployment.' : page.id === 'solutions' ? 'Not sure which environment your application needs?' : page.id === 'integrations' ? 'Planning a cloud infrastructure integration?' : page.id === 'migration' ? 'Planning a cloud migration?' : page.id === 'pricing' ? 'Need a plan tailored to your organization?' : 'Need a cloud environment for a specific workload?' }}</h2>
+          <p>Tell us about your applications, infrastructure requirements, and operational goals. Our team can help identify the right cloud approach for your organization.</p>
+        </div>
+        <div class="cloud-actions">
+          <a class="cloud-button cloud-button-primary" routerLink="/contact">{{ page.id === 'migration' ? 'Request a Migration Consultation' : page.id === 'pricing' ? 'Request a Cloud Quote' : page.id === 'solutions' ? 'Discuss Your Workload' : 'Talk to Our Cloud Team' }} <span aria-hidden="true">↗</span></a>
+          <a class="cloud-button cloud-button-secondary" [routerLink]="page.secondaryPath">{{ page.secondaryLabel }}</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="cloud-footer">
+    <div class="cloud-container">
+      <div class="cloud-footer-main">
+        <div class="cloud-footer-brand">
+          <a routerLink="/" aria-label="OptimaX Suites home"><img src="/assets/images/logo.png" alt="OptimaX Suites" /></a>
+          <p>One connected platform for the work that moves business forward.</p>
+          <a class="footer-contact-link" routerLink="/contact">Get in touch <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="cloud-footer-column">
+          <h2>OPTIMAXCLOUD</h2>
+          <p>Explore cloud infrastructure, application deployment, and managed cloud services from Centrifuge Group.</p>
+          <a *ngFor="let item of cloudPages" [routerLink]="item.path">{{ item.label }}</a>
+        </div>
+        <div class="cloud-footer-column">
+          <h2>Platform</h2>
+          <a routerLink="/accounting">Accounting</a><a routerLink="/hr">HR &amp; Payroll</a><a routerLink="/procurement">Procurement</a><a routerLink="/pos">Point of sale</a><a routerLink="/crm">CRM</a><a routerLink="/expense">Expenses</a>
+        </div>
+        <div class="cloud-footer-column">
+          <h2>Company</h2>
+          <a routerLink="/contact">Contact</a><a routerLink="/blog">Insights</a><a routerLink="/community">Community</a><a routerLink="/get-started">Get started</a>
+        </div>
+      </div>
+      <nav class="cloud-footer-socials" aria-label="Follow OptimaX">
+        <a href="https://www.facebook.com/profile.php?id=61587287975959" target="_blank" rel="noopener noreferrer" aria-label="OptimaX on Facebook (opens in a new tab)">Facebook</a>
+        <a href="https://www.youtube.com/@OptimaXSuites" target="_blank" rel="noopener noreferrer" aria-label="OptimaX on YouTube (opens in a new tab)">YouTube</a>
+        <a href="https://www.instagram.com/optimaxsuites/" target="_blank" rel="noopener noreferrer" aria-label="OptimaX on Instagram (opens in a new tab)">Instagram</a>
+        <a href="https://www.linkedin.com/company/centrifuge-group/" target="_blank" rel="noopener noreferrer" aria-label="Centrifuge Group on LinkedIn (opens in a new tab)">LinkedIn</a>
+        <a href="https://x.com/optimaxsuites/" target="_blank" rel="noopener noreferrer" aria-label="OptimaX on X (opens in a new tab)">X</a>
+      </nav>
+      <div class="cloud-footer-bottom">
+        <span>© {{ currentYear }} OptimaX Suites. All rights reserved.</span>
+        <a routerLink="/contact">Contact our team</a>
+      </div>
+    </div>
+  </footer>
+</div>

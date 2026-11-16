@@ -1566,8 +1566,8 @@
 
 .footer-main {
   display: grid;
-  grid-template-columns: minmax(220px, 1.5fr) repeat(3, minmax(120px, .65fr));
-  gap: 45px;
+  grid-template-columns: minmax(190px, 1.35fr) repeat(4, minmax(105px, .7fr));
+  gap: 30px;
   padding-bottom: 54px;
 }
 
@@ -1613,6 +1613,14 @@
   color: rgba(255,255,255,.53);
   font-size: 12px;
   transition: color .2s ease;
+}
+
+.footer-column p {
+  max-width: 240px;
+  margin: 0 0 5px;
+  color: rgba(255,255,255,.53);
+  font-size: 11px;
+  line-height: 1.7;
 }
 
 .footer-column a:hover,

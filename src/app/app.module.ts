@@ -58,6 +58,7 @@ import { ForumCategoryComponent } from './pages/forum-category/forum-category.co
 import { ForumThreadComponent } from './pages/forum-thread/forum-thread.component';
 import { ForumNewThreadComponent } from './pages/forum-new-thread/forum-new-thread.component';
 import { ForumVerifyComponent } from './pages/forum-verify/forum-verify.component';
+import { OptimaXCloudComponent } from './pages/optima-xcloud/optima-xcloud.component';
 
 @NgModule({
   declarations: [
@@ -105,6 +106,7 @@ import { ForumVerifyComponent } from './pages/forum-verify/forum-verify.componen
     ForumThreadComponent,
     ForumNewThreadComponent,
     ForumVerifyComponent,
+    OptimaXCloudComponent,
   ],
   imports: [
     BrowserModule,

@@ -7,9 +7,19 @@ import { Component, HostListener, Renderer2 } from '@angular/core';
 })
 export class NavigationComponent {
   isScrolled = false;
-  activeDropdown: 'products' | 'industries' | null = null;
+  activeDropdown: 'products' | 'industries' | 'cloud' | null = null;
   mobileMenuOpen = false;
-  mobileAccordion: 'products' | 'industries' | null = null;
+  mobileAccordion: 'products' | 'industries' | 'cloud' | null = null;
+
+  cloudPages = [
+    { name: 'Overview', path: '/optima-xcloud/' },
+    { name: 'Platform', path: '/optima-xcloud/platform/' },
+    { name: 'Integrations', path: '/optima-xcloud/integrations/' },
+    { name: 'Solutions', path: '/optima-xcloud/solutions/' },
+    { name: 'Cloud Migration', path: '/optima-xcloud/migration/' },
+    { name: 'Pricing', path: '/optima-xcloud/pricing/' },
+    { name: 'Documentation', path: '/optima-xcloud/documentation/' },
+  ];
 
   products = [
     {
@@ -136,11 +146,26 @@ export class NavigationComponent {
     this.activeDropdown = this.activeDropdown === name ? null : name;
   }
 
+  showCloudDropdown(event: Event) {
+    event.stopPropagation();
+    this.activeDropdown = 'cloud';
+  }
+
+  openCloudDropdown() {
+    this.activeDropdown = 'cloud';
+  }
+
+  closeMenus() {
+    this.activeDropdown = null;
+    this.mobileMenuOpen = false;
+    this.mobileAccordion = null;
+  }
+
   toggleMobileMenu() {
     this.mobileMenuOpen = !this.mobileMenuOpen;
   }
 
-  toggleMobileAccordion(name: 'products' | 'industries') {
+  toggleMobileAccordion(name: 'products' | 'industries' | 'cloud') {
     this.mobileAccordion = this.mobileAccordion === name ? null : name;
   }
 }

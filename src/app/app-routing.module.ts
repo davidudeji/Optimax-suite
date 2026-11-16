@@ -24,9 +24,17 @@ import { ForumCategoryComponent } from './pages/forum-category/forum-category.co
 import { ForumThreadComponent } from './pages/forum-thread/forum-thread.component';
 import { ForumNewThreadComponent } from './pages/forum-new-thread/forum-new-thread.component';
 import { ForumVerifyComponent } from './pages/forum-verify/forum-verify.component';
+import { OptimaXCloudComponent } from './pages/optima-xcloud/optima-xcloud.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'optima-xcloud', component: OptimaXCloudComponent, data: { cloudPage: 'overview' } },
+  { path: 'optima-xcloud/platform', component: OptimaXCloudComponent, data: { cloudPage: 'platform' } },
+  { path: 'optima-xcloud/integrations', component: OptimaXCloudComponent, data: { cloudPage: 'integrations' } },
+  { path: 'optima-xcloud/solutions', component: OptimaXCloudComponent, data: { cloudPage: 'solutions' } },
+  { path: 'optima-xcloud/migration', component: OptimaXCloudComponent, data: { cloudPage: 'migration' } },
+  { path: 'optima-xcloud/pricing', component: OptimaXCloudComponent, data: { cloudPage: 'pricing' } },
+  { path: 'optima-xcloud/documentation', component: OptimaXCloudComponent, data: { cloudPage: 'documentation' } },
   { path: 'get-started', component: OnboardingComponent },
   { path: 'pricing', component: PricingComponent },
 
