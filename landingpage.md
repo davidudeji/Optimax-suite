@@ -2,7 +2,51 @@
 
 ## Goal
 
-Add a polished trust-and-impact section to the homepage, using the attached reference for its content and layout cues while preserving Optimax's current hero branding. The result should feel intentional, refined, and award-caliber without copying another website or introducing a new visual identity.
+Implement the homepage content updates in this spec using the attached references while preserving Optimax's current hero branding. The result should feel intentional, refined, and award-caliber without copying another website or introducing a new visual identity.
+
+## Business Benefits Carousel
+
+### Placement and spacing
+
+- Keep this section directly below the hero/statistics area and before the platform modules section.
+- Fix the current narrow content column and excess side whitespace. Use a full-width section surface with a centered inner container, a consistent responsive page gutter, and balanced vertical spacing.
+- Keep the heading/supporting copy aligned with the carousel content and provide enough breathing room around the image, text, and controls.
+
+### Content
+
+Keep the existing heading and benefit copy unchanged:
+
+- Section heading: **Everything your business needs. Working together.**
+- **One business view** — Bring core business functions into one suite.
+- **Financial clarity** — Keep financial records and reporting in reach.
+- **Organized operations** — Manage everyday work across dedicated modules.
+- **Informed decisions** — Review business activity through reports and dashboards.
+- **Ready to grow** — Explore the modules that fit your business needs.
+
+Remove the decorative `01`–`05` numbers. Do not remove or alter the separate impact statistics section.
+
+### Carousel imagery
+
+Show one benefit per slide with an existing, locally stored image tailored to its subject:
+
+| Benefit | Asset |
+|---|---|
+| One business view | `/assets/images/optimax-dashboard-hero.png` |
+| Financial clarity | `/assets/images/modules/finance-module.jpg` |
+| Organized operations | `/assets/images/modules/pos-module.jpg` |
+| Informed decisions | `/assets/images/report.jpg` |
+| Ready to grow | `/assets/images/modules/personnel-module.jpg` |
+
+Use descriptive alt text, responsive image sizing, and lazy loading. Do not use remote stock imagery or introduce new image files/dependencies for this section.
+
+### Carousel behavior and accessibility
+
+- Provide visible previous/next controls and direct slide selection controls; do not auto-rotate.
+- Keep controls keyboard-operable with visible focus and accessible names. Support touch interaction without requiring hover.
+- Identify the carousel and each slide semantically. Hide inactive slides from assistive technology and provide a meaningful, non-numbered accessible description for the current slide.
+- Respect reduced-motion preferences and avoid motion that interferes with reading or control use.
+- Keep all slides available if JavaScript is unavailable; ensure the initial slide and its content render immediately.
+- Maintain a responsive composition with no clipped content or page-level horizontal overflow.
 
 ## Content
 
@@ -91,6 +135,36 @@ Treat every capability, price, implementation timeline, support claim, and compe
 - Keep row spacing, borders, hover treatment, and the CTA restrained and consistent with the homepage design system.
 - Ensure keyboard access to horizontal scrolling, visible focus, sufficient contrast, and a useful screen-reader experience.
 
+## Industry Showcase
+
+### Placement and content
+
+- Keep the industry showcase after the ERP comparison and before pricing.
+- Use the heading **Works across every industry** and explain that OptimaX adapts to retailers, supermarkets, pharmacies, distributors, and service companies.
+- Add the **KEY FEATURES** list:
+  - **Supermarkets** — Manage POS, inventory, and store operations in real time.
+  - **Manufacturing** — Monitor production, raw materials, and supply flow.
+  - **Restaurants & Hospitality** — Manage orders, stock usage, and daily sales.
+  - **E-commerce Stores** — Sync online orders, inventory, and payments.
+- End the copy column with the concise trust markers **Fast**, **Secure**, and **Reliable**.
+
+### Visual and interaction requirements
+
+- Replace the small 2-by-2 image-card layout with a balanced two-column section: copy and key features on the left, a photo mosaic on the right, and an OptimaX brand tile centered in the mosaic.
+- Use seven labeled, clickable industry photos for pharmacies, hospitals and clinics, restaurants and cafes, hotels and hospitality, manufacturing, warehousing, and construction. Link each card to its matching existing industry route.
+- Use descriptive image alt text, lazy-load the photos, and crop them consistently. Keep the brand tile non-interactive and use the local OptimaX app mark.
+- On tablet, stack the copy above the mosaic. On mobile, reflow the mosaic into two columns; preserve readable labels, keyboard-visible focus, and no page-level horizontal overflow.
+
+| Tile | Image source | Route |
+|---|---|---|
+| Pharmacies | Unsplash photo `1576602976047-174e57a47881` | `/industries/healthcare` |
+| Hospitals & Clinics | Unsplash photo `1519494026892-80bbd2d6fd0d` | `/industries/healthcare` |
+| Restaurants & Cafes | Unsplash photo `1414235077428-338989a2e8c0` | `/industries/hospitality` |
+| Hotels & Hospitality | Unsplash photo `1566073771259-6a8506099945` | `/industries/hospitality` |
+| Manufacturing | Existing Unsplash photo `1567789884554-0b844b597180` | `/industries/manufacturing` |
+| Warehousing | `/assets/images/modules/commerce-module.jpg` | `/industries/logistics` |
+| Construction | Unsplash photo `1504307651254-35680f356dfd` | `/industries/construction` |
+
 ## Footer Social and App Links
 
 ### Placement and layout
@@ -125,6 +199,7 @@ Add a distinct footer bottom row beneath the existing footer navigation, using t
 ## Visual direction
 
 - Reuse the existing homepage hero's brand palette, typography, and visual language so this section feels native to the current site.
+- Present the business benefits as a refined image-and-copy carousel, with the slide image and benefit text balanced at desktop sizes and comfortably stacked on mobile.
 - Create clear contrast between the light partner area and the darker stats area, using existing brand colors rather than introducing a new palette.
 - Keep the partner names legible in restrained, consistent text chips; avoid fabricated logos, excessive decoration, and visual clutter.
 - Present the metrics with strong hierarchy, generous spacing, subtle dividers, and clear labels. Ensure the section transitions smoothly from the sections above and below it.
@@ -141,8 +216,10 @@ Add a distinct footer bottom row beneath the existing footer navigation, using t
 
 ## Acceptance criteria
 
+- The benefits section uses the full available content width with balanced spacing, keeps the existing copy, removes the `01`–`05` markers, and presents all five benefits in an accessible, manually controlled image carousel using the listed local assets.
 - The new section presents the partner content and four stats from the reference, subject to verification of claims and figures.
 - The comparison section appears after the workflow explanation and before industry/pricing content, and presents the reference matrix with accessible table semantics.
+- The industry showcase follows the comparison section and precedes pricing, with the feature list, linked image mosaic, and central OptimaX brand tile.
 - The footer contains the referenced social/store-link row; all rendered links have valid, verified destinations.
 - The section uses Optimax's current hero branding and complements, rather than replaces, existing homepage content.
 - Each stat counts upward to its final value in the displayed left-to-right order when the section first comes into view.

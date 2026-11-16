@@ -46,14 +46,99 @@
     <app-partners></app-partners>
     <app-counter></app-counter>
 
-    <section class="intro-strip" aria-label="Optimax business benefits">
-      <p class="benefits-lead">Everything your business needs. Working together.</p>
-      <div class="intro-points">
-        <article><span class="benefit-number">01</span><h2>One business view</h2><p>Bring core business functions into one suite.</p></article>
-        <article><span class="benefit-number">02</span><h2>Financial clarity</h2><p>Keep financial records and reporting in reach.</p></article>
-        <article><span class="benefit-number">03</span><h2>Organized operations</h2><p>Manage everyday work across dedicated modules.</p></article>
-        <article><span class="benefit-number">04</span><h2>Informed decisions</h2><p>Review business activity through reports and dashboards.</p></article>
-        <article><span class="benefit-number">05</span><h2>Ready to grow</h2><p>Explore the modules that fit your business needs.</p></article>
+    <section class="benefits-section" aria-labelledby="benefits-title">
+      <div class="benefits-container">
+        <h2 class="benefits-heading" id="benefits-title">
+          Everything your business needs. Working together.
+        </h2>
+
+        <div
+          class="benefit-carousel"
+          role="region"
+          aria-roledescription="carousel"
+          aria-label="Optimax business benefits"
+        >
+          <p class="visually-hidden" id="benefit-carousel-help">
+            Browse the benefits with the previous and next buttons, slide selectors, or horizontal scrolling.
+          </p>
+          <p class="visually-hidden" aria-live="polite" aria-atomic="true">
+            {{ businessBenefits[currentBenefitIndex].title }}
+          </p>
+          <div
+            class="benefit-carousel-viewport"
+            id="business-benefit-carousel"
+            #benefitViewport
+            tabindex="0"
+            aria-describedby="benefit-carousel-help"
+            (scroll)="onBenefitScroll(benefitViewport)"
+          >
+            <div class="benefit-carousel-track">
+              <article
+                class="benefit-slide"
+                *ngFor="let benefit of businessBenefits; let i = index"
+                role="group"
+                aria-roledescription="slide"
+                [attr.aria-label]="benefit.title"
+                [attr.aria-hidden]="i !== currentBenefitIndex"
+                [id]="'benefit-slide-' + i"
+              >
+                <div class="benefit-visual">
+                  <img
+                    [src]="benefit.image"
+                    [alt]="benefit.imageAlt"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div class="benefit-copy">
+                  <h3>{{ benefit.title }}</h3>
+                  <p>{{ benefit.description }}</p>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="benefit-carousel-controls">
+            <div class="benefit-selectors" role="group" aria-label="Choose a business benefit">
+              <button
+                class="benefit-selector"
+                *ngFor="let benefit of businessBenefits; let i = index"
+                type="button"
+                [attr.aria-label]="'Show ' + benefit.title"
+                [attr.aria-controls]="'benefit-slide-' + i"
+                [attr.aria-pressed]="i === currentBenefitIndex"
+                (click)="selectBenefit(i, benefitViewport)"
+              >
+                <span aria-hidden="true"></span>
+              </button>
+            </div>
+
+            <div class="benefit-arrow-controls">
+              <button
+                class="benefit-arrow"
+                type="button"
+                aria-label="Previous benefit"
+                aria-controls="business-benefit-carousel"
+                (click)="moveBenefit(-1, benefitViewport)"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M19 12H5m0 0 7 7m-7-7 7-7" />
+                </svg>
+              </button>
+              <button
+                class="benefit-arrow"
+                type="button"
+                aria-label="Next benefit"
+                aria-controls="business-benefit-carousel"
+                (click)="moveBenefit(1, benefitViewport)"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12h14m0 0-7-7m7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -238,25 +323,61 @@
 
     <app-comparison></app-comparison>
 
-    <section class="industries-section section-pad" id="industries" aria-labelledby="industries-title">
-      <div class="industries-copy">
-        <h2 id="industries-title">Designed to adapt<br /><em>to your business.</em></h2>
-        <p>Explore how connected operations can support different ways of working.</p>
-        <a class="text-link" href="/contact">Find the right fit <span aria-hidden="true">↗</span></a>
-      </div>
-      <div class="industry-grid">
-        <a class="industry-card industry-retail" href="/industries/retail">
-          <span class="industry-name">Retail &amp;<br />commerce</span><span class="industry-arrow" aria-hidden="true">↗</span>
-        </a>
-        <a class="industry-card industry-manufacturing" href="/industries/manufacturing">
-          <span class="industry-name">Manufacturing</span><span class="industry-arrow" aria-hidden="true">↗</span>
-        </a>
-        <a class="industry-card industry-services" href="/industries/professional-services">
-          <span class="industry-name">Professional<br />services</span><span class="industry-arrow" aria-hidden="true">↗</span>
-        </a>
-        <a class="industry-card industry-logistics" href="/industries/logistics">
-          <span class="industry-name">Logistics &amp;<br />supply chain</span><span class="industry-arrow" aria-hidden="true">↗</span>
-        </a>
+    <section class="industries-section" id="industries" aria-labelledby="industries-title">
+      <div class="industries-inner">
+        <div class="industries-copy">
+          <h2 id="industries-title">Works across every industry</h2>
+          <p>
+            OptimaX adapts to the way different businesses operate. From retail stores and supermarkets
+            to pharmacies, distributors, and service companies, the platform brings inventory, finance,
+            sales, and operations into one intelligent system built to support growth across industries.
+          </p>
+
+          <h3 class="industry-features-heading">Key features</h3>
+          <ul class="industry-features">
+            <li>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m4 10 4 4 8-8" /></svg>
+              <span><strong>Supermarkets</strong> — Manage POS, inventory, and store operations in real time.</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m4 10 4 4 8-8" /></svg>
+              <span><strong>Manufacturing</strong> — Monitor production, raw materials, and supply flow.</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m4 10 4 4 8-8" /></svg>
+              <span><strong>Restaurants &amp; Hospitality</strong> — Manage orders, stock usage, and daily sales.</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m4 10 4 4 8-8" /></svg>
+              <span><strong>E-commerce Stores</strong> — Sync online orders, inventory, and payments.</span>
+            </li>
+          </ul>
+
+          <div class="industry-assurances" aria-label="Fast, secure, reliable">
+            <span>Fast</span>
+            <span>Secure</span>
+            <span>Reliable</span>
+          </div>
+        </div>
+
+        <div class="industry-mosaic" role="group" aria-label="Explore industries supported by OptimaX">
+          <a
+            class="industry-card"
+            *ngFor="let industry of industryCards"
+            [style.grid-area]="industry.area"
+            [href]="industry.href"
+          >
+            <img [src]="industry.image" [alt]="industry.imageAlt" loading="lazy" decoding="async" />
+            <span class="industry-name">{{ industry.title }}</span>
+            <span class="industry-arrow" aria-hidden="true">↗</span>
+          </a>
+
+          <div class="industry-brand">
+            <img src="/assets/images/optimax-app-logo.png" alt="" width="58" height="58" loading="lazy" />
+            <span class="industry-brand-name">OptimaX</span>
+            <span class="industry-brand-caption">Works for every industry</span>
+          </div>
+        </div>
       </div>
     </section>
 

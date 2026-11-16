@@ -71,6 +71,41 @@ describe('HomeComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('scrolls to a selected benefit', () => {
+    const viewport = document.createElement('div');
+    Object.defineProperty(viewport, 'clientWidth', { value: 320 });
+    const scrollTo = jasmine.createSpy('scrollTo');
+    Object.defineProperty(viewport, 'scrollTo', { value: scrollTo });
+
+    component.selectBenefit(2, viewport);
+
+    expect(component.currentBenefitIndex).toBe(2);
+    expect(scrollTo).toHaveBeenCalledWith({ left: 640, behavior: 'auto' });
+  });
+
+  it('wraps previous and next navigation across the carousel ends', () => {
+    const viewport = document.createElement('div');
+    Object.defineProperty(viewport, 'clientWidth', { value: 320 });
+    const scrollTo = jasmine.createSpy('scrollTo');
+    Object.defineProperty(viewport, 'scrollTo', { value: scrollTo });
+
+    component.moveBenefit(-1, viewport);
+    expect(component.currentBenefitIndex).toBe(4);
+
+    component.moveBenefit(1, viewport);
+    expect(component.currentBenefitIndex).toBe(0);
+  });
+
+  it('updates the active benefit from horizontal scrolling', () => {
+    const viewport = document.createElement('div');
+    Object.defineProperty(viewport, 'clientWidth', { value: 320 });
+    Object.defineProperty(viewport, 'scrollLeft', { value: 960 });
+
+    component.onBenefitScroll(viewport);
+
+    expect(component.currentBenefitIndex).toBe(3);
+  });
+
   it('only features published posts, not seeded placeholder articles', () => {
     expect(component.featuredPosts.map((post) => post.slug)).toEqual(['published-post']);
   });

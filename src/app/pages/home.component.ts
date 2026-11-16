@@ -2,6 +2,21 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { combineLatest, filter, take } from 'rxjs';
 import { BlogPost, BlogService } from '../services/blog.service';
 
+interface BusinessBenefit {
+  title: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+}
+
+interface IndustryCard {
+  title: string;
+  href: string;
+  image: string;
+  imageAlt: string;
+  area: string;
+}
+
 declare const YT: any;
 
 @Component({
@@ -12,6 +27,90 @@ declare const YT: any;
 export class HomeComponent implements OnInit, OnDestroy {
   currentYear = new Date().getFullYear();
   featuredPosts: BlogPost[] = [];
+  readonly businessBenefits: BusinessBenefit[] = [
+    {
+      title: 'One business view',
+      description: 'Bring core business functions into one suite.',
+      image: '/assets/images/optimax-dashboard-hero.png',
+      imageAlt: 'OptimaX ERP dashboard showing the commerce workspace and business overview',
+    },
+    {
+      title: 'Financial clarity',
+      description: 'Keep financial records and reporting in reach.',
+      image: '/assets/images/modules/finance-module.jpg',
+      imageAlt: 'Financial documents and calculator arranged on a desk',
+    },
+    {
+      title: 'Organized operations',
+      description: 'Manage everyday work across dedicated modules.',
+      image: '/assets/images/modules/pos-module.jpg',
+      imageAlt: 'Point-of-sale system used to manage in-person business transactions',
+    },
+    {
+      title: 'Informed decisions',
+      description: 'Review business activity through reports and dashboards.',
+      image: '/assets/images/report.jpg',
+      imageAlt: 'Business analytics dashboard illustrating reports and performance metrics',
+    },
+    {
+      title: 'Ready to grow',
+      description: 'Explore the modules that fit your business needs.',
+      image: '/assets/images/modules/personnel-module.jpg',
+      imageAlt: 'Team collaborating around a conference table',
+    },
+  ];
+  readonly industryCards: IndustryCard[] = [
+    {
+      title: 'Pharmacies',
+      href: '/industries/healthcare',
+      image: 'https://images.unsplash.com/photo-1576602976047-174e57a47881?auto=format&fit=crop&w=960&q=80',
+      imageAlt: 'Pharmacist working among shelves of healthcare products',
+      area: 'pharmacy',
+    },
+    {
+      title: 'Hospitals & Clinics',
+      href: '/industries/healthcare',
+      image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=960&q=80',
+      imageAlt: 'Patient room in a modern hospital',
+      area: 'hospital',
+    },
+    {
+      title: 'Restaurants & Cafes',
+      href: '/industries/hospitality',
+      image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=960&q=80',
+      imageAlt: 'Dining room prepared for restaurant guests',
+      area: 'restaurant',
+    },
+    {
+      title: 'Hotels & Hospitality',
+      href: '/industries/hospitality',
+      image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=960&q=80',
+      imageAlt: 'Hotel exterior and pool area',
+      area: 'hotel',
+    },
+    {
+      title: 'Manufacturing',
+      href: '/industries/manufacturing',
+      image: 'https://images.unsplash.com/photo-1567789884554-0b844b597180?auto=format&fit=crop&w=960&q=80',
+      imageAlt: 'Industrial manufacturing floor with production equipment',
+      area: 'manufacturing',
+    },
+    {
+      title: 'Warehousing',
+      href: '/industries/logistics',
+      image: '/assets/images/modules/commerce-module.jpg',
+      imageAlt: 'Warehouse interior with organized shelving and inventory',
+      area: 'warehouse',
+    },
+    {
+      title: 'Construction',
+      href: '/industries/construction',
+      image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=960&q=80',
+      imageAlt: 'Construction workers at an active building site',
+      area: 'construction',
+    },
+  ];
+  currentBenefitIndex = 0;
   readonly youtubeVideoId = 'VTntzBr227k';
   readonly youtubeChannelUrl = 'https://www.youtube.com/@OptimaXSuites';
   readonly previewLengthSeconds = 15;
@@ -46,6 +145,31 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   get youtubePosterUrl(): string {
     return `https://i.ytimg.com/vi/${this.youtubeVideoId}/hqdefault.jpg`;
+  }
+
+  selectBenefit(index: number, viewport: HTMLElement): void {
+    this.currentBenefitIndex = index;
+    viewport.scrollTo({
+      left: index * viewport.clientWidth,
+      behavior: 'auto',
+    });
+  }
+
+  moveBenefit(direction: number, viewport: HTMLElement): void {
+    const count = this.businessBenefits.length;
+    const nextIndex = (this.currentBenefitIndex + direction + count) % count;
+    this.selectBenefit(nextIndex, viewport);
+  }
+
+  onBenefitScroll(viewport: HTMLElement): void {
+    if (!viewport.clientWidth) {
+      return;
+    }
+
+    const index = Math.round(viewport.scrollLeft / viewport.clientWidth);
+    if (index >= 0 && index < this.businessBenefits.length) {
+      this.currentBenefitIndex = index;
+    }
   }
 
   onPlayPreview(): void {
