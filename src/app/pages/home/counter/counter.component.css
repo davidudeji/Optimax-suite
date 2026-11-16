@@ -1,0 +1,120 @@
+:host {
+  display: block;
+}
+
+.impact-section {
+  position: relative;
+  overflow: hidden;
+  padding: 72px 24px 58px;
+  color: #fff;
+  background:
+    radial-gradient(ellipse at 18% 0%, rgba(46, 98, 118, 0.26), transparent 42%),
+    radial-gradient(ellipse at 86% 100%, rgba(46, 178, 112, 0.1), transparent 34%),
+    #1a3a47;
+}
+
+.impact-container {
+  width: min(1120px, 100%);
+  margin-inline: auto;
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.impact-metric {
+  padding: 10px 24px 16px;
+  text-align: center;
+}
+
+.impact-metric + .impact-metric {
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.impact-value {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(42px, 5vw, 60px);
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+  letter-spacing: -0.055em;
+  line-height: 1;
+}
+
+.impact-suffix {
+  margin-left: 2px;
+  color: #2eb270;
+}
+
+.impact-label {
+  margin: 12px 0 0;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 12px;
+  font-weight: 750;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.impact-caption {
+  margin-top: 37px;
+  padding-top: 27px;
+  border-top: 1px solid rgba(255, 255, 255, 0.11);
+  text-align: center;
+}
+
+.impact-caption p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+@media (max-width: 700px) {
+  .impact-section {
+    padding: 54px 18px 42px;
+  }
+
+  .impact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .impact-metric {
+    padding: 19px 12px;
+  }
+
+  .impact-metric + .impact-metric {
+    border-left: 0;
+  }
+
+  .impact-metric:nth-child(even) {
+    border-left: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .impact-metric:nth-child(n + 3) {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .impact-value {
+    font-size: clamp(38px, 11vw, 52px);
+  }
+
+  .impact-caption {
+    margin-top: 25px;
+    padding-top: 21px;
+  }
+}

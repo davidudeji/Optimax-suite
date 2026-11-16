@@ -1,44 +1,113 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy } from '@angular/core';
+
+interface ImpactMetric {
+  label: string;
+  target: number;
+  suffix: '+' | '';
+  current: number;
+  accessibleValue: string;
+}
 
 @Component({
   selector: 'app-counter',
   standalone: false,
   templateUrl: './counter.component.html',
+  styleUrls: ['./counter.component.css'],
 })
-export class CounterComponent implements OnInit {
-  clients = 0;
-  users = 0;
-  modules = 0;
-  countries = 0;
-  private animated = false;
+export class CounterComponent implements AfterViewInit, OnDestroy {
+  readonly metrics: ImpactMetric[] = [
+    { label: 'Clients', target: 100, suffix: '+', current: 0, accessibleValue: '100+ clients' },
+    { label: 'Active users', target: 512, suffix: '+', current: 0, accessibleValue: '512+ active users' },
+    { label: 'Modules', target: 12, suffix: '', current: 0, accessibleValue: '12 modules' },
+    { label: 'Countries', target: 4, suffix: '+', current: 0, accessibleValue: '4+ countries' },
+  ];
 
-  private observer!: IntersectionObserver;
+  private observer: IntersectionObserver | null = null;
+  private readonly animationFrameIds = new Set<number>();
+  private animationStarted = false;
 
-  constructor(private el: ElementRef) {}
+  constructor(private readonly elementRef: ElementRef<HTMLElement>) {}
 
-  ngOnInit() {
+  ngAfterViewInit(): void {
+    if (typeof window === 'undefined') {
+      this.showFinalValues();
+      return;
+    }
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+        typeof IntersectionObserver === 'undefined') {
+      this.showFinalValues();
+      return;
+    }
+
     this.observer = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting && !this.animated) {
-        this.animated = true;
-        this.animateCount('clients', 100, 2000);
-        this.animateCount('users', 512, 1800);
-        this.animateCount('modules', 12, 1500);
-        this.animateCount('countries', 4, 1200);
+      if (entries.some((entry) => entry.isIntersecting)) {
+        this.startCountUp();
       }
-    }, { threshold: 0.3 });
-    this.observer.observe(this.el.nativeElement);
+    }, { threshold: 0.25 });
+    this.observer.observe(this.elementRef.nativeElement);
   }
 
-  animateCount(prop: 'clients' | 'users' | 'modules' | 'countries', target: number, duration: number) {
-    const start = Date.now();
-    const tick = () => {
-      const elapsed = Date.now() - start;
-      const progress = Math.min(elapsed / duration, 1);
-      const ease = 1 - Math.pow(1 - progress, 3);
-      (this as any)[prop] = Math.floor(target * ease);
-      if (progress < 1) requestAnimationFrame(tick);
-      else (this as any)[prop] = target;
+  ngOnDestroy(): void {
+    this.observer?.disconnect();
+    if (typeof window !== 'undefined') {
+      this.animationFrameIds.forEach((frameId) => window.cancelAnimationFrame(frameId));
+    }
+    this.animationFrameIds.clear();
+  }
+
+  private startCountUp(): void {
+    if (this.animationStarted) {
+      return;
+    }
+
+    this.animationStarted = true;
+    this.observer?.disconnect();
+    this.metrics.forEach((metric, index) => {
+      metric.current = 0;
+      this.animateMetric(metric, index * 220);
+    });
+  }
+
+  private animateMetric(metric: ImpactMetric, delay: number): void {
+    const duration = 1250;
+    let startTime: number | null = null;
+
+    const tick = (timestamp: number): void => {
+      if (startTime === null) {
+        startTime = timestamp + delay;
+      }
+
+      if (timestamp < startTime) {
+        this.requestFrame(tick);
+        return;
+      }
+
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      const easedProgress = 1 - Math.pow(1 - progress, 3);
+      metric.current = Math.floor(metric.target * easedProgress);
+
+      if (progress < 1) {
+        this.requestFrame(tick);
+      } else {
+        metric.current = metric.target;
+      }
     };
-    requestAnimationFrame(tick);
+
+    this.requestFrame(tick);
+  }
+
+  private requestFrame(callback: FrameRequestCallback): void {
+    const frameId = window.requestAnimationFrame((timestamp) => {
+      this.animationFrameIds.delete(frameId);
+      callback(timestamp);
+    });
+    this.animationFrameIds.add(frameId);
+  }
+
+  private showFinalValues(): void {
+    this.metrics.forEach((metric) => {
+      metric.current = metric.target;
+    });
   }
 }
