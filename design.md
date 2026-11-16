@@ -1,970 +1,333 @@
-# SPEC.md — Optimax Website Content Audit and Homepage Restructuring
+# Optimax Website Redesign — Brand-Preserving UI/UX Enhancement
 
-## 1. Project Overview
+## 1. Project Objective
 
-**Project:** Optimax Website Content Architecture and Homepage Redesign
+Conduct a professional UI/UX redesign of the existing Optimax website:
 
-**Reference Website:** https://www.netsuite.com/portal/products/erp.shtml
+**Website:** https://www.optimaxsuites.com/
 
-**Primary Objective:**
+The objective is to significantly improve the website's visual quality, user experience, layout, consistency, and responsiveness while preserving all existing website content, brand identity, routes, and functionality.
 
-Analyze the existing Optimax website and reorganize its homepage content using the content architecture, storytelling approach and conversion strategy demonstrated by Oracle NetSuite's ERP website.
+This is a **visual and structural redesign, not a copywriting or content-rewriting project.**
 
-The objective is not to copy NetSuite's design. It is to understand how NetSuite organizes information, communicates product value, introduces modules, addresses customer problems and guides visitors towards conversion.
+The finished website should communicate the credibility and polish of a premium enterprise SaaS platform.
 
-Apply those principles to Optimax while maintaining its existing brand identity, product capabilities and business positioning.
+## 2. Non-Negotiable Content Preservation
 
-The redesigned homepage should communicate that Optimax is an integrated business management platform that helps organizations manage their operations, improve visibility, control costs and make better business decisions.
+Do not change any existing text on the website.
 
-**Important:** This is an existing website improvement project, not a complete rebuild. Preserve existing functionality, working integrations, navigation destinations and important content unless a change is explicitly required.
+This applies to:
 
----
+- Main headings and subheadings.
+- Paragraphs and descriptions.
+- Navigation labels and dropdown items.
+- Button and CTA text.
+- Product and module names.
+- Feature descriptions.
+- Testimonials and customer information.
+- Footer content.
+- Contact information.
+- Form labels, placeholders, and messages.
+- Any other visible website text.
 
-## 2. Phase One: Existing Website Audit
+Do not rewrite, paraphrase, shorten, expand, remove, or invent content.
 
-Before modifying any code, perform a comprehensive audit of the existing Optimax website.
+Preserve original capitalization, punctuation, spelling, and wording.
 
-### 2.1 Inspect the Entire Website
+Do not introduce new marketing claims, statistics, testimonials, certifications, product capabilities, or integrations.
 
-Examine:
+If a design improvement appears to require new text, find a visual solution that uses the existing content instead.
 
-- Homepage.
-- Main navigation and dropdown menus.
-- Product pages.
-- ERP module pages.
-- Solutions and industry pages.
-- Pricing page.
-- About page.
-- Contact page.
-- Blog and resources.
-- Customer success or portfolio sections.
-- Footer and secondary navigation.
-- Existing calls to action.
-- All existing internal and external links.
+## 3. Phase One: Audit the Existing Website
 
-Inspect the actual source code and project structure where available.
+Before implementation, inspect the actual website and the existing project source code.
 
-Do not rely exclusively on screenshots or the website's visible homepage.
+Do not rely exclusively on screenshots, summaries, or previously generated descriptions.
 
-### 2.2 Understand the Existing Content
+### Website audit
 
-For every homepage section, document:
+Inspect:
 
-1. Current section heading.
-2. Existing description and supporting copy.
-3. Purpose of the section.
-4. Target audience.
-5. Existing image or visual asset.
-6. Available CTA.
-7. Destination of each link.
-8. Whether the content should be retained, rewritten, relocated or removed.
+- Every accessible website page.
+- Existing navigation and dropdown menus.
+- Hero section and homepage structure.
+- Product and module sections.
+- Existing images and screenshots.
+- CTA placement and behavior.
+- Footer and contact sections.
+- Existing animations and transitions.
+- Mobile and tablet layouts.
+- Existing forms, links, and interactions.
 
-Identify:
+### Source-code audit
 
-- Repeated content.
-- Unnecessary sections.
-- Weak or generic messaging.
-- Missing explanations.
-- Poor content hierarchy.
-- Missing conversion opportunities.
-- Sections that do not communicate clear business value.
+Inspect:
 
-### 2.3 Create a Content Audit Report
+- Existing components and page structure.
+- CSS, SCSS, Tailwind configuration, or other styling systems.
+- Existing design tokens and variables.
+- Image, logo, icon, and font assets.
+- Routing configuration.
+- Reusable components.
+- Third-party libraries and dependencies.
 
-Before implementation, establish a content mapping document.
+### Create a baseline
 
-| Existing content | Problem identified | Proposed action |
+Before changing anything, establish:
+
+1. A complete inventory of visible website text.
+2. An inventory of pages and routes.
+3. A record of existing functionality.
+4. Desktop and mobile screenshots.
+5. An inventory of existing brand and product assets.
+
+Use these as the reference for the final regression checks.
+
+## 4. Phase Two: Brand and Design Direction
+
+Develop a consistent visual system based on Optimax's existing brand identity.
+
+Use the following proposed palette as the starting point, subject to inspection of the original logo and brand assets.
+
+| Token | Color | Usage |
 |---|---|---|
-| Existing hero | Evaluate clarity and value proposition | Improve messaging |
-| Product introduction | Evaluate depth and positioning | Strengthen overview |
-| Module presentation | Check organization | Group into clear categories |
-| Benefits | Check whether they communicate outcomes | Rewrite where necessary |
-| Product screenshots | Check quality and relevance | Preserve genuine product visuals |
-| Customer information | Verify credibility | Retain verified information |
-| Pricing | Check consistency with pricing page | Link to authoritative pricing |
-| Contact section | Evaluate conversion experience | Improve CTA |
+| Primary Navy | #0B1B33 | Navigation, hero, headings, footer |
+| Primary Teal | #00A6A6 | Primary interactions, highlights, active states |
+| White | #FFFFFF | Main backgrounds and contrast |
+| Light Background | #F4F7FA | Alternating content sections |
+| Secondary Text | #526174 | Supporting descriptions |
+| Border | #DCE5ED | Dividers, outlines, separators |
+| Accent Orange | #F59E0B | Occasional visual emphasis |
 
-Do not delete useful existing content simply because it does not appear in the proposed structure.
+### Color application
 
-### 2.4 Reference Analysis: NetSuite
+Use a restrained 60–30–10 visual distribution:
 
-Study the reference:
+- 60% white and light backgrounds.
+- 30% deep navy.
+- 10% teal.
 
-https://www.netsuite.com/portal/products/erp.shtml
+Use orange sparingly. It should not compete with the primary brand colors.
 
-Focus on these principles:
+Do not introduce excessive gradients, unnecessary decorative elements, or competing accent colors.
 
-- Clear product introduction.
-- Outcome-oriented messaging.
-- Benefits before technical details.
-- Logical grouping of product capabilities.
-- Dedicated module pages.
-- Customer pain-point communication.
-- Implementation and trust information.
-- Pricing information.
-- Educational resources.
-- Repeated but strategically placed conversion opportunities.
+### Typography
 
-Extract the information architecture, not the visual design.
+Inspect existing brand typography first.
 
----
+If the existing typeface is unsuitable or unavailable, select a professional, highly readable sans-serif typeface appropriate for enterprise software.
 
-## 3. Phase Two: Optimax Brand and Design Direction
+Establish consistent typography rules for:
 
-Maintain Optimax's existing visual identity.
+- Main headlines.
+- Section headings.
+- Subheadings.
+- Body text.
+- Navigation.
+- Buttons.
+- Metadata.
 
-### Brand Direction
+Typography styling may change, but the words themselves must remain unchanged.
 
-- Primary navy: `#0B1B33`
-- White: `#FFFFFF`
-- Teal: Use the existing approved Optimax teal brand color.
-- Typography: Retain the existing brand typography where appropriate.
-- Logo: Use the actual Optimax logo from the project assets.
+## 5. Phase Three: Homepage and Navigation Redesign
 
-### Design Principles
+Improve the existing homepage structure and navigation without removing or rewriting content.
 
-The new homepage should communicate:
+### Merged navbar and hero presentation
 
-- Enterprise credibility.
-- Operational efficiency.
-- Financial control.
-- Intelligent business management.
-- Reliability.
-- Scalability.
-- Modern technology.
+Use the previously established integrated navbar and hero visual direction where applicable:
 
-Use a clean, professional enterprise SaaS design.
+- A transparent or semi-transparent navy navbar positioned over the hero.
+- Subtle backdrop blur and a refined border.
+- A clear logo position on the left.
+- Existing navigation labels and links.
+- Existing primary and secondary CTA labels.
+- A sticky navigation treatment that becomes more opaque when scrolling.
+- A well-composed hero layout with strong visual hierarchy.
+- Responsive mobile navigation.
 
-Avoid:
+Do not invent navigation items or replace existing labels.
 
-- Excessive gradients.
-- Decorative animations without purpose.
-- Unnecessary icons.
-- Too many cards.
-- Oversized rounded containers.
-- Generic AI-generated dashboard illustrations.
-- Random images unrelated to the content.
-- Excessive use of dark backgrounds.
-- Visually repetitive sections.
+### Hero section
 
-Use whitespace, typography, strong headings, relevant photography and genuine product screenshots to establish hierarchy.
+Improve:
 
-The design should feel like a mature enterprise software company.
+- Visual hierarchy.
+- Headline presentation.
+- Text alignment and spacing.
+- CTA placement.
+- Background treatment.
+- Product imagery or existing visual assets.
+- Responsive composition.
 
----
+Use the actual Optimax product interface or approved brand imagery where available.
 
-## 4. Phase Three: New Homepage Content Architecture
+Do not substitute generic technology illustrations for meaningful product visuals.
 
-Reorganize the homepage into the following sections.
+### Homepage sections
 
-The sequence should follow the customer's decision-making journey.
+Review the existing homepage and improve the presentation of its current sections.
 
-### SECTION 1 — Hero: Introduce Optimax
+Prioritize:
 
-**Purpose:** Immediately explain what Optimax does and why businesses should care.
+- Clear section hierarchy.
+- Consistent content width.
+- Purposeful whitespace.
+- Better product presentation.
+- Consistent visual rhythm.
+- Clear CTA positioning.
+- Logical transitions between sections.
 
-Suggested headline:
+Do not force a new homepage structure simply to imitate another website.
 
-"One platform. Your entire business, connected."
+## 6. Phase Four: Design Benchmarking
 
-Suggested supporting copy:
+Study the following enterprise software websites for specific design strengths:
 
-"Manage your business operations with an integrated ERP platform that brings finance, commerce, human resources, supply chain and operational management together. Gain visibility, automate processes and make informed decisions from one centralized platform."
+- NetSuite: enterprise positioning, homepage storytelling, and conversion structure.
+- Odoo: module discovery and product organization.
+- SAP: enterprise credibility and industry presentation.
+- Microsoft Dynamics 365: product demonstrations and feature presentation.
+- Acumatica: modern SaaS presentation and conversion experience.
 
-Primary CTA:
-- Book a Demo
+Do not copy their branding, content, layouts, or visual identity.
 
-Secondary CTA:
-- Explore Optimax ERP
+Extract useful design principles and adapt them to Optimax's actual product, content, and brand.
 
-Visual direction:
+Optimax must retain its own identity.
 
-Use a genuine screenshot of the Optimax ERP dashboard as the primary visual.
+## 7. Phase Five: Component and Design-System Consistency
 
-The screenshot should communicate a complete business management environment.
+Create or refine reusable design tokens and components.
 
-Do not replace actual software screenshots with generic Unsplash dashboard images.
+Standardize:
 
-If an existing dashboard screenshot is available, use it without altering its actual interface or inventing product features.
-
-### SECTION 2 — Business Value Proposition
-
-**Heading:**
-
-"Everything your business needs. Working together."
-
-Explain why disconnected business applications create operational challenges and how Optimax provides a more connected way to manage business operations.
-
-Introduce these benefits:
-
-1. Centralized Business Management
-   Bring important business operations together.
-
-2. Improved Financial Visibility
-   Understand business performance through accessible financial information.
-
-3. Operational Efficiency
-   Reduce repetitive work through supported automation.
-
-4. Better Decision-Making
-   Make informed decisions using business information and reporting.
-
-5. Business Scalability
-   Support organizational growth through integrated business management.
-
-Visual direction:
-
-Use a clean horizontal layout with concise descriptions.
-
-Avoid making every benefit a large decorative card.
-
-Use restrained icons only where they improve understanding.
-
-### SECTION 3 — Optimax ERP Modules
-
-**Heading:**
-
-"Power every part of your business."
-
-**Supporting copy:**
-
-"From managing finances and people to controlling inventory, procurement and business operations, Optimax brings essential business functions into one connected environment."
-
-Organize the modules into clearly distinguishable groups.
-
-#### Finance Management
-
-Explain how Optimax supports financial management, reporting and business financial visibility.
-
-Relevant existing capabilities may include:
-- General Ledger.
-- Financial Reporting.
-- Financial Management.
-
-#### Commerce Management
-
-Explain how Optimax supports commercial operations and business transactions.
-
-Relevant capabilities may include:
-- Sales.
-- Procurement.
-- Vendor Portal.
-
-#### Human Resource Management
-
-Explain how Optimax supports workforce administration and employee management.
-
-Relevant capabilities may include:
-- Employee Management.
-- Recruitment.
-- Organization Chart.
-- Attendance.
-- Leave Management.
-- Salary Management.
-
-#### Supply Chain Management
-
-Explain how Optimax supports purchasing, inventory and related operational workflows.
-
-Only include capabilities confirmed in the existing product.
-
-#### Manufacturing Management
-
-Present manufacturing capabilities only where supported by the actual product.
-
-For each module:
-
-- Include its name.
-- Write a short business-focused description.
-- Explain the value it provides.
-- Include a relevant product screenshot where available.
-- Add a link to its dedicated product page, if one exists.
-- Include an appropriate CTA.
-
-Important:
-
-The homepage should introduce each module, not reproduce the entire contents of every module page.
-
-Each module should have a dedicated destination for more detailed information.
-
-Do not invent modules, features, integrations or functionality.
-
-### SECTION 4 — Business Challenges We Solve
-
-**Heading:**
-
-"Overcome the challenges that slow your business down."
-
-Introduce the common operational problems Optimax is designed to help businesses address.
-
-Potential topics:
-
-1. Disconnected business systems.
-2. Limited financial visibility.
-3. Manual and repetitive processes.
-4. Poor inventory visibility.
-5. Procurement inefficiencies.
-6. Fragmented business reporting.
-
-For each challenge, explain:
-
-- The problem.
-- Its business impact.
-- How relevant Optimax capabilities address it.
-
-Use a problem-to-solution presentation.
-
-Do not make unsupported claims about guaranteed cost savings or productivity improvements.
-
-### SECTION 5 — How Optimax Works
-
-**Heading:**
-
-"Your business operations, connected."
-
-Explain how different business functions work together through the Optimax platform.
-
-Present an understandable business workflow rather than a technical architecture diagram.
-
-For example:
-
-- Sales activities connect with relevant commercial records.
-- Procurement supports purchasing workflows.
-- Finance provides financial management and reporting.
-- HR supports employee administration.
-- Management gains visibility through available dashboards and reports.
-
-Only illustrate integrations and data relationships that actually exist.
-
-Use a clean interconnected workflow visual.
-
-If OptimaxAI is an existing product capability, introduce it as part of this section with a separate explanation of its verified use cases.
-
-Do not suggest that every process is automatically connected unless the actual system supports it.
-
-### SECTION 6 — OptimaxAI and Intelligent Business Management
-
-**Heading:**
-
-"Make better business decisions with intelligence."
-
-If OptimaxAI is available in the existing product, introduce its capabilities.
-
-Explain:
-
-- What it does.
-- What business problems it addresses.
-- How users interact with it.
-- How it complements existing ERP workflows.
-
-Use actual product screenshots or verified demonstrations.
-
-Do not invent AI capabilities or present conceptual functionality as an existing feature.
-
-If the current product does not expose a suitable OptimaxAI capability, omit this section or use the verified functionality elsewhere.
-
-### SECTION 7 — Solutions for Different Industries
-
-**Heading:**
-
-"Built to support businesses across industries."
-
-Audit the existing industry and solutions pages.
-
-Present only industries that Optimax genuinely supports.
-
-For each industry:
-
-- Identify the industry's operational challenges.
-- Explain the relevant Optimax solution.
-- Link to the corresponding industry or solution page.
-
-Use professional industry photography from Unsplash.
-
-Potential imagery:
-- Manufacturing facilities.
-- Logistics and distribution operations.
-- Corporate finance teams.
-- Retail business operations.
-- Healthcare administration, if applicable.
-
-Do not imply industry-specific certifications or integrations without evidence.
-
-### SECTION 8 — Product Showcase
-
-**Heading:**
-
-"See Optimax in action."
-
-This section should demonstrate the actual software.
-
-Create a visually engaging product showcase featuring genuine screenshots from the existing Optimax ERP interface.
-
-Possible showcase categories:
-
-- Executive Dashboard.
-- Finance Management.
-- Sales Management.
-- Procurement.
-- HR Management.
-- Inventory and Operations.
-
-Use tabs, a controlled image gallery or a horizontal showcase where appropriate.
-
-Requirements:
-
-- Preserve the original screenshots.
-- Do not fabricate dashboard metrics.
-- Do not modify the underlying product interface.
-- Provide descriptive captions.
-- Make screenshots responsive.
-- Avoid overcrowding the section.
-
-CTA: Explore the Platform.
-
-### SECTION 9 — Why Choose Optimax?
-
-**Heading:**
-
-"Technology that works around your business."
-
-Communicate Optimax's actual competitive advantages.
-
-Potential themes:
-
-- Integrated business management.
-- Centralized visibility.
-- Business process automation.
-- Flexible business operations.
-- Scalable enterprise technology.
-- Implementation and support.
-
-Validate every claim against existing product and company information.
-
-Use verified company credentials, customer evidence and product information.
-
-Avoid invented customer numbers, awards, performance statistics or certifications.
-
-### SECTION 10 — Customer Success and Trust
-
-**Heading:**
-
-"Helping businesses move forward."
-
-Audit existing customer and portfolio information.
-
-Where verified material exists, include:
-
-- Customer logos.
-- Customer testimonials.
-- Case studies.
-- Project outcomes.
-- Customer success stories.
-
-Use actual customer logos and approved testimonials.
-
-Do not create fictional customers or attribute fabricated quotations to real organizations.
-
-If there are insufficient verified testimonials, use an existing company experience or implementation section instead.
-
-### SECTION 11 — Pricing
-
-**Heading:**
-
-"Find the right Optimax solution for your business."
-
-Introduce the pricing approach and direct visitors to the existing Optimax pricing page.
-
-Requirements:
-
-- Use the existing approved pricing information.
-- Maintain consistency with the pricing page.
-- Do not invent subscription amounts.
-- Do not create conflicting pricing information.
-- Provide a clear CTA to view plans or contact sales.
-
-CTA: Explore Pricing.
-
-### SECTION 12 — Resources and Insights
-
-**Heading:**
-
-"Insights to help your business grow."
-
-Organize existing educational resources.
-
-Potential categories:
-
-- ERP Education.
-- Business Management.
-- Financial Management.
-- Inventory and Procurement.
-- Human Resource Management.
-- Industry Insights.
-- Product Guides.
-
-Display selected articles with:
-
-- Article image.
-- Category.
-- Heading.
-- Short description.
-- Publication date, where available.
-- Read More link.
-
-Use existing blog content.
-
-Do not create fictional article links.
-
-### SECTION 13 — Final Conversion Section
-
-**Heading:**
-
-"Take control of your business operations."
-
-Supporting copy:
-
-"Discover how Optimax can help your organization connect its operations, improve visibility and manage business processes more effectively."
-
-Primary CTA:
-- Book a Demo
-
-Secondary CTA:
-- Contact Our Team
-
-The CTA should connect to the existing booking or contact functionality.
-
-### SECTION 14 — Footer
-
-Retain and reorganize the existing footer.
-
-Group links logically:
-
-**Products**
-- ERP.
-- Finance.
-- Commerce.
-- HR.
-- Supply Chain.
-- Other verified modules.
-
-**Solutions**
-- Industry solutions.
-- Business solutions.
-
-**Company**
-- About Optimax.
-- Contact.
-- Customer information.
-
-**Resources**
-- Blog.
-- Documentation.
-- Guides.
-- Other existing resources.
-
-**Contact**
-- Existing official email.
-- Existing telephone number.
-- Existing social media links.
-
-Preserve all working footer destinations.
-
----
-
-## 5. Image Strategy — Unsplash
-
-Use professional Unsplash photography throughout the homepage.
-
-The objective is to ensure that every image reinforces the message of its corresponding section.
-
-Do not use random stock photography simply to fill empty spaces.
-
-### 5.1 Image Selection Guide
-
-| Homepage section | Recommended Unsplash search |
-|---|---|
-| Hero | Modern enterprise office, executive business dashboard environment |
-| Business benefits | Business strategy meeting, corporate leadership |
-| Finance | Financial analyst, accounting team, financial documents |
-| Commerce | Retail operations, business transactions |
-| HR | Professional team collaboration, human resources |
-| Supply Chain | Warehouse operations, logistics distribution |
-| Manufacturing | Modern manufacturing facility, industrial automation |
-| Industry solutions | Industry-specific business photography |
-| Why Optimax | Executive team collaboration, corporate operations |
-| Customer success | Professional business partnership |
-| Resources | Business research, professional learning |
-
-### 5.2 Image Source Requirements
-
-Use images from:
-
-https://unsplash.com/
-
-Use the official Unsplash image URLs or images hosted on `images.unsplash.com`.
-
-Do not use unreliable image endpoints such as deprecated random-image services.
-
-Where possible:
-
-1. Find the image on Unsplash.
-2. Verify that its subject matches the section.
-3. Use an appropriate landscape or portrait crop.
-4. Save the image source and photographer information.
-5. Optimize the image for web delivery.
-6. Use descriptive alternative text.
-7. Use responsive image sizing.
-
-Use a consistent visual treatment throughout the homepage.
-
-### 5.3 Image Presentation
-
-- Use wide landscape images for hero and major editorial sections.
-- Use 4:3 images for content sections where appropriate.
-- Use portrait images for team or people-focused content.
-- Use consistent image ratios within repeated layouts.
-- Apply subtle overlays only when needed for text contrast.
-- Avoid excessive border radii.
-- Avoid stretching or distorting images.
-- Use `object-fit: cover` where appropriate.
-
-### 5.4 Important Distinction
-
-Unsplash images are supporting editorial photography.
-
-They must never replace genuine Optimax product screenshots when the purpose is to demonstrate software functionality.
-
-Use real screenshots for:
-- ERP dashboards.
-- Finance interfaces.
-- Sales interfaces.
-- HR interfaces.
-- Inventory interfaces.
-- Other product demonstrations.
-
-Use Unsplash for:
-- People.
-- Business environments.
-- Manufacturing facilities.
-- Warehouses.
-- Corporate operations.
-- Editorial content.
-
----
-
-## 6. Homepage Navigation and User Experience
-
-Implement an intuitive homepage navigation system.
-
-If the existing homepage is sufficiently long, introduce a secondary section navigation inspired by NetSuite.
-
-Suggested navigation:
-
-- Overview.
-- Benefits.
-- Modules.
-- Solutions.
-- Features.
-- Pricing.
-- Resources.
-
-The navigation should:
-
-- Remain consistent with the existing main navigation.
-- Support smooth scrolling.
-- Account for sticky-header offsets.
-- Highlight the active section where appropriate.
-- Work on mobile devices.
-- Avoid obstructing the page content.
-
-Do not introduce duplicate or conflicting navigation menus.
-
-Preserve existing navigation links and dropdown functionality.
-
----
-
-## 7. Content Writing Guidelines
-
-All homepage copy must be professionally written.
-
-Use these principles:
-
-### Lead With Business Outcomes
-
-Avoid starting every section with technical explanations.
-
-Instead of:
-
-"Our ERP contains financial management and procurement modules."
-
-Prefer:
-
-"Bring your financial and procurement operations into a more connected business management environment."
-
-### Make Content Scannable
-
-- Use short paragraphs.
-- Use clear headings.
-- Highlight important business benefits.
-- Avoid unnecessary jargon.
-- Use meaningful descriptions.
-- Break long explanations into smaller sections.
-
-### Maintain a Consistent Voice
-
-The Optimax brand should sound:
-
-- Professional.
-- Confident.
-- Knowledgeable.
-- Business-oriented.
-- Trustworthy.
-- Clear.
-
-Avoid exaggerated marketing language and unsupported promises.
-
-Do not copy NetSuite's written content.
-
-Write original content for Optimax.
-
----
-
-## 8. Technical Implementation Requirements
-
-First inspect the existing technology stack and follow its established architecture.
-
-Do not migrate frameworks or replace the existing project structure unnecessarily.
-
-### Component Architecture
-
-Where appropriate, create reusable homepage components:
-
-- `HeroSection`
-- `BusinessBenefitsSection`
-- `ModulesSection`
-- `ChallengesSection`
-- `HowItWorksSection`
-- `OptimaxAISection`
-- `IndustriesSection`
-- `ProductShowcaseSection`
-- `WhyOptimaxSection`
-- `CustomerSuccessSection`
-- `PricingSection`
-- `ResourcesSection`
-- `FinalCTASection`
-- `Footer`
-
-Use the project's existing naming conventions if they differ.
-
-Keep content organized and easy to maintain.
-
-Where practical, separate reusable content data from presentation components.
-
-### Responsive Design
-
-The homepage must work correctly on:
-
-- Desktop.
-- Laptop.
-- Tablet.
-- Mobile.
-
-Check:
-
-- Navigation behavior.
-- Typography scaling.
-- Image cropping.
-- Grid layouts.
-- Horizontal overflow.
-- CTA visibility.
+- Navbar and dropdown menus.
+- Buttons and CTA variants.
+- Typography hierarchy.
 - Section spacing.
-- Product showcase interactions.
+- Content containers.
+- Borders and radii.
+- Product imagery.
+- Cards, only where genuinely useful.
+- Hover and focus states.
+- Transitions and animations.
+- Responsive breakpoints.
 
-### Performance
+Avoid unnecessary cards, badges, icons, labels, shadows, and decorative elements.
 
-- Optimize image sizes.
-- Use WebP or AVIF where supported.
-- Lazy-load below-the-fold imagery.
-- Prioritize the hero's main visual.
-- Prevent layout shifts.
-- Avoid unnecessary animation libraries.
-- Maintain good loading performance.
+Every visual element should have a clear purpose.
 
-### Accessibility
+Do not introduce additional dependencies unless they provide a meaningful benefit.
 
-- Use semantic HTML.
-- Maintain logical heading hierarchy.
-- Provide descriptive alt text.
-- Ensure sufficient contrast.
-- Support keyboard navigation.
-- Provide visible focus states.
-- Respect reduced-motion preferences.
+## 8. Phase Six: Responsive and Accessibility Requirements
 
-### SEO
+Test the website at:
 
-Update:
+- Mobile: 320–430px.
+- Tablet: 768–1024px.
+- Laptop: 1280–1440px.
+- Desktop: 1600px and above.
 
-- Homepage title.
-- Meta description.
-- Canonical URL.
-- Open Graph information.
-- Image alt text.
-- Structured data where appropriate.
+Ensure:
 
-Use meaningful headings and internal links.
+- No horizontal overflow.
+- Readable typography.
+- Appropriate spacing.
+- Functional mobile navigation.
+- Proper image scaling.
+- Consistent section alignment.
+- Accessible color contrast.
+- Visible keyboard focus states.
+- Semantic HTML.
+- Accessible interactive elements.
 
-Ensure the homepage communicates the Optimax ERP offering clearly to search engines.
+Do not sacrifice mobile usability to preserve desktop styling.
 
----
+## 9. Phase Seven: Independent Verification
 
-## 9. Animation and Interaction
+Do not consider the redesign complete simply because the pages render successfully.
 
-Use subtle, purposeful animations.
+Use independent testing to validate the result.
 
-Recommended:
+### Content integrity
 
-- Hero content enters smoothly.
-- Supporting images reveal progressively.
-- Sections fade or slide into view.
-- Module showcases have smooth transitions.
-- Navigation interactions feel responsive.
-- CTA hover states provide feedback.
+Compare the original and redesigned website text.
 
-Avoid:
+Acceptance criteria:
 
-- Excessive parallax.
-- Continuous distracting movement.
-- Large animations that delay content visibility.
-- Animations that interfere with reading.
-
-If Framer Motion already exists in the project, use it where appropriate.
-
-Do not introduce another animation dependency without a clear reason.
-
----
-
-## 10. Functional Preservation Requirements
-
-This is an existing website.
-
-Before implementation, record all important existing functionality.
-
-Preserve:
-
-- Existing URLs and routes.
-- Navigation links.
-- Dropdown menus.
-- Contact forms.
-- Demo booking links.
-- WhatsApp links, where present.
-- Pricing links.
-- Blog links.
-- Authentication or administrative functionality.
-- Existing integrations.
-- Analytics and tracking.
-- Product showcase interactions.
-
-Do not replace functional components with static mockups.
-
-Do not break existing SEO routes.
-
-If a route needs to change, implement an appropriate redirect.
-
----
-
-## 11. Acceptance Criteria
-
-The project is complete only when the following conditions are satisfied.
-
-### Content
-
-- [ ] Existing website has been audited.
-- [ ] Existing pages and functionality have been documented.
-- [ ] Homepage content has been reorganized.
-- [ ] NetSuite's information architecture principles have been adapted.
-- [ ] All major ERP modules are presented accurately.
-- [ ] Business benefits are clearly communicated.
-- [ ] Customer challenges are addressed.
-- [ ] Industry content is based on verified offerings.
-- [ ] Pricing information is consistent with the existing pricing page.
-- [ ] CTA sections lead to working destinations.
-
-### Images
-
-- [ ] Unsplash images are relevant to their sections.
-- [ ] Image sources are valid.
-- [ ] Images are professionally selected.
-- [ ] Actual Optimax screenshots are used for product demonstrations.
-- [ ] Image ratios are consistent.
-- [ ] Alt text is provided.
-- [ ] Images are optimized.
-
-### Design
-
-- [ ] Existing Optimax branding is preserved.
-- [ ] The homepage has a clear visual hierarchy.
-- [ ] Typography is consistent.
-- [ ] Sections are visually distinguishable.
-- [ ] The layout feels like an enterprise SaaS platform.
-- [ ] Mobile and tablet layouts work correctly.
-- [ ] No unnecessary decorative elements have been introduced.
+- No existing text has been rewritten.
+- No existing text has been removed.
+- No new unsupported claims have been introduced.
+- Existing button labels and navigation labels remain unchanged.
 
 ### Functionality
 
-- [ ] Existing navigation works.
-- [ ] Existing routes remain accessible.
-- [ ] All CTAs work.
-- [ ] Contact and booking functionality remain intact.
-- [ ] Product showcase interactions work.
-- [ ] No broken images or links.
-- [ ] No console errors.
-- [ ] No horizontal overflow on mobile.
+Test:
 
-### Performance and SEO
+- All existing routes.
+- Internal and external links.
+- Navigation dropdowns.
+- CTA buttons.
+- Forms.
+- Interactive components.
+- Mobile navigation.
+- Existing animations and transitions.
 
-- [ ] Images are optimized.
-- [ ] Lazy loading is implemented appropriately.
-- [ ] Page metadata is accurate.
-- [ ] Accessibility requirements are addressed.
-- [ ] Core Web Vitals are checked.
+### Visual regression
 
----
+Compare before-and-after screenshots.
 
-## 12. Final Deliverables
+Check:
 
-Provide the following when implementation is complete:
+- Desktop appearance.
+- Mobile appearance.
+- Tablet appearance.
+- Section alignment.
+- Image quality.
+- Typography consistency.
+- Navbar and hero behavior.
 
-1. **Website Audit Report:** A summary of the existing homepage, pages, content and functionality.
-2. **Content Architecture:** The final homepage section hierarchy.
-3. **Updated Homepage:** Fully implemented and responsive.
-4. **Image Inventory:** Unsplash image sources and their corresponding homepage sections.
-5. **Preserved Functionality Report:** Confirmation of existing features and routes that remain operational.
-6. **Testing Report:** Responsive, functional, accessibility and performance checks.
-7. **Outstanding Issues:** Any missing assets, unverified claims or product capabilities that require confirmation.
+### Quality assurance tools
 
----
+Use:
 
-## 13. Final Implementation Instruction
+- Chrome DevTools.
+- Lighthouse.
+- axe DevTools.
+- Playwright.
+- Git diff.
 
-Work in phases:
+Resolve critical accessibility, functionality, and responsive issues before completion.
 
-**Phase 1:** Inspect the existing project and website.
+## 10. Final Acceptance Criteria
 
-**Phase 2:** Document the content audit and proposed information architecture.
+The redesign is successful only when:
 
-**Phase 3:** Identify and select relevant Unsplash imagery.
+1. The website looks noticeably more polished and professional.
+2. Optimax's original brand identity is preserved.
+3. No existing website text has been changed.
+4. No existing pages, routes, or functionality have been lost.
+5. The visual system is consistent throughout the website.
+6. Product screenshots and imagery accurately represent Optimax.
+7. Navigation and hero presentation work correctly.
+8. Desktop, tablet, and mobile layouts are responsive.
+9. Accessibility and performance have been checked.
+10. Independent regression testing confirms that the redesign has not introduced unwanted changes.
 
-**Phase 4:** Implement the redesigned homepage using reusable components.
+## 11. Final Delivery Report
 
-**Phase 5:** Verify the design, content, responsiveness and functionality.
+After implementation, provide a concise report containing:
 
-Do not begin by immediately replacing the homepage.
+- Pages and sections redesigned.
+- Design-system changes.
+- Components improved or created.
+- Existing functionality preserved.
+- Content-integrity verification results.
+- Responsive testing results.
+- Accessibility and performance findings.
+- Outstanding issues, if any.
 
-First understand what already exists, what the business offers and what visitors need to understand.
+Include before-and-after screenshots of the major redesigned sections.
 
-The finished website should communicate Optimax as a credible, integrated enterprise business management platform.
-
-The final experience should combine NetSuite's strong information architecture with Optimax's own brand identity, product capabilities and commercial positioning.
-
-**The ultimate objective is not simply to make the homepage look better. It is to make Optimax easier to understand, easier to trust and easier to buy.**
+**Final instruction: Improve the design, not the content. Preserve what Optimax says and how its existing features work. Improve how professionally and effectively the website presents them.**
