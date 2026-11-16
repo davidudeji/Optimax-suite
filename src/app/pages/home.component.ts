@@ -2,11 +2,10 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { combineLatest, filter, take } from 'rxjs';
 import { BlogPost, BlogService } from '../services/blog.service';
 
-interface BusinessBenefit {
+interface BusinessFeature {
   title: string;
-  description: string;
-  image: string;
-  imageAlt: string;
+  details: string[];
+  icon: string;
 }
 
 interface IndustryCard {
@@ -27,37 +26,79 @@ declare const YT: any;
 export class HomeComponent implements OnInit, OnDestroy {
   currentYear = new Date().getFullYear();
   featuredPosts: BlogPost[] = [];
-  readonly businessBenefits: BusinessBenefit[] = [
-    {
-      title: 'One business view',
-      description: 'Bring core business functions into one suite.',
-      image: '/assets/images/optimax-dashboard-hero.png',
-      imageAlt: 'OptimaX ERP dashboard showing the commerce workspace and business overview',
-    },
-    {
-      title: 'Financial clarity',
-      description: 'Keep financial records and reporting in reach.',
-      image: '/assets/images/modules/finance-module.jpg',
-      imageAlt: 'Financial documents and calculator arranged on a desk',
-    },
-    {
-      title: 'Organized operations',
-      description: 'Manage everyday work across dedicated modules.',
-      image: '/assets/images/modules/pos-module.jpg',
-      imageAlt: 'Point-of-sale system used to manage in-person business transactions',
-    },
-    {
-      title: 'Informed decisions',
-      description: 'Review business activity through reports and dashboards.',
-      image: '/assets/images/report.jpg',
-      imageAlt: 'Business analytics dashboard illustrating reports and performance metrics',
-    },
-    {
-      title: 'Ready to grow',
-      description: 'Explore the modules that fit your business needs.',
-      image: '/assets/images/modules/personnel-module.jpg',
-      imageAlt: 'Team collaborating around a conference table',
-    },
+  readonly businessBenefitSlides: BusinessFeature[][] = [
+    [
+      {
+        title: 'Financial Management',
+        details: [
+          'Track revenue, expenses, and cash flow in real time.',
+          'Automate accounting processes and generate accurate financial reports instantly.',
+        ],
+        icon: 'wallet',
+      },
+      {
+        title: 'Inventory Management',
+        details: [
+          'Monitor stock levels across warehouses and locations.',
+          'Prevent stockouts and overstock with real-time inventory tracking.',
+        ],
+        icon: 'cube',
+      },
+    ],
+    [
+      {
+        title: 'Reporting & Analytics',
+        details: [
+          'Turn raw business data into actionable insights.',
+          'Make smarter decisions with powerful dashboards and reports.',
+        ],
+        icon: 'chart-column',
+      },
+      {
+        title: 'Human Resource',
+        details: [
+          'Manage employees, attendance, and payroll effortlessly.',
+          'Gain visibility into team performance and workforce productivity.',
+        ],
+        icon: 'users',
+      },
+    ],
+    [
+      {
+        title: 'E-Commerce Integration',
+        details: [
+          'Connect your physical business with your online store.',
+          'Sync orders, inventory, and customer data automatically.',
+        ],
+        icon: 'cart-shopping',
+      },
+      {
+        title: 'Role-Based Access & Security',
+        details: [
+          'Control who can see and manage different parts of your system.',
+          'Protect sensitive business data with enterprise-grade security.',
+        ],
+        icon: 'shield-halved',
+      },
+    ],
+    [
+      {
+        title: 'Multi-Location Management',
+        details: [
+          'Operate multiple stores or branches from one system.',
+          'Track inventory, sales, and performance across all locations.',
+        ],
+        icon: 'location-dot',
+      },
+      {
+        title: 'Business Performance Monitoring',
+        details: [
+          'Measure growth across departments in real time.',
+          'Track KPIs and identify opportunities to scale your business.',
+        ],
+        icon: 'arrow-trend-up',
+      },
+    ],
   ];
   readonly industryCards: IndustryCard[] = [
     {
@@ -123,6 +164,12 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   constructor(private blogService: BlogService) {}
 
+  get currentBenefitDescription(): string {
+    return this.businessBenefitSlides[this.currentBenefitIndex]
+      .map((feature) => feature.title)
+      .join(' and ');
+  }
+
   ngOnInit(): void {
     combineLatest([this.blogService.posts$, this.blogService.ready$])
       .pipe(
@@ -156,7 +203,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   moveBenefit(direction: number, viewport: HTMLElement): void {
-    const count = this.businessBenefits.length;
+    const count = this.businessBenefitSlides.length;
     const nextIndex = (this.currentBenefitIndex + direction + count) % count;
     this.selectBenefit(nextIndex, viewport);
   }
@@ -167,7 +214,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
 
     const index = Math.round(viewport.scrollLeft / viewport.clientWidth);
-    if (index >= 0 && index < this.businessBenefits.length) {
+    if (index >= 0 && index < this.businessBenefitSlides.length) {
       this.currentBenefitIndex = index;
     }
   }

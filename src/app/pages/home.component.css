@@ -198,36 +198,59 @@
 
 .benefits-section {
   overflow-x: clip;
-  padding: clamp(56px, 7vw, 88px) max(calc((100vw - 1280px) / 2), 24px);
+  padding: clamp(42px, 5vw, 64px) 24px;
   border-bottom: 1px solid var(--line, #e5ebef);
   background: #f7faf9;
 }
 
 .benefits-container {
+  display: grid;
   width: min(1280px, 100%);
+  grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+  align-items: center;
+  gap: clamp(30px, 4vw, 60px);
   margin-inline: auto;
 }
 
+.benefits-intro {
+  max-width: 470px;
+  min-width: 0;
+}
+
 .benefits-heading {
-  max-width: 760px;
-  margin: 0 0 30px;
+  margin: 0 0 18px;
   color: var(--ink);
-  font-size: clamp(28px, 3.2vw, 40px);
+  font-size: clamp(30px, 3.2vw, 40px);
   font-weight: 750;
   letter-spacing: -.045em;
   line-height: 1.15;
+  text-wrap: balance;
+}
+
+.benefits-intro p {
+  margin: 0;
+  color: #526174;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.benefits-intro p + p {
+  margin-top: 14px;
+}
+
+.benefit-carousel {
+  min-width: 0;
 }
 
 .benefit-carousel-viewport {
   overflow-x: auto;
-  border: 1px solid #e4ece9;
-  border-radius: 20px;
-  background: #fff;
-  box-shadow: 0 18px 50px rgba(31, 66, 81, .08);
+  overflow-y: hidden;
+  border-radius: 14px;
   overscroll-behavior-inline: contain;
   scrollbar-width: none;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
 }
 
 .benefit-carousel-viewport::-webkit-scrollbar {
@@ -236,7 +259,7 @@
 
 .benefit-carousel-viewport:focus-visible {
   outline: 3px solid #00a6a6;
-  outline-offset: 5px;
+  outline-offset: 4px;
 }
 
 .benefit-carousel-track {
@@ -248,59 +271,126 @@
   display: grid;
   flex: 0 0 100%;
   min-width: 0;
-  min-height: 380px;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 12px;
   scroll-snap-align: start;
   scroll-snap-stop: always;
 }
 
-.benefit-visual {
-  position: relative;
-  min-width: 0;
-  min-height: 380px;
-  overflow: hidden;
-  background: #e8f0ee;
+.benefit-slide[aria-hidden="true"] {
+  visibility: hidden;
+  pointer-events: none;
 }
 
-.benefit-visual img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  min-height: 380px;
-  object-fit: cover;
-}
-
-.benefit-copy {
+.feature-card {
   display: flex;
+  min-width: 0;
+  min-height: 214px;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  padding: clamp(30px, 5vw, 72px);
+  padding: 18px;
+  border: 1px solid #e3e9ec;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 8px 22px rgba(31, 66, 81, .045);
 }
 
-.benefit-copy h3 {
+.feature-card-heading {
+  display: flex;
+  min-width: 0;
+  min-height: 38px;
+  align-items: center;
+  gap: 11px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #edf1f2;
+}
+
+.feature-icon {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  place-items: center;
+  border-radius: 10px;
+  color: var(--navy);
+  background: #e8f3f1;
+  font-size: 14px;
+}
+
+.feature-card-heading h3 {
+  min-width: 0;
   margin: 0;
-  color: var(--ink);
-  font-size: clamp(26px, 2.6vw, 36px);
+  color: #102b3c;
+  font-size: 13px;
   font-weight: 750;
-  letter-spacing: -.045em;
-  line-height: 1.18;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
 }
 
-.benefit-copy p {
-  max-width: 370px;
-  margin: 16px 0 0;
+.feature-details {
+  display: grid;
+  flex: 1 1 auto;
+  gap: 8px;
+  margin: 12px 0 14px;
+  padding: 0;
+  list-style: none;
+}
+
+.feature-details li {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: 14px minmax(0, 1fr);
+  gap: 7px;
   color: #526174;
+  font-size: 11.5px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.feature-details li span {
+  color: var(--navy);
+  font-weight: 700;
+  text-align: center;
+}
+
+.feature-link {
+  display: inline-flex;
+  min-height: 32px;
+  align-items: center;
+  align-self: flex-start;
+  gap: 7px;
+  width: 100%;
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid #edf1f2;
+  color: var(--navy);
+  font-size: 11.5px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.feature-link:hover {
+  color: var(--teal);
+  text-decoration: underline;
+}
+
+.feature-link span {
   font-size: 15px;
-  line-height: 1.75;
+  line-height: 1;
+  transition: transform .2s ease;
+}
+
+.feature-link:hover span {
+  transform: translateX(2px);
 }
 
 .benefit-carousel-controls {
   display: flex;
+  min-height: 40px;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
-  padding: 22px 4px 0;
+  gap: 12px;
+  padding: 12px 2px 0;
 }
 
 .benefit-selectors,
@@ -310,13 +400,13 @@
 }
 
 .benefit-selectors {
-  gap: 8px;
+  gap: 5px;
 }
 
 .benefit-selector {
   display: grid;
-  width: 34px;
-  height: 34px;
+  width: 30px;
+  height: 30px;
   place-items: center;
   padding: 0;
   border: 0;
@@ -326,27 +416,30 @@
 }
 
 .benefit-selector span {
-  width: 8px;
-  height: 8px;
+  display: block;
+  width: 7px;
+  height: 7px;
   border-radius: 999px;
   background: #c6d1d1;
   transition: width .25s ease, background-color .25s ease;
 }
 
 .benefit-selector[aria-pressed="true"] span {
-  width: 26px;
+  width: 22px;
   background: var(--teal);
 }
 
 .benefit-arrow-controls {
-  gap: 10px;
+  gap: 8px;
 }
 
 .benefit-arrow {
   display: grid;
-  width: 44px;
-  height: 44px;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 auto;
   place-items: center;
+  padding: 0;
   border: 1px solid #dfe8e6;
   border-radius: 50%;
   color: var(--ink);
@@ -363,8 +456,9 @@
 }
 
 .benefit-arrow svg {
-  width: 18px;
-  height: 18px;
+  display: block;
+  width: 16px;
+  height: 16px;
   fill: none;
   stroke: currentColor;
   stroke-linecap: round;
@@ -372,78 +466,114 @@
   stroke-width: 1.7;
 }
 
+.benefit-arrow:focus-visible, .benefit-selector:focus-visible, .feature-link:focus-visible {
+  outline: 3px solid #00a6a6;
+  outline-offset: 3px;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
   height: 1px;
+  padding: 0;
+  margin: -1px;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
-  clip-path: inset(50%);
+  border: 0;
 }
 
-@media (max-width: 980px) {
-  .benefit-slide {
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+@media (max-width: 900px) {
+  .benefits-container {
+    grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+    gap: 28px;
   }
 
-  .benefit-copy {
-    padding: 32px;
+  .feature-card {
+    min-height: 230px;
+    padding: 15px;
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 760px) {
   .benefits-section {
-    padding: 52px 20px;
+    padding-block: 44px;
+  }
+
+  .benefits-container {
+    max-width: 620px;
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 24px;
+  }
+
+  .benefits-intro {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 520px) {
+  .benefits-section {
+    padding: 40px 16px;
   }
 
   .benefits-heading {
-    margin-bottom: 22px;
+    margin-bottom: 14px;
+    font-size: 30px;
   }
 
-  .benefit-carousel-viewport {
-    border-radius: 14px;
+  .benefits-intro p {
+    font-size: 13px;
+  }
+
+  .benefits-intro p + p {
+    margin-top: 11px;
   }
 
   .benefit-slide {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
   }
 
-  .benefit-visual {
+  .feature-card {
     min-height: 0;
-    aspect-ratio: 16 / 10;
-  }
-
-  .benefit-visual img {
-    min-height: 0;
-  }
-
-  .benefit-copy {
-    padding: 26px 24px 30px;
-  }
-
-  .benefit-copy h3 {
-    font-size: 27px;
-  }
-
-  .benefit-copy p {
-    margin-top: 10px;
-    font-size: 14px;
+    padding: 16px;
   }
 
   .benefit-carousel-controls {
-    gap: 12px;
-    padding-top: 16px;
+    gap: 8px;
   }
 
   .benefit-selectors {
-    gap: 2px;
+    gap: 0;
     margin-left: -5px;
   }
 
   .benefit-arrow {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
+  }
+
+  .benefit-selector {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .benefit-carousel-viewport {
+    scroll-behavior: auto;
+  }
+
+  .benefit-selector span,
+  .benefit-arrow,
+  .feature-link span {
+    transition: none;
+  }
+
+  .benefit-arrow:hover,
+  .feature-link:hover span {
+    transform: none;
   }
 }
 

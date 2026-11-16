@@ -4,49 +4,46 @@
 
 Implement the homepage content updates in this spec using the attached references while preserving Optimax's current hero branding. The result should feel intentional, refined, and award-caliber without copying another website or introducing a new visual identity.
 
-## Business Benefits Carousel
+## “Get to Know OptimaX” Feature Carousel
 
-### Placement and spacing
+### Placement and compact layout
 
-- Keep this section directly below the hero/statistics area and before the platform modules section.
-- Fix the current narrow content column and excess side whitespace. Use a full-width section surface with a centered inner container, a consistent responsive page gutter, and balanced vertical spacing.
-- Keep the heading/supporting copy aligned with the carousel content and provide enough breathing room around the image, text, and controls.
+- Replace the existing image-and-copy benefits carousel directly below the impact statistics and before the platform modules section; do not add a second adjacent carousel or remove/change the separate impact statistics.
+- Use a compact two-column section: the heading and overview copy on the left, and the feature-card carousel on the right. Align both columns within the existing centered homepage content width.
+- Keep vertical padding, card spacing, and carousel controls restrained so the section takes less vertical space than the previous tall image carousel and full feature grid.
+- On tablet, reduce the intro column and card gutters without clipping. On mobile, stack the intro above the carousel and use a single-column card layout with no page-level horizontal overflow.
 
-### Content
+### Intro copy
 
-Keep the existing heading and benefit copy unchanged:
+- Heading: **Get to know OptimaX**
+- Paragraph 1: **Optima ERP is a cloud-based platform designed to help businesses manage their core operations from a single centralized system. It handles key business functions such as inventory management, finance, sales, human resources, customer relationship management, and supply chain operations.**
+- Paragraph 2: **OptimaX connects every department so teams can work with the same information and operate more efficiently. Business owners and managers can monitor sales, track expenses, review financial reports, manage employees, and evaluate performance.**
 
-- Section heading: **Everything your business needs. Working together.**
-- **One business view** — Bring core business functions into one suite.
-- **Financial clarity** — Keep financial records and reporting in reach.
-- **Organized operations** — Manage everyday work across dedicated modules.
-- **Informed decisions** — Review business activity through reports and dashboards.
-- **Ready to grow** — Explore the modules that fit your business needs.
+### Feature-card content
 
-Remove the decorative `01`–`05` numbers. Do not remove or alter the separate impact statistics section.
+Show two feature cards per carousel slide. Each card includes a title, two concise benefit statements, and a **Learn more** link to the existing platform section (`#platform`); do not add unverified product routes or claims.
 
-### Carousel imagery
-
-Show one benefit per slide with an existing, locally stored image tailored to its subject:
-
-| Benefit | Asset |
+| Feature | Benefit statements |
 |---|---|
-| One business view | `/assets/images/optimax-dashboard-hero.png` |
-| Financial clarity | `/assets/images/modules/finance-module.jpg` |
-| Organized operations | `/assets/images/modules/pos-module.jpg` |
-| Informed decisions | `/assets/images/report.jpg` |
-| Ready to grow | `/assets/images/modules/personnel-module.jpg` |
+| Financial Management | Track revenue, expenses, and cash flow in real time. · Automate accounting processes and generate accurate financial reports instantly. |
+| Inventory Management | Monitor stock levels across warehouses and locations. · Prevent stockouts and overstock with real-time inventory tracking. |
+| Reporting & Analytics | Turn raw business data into actionable insights. · Make smarter decisions with powerful dashboards and reports. |
+| Human Resource | Manage employees, attendance, and payroll effortlessly. · Gain visibility into team performance and workforce productivity. |
+| E-Commerce Integration | Connect your physical business with your online store. · Sync orders, inventory, and customer data automatically. |
+| Role-Based Access & Security | Control who can see and manage different parts of your system. · Protect sensitive business data with enterprise-grade security. |
+| Multi-Location Management | Operate multiple stores or branches from one system. · Track inventory, sales, and performance across all locations. |
+| Business Performance Monitoring | Measure growth across departments in real time. · Track KPIs and identify opportunities to scale your business. |
 
-Use descriptive alt text, responsive image sizing, and lazy loading. Do not use remote stock imagery or introduce new image files/dependencies for this section.
+Use small, decorative icons consistent with the existing brand styling; icons must not be the only way to identify a feature. Do not introduce new image files or dependencies.
 
 ### Carousel behavior and accessibility
 
 - Provide visible previous/next controls and direct slide selection controls; do not auto-rotate.
 - Keep controls keyboard-operable with visible focus and accessible names. Support touch interaction without requiring hover.
-- Identify the carousel and each slide semantically. Hide inactive slides from assistive technology and provide a meaningful, non-numbered accessible description for the current slide.
+- Identify the carousel and each slide semantically. Hide inactive slides from assistive technology and provide a meaningful accessible description of the current slide.
 - Respect reduced-motion preferences and avoid motion that interferes with reading or control use.
-- Keep all slides available if JavaScript is unavailable; ensure the initial slide and its content render immediately.
-- Maintain a responsive composition with no clipped content or page-level horizontal overflow.
+- Render the first slide and its content immediately, keep all feature copy in the page, and make the controls operable when the homepage app is running.
+- Ensure card content fits without fixed-height clipping; prevent clipped controls and page-level horizontal overflow at all breakpoints.
 
 ## Content
 
@@ -199,7 +196,7 @@ Add a distinct footer bottom row beneath the existing footer navigation, using t
 ## Visual direction
 
 - Reuse the existing homepage hero's brand palette, typography, and visual language so this section feels native to the current site.
-- Present the business benefits as a refined image-and-copy carousel, with the slide image and benefit text balanced at desktop sizes and comfortably stacked on mobile.
+- Present the “Get to know OptimaX” overview beside a compact, manually controlled feature-card carousel; keep the intro and cards balanced on desktop and comfortably stacked on mobile.
 - Create clear contrast between the light partner area and the darker stats area, using existing brand colors rather than introducing a new palette.
 - Keep the partner names legible in restrained, consistent text chips; avoid fabricated logos, excessive decoration, and visual clutter.
 - Present the metrics with strong hierarchy, generous spacing, subtle dividers, and clear labels. Ensure the section transitions smoothly from the sections above and below it.
@@ -216,7 +213,7 @@ Add a distinct footer bottom row beneath the existing footer navigation, using t
 
 ## Acceptance criteria
 
-- The benefits section uses the full available content width with balanced spacing, keeps the existing copy, removes the `01`–`05` markers, and presents all five benefits in an accessible, manually controlled image carousel using the listed local assets.
+- The “Get to know OptimaX” section uses the reference intro and all eight feature cards in an accessible, manually controlled carousel; it is more compact than the previous image carousel and does not create page-level horizontal overflow.
 - The new section presents the partner content and four stats from the reference, subject to verification of claims and figures.
 - The comparison section appears after the workflow explanation and before industry/pricing content, and presents the reference matrix with accessible table semantics.
 - The industry showcase follows the comparison section and precedes pricing, with the feature list, linked image mosaic, and central OptimaX brand tile.

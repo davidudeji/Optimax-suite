@@ -71,7 +71,7 @@ describe('HomeComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('scrolls to a selected benefit', () => {
+  it('scrolls to a selected feature slide', () => {
     const viewport = document.createElement('div');
     Object.defineProperty(viewport, 'clientWidth', { value: 320 });
     const scrollTo = jasmine.createSpy('scrollTo');
@@ -90,13 +90,22 @@ describe('HomeComponent', () => {
     Object.defineProperty(viewport, 'scrollTo', { value: scrollTo });
 
     component.moveBenefit(-1, viewport);
-    expect(component.currentBenefitIndex).toBe(4);
+    expect(component.currentBenefitIndex).toBe(3);
 
     component.moveBenefit(1, viewport);
     expect(component.currentBenefitIndex).toBe(0);
   });
 
-  it('updates the active benefit from horizontal scrolling', () => {
+  it('groups all eight homepage features into four carousel slides', () => {
+    expect(component.businessBenefitSlides.length).toBe(4);
+    const featureCount = component.businessBenefitSlides.reduce(
+      (count, slide) => count + slide.length,
+      0
+    );
+    expect(featureCount).toBe(8);
+  });
+
+  it('updates the active feature slide from horizontal scrolling', () => {
     const viewport = document.createElement('div');
     Object.defineProperty(viewport, 'clientWidth', { value: 320 });
     Object.defineProperty(viewport, 'scrollLeft', { value: 960 });
