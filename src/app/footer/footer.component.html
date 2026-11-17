@@ -1,3 +1,6 @@
+<!-- DEPRECATED (Design Audit P1): This footer component has been superseded by the
+     inline footer in HomeComponent. Do NOT add new features here.
+     TODO: Migrate all page routes to use the new footer pattern and delete this component. -->
 <footer class="site-footer">
   <div class="custom-shape-divider-top-1730112180">
     <svg
@@ -80,14 +83,23 @@
     <div class="footer-bottom">
       <div class="social-links">
         <a href="https://web.facebook.com/profile.php?id=61560745539613"
-          ><i class="fa-brands fa-facebook-f"></i
+          aria-label="OptimaX on Facebook (opens in a new tab)"
+          target="_blank" rel="noopener noreferrer"
+          ><i class="fa-brands fa-facebook-f" aria-hidden="true"></i
         ></a>
-        <a href="https://x.com/optimaxsuites"><i class="fab fa-twitter"></i></a>
+        <a href="https://x.com/optimaxsuites"
+          aria-label="OptimaX on X/Twitter (opens in a new tab)"
+          target="_blank" rel="noopener noreferrer"
+          ><i class="fab fa-twitter" aria-hidden="true"></i></a>
         <a href="https://www.linkedin.com/in/optimax-suites-340739313"
-          ><i class="fab fa-linkedin-in"></i
+          aria-label="OptimaX on LinkedIn (opens in a new tab)"
+          target="_blank" rel="noopener noreferrer"
+          ><i class="fab fa-linkedin-in" aria-hidden="true"></i
         ></a>
         <a href="https://www.instagram.com/optimaxsuites"
-          ><i class="fab fa-instagram"></i
+          aria-label="OptimaX on Instagram (opens in a new tab)"
+          target="_blank" rel="noopener noreferrer"
+          ><i class="fab fa-instagram" aria-hidden="true"></i
         ></a>
       </div>
       <div class="foot">

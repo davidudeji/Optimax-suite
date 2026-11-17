@@ -16,7 +16,7 @@ a {
   background: #F3F6F8;
   color: #172B36;
   padding: 32px 0 72px;
-  font-family: 'Segoe UI', Tahoma, sans-serif;
+  font-family: "Manrope", "Segoe UI", sans-serif;
 }
 
 .container-large {
@@ -91,53 +91,8 @@ a {
   color: #586981;
 }
 
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 48px;
-  padding: 0 22px;
-  border-radius: 12px;
-  font-weight: 700;
-  text-decoration: none;
-  border: 1px solid transparent;
-  transition: 0.2s ease;
-  cursor: pointer;
-}
-
 .btn:hover {
   transform: translateY(-1px);
-}
-
-.btn:focus-visible,
-button:focus-visible,
-input:focus-visible,
-a:focus-visible {
-  outline: 3px solid #0d9aa2;
-  outline-offset: 3px;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, #2E6276, #2EB270);
-  color: #fff;
-  box-shadow: 0 10px 24px rgba(46, 98, 118, 0.22);
-}
-
-.btn-secondary {
-  background: #fff;
-  border-color: rgba(19, 34, 56, 0.14);
-  color: #122033;
-}
-
-.btn-ghost {
-  background: transparent;
-  border-color: rgba(19, 34, 56, 0.18);
-  color: #122033;
-}
-
-.btn-dark {
-  background: #132238;
-  color: white;
 }
 
 .full-width {
@@ -187,12 +142,12 @@ a:focus-visible {
 
 .billing-option em {
   font-style: normal;
-  font-size: 0.73rem;
+  font-size: 0.8125rem;
 }
 
 .billing-disclaimer {
   color: #4b5970;
-  font-size: 0.85rem;
+  font-size: 0.875rem;
 }
 
 .panel {
@@ -294,12 +249,12 @@ a:focus-visible {
 
 .plan-period {
   color: #6f7d8d;
-  font-size: 0.8rem;
+  font-size: 0.875rem;
 }
 
 .plan-annual-total,
 .plan-user-limit {
-  font-size: 0.83rem;
+  font-size: 0.875rem;
   color: #516379;
 }
 
@@ -363,7 +318,7 @@ a:focus-visible {
 }
 
 .plan-additional {
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   color: #4f6276;
 }
 
@@ -411,7 +366,7 @@ a:focus-visible {
 }
 
 .compare-table th {
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #132238;
@@ -584,7 +539,7 @@ a:focus-visible {
 .summary-note {
   margin-top: 18px;
   color: #586981;
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   line-height: 1.6;
 }
 
@@ -675,6 +630,7 @@ a:focus-visible {
 
 .info-card small,
 .licence-card small {
+  font-size: 0.875rem;
   color: #4f6177;
   line-height: 1.5;
 }
@@ -732,7 +688,7 @@ a:focus-visible {
   background: #f8fafb;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
 }
 
 .faq-list {

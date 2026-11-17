@@ -1,5 +1,8 @@
+/* NOTE (Design Audit P2): Local --navy/--teal vars below are DEPRECATED.
+   Use :root tokens from styles.css (--brand-blue, --brand-green, etc.) in new code.
+   TODO: Migrate all var(--navy) → var(--brand-blue), var(--teal) → var(--brand-green), etc. */
 body {
-  font-family: "Inter", sans-serif;
+  font-family: "Manrope", sans-serif;
 }
 
 .fixed-navigation {

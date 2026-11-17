@@ -17,6 +17,17 @@
   --brand-text: #172B36;
   --brand-muted: #64748B;
   --brand-border: #E5EBEF;
+  /* Spacing scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
 }
 
 html {
@@ -26,7 +37,7 @@ html {
 body {
   background: var(--brand-surface);
   color: var(--brand-text);
-  font-family: "Inter", "Segoe UI", sans-serif;
+  font-family: "Manrope", "Segoe UI", sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -44,6 +55,91 @@ button,
 .inq-button {
   transition: all 0.2s ease-in-out;
 }
+
+/* ===== UNIFIED BUTTON SYSTEM (Design Audit P1 — do not add .btn-* or .button-* elsewhere) ===== */
+.btn,
+.button {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.375rem;
+  border-radius: 0.5rem;
+  font-family: "Manrope", sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.4;
+  cursor: pointer;
+  border: 2px solid transparent;
+  text-decoration: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+
+/* Primary — green CTA */
+.btn-primary,
+.button-primary,
+.cta-button {
+  background-color: var(--brand-green);
+  border-color: var(--brand-green);
+  color: #ffffff;
+}
+.btn-primary:hover,
+.button-primary:hover,
+.cta-button:hover {
+  background-color: var(--brand-green-hover);
+  border-color: var(--brand-green-hover);
+}
+
+/* Secondary / outline */
+.btn-secondary,
+.button-outline,
+.inq-button {
+  background-color: transparent;
+  border-color: var(--brand-blue);
+  color: var(--brand-blue);
+}
+.btn-secondary:hover,
+.button-outline:hover,
+.inq-button:hover {
+  background-color: var(--brand-blue);
+  color: #ffffff;
+}
+
+/* Dark */
+.btn-dark,
+.button-dark {
+  background-color: var(--brand-blue-deep);
+  border-color: var(--brand-blue-deep);
+  color: #ffffff;
+}
+.btn-dark:hover,
+.button-dark:hover {
+  background-color: var(--brand-blue);
+  border-color: var(--brand-blue);
+}
+
+/* Ghost */
+.btn-ghost,
+.button-ghost {
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--brand-blue);
+}
+.btn-ghost:hover,
+.button-ghost:hover {
+  background-color: rgba(46, 98, 118, 0.08);
+}
+/* ===== END UNIFIED BUTTON SYSTEM ===== */
+
+/* ===== GLOBAL FOCUS RING (Design Audit P2 — applies to all components) ===== */
+:focus-visible {
+  outline: 3px solid #00a6a6;
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+/* ===== END GLOBAL FOCUS RING ===== */
 
 .section-surface {
   background: var(--brand-white);
