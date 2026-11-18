@@ -1,3 +1,9 @@
 import { Component } from '@angular/core';
-@Component({ selector: 'app-expensepage', templateUrl: './expensepage.component.html' })
+import { ProductPageMotionDirective } from '../../product-page-motion.directive';
+
+@Component({
+  selector: 'app-expensepage',
+  templateUrl: './expensepage.component.html',
+  hostDirectives: [ProductPageMotionDirective],
+})
 export class ExpensepageComponent {}

@@ -169,6 +169,97 @@ button,
   border: 1px solid var(--brand-border);
 }
 
+.product-page {
+  display: block;
+  color: var(--brand-text);
+}
+
+.product-page .product-hero {
+  background: var(--brand-hero) !important;
+  color: var(--brand-white);
+}
+
+.product-page .product-hero h1 {
+  color: var(--brand-white) !important;
+}
+
+.product-page .product-hero h1 + p,
+.product-page .product-hero h1 + p + p {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.product-page .product-hero .uppercase {
+  color: rgba(255, 255, 255, 0.74) !important;
+}
+
+.product-page .product-hero hr {
+  border-color: rgba(71, 231, 151, 0.5) !important;
+}
+
+.product-page .product-hero [style*="#e8f4f2"] {
+  background-color: rgba(46, 178, 112, 0.16) !important;
+}
+
+.product-page .product-hero [style*="color:#2e6276"],
+.product-page .product-hero [style*="color: #2e6276"] {
+  color: var(--brand-green-hover) !important;
+}
+
+.product-page .product-hero a[style*="background-color: #2e6276"],
+.product-page .product-hero a[style*="background-color:#2e6276"] {
+  background-color: var(--brand-green) !important;
+  border-color: var(--brand-green) !important;
+  color: #ffffff !important;
+}
+
+.product-page .product-hero a[style*="border-color"] {
+  border-color: rgba(255, 255, 255, 0.65) !important;
+  color: #ffffff !important;
+}
+
+.product-page .product-hero a[style*="border-color"]:hover {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+.product-page [class~="bg-[#fafafa]"] {
+  background-color: var(--brand-surface) !important;
+}
+
+.product-page [class~="bg-[#272725]"] {
+  background-color: var(--brand-blue-deep) !important;
+}
+
+.product-page [class~="bg-[#2e6276]"] {
+  background-color: var(--brand-blue) !important;
+}
+
+.product-page [class~="text-[#272725]"] {
+  color: var(--brand-text) !important;
+}
+
+.product-page [class~="text-[#2e6276]"],
+.product-page [style*="#2e6276"] {
+  color: var(--brand-blue) !important;
+}
+
+.product-page [class~="bg-[#2e6276]/10"],
+.product-page [style*="#e8f4f2"] {
+  background-color: rgba(15, 67, 80, 0.1) !important;
+}
+
+.product-page [class~="bg-[#d4a574]"],
+.product-page [style*="background-color:#d4a574"],
+.product-page [style*="background-color: #d4a574"] {
+  background-color: var(--brand-green) !important;
+  border-color: var(--brand-green) !important;
+}
+
+.product-page [class~="text-[#d4a574]"],
+.product-page [style*="color:#d4a574"],
+.product-page [style*="color: #d4a574"] {
+  color: var(--brand-green) !important;
+}
+
 ::selection {
   background: rgba(46, 178, 112, 0.22);
   color: var(--brand-text);

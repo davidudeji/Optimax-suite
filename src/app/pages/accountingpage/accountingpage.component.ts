@@ -1,3 +1,9 @@
 import { Component } from '@angular/core';
-@Component({ selector: 'app-accountingpage', templateUrl: './accountingpage.component.html' })
+import { ProductPageMotionDirective } from '../../product-page-motion.directive';
+
+@Component({
+  selector: 'app-accountingpage',
+  templateUrl: './accountingpage.component.html',
+  hostDirectives: [ProductPageMotionDirective],
+})
 export class AccountingpageComponent {}

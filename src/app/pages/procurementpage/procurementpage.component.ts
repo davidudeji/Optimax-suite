@@ -1,3 +1,9 @@
 import { Component } from '@angular/core';
-@Component({ selector: 'app-procurementpage', templateUrl: './procurementpage.component.html' })
+import { ProductPageMotionDirective } from '../../product-page-motion.directive';
+
+@Component({
+  selector: 'app-procurementpage',
+  templateUrl: './procurementpage.component.html',
+  hostDirectives: [ProductPageMotionDirective],
+})
 export class ProcurementpageComponent {}

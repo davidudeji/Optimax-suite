@@ -1,3 +1,9 @@
 import { Component } from '@angular/core';
-@Component({ selector: 'app-crmpage', templateUrl: './crmpage.component.html' })
+import { ProductPageMotionDirective } from '../../product-page-motion.directive';
+
+@Component({
+  selector: 'app-crmpage',
+  templateUrl: './crmpage.component.html',
+  hostDirectives: [ProductPageMotionDirective],
+})
 export class CrmpageComponent {}
