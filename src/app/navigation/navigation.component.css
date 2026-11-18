@@ -1,3 +1,7 @@
+:host .desktop-dropdown-panel {
+  width: min(620px, calc(100vw - 2rem));
+}
+
 :host-context(.home-page) .site-navigation {
   min-height: 72px;
   color: #fff;

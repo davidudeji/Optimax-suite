@@ -1,5 +1,7 @@
 import { Component, HostListener, Renderer2 } from '@angular/core';
 
+type DropdownName = 'products' | 'industries' | 'cloud';
+
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
@@ -7,9 +9,10 @@ import { Component, HostListener, Renderer2 } from '@angular/core';
 })
 export class NavigationComponent {
   isScrolled = false;
-  activeDropdown: 'products' | 'industries' | 'cloud' | null = null;
+  activeDropdown: DropdownName | null = null;
+  private pinnedDropdown: DropdownName | null = null;
   mobileMenuOpen = false;
-  mobileAccordion: 'products' | 'industries' | 'cloud' | null = null;
+  mobileAccordion: DropdownName | null = null;
 
   cloudPages = [
     { name: 'Overview', path: '/optima-xcloud/' },
@@ -129,6 +132,7 @@ export class NavigationComponent {
     const target = event.target as HTMLElement;
     if (!target.closest('.navbar-dropdown-wrapper')) {
       this.activeDropdown = null;
+      this.pinnedDropdown = null;
     }
     if (!target.closest('.mobile-menu-wrapper')) {
       this.mobileMenuOpen = false;
@@ -138,25 +142,35 @@ export class NavigationComponent {
   @HostListener('document:keydown.escape')
   onEscape() {
     this.activeDropdown = null;
+    this.pinnedDropdown = null;
     this.mobileMenuOpen = false;
     this.mobileAccordion = null;
   }
 
-  toggleDropdown(name: 'products' | 'industries') {
-    this.activeDropdown = this.activeDropdown === name ? null : name;
+  onDropdownEnter(name: DropdownName) {
+    this.activeDropdown = name;
   }
 
-  showCloudDropdown(event: Event) {
-    event.stopPropagation();
-    this.activeDropdown = 'cloud';
+  onDropdownLeave(name: DropdownName) {
+    if (this.activeDropdown === name) {
+      this.activeDropdown = this.pinnedDropdown;
+    }
   }
 
-  openCloudDropdown() {
-    this.activeDropdown = 'cloud';
+  toggleDropdown(name: DropdownName) {
+    if (this.pinnedDropdown === name) {
+      this.pinnedDropdown = null;
+      this.activeDropdown = this.activeDropdown === name ? null : this.activeDropdown;
+      return;
+    }
+
+    this.pinnedDropdown = name;
+    this.activeDropdown = name;
   }
 
   closeMenus() {
     this.activeDropdown = null;
+    this.pinnedDropdown = null;
     this.mobileMenuOpen = false;
     this.mobileAccordion = null;
   }
@@ -165,7 +179,7 @@ export class NavigationComponent {
     this.mobileMenuOpen = !this.mobileMenuOpen;
   }
 
-  toggleMobileAccordion(name: 'products' | 'industries' | 'cloud') {
+  toggleMobileAccordion(name: DropdownName) {
     this.mobileAccordion = this.mobileAccordion === name ? null : name;
   }
 }

@@ -41,8 +41,8 @@
   isolation: isolate;
   color: white;
   background:
-    radial-gradient(ellipse at 82% 39%, rgba(46, 178, 112, .18), transparent 38%),
-    linear-gradient(120deg, #2E6276 0%, #1f4251 50%, #2EB270 100%);
+    radial-gradient(ellipse at 82% 39%, rgba(0,191,166,.13), transparent 38%),
+    linear-gradient(116deg, #0b1b33 0%, #0b3549 100%);
 }
 
 .hero-section::before {
@@ -773,7 +773,12 @@
   grid-template-columns: minmax(260px, .76fr) minmax(0, 1.24fr);
   gap: clamp(45px, 9vw, 128px);
   color: #fff;
-  background: var(--navy, #071d33);
+  background:
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px),
+    radial-gradient(ellipse at 82% 39%, rgba(0,191,166,.13), transparent 38%),
+    linear-gradient(116deg, #0b1b33, #0b3549);
+  background-size: 54px 54px, 54px 54px, auto, auto;
 }
 
 .challenge-section.section-pad {
