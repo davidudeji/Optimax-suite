@@ -6,7 +6,7 @@
   height: 100vh;
   padding: 20px;
   box-sizing: border-box;
-  background: linear-gradient(120deg, rgba(46, 98, 118, 0.96) 0%, rgba(31, 66, 81, 0.96) 48%, rgba(46, 178, 112, 0.86) 100%);
+  background: var(--brand-hero);
   margin-top: 80px;
 }
 

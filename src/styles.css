@@ -8,10 +8,11 @@
 @tailwind utilities;
 
 :root {
-  --brand-blue: #2E6276;
-  --brand-blue-deep: #1f4251;
+  --brand-blue: #0F4350;
+  --brand-blue-deep: #0B1B33;
   --brand-green: #2EB270;
   --brand-green-hover: #47e797;
+  --brand-hero: linear-gradient(112deg, #0B1B33 0%, #0B3549 56%, #0F4350 100%);
   --brand-surface: #F3F6F8;
   --brand-white: #FFFFFF;
   --brand-text: #172B36;
@@ -92,6 +93,28 @@ button,
   border-color: var(--brand-green-hover);
 }
 
+.btn-primary,
+.button-primary,
+.cta-button,
+.nav-demo-btn,
+.cloud-button-primary,
+.comparison-cta {
+  background-color: var(--brand-green) !important;
+  border-color: var(--brand-green) !important;
+  color: #ffffff !important;
+}
+
+.btn-primary:hover,
+.button-primary:hover,
+.cta-button:hover,
+.nav-demo-btn:hover,
+.cloud-button-primary:hover,
+.comparison-cta:hover {
+  background-color: var(--brand-green-hover) !important;
+  border-color: var(--brand-green-hover) !important;
+  color: #ffffff !important;
+}
+
 /* Secondary / outline */
 .btn-secondary,
 .button-outline,
@@ -135,7 +158,7 @@ button,
 
 /* ===== GLOBAL FOCUS RING (Design Audit P2 — applies to all components) ===== */
 :focus-visible {
-  outline: 3px solid #00a6a6;
+  outline: 3px solid var(--brand-green);
   outline-offset: 3px;
   border-radius: 3px;
 }
@@ -773,7 +796,7 @@ video {
   position: relative;
   isolation: isolate;
   color: #fff;
-  background: linear-gradient(112deg, #2e6276 0%, #1f4251 52%, #2eb270 100%);
+  background: var(--brand-hero);
 }
 
 .product-hero h1 {
@@ -798,4 +821,42 @@ video {
 
 .product-hero a[href="/get-started"]:hover {
   background-color: var(--brand-green-hover) !important;
+}
+
+.product-hero a[href="#"] {
+  border-color: rgba(255, 255, 255, 0.55) !important;
+  color: #ffffff !important;
+  background-color: transparent !important;
+}
+
+.product-hero a[href="#"]:hover {
+  border-color: #ffffff !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.product-hero ~ section[class*="bg-[#2e6276]"] {
+  background: var(--brand-hero) !important;
+}
+
+.product-hero ~ section a[href="/get-started"].bg-white {
+  background-color: var(--brand-green) !important;
+  color: #ffffff !important;
+}
+
+.product-hero ~ section a[href="/get-started"].bg-white:hover {
+  background-color: var(--brand-green-hover) !important;
+}
+
+a[class*="bg-[#2e6276]"],
+button[class*="bg-[#2e6276]"] {
+  background-color: var(--brand-green) !important;
+  border-color: var(--brand-green) !important;
+  color: #ffffff !important;
+}
+
+a[class*="bg-[#2e6276]"]:hover,
+button[class*="bg-[#2e6276]"]:hover {
+  background-color: var(--brand-green-hover) !important;
+  border-color: var(--brand-green-hover) !important;
+  color: #ffffff !important;
 }

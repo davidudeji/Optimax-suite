@@ -5,8 +5,8 @@
 }
 
 .home-page {
-  --navy: #2E6276;
-  --midnight: #1f4251;
+  --navy: #0B1B33;
+  --midnight: #0B3549;
   --teal: #2EB270;
   --mint: #47e797;
   --ink: #172b36;
@@ -29,7 +29,7 @@
 
 .home-page a:focus-visible,
 .home-page button:focus-visible {
-  outline: 3px solid #00a6a6;
+  outline: 3px solid var(--brand-green);
   outline-offset: 4px;
 }
 
@@ -41,8 +41,8 @@
   isolation: isolate;
   color: white;
   background:
-    radial-gradient(ellipse at 82% 39%, rgba(0,191,166,.13), transparent 38%),
-    linear-gradient(116deg, #0b1b33 0%, #0b3549 100%);
+    radial-gradient(ellipse at 82% 39%, rgba(46,178,112,.14), transparent 38%),
+    var(--brand-hero);
 }
 
 .hero-section::before {
@@ -163,25 +163,6 @@
   object-fit: contain;
 }
 
-.scroll-cue {
-  position: absolute;
-  bottom: 26px;
-  left: max(6.5vw, 24px);
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 12px;
-  color: rgba(255,255,255,.75);
-  letter-spacing: .07em;
-  text-transform: uppercase;
-}
-
-.scroll-cue i {
-  width: 34px;
-  height: 1px;
-  background: rgba(255,255,255,.35);
-}
-
 .benefits-section {
   overflow-x: clip;
   padding: clamp(42px, 5vw, 64px) 24px;
@@ -244,7 +225,7 @@
 }
 
 .benefit-carousel-viewport:focus-visible {
-  outline: 3px solid #00a6a6;
+  outline: 3px solid var(--brand-green);
   outline-offset: 4px;
 }
 
@@ -453,7 +434,7 @@
 }
 
 .benefit-arrow:focus-visible, .benefit-selector:focus-visible, .feature-link:focus-visible {
-  outline: 3px solid #00a6a6;
+  outline: 3px solid var(--brand-green);
   outline-offset: 3px;
 }
 
@@ -1480,7 +1461,7 @@
   overflow: hidden;
   padding: 78px max(calc((100vw - 1232px) / 2), 24px);
   color: white;
-  background: linear-gradient(116deg, #0b1b33, #0b3549);
+  background: var(--brand-hero);
 }
 
 .final-cta::after {
@@ -1750,8 +1731,6 @@
   .hero-actions .button {
     width: 100%;
   }
-
-  .scroll-cue { left: 20px; }
 
   .section-pad {
     padding: 76px 20px;

@@ -4,9 +4,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-                        customBlue: '#2E6276',
+                        customBlue: '#0F4350',
                         customGreen: '#2EB270',
-                        customBlueHover: '#4291b1',
+                        customBlueHover: '#1B5B69',
                         customGreenHover: '#47e797',
                      },
       screens: {

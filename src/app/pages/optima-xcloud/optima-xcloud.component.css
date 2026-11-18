@@ -5,8 +5,8 @@
 }
 
 .cloud-page {
-  --cloud-blue: #2e6276;
-  --cloud-blue-deep: #1f4251;
+  --cloud-blue: #0f4350;
+  --cloud-blue-deep: #0b1b33;
   --cloud-green: #2eb270;
   --cloud-text: #172b36;
   --cloud-muted: #64748b;
@@ -40,7 +40,7 @@
   color: #fff;
   background:
     radial-gradient(ellipse at 83% 38%, rgba(46, 178, 112, .2), transparent 34%),
-    linear-gradient(116deg, #2e6276 0%, #1f4251 58%, #1b4a58 100%);
+    var(--brand-hero);
 }
 
 .cloud-hero::before {

@@ -188,7 +188,7 @@
   padding: 0 19px;
   border-radius: 9px;
   color: #fff;
-  background: #2e6276;
+  background: var(--brand-green);
   font-size: 12px;
   font-weight: 750;
   transition: background-color 180ms ease, transform 180ms ease;
@@ -196,7 +196,7 @@
 
 .comparison-cta:hover {
   transform: translateY(-2px);
-  background: #1f4251;
+  background: var(--brand-green-hover);
 }
 
 .comparison-cta:focus-visible {
