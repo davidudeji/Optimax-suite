@@ -1293,7 +1293,7 @@
   justify-content: space-between;
   gap: 40px;
   padding: 32px;
-  background: #1f4251;
+  background: var(--brand-hero);
 }
 
 .cloud-cta .cloud-section-kicker {

@@ -451,11 +451,11 @@
 .module-cta {
   padding: 72px 0;
   color: #fff;
-  background: var(--module-ink);
+  background: var(--brand-hero);
 }
 
 .module-cta .module-kicker {
-  color: #78c69f;
+  color: #47e797;
 }
 
 .module-cta-inner {
@@ -479,9 +479,14 @@
 
 .module-cta .module-button-primary {
   flex: 0 0 auto;
-  color: var(--module-ink);
-  border-color: #fff;
-  background: #fff;
+  color: #0b1b33;
+  border-color: #2eb270;
+  background: #2eb270;
+}
+
+.module-cta .module-button-primary:hover {
+  border-color: #47e797;
+  background: #47e797;
 }
 
 .module-footer {

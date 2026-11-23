@@ -762,7 +762,7 @@ a {
 }
 
 .final-cta-inner {
-  background: linear-gradient(135deg, #132238 0%, #1b3550 100%);
+  background: var(--brand-hero);
   border-radius: 28px;
   color: white;
   padding: 34px 28px;
