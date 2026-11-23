@@ -60,6 +60,7 @@ import { ForumNewThreadComponent } from './pages/forum-new-thread/forum-new-thre
 import { ForumVerifyComponent } from './pages/forum-verify/forum-verify.component';
 import { OptimaXCloudComponent } from './pages/optima-xcloud/optima-xcloud.component';
 import { ModuleDetailComponent } from './pages/module-detail/module-detail.component';
+import { SiteFooterComponent } from './footer/site-footer.component';
 
 @NgModule({
   declarations: [
@@ -109,6 +110,7 @@ import { ModuleDetailComponent } from './pages/module-detail/module-detail.compo
     ForumVerifyComponent,
     OptimaXCloudComponent,
     ModuleDetailComponent,
+    SiteFooterComponent,
   ],
   imports: [
     BrowserModule,

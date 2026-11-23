@@ -406,39 +406,4 @@
     </section>
   </main>
 
-  <footer class="cloud-footer">
-    <div class="cloud-container">
-      <div class="cloud-footer-main">
-        <div class="cloud-footer-brand">
-          <a routerLink="/" aria-label="OptimaX Suites home"><img src="/assets/images/logo.png" alt="OptimaX Suites" /></a>
-          <p>One connected platform for the work that moves business forward.</p>
-          <a class="footer-contact-link" routerLink="/contact">Get in touch <span aria-hidden="true">↗</span></a>
-        </div>
-        <div class="cloud-footer-column">
-          <h2>OPTIMAXCLOUD</h2>
-          <p>Explore cloud infrastructure, application deployment, and managed cloud services from Centrifuge Group.</p>
-          <a *ngFor="let item of cloudPages" [routerLink]="item.path">{{ item.label }}</a>
-        </div>
-        <div class="cloud-footer-column">
-          <h2>Platform</h2>
-          <a routerLink="/accounting">Accounting</a><a routerLink="/hr">HR &amp; Payroll</a><a routerLink="/procurement">Procurement</a><a routerLink="/pos">Point of sale</a><a routerLink="/crm">CRM</a><a routerLink="/expense">Expenses</a>
-        </div>
-        <div class="cloud-footer-column">
-          <h2>Company</h2>
-          <a routerLink="/contact">Contact</a><a routerLink="/blog">Insights</a><a routerLink="/community">Community</a><a routerLink="/get-started">Get started</a>
-        </div>
-      </div>
-      <nav class="cloud-footer-socials" aria-label="Follow OptimaX">
-        <a href="https://www.facebook.com/profile.php?id=61587287975959" target="_blank" rel="noopener noreferrer" aria-label="OptimaX on Facebook (opens in a new tab)">Facebook</a>
-        <a href="https://www.youtube.com/@OptimaXSuites" target="_blank" rel="noopener noreferrer" aria-label="OptimaX on YouTube (opens in a new tab)">YouTube</a>
-        <a href="https://www.instagram.com/optimaxsuites/" target="_blank" rel="noopener noreferrer" aria-label="OptimaX on Instagram (opens in a new tab)">Instagram</a>
-        <a href="https://www.linkedin.com/company/centrifuge-group/" target="_blank" rel="noopener noreferrer" aria-label="Centrifuge Group on LinkedIn (opens in a new tab)">LinkedIn</a>
-        <a href="https://x.com/optimaxsuites/" target="_blank" rel="noopener noreferrer" aria-label="OptimaX on X (opens in a new tab)">X</a>
-      </nav>
-      <div class="cloud-footer-bottom">
-        <span>© {{ currentYear }} OptimaX Suites. All rights reserved.</span>
-        <a routerLink="/contact">Contact our team</a>
-      </div>
-    </div>
-  </footer>
 </div>
