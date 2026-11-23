@@ -25,6 +25,7 @@ import { ForumThreadComponent } from './pages/forum-thread/forum-thread.componen
 import { ForumNewThreadComponent } from './pages/forum-new-thread/forum-new-thread.component';
 import { ForumVerifyComponent } from './pages/forum-verify/forum-verify.component';
 import { OptimaXCloudComponent } from './pages/optima-xcloud/optima-xcloud.component';
+import { ModuleDetailComponent } from './pages/module-detail/module-detail.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -45,6 +46,9 @@ const routes: Routes = [
   { path: 'procurement', component: ProcurementpageComponent },
   { path: 'expense', component: ExpensepageComponent },
   { path: 'crm', component: CrmpageComponent },
+  { path: 'inventory-management', component: ModuleDetailComponent, data: { module: 'inventory' } },
+  { path: 'sales-management', component: ModuleDetailComponent, data: { module: 'sales' } },
+  { path: 'vendor-management', component: ModuleDetailComponent, data: { module: 'vendor' } },
 
   // General pages
   { path: 'blog', component: BlogpageComponent },

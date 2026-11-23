@@ -250,8 +250,12 @@
                 <p class="integration-use-case">{{ integration.useCases }}</p>
                 <p class="availability-note"><span aria-hidden="true">i</span> Contact us to confirm availability.</p>
                 <div class="integration-links">
-                  <a [href]="integration.officialUrl">Official documentation <span aria-hidden="true">↗</span></a>
-                  <a [href]="integration.guideUrl">OptimaXCloud guide <span aria-hidden="true">↗</span></a>
+                  <a
+                    [href]="integration.officialUrl"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    [attr.aria-label]="'Visit the official ' + integration.name + ' website (opens in a new tab)'"
+                  >{{ integration.officialLabel }} <span aria-hidden="true">↗</span></a>
                 </div>
               </article>
             </div>
@@ -295,6 +299,13 @@
               <div><p class="cloud-section-kicker">A STRUCTURED TRANSITION</p><h2 id="migration-plan-title">A migration plan shaped around your environment.</h2></div>
               <p>Migration steps, compatibility, and cutover decisions depend on the source environment and application requirements.</p>
             </div>
+            <div class="migration-sequence" aria-label="Core migration sequence">
+              <div><span>01</span><strong>Discover workloads</strong></div>
+              <span aria-hidden="true">→</span>
+              <div><span>02</span><strong>Prepare the destination</strong></div>
+              <span aria-hidden="true">→</span>
+              <div><span>03</span><strong>Coordinate application and DNS cutover</strong></div>
+            </div>
             <div class="migration-list">
               <article *ngFor="let step of migrationSteps; let i = index">
                 <span class="migration-number">0{{ i + 1 }}</span>
@@ -306,7 +317,14 @@
         <section class="cloud-section cloud-tint-section">
           <div class="cloud-container migration-reference">
             <div><p class="cloud-section-kicker">IONOS & PLESK</p><h2>Plan the details behind a hosting migration.</h2></div>
-            <div><p>Review Plesk subscriptions, website files, databases, domains, email accounts, DNS, and SSL certificates as part of the migration scope. Compatibility depends on the existing hosting configuration.</p><a class="cloud-text-link" href="https://be.optimaxsuites.com/iaas/xcw/migration-ionos-plesk.html">Read the IONOS and Plesk migration guide <span aria-hidden="true">↗</span></a></div>
+            <div>
+              <p>Include the hosting account and its dependencies in the migration inventory. Compatibility depends on the existing configuration.</p>
+              <ul>
+                <li>Plesk subscriptions, website files, and databases</li>
+                <li>Domains, DNS records, and SSL certificates</li>
+                <li>Email accounts and application dependencies</li>
+              </ul>
+            </div>
           </div>
         </section>
         <section class="cloud-section">
@@ -322,7 +340,7 @@
           <div class="cloud-container">
             <div class="cloud-section-heading">
               <div><p class="cloud-section-kicker">PUBLISHED INDICATIVE PLANS</p><h2 id="plans-title">A starting point for the cloud conversation.</h2></div>
-              <p>Published ranges reproduced from the current product pricing page; confirm the approved commercial offer before purchase.</p>
+              <p>Use these indicative ranges as a starting point, then confirm the approved commercial offer before purchase.</p>
             </div>
             <div class="pricing-grid">
               <article class="pricing-card" *ngFor="let plan of plans">
@@ -336,7 +354,6 @@
               <strong>Pricing clarification</strong>
               <p>Published prices are indicative. Final pricing may vary depending on the infrastructure provider, service configuration, software package, support requirements, and partner arrangements. Confirm the complete quotation before placing an order.</p>
             </aside>
-            <p class="pricing-source">Source: <a href="https://be.optimaxsuites.com/iaas/xcw/pricing.html">published OptimaXCloud pricing page <span aria-hidden="true">↗</span></a></p>
           </div>
         </section>
         <section class="cloud-section cloud-tint-section">
@@ -359,15 +376,15 @@
         <section class="cloud-section" aria-labelledby="resources-title">
           <div class="cloud-container">
             <div class="cloud-section-heading">
-              <div><p class="cloud-section-kicker">PRODUCT RESOURCES</p><h2 id="resources-title">Browse the original product guides.</h2></div>
-              <p>These links open the original OptimaXCloud resource in the same tab.</p>
+              <div><p class="cloud-section-kicker">PRODUCT RESOURCES</p><h2 id="resources-title">Browse OptimaXCloud guides.</h2></div>
+              <p>These first-party summaries take you to the relevant platform, integration, workload, migration, and pricing information on this site.</p>
             </div>
             <div class="resource-grid">
-              <a class="resource-card" *ngFor="let resource of resources" [href]="resource.url">
+              <a class="resource-card" *ngFor="let resource of resources" [routerLink]="resource.path">
                 <span class="resource-category">{{ resource.category }}</span>
-                <h3>{{ resource.title }} <span aria-hidden="true">↗</span></h3>
+                <h3>{{ resource.title }} <span aria-hidden="true">→</span></h3>
                 <p>{{ resource.description }}</p>
-                <span class="resource-link-label">Open resource</span>
+                <span class="resource-link-label">Read this guide</span>
               </a>
             </div>
           </div>

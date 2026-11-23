@@ -1,0 +1,146 @@
+<app-navigation></app-navigation>
+
+<main class="module-detail-page">
+  <section class="product-hero">
+    <div class="module-container">
+      <nav class="module-breadcrumb" aria-label="Breadcrumb">
+        <a routerLink="/">Home</a><span aria-hidden="true">/</span>
+        <a routerLink="/">{{ page.name }}</a>
+      </nav>
+
+      <div class="module-hero-grid">
+        <div class="module-hero-copy">
+          <p class="module-eyebrow">{{ page.eyebrow }}</p>
+          <h1>{{ page.title }}</h1>
+          <p class="module-hero-intro">{{ page.intro }}</p>
+          <div class="module-actions">
+            <a class="module-button module-button-primary" routerLink="/contact">Book a Demo <span aria-hidden="true">→</span></a>
+            <a class="module-button module-button-secondary" routerLink="/">Explore Optimax ERP <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+
+        <figure class="module-hero-visual">
+          <div class="module-browser-bar" aria-hidden="true">
+            <span></span><span></span><span></span>
+            <strong>OPTIMAX ERP</strong>
+          </div>
+          <img [src]="page.heroImage" [alt]="page.heroAlt" width="1440" height="900" fetchpriority="high" />
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="module-section module-problem" aria-labelledby="problem-title">
+    <div class="module-container module-split-heading">
+      <div>
+        <p class="module-kicker">THE BUSINESS CHALLENGE</p>
+        <h2 id="problem-title">{{ page.problemTitle }}</h2>
+      </div>
+      <ul class="module-problem-list">
+        <li *ngFor="let problem of page.problems">{{ problem }}</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="module-section module-features" aria-labelledby="features-title">
+    <div class="module-container">
+      <div class="module-section-heading">
+        <p class="module-kicker">CORE CAPABILITIES</p>
+        <h2 id="features-title">{{ page.featureTitle }}</h2>
+      </div>
+
+      <div class="module-feature-list">
+        <article class="module-feature" *ngFor="let feature of page.features; let i = index" [class.feature-reversed]="i % 2 === 1">
+          <div class="module-feature-copy">
+            <span class="module-feature-number" aria-hidden="true">0{{ i + 1 }}</span>
+            <h3>{{ feature.title }}</h3>
+            <p>{{ feature.text }}</p>
+            <ul>
+              <li *ngFor="let highlight of feature.highlights">{{ highlight }}</li>
+            </ul>
+          </div>
+          <figure *ngIf="feature.image" class="module-feature-visual">
+            <img [src]="feature.image" [alt]="feature.imageAlt || feature.title" width="1440" height="900" loading="lazy" />
+          </figure>
+          <div *ngIf="!feature.image" class="module-feature-note" aria-hidden="true">
+            <span>{{ page.name }}</span>
+            <strong>{{ feature.title }}</strong>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="module-section module-benefits" aria-labelledby="benefits-title">
+    <div class="module-container module-benefits-grid">
+      <div>
+        <p class="module-kicker">BUSINESS BENEFITS</p>
+        <h2 id="benefits-title">{{ page.benefitsTitle }}</h2>
+      </div>
+      <ul>
+        <li *ngFor="let benefit of page.benefits"><span aria-hidden="true">✓</span>{{ benefit }}</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="module-section module-ecosystem" aria-labelledby="ecosystem-title">
+    <div class="module-container">
+      <p class="module-kicker">CONNECTED BUSINESS OPERATIONS</p>
+      <h2 id="ecosystem-title">How {{ page.name }} fits across Optimax ERP.</h2>
+      <div class="ecosystem-diagram" role="list" aria-label="Related Optimax ERP modules">
+        <div class="ecosystem-center" role="listitem">
+          <span>OPTIMAX ERP</span>
+          <strong>{{ page.name }}</strong>
+        </div>
+        <div class="ecosystem-line" aria-hidden="true"></div>
+        <div class="ecosystem-items">
+          <a *ngFor="let module of page.ecosystem" [routerLink]="module.path" role="listitem">
+            {{ module.name }} <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+      <p class="ecosystem-note">Module relationships are presented to show potential connected workflows. Confirmed data flows and enabled integrations may vary by deployment.</p>
+    </div>
+  </section>
+
+  <section class="module-cta" aria-labelledby="module-cta-title">
+    <div class="module-container module-cta-inner">
+      <div>
+        <p class="module-kicker">NEXT STEP</p>
+        <h2 id="module-cta-title">{{ page.ctaTitle }}</h2>
+        <p>{{ page.ctaText }}</p>
+      </div>
+      <a class="module-button module-button-primary" routerLink="/contact">Book a Demo <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="module-footer">
+  <div class="module-container">
+    <div class="module-footer-main">
+      <div>
+        <a routerLink="/" aria-label="Optimax Suites home"><img src="/assets/images/logo.png" alt="OptimaX Suites" /></a>
+        <p>One connected platform for the work that moves business forward.</p>
+      </div>
+      <nav aria-label="Module pages">
+        <h2>ERP MODULES</h2>
+        <a routerLink="/inventory-management">Inventory Management</a>
+        <a routerLink="/sales-management">Sales Management</a>
+        <a routerLink="/vendor-management">Vendor Management</a>
+        <a routerLink="/accounting">Accounting</a>
+        <a routerLink="/procurement">Procurement</a>
+      </nav>
+      <nav aria-label="Company">
+        <h2>COMPANY</h2>
+        <a routerLink="/contact">Contact</a>
+        <a routerLink="/pricing">Pricing</a>
+        <a routerLink="/blog">Insights</a>
+        <a routerLink="/get-started">Get started</a>
+      </nav>
+    </div>
+    <div class="module-footer-bottom">
+      <span>© {{ currentYear }} OptimaX Suites. All rights reserved.</span>
+      <a routerLink="/contact">Contact our team</a>
+    </div>
+  </div>
+</footer>

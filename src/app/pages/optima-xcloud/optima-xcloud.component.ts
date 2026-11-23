@@ -43,7 +43,7 @@ interface CloudIntegration {
   role: string;
   useCases: string;
   officialUrl: string;
-  guideUrl: string;
+  officialLabel: string;
 }
 
 interface CloudWorkload {
@@ -62,7 +62,7 @@ interface CloudResource {
   title: string;
   category: string;
   description: string;
-  url: string;
+  path: string;
 }
 
 interface CloudTextSection {
@@ -97,7 +97,7 @@ export class OptimaXCloudComponent implements OnInit, OnDestroy {
       eyebrow: 'CLOUD INFRASTRUCTURE & APPLICATION OPERATIONS',
       heading: 'Cloud infrastructure. Connected operations.',
       intro:
-        'OptimaXCloud brings cloud infrastructure management, application deployment, networking, and operational workflows into a unified experience. From hosting business applications to managing cloud environments, Centrifuge Group helps organizations plan, deploy, and operate the technology their business depends on.',
+        'OptimaXCloud brings cloud infrastructure management, application deployment, networking, DNS, billing, observability, and tenant operations into a unified experience. Centrifuge Group helps organizations plan, deploy, migrate, manage, and support the technology their business depends on.',
       primaryLabel: 'Explore the Platform',
       primaryPath: '/optima-xcloud/platform/',
       secondaryLabel: 'Talk to Our Cloud Team',
@@ -177,11 +177,11 @@ export class OptimaXCloudComponent implements OnInit, OnDestroy {
       id: 'documentation',
       title: 'OptimaXCloud Documentation and Technical Guides',
       description:
-        'Browse OptimaXCloud product documentation, integration guides, migration resources, pricing information, and account access.',
+        'Browse first-party OptimaXCloud guides for the platform, integrations, workloads, migration, and pricing.',
       eyebrow: 'DOCUMENTATION & RESOURCES',
       heading: 'Everything you need to explore OptimaXCloud.',
       intro:
-        'Browse the available product documentation, integration guides, and migration resources to understand the platform and plan your implementation.',
+        'Browse first-party guides on the platform, integrations, workload planning, migration, and pricing to understand the product and plan your implementation.',
       primaryLabel: 'Talk to Our Cloud Team',
       primaryPath: '/contact',
       secondaryLabel: 'Explore Integrations',
@@ -200,7 +200,7 @@ export class OptimaXCloudComponent implements OnInit, OnDestroy {
     {
       title: 'Application Deployment',
       description:
-        'Support repeatable application deployment workflows for websites and business applications using defined packages and procedures.',
+        'Support application deployment workflows through available catalog entries, defined software templates, and documented handoff steps. Package availability depends on the service.',
       path: '/optima-xcloud/solutions/',
       linkLabel: 'Explore Solutions',
     },
@@ -301,8 +301,7 @@ export class OptimaXCloudComponent implements OnInit, OnDestroy {
       useCases:
         'Virtual machines, networks, storage, accounts, projects, and service offerings.',
       officialUrl: 'https://cloudstack.apache.org/',
-      guideUrl:
-        'https://be.optimaxsuites.com/iaas/xcw/cloudstack-integration.html',
+      officialLabel: 'Official CloudStack website',
     },
     {
       name: 'Terraform',
@@ -310,8 +309,7 @@ export class OptimaXCloudComponent implements OnInit, OnDestroy {
       useCases:
         'Reusable infrastructure definitions, repeatable environments, and controlled changes.',
       officialUrl: 'https://developer.hashicorp.com/terraform/docs',
-      guideUrl:
-        'https://be.optimaxsuites.com/iaas/xcw/terraform-integration.html',
+      officialLabel: 'Official Terraform documentation',
     },
     {
       name: 'Proxmox',
@@ -319,8 +317,7 @@ export class OptimaXCloudComponent implements OnInit, OnDestroy {
       useCases:
         'Virtual machines, clusters, resource allocation, and provider-specific lifecycle operations.',
       officialUrl: 'https://www.proxmox.com/',
-      guideUrl:
-        'https://be.optimaxsuites.com/iaas/xcw/proxmox-integration.html',
+      officialLabel: 'Official Proxmox website',
     },
   ];
 
@@ -336,7 +333,7 @@ export class OptimaXCloudComponent implements OnInit, OnDestroy {
         'DNS zones and firewall profiles',
       ],
       note:
-        'Availability depends on the connected infrastructure provider and configured service catalog.',
+        'The catalog can present curated provider capacity as service plans. Available providers, regions, and options depend on the deployed configuration.',
     },
     {
       title: 'Compute and infrastructure provisioning',
@@ -355,12 +352,12 @@ export class OptimaXCloudComponent implements OnInit, OnDestroy {
       description:
         'Application delivery depends on the selected package, deployment requirements, and implementation.',
       items: [
-        'Application packages and deployment parameters',
-        'Environment configuration, networking, and DNS',
-        'Backup planning, deployment validation, and handover',
+        'Available catalog entries, approved software templates, and deployment parameters',
+        'Environment configuration, networking, DNS, and backup planning',
+        'Operational checks, deployment validation, and service handover',
       ],
       note:
-        'Confirm supported applications and deployment options with the cloud team.',
+        'Marketplace packages and deployment options vary by service; confirm support with the cloud team.',
     },
     {
       title: 'Tenant management and governance',
@@ -454,9 +451,9 @@ export class OptimaXCloudComponent implements OnInit, OnDestroy {
 
   readonly migrationSteps: CloudTextSection[] = [
     {
-      title: 'Assess the current environment',
+      title: 'Discover workloads',
       description:
-        'Build an inventory of the systems and dependencies that need to move.',
+        'Discover and inventory the systems and dependencies that need to move.',
       items: [
         'Websites, databases, domains, and DNS records',
         'Mailboxes, SSL certificates, and scheduled jobs',
@@ -547,64 +544,46 @@ export class OptimaXCloudComponent implements OnInit, OnDestroy {
 
   readonly resources: CloudResource[] = [
     {
-      title: 'Product overview',
-      category: 'Product',
-      description: 'General platform information and available product links.',
-      url: 'https://be.optimaxsuites.com/iaas/xcw/index.html',
+      title: 'Platform and service catalog',
+      category: 'Platform guide',
+      description:
+        'Review infrastructure plans, compute and storage options, networking, DNS, and provider-dependent availability.',
+      path: '/optima-xcloud/platform/',
     },
     {
-      title: 'User documentation',
-      category: 'Documentation',
-      description: 'User workflows, service orders, deployments, networking, billing, and support.',
-      url: 'https://be.optimaxsuites.com/iaas/docs-user.html',
+      title: 'Tenant operations and governance',
+      category: 'Operations guide',
+      description:
+        'Explore customer environments, quotas, service plans, billing workflows, support, backup, and recovery considerations.',
+      path: '/optima-xcloud/platform/',
     },
     {
-      title: 'Technical documentation',
-      category: 'Documentation',
-      description: 'Architecture, integrations, security, operations, and technical implementation.',
-      url: 'https://be.optimaxsuites.com/iaas/docs-technical.html',
+      title: 'Integration architecture',
+      category: 'Architecture guide',
+      description:
+        'Read about the conceptual provider-adapter model and the roles CloudStack, Terraform, and Proxmox may play.',
+      path: '/optima-xcloud/integrations/',
     },
     {
-      title: 'CloudStack integration',
-      category: 'Integration guide',
-      description: 'CloudStack integration model and provisioning workflows.',
-      url: 'https://be.optimaxsuites.com/iaas/xcw/cloudstack-integration.html',
+      title: 'Application and workload planning',
+      category: 'Workload guide',
+      description:
+        'Review workload categories, application dependencies, deployment considerations, and requirements to prepare.',
+      path: '/optima-xcloud/solutions/',
     },
     {
-      title: 'Terraform integration',
-      category: 'Integration guide',
-      description: 'Infrastructure automation and Terraform integration.',
-      url: 'https://be.optimaxsuites.com/iaas/xcw/terraform-integration.html',
+      title: 'Migration planning',
+      category: 'Migration guide',
+      description:
+        'Follow a practical sequence for assessing workloads, preparing a destination, testing services, and coordinating cutover.',
+      path: '/optima-xcloud/migration/',
     },
     {
-      title: 'Proxmox integration',
-      category: 'Integration guide',
-      description: 'Private infrastructure and virtualization integration.',
-      url: 'https://be.optimaxsuites.com/iaas/xcw/proxmox-integration.html',
-    },
-    {
-      title: 'IONOS and Plesk migration guide',
-      category: 'Migration',
-      description: 'Migration planning for IONOS and Plesk environments.',
-      url: 'https://be.optimaxsuites.com/iaas/xcw/migration-ionos-plesk.html',
-    },
-    {
-      title: 'Product roadmap',
-      category: 'Product',
-      description: 'Published product direction and planned capabilities.',
-      url: 'https://be.optimaxsuites.com/iaas/xcw/roadmap.html',
-    },
-    {
-      title: 'Published pricing',
-      category: 'Pricing',
-      description: 'Indicative plans and pricing information.',
-      url: 'https://be.optimaxsuites.com/iaas/xcw/pricing.html',
-    },
-    {
-      title: 'Account access',
-      category: 'Account',
-      description: 'Product sign-in and account registration.',
-      url: 'https://be.optimaxsuites.com/iaas/login.html',
+      title: 'Plans and service scope',
+      category: 'Pricing guide',
+      description:
+        'Review indicative plan information and the infrastructure, application, and support factors that affect a quotation.',
+      path: '/optima-xcloud/pricing/',
     },
   ];
 
