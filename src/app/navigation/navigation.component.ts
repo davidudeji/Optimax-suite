@@ -15,13 +15,13 @@ export class NavigationComponent {
   mobileAccordion: DropdownName | null = null;
 
   cloudPages = [
-    { name: 'Overview', path: '/optima-xcloud/' },
-    { name: 'Platform', path: '/optima-xcloud/platform/' },
-    { name: 'Integrations', path: '/optima-xcloud/integrations/' },
-    { name: 'Solutions', path: '/optima-xcloud/solutions/' },
-    { name: 'Cloud Migration', path: '/optima-xcloud/migration/' },
-    { name: 'Pricing', path: '/optima-xcloud/pricing/' },
-    { name: 'Documentation', path: '/optima-xcloud/documentation/' },
+    { name: 'Overview', path: '/optima-xcloud/', icon: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h12a1 1 0 001-1V10M9 21v-6h6v6' },
+    { name: 'Platform', path: '/optima-xcloud/platform/', icon: 'M4 6a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm4-2v16m8-16v16M4 10h16M4 14h16' },
+    { name: 'Integrations', path: '/optima-xcloud/integrations/', icon: 'M8 12h8M12 8v8M7 3H5a2 2 0 00-2 2v2m14-4h2a2 2 0 012 2v2M7 21H5a2 2 0 01-2-2v-2m14 4h2a2 2 0 002-2v-2' },
+    { name: 'Solutions', path: '/optima-xcloud/solutions/', icon: 'M9.663 17h4.674M12 3a6 6 0 00-3.15 11.118c.706.41 1.15 1.16 1.15 1.98V17h4v-.902c0-.82.444-1.57 1.15-1.98A6 6 0 0012 3zM9 21h6' },
+    { name: 'Cloud Migration', path: '/optima-xcloud/migration/', icon: 'M7 18a4.6 4.6 0 01-.47-9.17A6.5 6.5 0 0118.8 11.2 3.5 3.5 0 0118 18H7zm5-4v6m0 0l-3-3m3 3l3-3' },
+    { name: 'Pricing', path: '/optima-xcloud/pricing/', icon: 'M20 12l-8 8-9-9V4h7l10 8zM7.5 7.5h.01' },
+    { name: 'Documentation', path: '/optima-xcloud/documentation/', icon: 'M6 3h9l3 3v15H6V3zm9 0v4h4M9 11h6M9 15h6M9 19h4' },
   ];
 
   products = [
