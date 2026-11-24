@@ -118,4 +118,22 @@ describe('HomeComponent', () => {
   it('only features published posts, not seeded placeholder articles', () => {
     expect(component.featuredPosts.map((post) => post.slug)).toEqual(['published-post']);
   });
+
+  it('configures the three hero dashboard slides', () => {
+    expect(component.heroSlides.length).toBe(3);
+    expect(component.heroSlides.map((slide) => slide.src)).toEqual([
+      '/assets/images/hero2.png',
+      '/assets/images/inventory-analytics.png',
+      '/assets/images/hr-screenshot.png',
+    ]);
+  });
+
+  it('selects and wraps hero carousel slides', () => {
+    component.selectHeroSlide(2);
+    expect(component.activeHeroIndex).toBe(2);
+
+    component.activeHeroIndex = 2;
+    component.activeHeroIndex = (component.activeHeroIndex + 1) % component.heroSlides.length;
+    expect(component.activeHeroIndex).toBe(0);
+  });
 });

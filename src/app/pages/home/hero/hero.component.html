@@ -64,6 +64,8 @@
       (mousedown)="onDragStart($event)"
       (touchstart)="onDragStart($event)"
       (wheel)="onWheel($event)"
+      (mouseenter)="stopAutoplay()"
+      (mouseleave)="startAutoplay()"
     >
       <div
         *ngFor="let image of images; let i = index"

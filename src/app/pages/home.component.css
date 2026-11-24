@@ -139,7 +139,15 @@
   animation: hero-enter .8s .12s ease-out both;
 }
 
+.hero-carousel-stage {
+  position: relative;
+  aspect-ratio: 16 / 9;
+}
+
 .dashboard-window {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
   margin: 0;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,.25);
@@ -147,7 +155,43 @@
   background: #eaf0f1;
   box-shadow: 0 34px 90px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.16);
   transform: perspective(1400px) rotateY(-2deg);
-  transition: transform .35s ease, box-shadow .35s ease;
+  transition: opacity .55s ease, transform .55s ease, box-shadow .35s ease;
+  pointer-events: none;
+}
+
+.dashboard-window.active {
+  opacity: 1;
+  z-index: 2;
+  transform: perspective(1400px) rotateY(0);
+  pointer-events: auto;
+}
+
+.hero-carousel-controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.hero-carousel-selectors {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.hero-carousel-selector {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255,255,255,.38);
+  cursor: pointer;
+  transition: width .25s ease, background-color .25s ease;
+}
+
+.hero-carousel-selector.active {
+  width: 28px;
+  background: var(--teal);
 }
 
 .hero-visual:hover .dashboard-window {

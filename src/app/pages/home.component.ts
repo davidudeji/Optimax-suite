@@ -26,6 +26,35 @@ declare const YT: any;
 export class HomeComponent implements OnInit, OnDestroy {
   currentYear = new Date().getFullYear();
   featuredPosts: BlogPost[] = [];
+  readonly heroSlides = [
+    {
+      src: '/assets/images/sales-transactions.png',
+      alt: 'OptimaX sales and transactions dashboard',
+      label: 'Sales and transactions',
+      description: 'Track orders, payments and delivery performance',
+      width: 1386,
+      height: 768,
+    },
+    {
+      src: '/assets/images/inventory-analytics.png',
+      alt: 'OptimaX inventory analytics dashboard',
+      label: 'Inventory analytics',
+      description: 'Track stock, performance and branches',
+      width: 1394,
+      height: 743,
+    },
+    {
+      src: '/assets/images/hr-screenshot.png',
+      alt: 'OptimaX payroll and employee management dashboard',
+      label: 'HR and payroll',
+      description: 'Keep payroll and your people in sync',
+      width: 1304,
+      height: 770,
+    },
+  ];
+  activeHeroIndex = 0;
+  private heroAutoplayInterval: number | null = null;
+  private readonly heroAutoplayDelay = 4000;
   readonly businessBenefitSlides: BusinessFeature[][] = [
     [
       {
@@ -104,35 +133,40 @@ export class HomeComponent implements OnInit, OnDestroy {
     {
       title: 'Pharmacies',
       href: '/industries/healthcare',
-      image: 'https://images.unsplash.com/photo-1576602976047-174e57a47881?auto=format&fit=crop&w=960&q=80',
+      image:
+        'https://images.unsplash.com/photo-1576602976047-174e57a47881?auto=format&fit=crop&w=960&q=80',
       imageAlt: 'Pharmacist working among shelves of healthcare products',
       area: 'pharmacy',
     },
     {
       title: 'Hospitals & Clinics',
       href: '/industries/healthcare',
-      image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=960&q=80',
+      image:
+        'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=960&q=80',
       imageAlt: 'Patient room in a modern hospital',
       area: 'hospital',
     },
     {
       title: 'Restaurants & Cafes',
       href: '/industries/hospitality',
-      image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=960&q=80',
+      image:
+        'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=960&q=80',
       imageAlt: 'Dining room prepared for restaurant guests',
       area: 'restaurant',
     },
     {
       title: 'Hotels & Hospitality',
       href: '/industries/hospitality',
-      image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=960&q=80',
+      image:
+        'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=960&q=80',
       imageAlt: 'Hotel exterior and pool area',
       area: 'hotel',
     },
     {
       title: 'Manufacturing',
       href: '/industries/manufacturing',
-      image: 'https://images.unsplash.com/photo-1567789884554-0b844b597180?auto=format&fit=crop&w=960&q=80',
+      image:
+        'https://images.unsplash.com/photo-1567789884554-0b844b597180?auto=format&fit=crop&w=960&q=80',
       imageAlt: 'Industrial manufacturing floor with production equipment',
       area: 'manufacturing',
     },
@@ -146,7 +180,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     {
       title: 'Construction',
       href: '/industries/construction',
-      image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=960&q=80',
+      image:
+        'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=960&q=80',
       imageAlt: 'Construction workers at an active building site',
       area: 'construction',
     },
@@ -170,11 +205,37 @@ export class HomeComponent implements OnInit, OnDestroy {
       .join(' and ');
   }
 
+  startHeroAutoplay(): void {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+    this.stopHeroAutoplay();
+    this.heroAutoplayInterval = window.setInterval(() => {
+      this.activeHeroIndex =
+        (this.activeHeroIndex + 1) % this.heroSlides.length;
+    }, this.heroAutoplayDelay);
+  }
+
+  stopHeroAutoplay(): void {
+    if (this.heroAutoplayInterval !== null) {
+      window.clearInterval(this.heroAutoplayInterval);
+      this.heroAutoplayInterval = null;
+    }
+  }
+
+  selectHeroSlide(index: number): void {
+    if (index >= 0 && index < this.heroSlides.length) {
+      this.activeHeroIndex = index;
+      this.startHeroAutoplay();
+    }
+  }
+
   ngOnInit(): void {
+    this.startHeroAutoplay();
     combineLatest([this.blogService.posts$, this.blogService.ready$])
       .pipe(
         filter(([, ready]) => ready),
-        take(1)
+        take(1),
       )
       .subscribe(([posts]) => {
         this.featuredPosts = posts
@@ -184,6 +245,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    this.stopHeroAutoplay();
     this.clearPreviewInterval();
     if (this.player && typeof this.player.destroy === 'function') {
       this.player.destroy();

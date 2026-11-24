@@ -8,7 +8,7 @@ import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 export class HeroComponent implements OnInit, OnDestroy {
   images: { src: string; alt: string; label: string; caption: string }[] = [];
 
-  activeIndex = 1; // start with middle card focused
+  activeIndex = 0;
   isDragging = false;
   private dragStartY = 0;
   private dragThreshold = 40;
@@ -19,40 +19,22 @@ export class HeroComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.images = [
       {
-        src: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1280&q=80',
-        alt: 'Point of Sale',
-        label: 'OptimaX POS',
-        caption: 'Sell faster at every counter',
+        src: '/assets/images/hero2.png',
+        alt: 'Optimax ERP enterprise resource planning overview',
+        label: 'Enterprise ERP',
+        caption: 'Connect every part of your business',
       },
       {
-        src: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1280&q=80',
-        alt: 'Accounting & Finance',
-        label: 'Accounting',
-        caption: 'Full financial clarity, always',
+        src: '/assets/images/inventory-analytics.png',
+        alt: 'Optimax inventory analytics dashboard',
+        label: 'Inventory',
+        caption: 'Track stock, performance and branches',
       },
       {
-        src: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=1280&q=80',
-        alt: 'HR & Payroll',
+        src: '/assets/images/hr-screenshot.png',
+        alt: 'Optimax payroll and employee management dashboard',
         label: 'HR & Payroll',
-        caption: 'Manage your people with ease',
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1280&q=80',
-        alt: 'Analytics & Reporting',
-        label: 'Analytics',
-        caption: 'Decisions backed by real data',
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1280&q=80',
-        alt: 'Inventory & Procurement',
-        label: 'Procurement',
-        caption: 'Zero supply chain surprises',
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1280&q=80',
-        alt: 'CRM & Sales',
-        label: 'CRM',
-        caption: 'Build lasting customer relationships',
+        caption: 'Keep payroll and your people in sync',
       },
     ];
 

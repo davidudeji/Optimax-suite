@@ -25,16 +25,50 @@
 
         </div>
 
-        <div class="hero-visual" aria-label="OptimaX business dashboard preview">
-          <figure class="dashboard-window">
-            <img
-              src="/assets/images/optimax-dashboard-hero.png"
-              alt="OptimaX ERP dashboard showing the commerce workspace and business overview"
-              width="1605"
-              height="768"
-              fetchpriority="high"
-            />
-          </figure>
+        <div
+          class="hero-visual"
+          role="region"
+          aria-roledescription="carousel"
+          aria-label="OptimaX dashboard previews"
+          (mouseenter)="stopHeroAutoplay()"
+          (mouseleave)="startHeroAutoplay()"
+          (focusin)="stopHeroAutoplay()"
+          (focusout)="startHeroAutoplay()"
+        >
+          <p class="visually-hidden" aria-live="polite" aria-atomic="true">
+            {{ heroSlides[activeHeroIndex].label }}: {{ heroSlides[activeHeroIndex].description }}
+          </p>
+          <div class="hero-carousel-stage">
+            <figure
+              class="dashboard-window"
+              *ngFor="let slide of heroSlides; let i = index"
+              [class.active]="i === activeHeroIndex"
+              [attr.aria-hidden]="i !== activeHeroIndex"
+            >
+              <img
+                [src]="slide.src"
+                [alt]="slide.alt"
+                [attr.width]="slide.width"
+                [attr.height]="slide.height"
+                [attr.fetchpriority]="i === 0 ? 'high' : null"
+                [attr.loading]="i === 0 ? 'eager' : 'lazy'"
+              />
+            </figure>
+          </div>
+
+          <div class="hero-carousel-controls">
+            <div class="hero-carousel-selectors" role="group" aria-label="Choose a dashboard preview">
+              <button
+                *ngFor="let slide of heroSlides; let i = index"
+                type="button"
+                class="hero-carousel-selector"
+                [class.active]="i === activeHeroIndex"
+                [attr.aria-label]="'Show ' + slide.label"
+                [attr.aria-pressed]="i === activeHeroIndex"
+                (click)="selectHeroSlide(i)"
+              ></button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
