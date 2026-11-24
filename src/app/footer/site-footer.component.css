@@ -17,9 +17,13 @@
 }
 
 .footer-brand img {
-  width: 150px;
+  display: block;
+  width: 170px;
   height: auto;
   object-fit: contain;
+  padding: 2px 3px;
+  border-radius: 4px;
+  background: #fff;
 }
 
 .footer-brand p,

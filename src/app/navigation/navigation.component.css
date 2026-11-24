@@ -20,6 +20,22 @@
   min-height: 72px;
 }
 
+:host .site-navigation a[aria-label="OptimaX home"] {
+  display: inline-flex;
+  height: 38px;
+  align-items: center;
+  padding: 1px 2px;
+  border-radius: 4px;
+  background: #fff;
+}
+
+:host .site-navigation a[aria-label="OptimaX home"] img {
+  width: 154px;
+  height: 34px;
+  object-fit: contain;
+  filter: none;
+}
+
 :host .site-navigation .navbar-dropdown-wrapper > li > button,
 :host .site-navigation .navbar-dropdown-wrapper > li > a {
   color: rgba(255, 255, 255, .82);
