@@ -189,71 +189,43 @@
     </section>
 
     <section class="ecosystem-section section-pad" id="platform" aria-labelledby="platform-title">
-      <div class="section-heading">
+      <div class="section-heading ecosystem-heading" #ecosystemHeading>
         <h2 id="platform-title">Power every part<br /><em>of your business.</em></h2>
         <p>
-          Explore the modules available for finance, people, sales and operations.
-          Each product page explains its capabilities and how it can support your team.
+          Explore our integrated ERP modules designed to connect your finance, people,
+          sales and operations. Discover how every part of your business works better together.
         </p>
       </div>
 
-      <div class="ecosystem-layout">
-        <div class="ecosystem-center" aria-label="Optimax business management modules">
+      <div class="ecosystem-layout" [class.has-active-module]="activeEcosystemModule">
+        <div class="ecosystem-center" aria-label="Eight connected OptimaX business modules">
           <div class="ecosystem-ring ring-outer" aria-hidden="true"></div>
           <div class="ecosystem-ring ring-inner" aria-hidden="true"></div>
           <div class="ecosystem-core">
             <img src="/assets/images/optimax-app-logo.png" alt="" width="72" height="72" />
-            <span>Business<br />management</span>
+            <b>OPTIMAX</b>
+            <span>One platform.<br />Every function.</span>
           </div>
-          <span class="orbit-node node-top" aria-hidden="true">FIN</span>
-          <span class="orbit-node node-right" aria-hidden="true">OPS</span>
-          <span class="orbit-node node-bottom" aria-hidden="true">PEOPLE</span>
-          <span class="orbit-node node-left" aria-hidden="true">SALES</span>
-        </div>
-
-        <div class="module-list">
-          <div class="module-group">
-            <h3 class="module-group-title">Finance management</h3>
-            <a class="module-row" href="/accounting">
-              <span class="module-icon" aria-hidden="true">◫</span>
-              <span class="module-copy"><b>Accounting</b><small>Understand financial activity and keep business records in one place.</small></span>
-              <span class="module-arrow" aria-hidden="true">↗</span>
-            </a>
-            <a class="module-row" href="/expense">
-              <span class="module-icon" aria-hidden="true">↗</span>
-              <span class="module-copy"><b>Expense management</b><small>Track business expenses and manage approvals.</small></span>
-              <span class="module-arrow" aria-hidden="true">↗</span>
-            </a>
-          </div>
-          <div class="module-group">
-            <h3 class="module-group-title">Commerce management</h3>
-            <a class="module-row" href="/pos">
-              <span class="module-icon" aria-hidden="true">▤</span>
-              <span class="module-copy"><b>Point of sale</b><small>Manage customer-facing sales and point-of-sale activity.</small></span>
-              <span class="module-arrow" aria-hidden="true">↗</span>
-            </a>
-            <a class="module-row" href="/crm">
-              <span class="module-icon" aria-hidden="true">◎</span>
-              <span class="module-copy"><b>Customer relationships</b><small>Keep customer activity and sales work organized.</small></span>
-              <span class="module-arrow" aria-hidden="true">↗</span>
-            </a>
-          </div>
-          <div class="module-group">
-            <h3 class="module-group-title">People management</h3>
-            <a class="module-row" href="/hr">
-              <span class="module-icon" aria-hidden="true">♧</span>
-              <span class="module-copy"><b>Human resources</b><small>Organize employee, attendance, leave and payroll processes.</small></span>
-              <span class="module-arrow" aria-hidden="true">↗</span>
-            </a>
-          </div>
-          <div class="module-group">
-            <h3 class="module-group-title">Supply chain management</h3>
-            <a class="module-row" href="/procurement">
-              <span class="module-icon" aria-hidden="true">⌑</span>
-              <span class="module-copy"><b>Procurement</b><small>Bring purchasing and supplier workflows into view.</small></span>
-              <span class="module-arrow" aria-hidden="true">↗</span>
-            </a>
-          </div>
+          <a
+            *ngFor="let module of ecosystemModules"
+            class="ecosystem-module"
+            [ngClass]="'position-' + module.position"
+            [class.active]="activeEcosystemModule === module.title"
+            [href]="module.href"
+            [attr.aria-label]="'Explore ' + module.title + ': ' + module.description"
+            (mouseenter)="activeEcosystemModule = module.title"
+            (mouseleave)="activeEcosystemModule = ''"
+            (focus)="activeEcosystemModule = module.title"
+            (blur)="activeEcosystemModule = ''"
+          >
+            <span class="ecosystem-module-icon" aria-hidden="true">
+              <i class="fa-solid" [ngClass]="'fa-' + module.icon"></i>
+            </span>
+            <span class="ecosystem-module-copy">
+              <b>{{ module.title }}</b>
+              <small>{{ module.description }}</small>
+            </span>
+          </a>
         </div>
       </div>
     </section>

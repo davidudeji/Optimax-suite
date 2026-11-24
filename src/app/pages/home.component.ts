@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { combineLatest, filter, take } from 'rxjs';
 import { BlogPost, BlogService } from '../services/blog.service';
 
@@ -16,6 +16,14 @@ interface IndustryCard {
   area: string;
 }
 
+interface EcosystemModule {
+  title: string;
+  description: string;
+  href: string;
+  icon: string;
+  position: string;
+}
+
 declare const YT: any;
 
 @Component({
@@ -23,7 +31,10 @@ declare const YT: any;
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
-export class HomeComponent implements OnInit, OnDestroy {
+export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
+  @ViewChild('ecosystemHeading') ecosystemHeading?: ElementRef<HTMLElement>;
+
+  private ecosystemObserver?: IntersectionObserver;
   currentYear = new Date().getFullYear();
   featuredPosts: BlogPost[] = [];
   readonly heroSlides = [
@@ -137,6 +148,66 @@ export class HomeComponent implements OnInit, OnDestroy {
       },
     ],
   ];
+  readonly ecosystemModules: EcosystemModule[] = [
+    {
+      title: 'Finance Management',
+      description: 'Manage financial records, expenses and business reporting.',
+      href: '/accounting',
+      icon: 'wallet',
+      position: 'top',
+    },
+    {
+      title: 'Human Resources',
+      description: 'Organize employees, attendance, leave and payroll.',
+      href: '/hr',
+      icon: 'users',
+      position: 'top-right',
+    },
+    {
+      title: 'Sales Management',
+      description: 'Manage sales activity, orders and customer transactions.',
+      href: '/sales-management',
+      icon: 'chart-line',
+      position: 'right',
+    },
+    {
+      title: 'Inventory Management',
+      description: 'Track stock levels, warehouses and inventory movements.',
+      href: '/inventory-management',
+      icon: 'cube',
+      position: 'bottom-right',
+    },
+    {
+      title: 'Supply Chain',
+      description: 'Coordinate purchasing, suppliers and procurement.',
+      href: '/procurement',
+      icon: 'truck',
+      position: 'bottom',
+    },
+    {
+      title: 'Manufacturing',
+      description: 'Manage production activities and manufacturing operations.',
+      href: '/procurement',
+      icon: 'industry',
+      position: 'bottom-left',
+    },
+    {
+      title: 'Commerce',
+      description: 'Manage point-of-sale activity and commercial operations.',
+      href: '/pos',
+      icon: 'cart-shopping',
+      position: 'left',
+    },
+    {
+      title: 'Customer Relationships',
+      description: 'Organize customer information and strengthen relationships.',
+      href: '/crm',
+      icon: 'handshake',
+      position: 'top-left',
+    },
+  ];
+  activeEcosystemModule = '';
+
   readonly industryCards: IndustryCard[] = [
     {
       title: 'Pharmacies',
@@ -252,7 +323,27 @@ export class HomeComponent implements OnInit, OnDestroy {
       });
   }
 
+  ngAfterViewInit(): void {
+    const heading = this.ecosystemHeading?.nativeElement;
+    if (!heading || typeof IntersectionObserver === 'undefined') {
+      heading?.classList.add('is-visible');
+      return;
+    }
+
+    this.ecosystemObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          heading.classList.add('is-visible');
+          this.ecosystemObserver?.unobserve(heading);
+        }
+      },
+      { threshold: 0.35 },
+    );
+    this.ecosystemObserver.observe(heading);
+  }
+
   ngOnDestroy(): void {
+    this.ecosystemObserver?.disconnect();
     this.stopHeroAutoplay();
     this.clearPreviewInterval();
     if (this.player && typeof this.player.destroy === 'function') {
