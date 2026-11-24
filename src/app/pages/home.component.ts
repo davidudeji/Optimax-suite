@@ -51,10 +51,18 @@ export class HomeComponent implements OnInit, OnDestroy {
       width: 1304,
       height: 770,
     },
+    {
+      src: '/assets/images/sales-command-center.png',
+      alt: 'OptimaX sales command center dashboard',
+      label: 'Sales command center',
+      description: 'Monitor revenue, quotes and sales performance',
+      width: 1605,
+      height: 768,
+    },
   ];
   activeHeroIndex = 0;
   private heroAutoplayInterval: number | null = null;
-  private readonly heroAutoplayDelay = 4000;
+  private readonly heroAutoplayDelay = 3000;
   readonly businessBenefitSlides: BusinessFeature[][] = [
     [
       {
@@ -189,7 +197,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   currentBenefitIndex = 0;
   readonly youtubeVideoId = 'VTntzBr227k';
   readonly youtubeChannelUrl = 'https://www.youtube.com/@OptimaXSuites';
-  readonly previewLengthSeconds = 15;
+  readonly previewLengthSeconds = 20;
 
   isPreviewStarted = false;
   isPreviewEnded = false;
