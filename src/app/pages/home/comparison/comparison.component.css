@@ -20,6 +20,17 @@
   text-align: center;
 }
 
+.comparison-heading--reveal {
+  opacity: 0;
+  transform: translateX(-28px);
+  transition: opacity .65s ease, transform .65s cubic-bezier(.22, 1, .36, 1);
+}
+
+.comparison-heading--reveal.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 .comparison-eyebrow {
   margin: 0 0 12px;
   color: #2e6276;
@@ -231,6 +242,12 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .comparison-heading--reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
   .comparison-table tbody tr,
   .comparison-cta {
     transition: none;

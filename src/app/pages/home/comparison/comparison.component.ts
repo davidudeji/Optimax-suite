@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
 
 type SupportLevel = 'supported' | 'partial' | 'unavailable';
 
@@ -13,7 +13,11 @@ interface ComparisonRow {
   templateUrl: './comparison.component.html',
   styleUrls: ['./comparison.component.css'],
 })
-export class ComparisonComponent {
+export class ComparisonComponent implements AfterViewInit, OnDestroy {
+  @ViewChild('comparisonHeading') private comparisonHeading?: ElementRef<HTMLElement>;
+
+  private headingObserver?: IntersectionObserver;
+
   readonly competitors = [
     'OptimaX',
     'SAP Business One',
@@ -46,4 +50,27 @@ export class ComparisonComponent {
     { feature: 'No per-module licensing', values: ['supported', 'unavailable', 'unavailable', 'supported', 'unavailable'] },
     { feature: 'Custom workflows', values: ['supported', 'supported', 'supported', 'unavailable', 'supported'] },
   ];
+
+  ngAfterViewInit(): void {
+    const heading = this.comparisonHeading?.nativeElement;
+    if (!heading || typeof IntersectionObserver === 'undefined') {
+      return;
+    }
+
+    heading.classList.add('comparison-heading--reveal');
+    this.headingObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          heading.classList.add('is-visible');
+          this.headingObserver?.unobserve(heading);
+        }
+      },
+      { threshold: 0.2 },
+    );
+    this.headingObserver.observe(heading);
+  }
+
+  ngOnDestroy(): void {
+    this.headingObserver?.disconnect();
+  }
 }

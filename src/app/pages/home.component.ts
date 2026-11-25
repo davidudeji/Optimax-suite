@@ -33,8 +33,12 @@ declare const YT: any;
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('ecosystemHeading') ecosystemHeading?: ElementRef<HTMLElement>;
+  @ViewChild('challengeSection') challengeSection?: ElementRef<HTMLElement>;
+  @ViewChild('industriesSection') industriesSection?: ElementRef<HTMLElement>;
 
   private ecosystemObserver?: IntersectionObserver;
+  private challengeObserver?: IntersectionObserver;
+  private industriesObserver?: IntersectionObserver;
   currentYear = new Date().getFullYear();
   featuredPosts: BlogPost[] = [];
   readonly heroSlides = [
@@ -325,25 +329,59 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     const heading = this.ecosystemHeading?.nativeElement;
-    if (!heading || typeof IntersectionObserver === 'undefined') {
+    if (typeof IntersectionObserver === 'undefined') {
       heading?.classList.add('is-visible');
       return;
     }
 
-    this.ecosystemObserver = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          heading.classList.add('is-visible');
-          this.ecosystemObserver?.unobserve(heading);
-        }
-      },
-      { threshold: 0.35 },
-    );
-    this.ecosystemObserver.observe(heading);
+    if (heading) {
+      this.ecosystemObserver = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            heading.classList.add('is-visible');
+            this.ecosystemObserver?.unobserve(heading);
+          }
+        },
+        { threshold: 0.35 },
+      );
+      this.ecosystemObserver.observe(heading);
+    }
+
+    const challenge = this.challengeSection?.nativeElement;
+    if (challenge) {
+      challenge.classList.add('challenge-section--reveal');
+      this.challengeObserver = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            challenge.classList.add('is-visible');
+            this.challengeObserver?.unobserve(challenge);
+          }
+        },
+        { threshold: 0.2 },
+      );
+      this.challengeObserver.observe(challenge);
+    }
+
+    const industries = this.industriesSection?.nativeElement;
+    if (industries) {
+      industries.classList.add('industries-section--reveal');
+      this.industriesObserver = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            industries.classList.add('is-visible');
+            this.industriesObserver?.unobserve(industries);
+          }
+        },
+        { threshold: 0.2 },
+      );
+      this.industriesObserver.observe(industries);
+    }
   }
 
   ngOnDestroy(): void {
     this.ecosystemObserver?.disconnect();
+    this.challengeObserver?.disconnect();
+    this.industriesObserver?.disconnect();
     this.stopHeroAutoplay();
     this.clearPreviewInterval();
     if (this.player && typeof this.player.destroy === 'function') {
