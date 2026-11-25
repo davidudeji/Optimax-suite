@@ -3,6 +3,7 @@
 }
 
 .comparison-section {
+  contain: paint;
   overflow-x: clip;
   padding: 92px 24px 88px;
   background: #fafcfc;
