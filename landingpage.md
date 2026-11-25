@@ -1,225 +1,678 @@
-# Homepage Content and Footer Spec
+# OPTIMAX WEBSITE — FINAL DESIGN SYSTEM, BRANDING & UX CONSISTENCY OVERHAUL
 
-## Goal
+**Project:** Optimax Corporate Website  
+**Phase:** Final Website Improvement & UX Optimization  
+**Objective:** Establish a unified, premium enterprise design language across every page, eliminate inconsistent branding and layouts, and deliver a cohesive, intuitive, responsive website.
 
-Implement the homepage content updates in this spec using the attached references while preserving Optimax's current hero branding. The result should feel intentional, refined, and award-caliber without copying another website or introducing a new visual identity.
+---
 
-## “Get to Know OptimaX” Feature Carousel
+# 1. PROJECT VISION
 
-### Placement and compact layout
+Transform the existing Optimax website into a polished enterprise technology platform with a consistent visual identity, predictable navigation, refined user experience, and reusable design architecture.
 
-- Replace the existing image-and-copy benefits carousel directly below the impact statistics and before the platform modules section; do not add a second adjacent carousel or remove/change the separate impact statistics.
-- Use a compact two-column section: the heading and overview copy on the left, and the feature-card carousel on the right. Align both columns within the existing centered homepage content width.
-- Keep vertical padding, card spacing, and carousel controls restrained so the section takes less vertical space than the previous tall image carousel and full feature grid.
-- On tablet, reduce the intro column and card gutters without clipping. On mobile, stack the intro above the carousel and use a single-column card layout with no page-level horizontal overflow.
+The website should communicate:
 
-### Intro copy
+- Enterprise credibility.
+- Technological innovation.
+- Operational efficiency.
+- Business scalability.
+- Professional software engineering.
+- Connected business management.
 
-- Heading: **Get to know OptimaX**
-- Paragraph 1: **Optima ERP is a cloud-based platform designed to help businesses manage their core operations from a single centralized system. It handles key business functions such as inventory management, finance, sales, human resources, customer relationship management, and supply chain operations.**
-- Paragraph 2: **OptimaX connects every department so teams can work with the same information and operate more efficiently. Business owners and managers can monitor sales, track expenses, review financial reports, manage employees, and evaluate performance.**
+The website must feel like one unified product ecosystem, not a collection of independently designed pages.
 
-### Feature-card content
+**Core brand message:**
 
-Show two feature cards per carousel slide. Each card includes a title, two concise benefit statements, and a **Learn more** link to the existing platform section (`#platform`); do not add unverified product routes or claims.
+"One platform. Your entire business, connected."
 
-| Feature | Benefit statements |
+**Supporting brand positioning:**
+
+"Engineering digital solutions that scale."
+
+# 2. PHASE ONE — COMPLETE WEBSITE AUDIT
+
+IMPORTANT: Do not start redesigning individual pages immediately.
+
+First, inspect the entire existing codebase and identify every publicly accessible page.
+
+Create a page inventory containing:
+
+- Page name and route.
+- Page purpose.
+- Target audience.
+- Existing layout structure.
+- Header and footer implementation.
+- Typography and color usage.
+- Button and CTA styles.
+- Image and illustration styles.
+- Spacing and alignment.
+- Responsive behavior.
+- Existing interactions.
+- Missing or inconsistent elements.
+
+Identify pages that have:
+
+1. Different header heights or navigation styles.
+2. Inconsistent logo positioning and sizing.
+3. Different typography systems.
+4. Inconsistent heading sizes.
+5. Different button shapes and treatments.
+6. Unpredictable section spacing.
+7. Different content container widths.
+8. Inconsistent footer structures.
+9. Different card designs.
+10. Inconsistent icon styles.
+11. Poor mobile navigation.
+12. Unnecessary decorative elements.
+13. Broken or inconsistent responsive layouts.
+14. Inconsistent branding and color application.
+15. Weak or confusing navigation hierarchy.
+
+Produce an audit report before implementation.
+
+Do not remove existing content, features, routes, or working integrations during the redesign.
+
+# 3. ESTABLISH A UNIFIED BRAND IDENTITY
+
+All pages must follow one centrally managed Optimax design system.
+
+## Brand direction
+
+**Design personality:**
+- Professional.
+- Modern.
+- Intelligent.
+- Enterprise-focused.
+- Minimalist.
+- Trustworthy.
+- Technologically advanced.
+
+**Visual direction:** Trusted Enterprise Slate — Light Mode.
+
+The website should take inspiration from the content clarity of Stripe, the information hierarchy of Linear, and the professional presentation of leading enterprise software platforms.
+
+Do not copy their interfaces.
+
+## Color system
+
+Establish global design tokens.
+
+| Token | Intended use |
 |---|---|
-| Financial Management | Track revenue, expenses, and cash flow in real time. · Automate accounting processes and generate accurate financial reports instantly. |
-| Inventory Management | Monitor stock levels across warehouses and locations. · Prevent stockouts and overstock with real-time inventory tracking. |
-| Reporting & Analytics | Turn raw business data into actionable insights. · Make smarter decisions with powerful dashboards and reports. |
-| Human Resource | Manage employees, attendance, and payroll effortlessly. · Gain visibility into team performance and workforce productivity. |
-| E-Commerce Integration | Connect your physical business with your online store. · Sync orders, inventory, and customer data automatically. |
-| Role-Based Access & Security | Control who can see and manage different parts of your system. · Protect sensitive business data with enterprise-grade security. |
-| Multi-Location Management | Operate multiple stores or branches from one system. · Track inventory, sales, and performance across all locations. |
-| Business Performance Monitoring | Measure growth across departments in real time. · Track KPIs and identify opportunities to scale your business. |
+| Primary Navy | #0B1B33 — primary brand identity |
+| White | #FFFFFF — primary page background |
+| Teal | Existing approved Optimax teal — interactive accent |
+| Brand Accent | Approved logo accent — selective emphasis |
+| Slate 900 | Primary headings |
+| Slate 700 | Body text |
+| Slate 500 | Supporting text |
+| Slate 200 | Borders and dividers |
+| Slate 50 | Subtle section backgrounds |
 
-Use small, decorative icons consistent with the existing brand styling; icons must not be the only way to identify a feature. Do not introduce new image files or dependencies.
+Rules:
 
-### Carousel behavior and accessibility
+- Navy must establish brand recognition.
+- White should remain the dominant background.
+- Teal should communicate interaction and important actions.
+- Any orange or secondary logo color must be used selectively and only where consistent with the approved brand assets.
+- Avoid introducing new colors on individual pages.
+- No random gradients.
+- No excessive colored backgrounds.
+- No unnecessary shadows.
 
-- Provide visible previous/next controls and direct slide selection controls; do not auto-rotate.
-- Keep controls keyboard-operable with visible focus and accessible names. Support touch interaction without requiring hover.
-- Identify the carousel and each slide semantically. Hide inactive slides from assistive technology and provide a meaningful accessible description of the current slide.
-- Respect reduced-motion preferences and avoid motion that interferes with reading or control use.
-- Render the first slide and its content immediately, keep all feature copy in the page, and make the controls operable when the homepage app is running.
-- Ensure card content fits without fixed-height clipping; prevent clipped controls and page-level horizontal overflow at all breakpoints.
+## Typography
 
-## Content
+Implement one global typography system.
 
-### Trusted partners
+Use a modern professional sans-serif family consistent with the existing Optimax brand.
 
-- Eyebrow: **TRUSTED PARTNERS**
-- Heading: **Trusted by businesses across Africa and beyond**
-- Supporting text: **Powering growth for SMEs and enterprises across every sector.**
-- Present the referenced organizations as a clean, horizontally moving or responsive collection of text chips:
-  - Dangote Group
-  - MTN Nigeria
-  - Zenith Bank
-  - Access Bank
-  - Flour Mills
-  - BUA Group
-  - Guinness Nigeria
-  - Indomie
-  - First Bank
-  - GT Bank
-  - Shoprite
-  - Chicken Republic
-  - Tantalizers
-  - Sundry Foods
-  - PZ Cussons
-  - Honeywell
-  - Oando
-  - Seplat
-  - Julius Berger
-  - ARM Holdings
+Define reusable typography tokens:
 
-Use the names as text, not unverified logos. Confirm the listed customer/partner relationships against approved website or business sources before publishing; do not imply endorsements or partnerships that cannot be verified. Avoid duplicate names when laying out or animating the collection.
+- Display heading.
+- H1.
+- H2.
+- H3.
+- H4.
+- Body large.
+- Body regular.
+- Body small.
+- Caption.
+- Navigation.
+- Button text.
 
-### Impact stats
+Establish consistent font weights, line heights, letter spacing, and responsive scaling.
 
-Show four metrics in this order:
+Headings must have a clear visual hierarchy.
 
-1. **100+** — CLIENTS
-2. **512+** — ACTIVE USERS
-3. **12** — MODULES
-4. **4+** — COUNTRIES
+Avoid oversized headings that overwhelm the content.
 
-Treat these as reference values and verify them against approved, current business data before publishing. Preserve their exact values and labels; do not invent, round, or silently change figures.
+# 4. GLOBAL WEBSITE STRUCTURE
 
-Below the stats, include the reference supporting line: **Growing every month — built for businesses across Africa and beyond**. Verify that this claim is approved before publication.
+Every public-facing page must follow a consistent structural foundation.
 
-## ERP Comparison Section
+## Global header
 
-### Placement
+Create one shared responsive header component.
 
-Place the comparison section after the homepage workflow/product explanation and before the industry and pricing sections. Visitors should understand Optimax's offering before they see a side-by-side comparison.
+Requirements:
 
-### Content
+- Consistent logo size and positioning.
+- Consistent header height.
+- Identical navigation typography.
+- Consistent spacing between navigation items.
+- Consistent dropdown behavior.
+- One primary CTA style.
+- Mobile navigation with accessible interactions.
 
-- Heading: **Why businesses choose OptimaX over the rest**
-- Supporting text: **A transparent look at how we compare against leading ERP solutions.**
-- Use a comparison table with these columns, in order: **Feature**, **OptimaX**, **SAP Business One**, **Odoo**, **QuickBooks**, **Sage 200**.
-- Mark OptimaX as **BEST CHOICE** in its column header.
+The navigation should communicate the Optimax ecosystem clearly.
 
-Use the following reference matrix. A check mark means fully supported, a dash means partial support or an add-on, and a cross means not available.
+Maintain the existing navigation routes and organize them logically into categories such as:
 
-| Feature | OptimaX | SAP Business One | Odoo | QuickBooks | Sage 200 |
-|---|---|---|---|---|---|
-| Africa-first localisation | ✓ | — | — | ✕ | — |
-| Built-in POS + ERP | ✓ | — | ✓ | ✕ | — |
-| Multi-currency (NGN, GHS, KES) | ✓ | ✓ | ✓ | ✕ | ✓ |
-| Affordable SME pricing | ✓ | ✕ | ✓ | ✓ | — |
-| HR + Payroll included | ✓ | — | ✓ | ✕ | ✓ |
-| Full offline support | ✓ | — | — | — | — |
-| 24/7 African time-zone support | ✓ | ✕ | ✕ | ✕ | ✕ |
-| Fast 2-week implementation | ✓ | ✕ | — | ✓ | — |
-| No per-module licensing | ✓ | ✕ | ✕ | ✓ | ✕ |
-| Custom workflows | ✓ | ✓ | ✓ | ✕ | ✓ |
+- Products.
+- Solutions.
+- Industries.
+- Projects.
+- Company.
+- Resources.
 
-- Include a legend: **✓ = Fully supported · — = Partial / add-on · ✕ = Not available**.
-- Include the CTA **Start with OptimaX today →**, linking to the existing `/get-started` route.
+Do not introduce unnecessary navigation categories or remove existing destinations.
 
-### Verification and responsible comparison
+## Dropdown menus
 
-Treat every capability, price, implementation timeline, support claim, and competitor comparison in the matrix as unverified reference content until reviewed by the product/business owner against current, reliable sources. Verify that each comparison is fair, current, and specific to the named product/version and applicable plan or configuration. Do not publish unsupported superiority claims or misleading competitor statements. If any cell cannot be substantiated, correct it with approved evidence or omit that comparison before launch.
+All dropdown menus must share one visual system.
 
-## Comparison visual and interaction requirements
+Requirements:
 
-- Reuse Optimax's existing homepage typography, colors, and spacing. Highlight the OptimaX column using the current brand palette, without making the other products difficult to read.
-- Use a semantic HTML table with a caption or accessible heading, column headers, and row headers. Provide text labels for symbols so meaning does not depend on color or icon shape.
-- Keep the table readable on desktop and tablet. On narrow screens, place it in a clearly indicated, touch-scrollable horizontal container; do not cause page-level horizontal overflow. Preserve the feature name and column context while scrolling.
-- Keep row spacing, borders, hover treatment, and the CTA restrained and consistent with the homepage design system.
-- Ensure keyboard access to horizontal scrolling, visible focus, sufficient contrast, and a useful screen-reader experience.
+- White background.
+- Consistent width and spacing.
+- Clear category hierarchy.
+- Consistent typography.
+- Subtle borders.
+- Controlled hover and focus states.
+- Smooth opening and closing transitions.
+- Keyboard accessibility.
 
-## Industry Showcase
+Avoid inconsistent dropdown designs across the website.
 
-### Placement and content
+## Global footer
 
-- Keep the industry showcase after the ERP comparison and before pricing.
-- Use the heading **Works across every industry** and explain that OptimaX adapts to retailers, supermarkets, pharmacies, distributors, and service companies.
-- Add the **KEY FEATURES** list:
-  - **Supermarkets** — Manage POS, inventory, and store operations in real time.
-  - **Manufacturing** — Monitor production, raw materials, and supply flow.
-  - **Restaurants & Hospitality** — Manage orders, stock usage, and daily sales.
-  - **E-commerce Stores** — Sync online orders, inventory, and payments.
-- End the copy column with the concise trust markers **Fast**, **Secure**, and **Reliable**.
+Implement one reusable footer component.
 
-### Visual and interaction requirements
+Every page must share:
 
-- Replace the small 2-by-2 image-card layout with a balanced two-column section: copy and key features on the left, a photo mosaic on the right, and an OptimaX brand tile centered in the mosaic.
-- Use seven labeled, clickable industry photos for pharmacies, hospitals and clinics, restaurants and cafes, hotels and hospitality, manufacturing, warehousing, and construction. Link each card to its matching existing industry route.
-- Use descriptive image alt text, lazy-load the photos, and crop them consistently. Keep the brand tile non-interactive and use the local OptimaX app mark.
-- On tablet, stack the copy above the mosaic. On mobile, reflow the mosaic into two columns; preserve readable labels, keyboard-visible focus, and no page-level horizontal overflow.
+- Identical logo treatment.
+- Consistent company description.
+- Consistent navigation groups.
+- Consistent contact information.
+- Social media links.
+- Legal links.
+- Copyright information.
 
-| Tile | Image source | Route |
-|---|---|---|
-| Pharmacies | Unsplash photo `1576602976047-174e57a47881` | `/industries/healthcare` |
-| Hospitals & Clinics | Unsplash photo `1519494026892-80bbd2d6fd0d` | `/industries/healthcare` |
-| Restaurants & Cafes | Unsplash photo `1414235077428-338989a2e8c0` | `/industries/hospitality` |
-| Hotels & Hospitality | Unsplash photo `1566073771259-6a8506099945` | `/industries/hospitality` |
-| Manufacturing | Existing Unsplash photo `1567789884554-0b844b597180` | `/industries/manufacturing` |
-| Warehousing | `/assets/images/modules/commerce-module.jpg` | `/industries/logistics` |
-| Construction | Unsplash photo `1504307651254-35680f356dfd` | `/industries/construction` |
+Only page-specific footer content should vary when genuinely necessary.
 
-## Footer Social and App Links
+# 5. STANDARDIZED PAGE ARCHITECTURE
 
-### Placement and layout
+Every page should follow a recognizable content structure without forcing every page into an identical layout.
 
-Add a distinct footer bottom row beneath the existing footer navigation, using the attached reference as a cue:
+Establish reusable page templates.
 
-- Place the five social links together on the left: Facebook, YouTube, Instagram, LinkedIn, and X.
-- Place the App Store and Google Play download badges together on the right.
-- Keep the existing copyright/contact content in a separate, legible line below or alongside this row, adapting to the current footer layout.
-- On narrow screens, wrap or stack the social links and badges cleanly; do not clip them or create horizontal page overflow.
+## Template A — Corporate pages
 
-### Destinations and behavior
+Recommended structure:
 
-- Use the social account destinations currently published on the Optimax homepage:
-  - Facebook: `https://www.facebook.com/profile.php?id=61587287975959`
-  - YouTube: `https://www.youtube.com/@OptimaXSuites`
-  - Instagram: `https://www.instagram.com/optimaxsuites/`
-  - LinkedIn: `https://www.linkedin.com/company/centrifuge-group/`
-  - X: `https://x.com/optimaxsuites/`
-- Open social destinations in a new tab with `rel="noopener noreferrer"`. Give every icon-only link a descriptive accessible name, visible keyboard focus, and a sufficiently large touch target.
-- Link each store badge directly to the confirmed OptimaX app listing for that store. Do not use `#`, generic store home/search pages, or unrelated applications as destinations.
-- The repository and current public store search do not provide verified OptimaX App Store or Google Play listing URLs. Obtain the official listing URL for each available platform before rendering its badge as a link. If no listing exists for a platform, omit that badge rather than showing a nonfunctional or misleading control.
-- The product owner confirmed that neither store listing is published yet. Omit both badges until official listings are available.
+1. Global header.
+2. Hero section.
+3. Supporting introduction.
+4. Main content sections.
+5. Supporting visuals.
+6. Benefits or capabilities.
+7. Relevant CTA.
+8. Global footer.
 
-### Acceptance criteria
+Applicable to About, Company, Contact, and similar pages.
 
-- Social links navigate to their intended, currently published accounts and are operable by keyboard and touch.
-- Store badges are shown only for platforms with confirmed OptimaX listings and open the correct listing.
-- No placeholder `href="#"` or generic app-store destination remains in the active homepage footer.
-- Footer content preserves the existing navigation and copyright, adapts to mobile, and matches the current Optimax brand styling.
+## Template B — Product and ERP module pages
 
-## Visual direction
+Recommended structure:
 
-- Reuse the existing homepage hero's brand palette, typography, and visual language so this section feels native to the current site.
-- Present the “Get to know OptimaX” overview beside a compact, manually controlled feature-card carousel; keep the intro and cards balanced on desktop and comfortably stacked on mobile.
-- Create clear contrast between the light partner area and the darker stats area, using existing brand colors rather than introducing a new palette.
-- Keep the partner names legible in restrained, consistent text chips; avoid fabricated logos, excessive decoration, and visual clutter.
-- Present the metrics with strong hierarchy, generous spacing, subtle dividers, and clear labels. Ensure the section transitions smoothly from the sections above and below it.
-- Make the partner collection usable on small screens without clipped text or page-level horizontal overflow. If it scrolls or marquee-animates, provide a touch-friendly, keyboard-accessible alternative and respect reduced-motion preferences.
-- Keep the layout responsive across mobile, tablet, and desktop breakpoints.
+1. Global header.
+2. Product-specific hero.
+3. Product overview.
+4. Key capabilities.
+5. Feature demonstrations.
+6. Business benefits.
+7. Related modules.
+8. Product-specific CTA.
+9. Global footer.
 
-## Number animation and accessibility
+Applicable to Inventory, Sales, Vendor Management, Finance, HR, Commerce, and other ERP modules.
 
-- When the stats section first enters the viewport, animate each numeric value upward from zero to its verified final value.
-- Stagger the count-up animations in the displayed order, from **CLIENTS** through **COUNTRIES**; do not reorder the metrics by value.
-- Keep the animation smooth, restrained, and brief. The final value must remain visible after the animation and must not depend on scrolling repeatedly.
-- Render the final values immediately when reduced motion is enabled, and ensure assistive technology receives meaningful labels and does not announce every intermediate count.
-- Ensure the stats remain understandable and complete if animation or JavaScript is unavailable.
+## Template C — Solution and industry pages
 
-## Acceptance criteria
+Recommended structure:
 
-- The “Get to know OptimaX” section uses the reference intro and all eight feature cards in an accessible, manually controlled carousel; it is more compact than the previous image carousel and does not create page-level horizontal overflow.
-- The new section presents the partner content and four stats from the reference, subject to verification of claims and figures.
-- The comparison section appears after the workflow explanation and before industry/pricing content, and presents the reference matrix with accessible table semantics.
-- The industry showcase follows the comparison section and precedes pricing, with the feature list, linked image mosaic, and central OptimaX brand tile.
-- The footer contains the referenced social/store-link row; all rendered links have valid, verified destinations.
-- The section uses Optimax's current hero branding and complements, rather than replaces, existing homepage content.
-- Each stat counts upward to its final value in the displayed left-to-right order when the section first comes into view.
-- Comparison claims are verified against approved sources before publication; unverified claims are corrected or omitted.
-- Reduced-motion, keyboard, screen-reader, and responsive behavior are supported.
-- No unsupported customer relationships, logos, endorsements, statistics, or growth claims are published.
+1. Global header.
+2. Solution-focused hero.
+3. Industry/business challenge.
+4. Optimax solution.
+5. Relevant capabilities.
+6. Business outcomes.
+7. Related products.
+8. Conversion CTA.
+9. Global footer.
+
+## Template D — Resource and content pages
+
+Recommended structure:
+
+1. Global header.
+2. Page introduction.
+3. Content navigation or filtering where applicable.
+4. Main content.
+5. Related resources.
+6. CTA.
+7. Global footer.
+
+IMPORTANT: Templates are structural guidelines, not rigid restrictions. Preserve unique page experiences where they serve a legitimate purpose.
+
+# 6. OPTIMAX CENTRAL HUB — PRODUCT ECOSYSTEM VISUALIZATION
+
+Establish a recognizable visual experience for presenting the Optimax ERP ecosystem.
+
+The Optimax logo should serve as the central hub, with the different business modules positioned around it in a circular ecosystem.
+
+## Visual composition
+
+- Position the Optimax logo centrally.
+- Arrange module representations around the central logo.
+- Use a balanced circular radius.
+- Each module should have its own relevant image or visual representation.
+- Display the module title clearly.
+- Maintain consistent image dimensions.
+- Use consistent card proportions.
+- Ensure the layout remains visually balanced.
+
+## Interaction
+
+Each module should behave as an interactive element.
+
+On hover:
+- Subtle elevation or visual emphasis.
+- Smooth transition.
+- Slight image transformation where appropriate.
+- Clear indication that the module is clickable.
+
+On click:
+- Navigate to the corresponding module page.
+
+On mobile:
+- Replace the desktop circular composition with a responsive, organized grid or alternative radial layout.
+- Never allow modules to overlap.
+- Maintain clear visual hierarchy and accessible touch targets.
+
+The central logo must remain the primary focal point.
+
+Avoid excessive animation, decorative lines, unnecessary labels, and visual clutter.
+
+# 7. STANDARDIZED COMPONENT DESIGN SYSTEM
+
+Identify and consolidate reusable components across the application.
+
+Create or standardize:
+
+- Header.
+- Navigation.
+- Dropdown.
+- Footer.
+- Page container.
+- Section heading.
+- Hero section.
+- Primary button.
+- Secondary button.
+- Feature card.
+- Module card.
+- Image showcase.
+- Statistics section.
+- Testimonial.
+- CTA section.
+- Breadcrumb.
+- Accordion.
+- Form fields.
+- Loading states.
+- Empty states.
+
+Every reusable component must have consistent:
+
+- Typography.
+- Spacing.
+- Border radius.
+- Colors.
+- Responsive behavior.
+- Hover states.
+- Focus states.
+- Accessibility.
+
+Avoid duplicating components simply because individual pages were originally developed separately.
+
+Where possible, consolidate shared components without introducing unnecessary architectural complexity.
+
+# 8. SPACING, ALIGNMENT AND LAYOUT
+
+Establish a consistent spacing scale.
+
+Suggested spacing tokens:
+
+- 4px.
+- 8px.
+- 12px.
+- 16px.
+- 24px.
+- 32px.
+- 48px.
+- 64px.
+- 80px.
+- 96px.
+
+Establish consistent:
+
+- Maximum content width.
+- Horizontal page padding.
+- Section spacing.
+- Heading-to-description spacing.
+- Card gaps.
+- Image alignment.
+- Text alignment.
+
+All page sections should align to a shared content grid.
+
+Avoid inconsistent left and right margins between sections.
+
+Use whitespace intentionally to improve readability and establish visual hierarchy.
+
+# 9. IMAGE AND VISUAL ASSET CONSISTENCY
+
+Review every existing image and illustration.
+
+Ensure:
+
+- Images match the section they represent.
+- Image aspect ratios are intentional.
+- Image quality is professional.
+- Module images are visually consistent.
+- Product screenshots are presented clearly.
+- Image positioning is consistent.
+- No stretched or distorted images.
+- No broken image assets.
+- No irrelevant stock imagery.
+
+Prioritize actual Optimax products, dashboards, software interfaces, and company-related visuals.
+
+Do not replace meaningful existing product screenshots with generic illustrations.
+
+Use consistent image treatments, border radii, and background surfaces.
+
+# 10. UX AND INTERACTION IMPROVEMENTS
+
+Review the entire website from the perspective of a first-time visitor.
+
+The user should always understand:
+
+- Where they are.
+- What Optimax offers.
+- What each product does.
+- Who the product is designed for.
+- What action to take next.
+
+Improve:
+
+### Navigation
+- Clear hierarchy.
+- Predictable dropdown behavior.
+- Visible active states.
+- Accessible keyboard navigation.
+- Logical grouping.
+
+### Conversion
+- Clear page-specific CTAs.
+- Consistent button styling.
+- No competing primary actions.
+- Meaningful CTA labels.
+- Short, accessible forms.
+
+### Interaction
+- Smooth but restrained transitions.
+- Consistent hover feedback.
+- Clickable areas.
+- Loading feedback.
+- Form validation.
+- Error and success feedback.
+
+### Accessibility
+- Semantic HTML.
+- Proper heading order.
+- Keyboard navigation.
+- Visible focus indicators.
+- Appropriate color contrast.
+- Descriptive image alt text.
+- Accessible interactive elements.
+
+# 11. RESPONSIVE DESIGN
+
+The website must be tested across:
+
+- 320px mobile.
+- 375px mobile.
+- 430px mobile.
+- 768px tablet.
+- 1024px laptop.
+- 1280px desktop.
+- 1440px desktop.
+- 1920px large display.
+
+Requirements:
+
+- No horizontal overflow.
+- No overlapping elements.
+- No broken navigation.
+- No clipped headings.
+- No distorted images.
+- Consistent spacing.
+- Readable typography.
+- Properly sized touch targets.
+- Responsive module ecosystem.
+- Consistent mobile footer.
+
+Do not simply shrink desktop layouts. Adapt the content structure to each screen size.
+
+# 12. MOTION AND MICRO-INTERACTIONS
+
+Use motion to improve usability and perceived quality.
+
+Approved interaction patterns:
+
+- Subtle hero entrance animations.
+- Smooth dropdown transitions.
+- Image reveal transitions.
+- Section entrance animations.
+- Button hover transitions.
+- Module card interactions.
+- Subtle scroll-based reveals where appropriate.
+
+Motion should be purposeful, lightweight, and consistent.
+
+Requirements:
+
+- Avoid excessive animation.
+- Avoid unnecessary parallax.
+- Avoid long entrance delays.
+- Avoid animation that blocks interaction.
+- Respect reduced-motion preferences.
+- Maintain performance on lower-powered devices.
+
+# 13. TECHNICAL IMPLEMENTATION
+
+Before modifying the codebase:
+
+1. Inspect the existing framework and dependencies.
+2. Understand the current routing structure.
+3. Identify existing shared components.
+4. Identify duplicate styles and components.
+5. Identify existing design tokens.
+6. Identify existing animation libraries.
+7. Review image asset organization.
+8. Identify potential regressions.
+
+Implementation principles:
+
+- Preserve the current framework.
+- Preserve existing routes.
+- Reuse existing dependencies where possible.
+- Establish centralized design tokens.
+- Build reusable components.
+- Avoid unnecessary packages.
+- Avoid rewriting functioning features.
+- Maintain clean component boundaries.
+- Keep page-specific styling intentional.
+- Ensure all navigation and interactive elements work.
+
+If using Angular, centralize shared styles and use reusable standalone components where appropriate. If using React, centralize the design system and shared components using the existing project architecture.
+
+Do not migrate frameworks as part of this task.
+
+# 14. PERFORMANCE AND QUALITY ASSURANCE
+
+The final website must be tested for:
+
+- Broken routes.
+- Broken links.
+- Missing assets.
+- Console errors.
+- Failed network requests.
+- Navigation failures.
+- Responsive layout issues.
+- Animation performance.
+- Form functionality.
+- Accessibility problems.
+- Unnecessary layout shifts.
+- Image loading performance.
+
+Review:
+
+- Image optimization.
+- Lazy loading.
+- Font loading.
+- Unused CSS.
+- Unnecessary JavaScript.
+- Component duplication.
+
+Run the existing build and available tests after implementation.
+
+Do not declare the project complete if the production build fails.
+
+# 15. IMPLEMENTATION WORKFLOW
+
+Execute the project in the following order.
+
+**Phase 1 — Audit**
+- Inspect all pages.
+- Generate page inventory.
+- Identify inconsistencies.
+- Identify shared components.
+- Report the proposed changes.
+
+**Phase 2 — Design System**
+- Establish brand tokens.
+- Standardize typography.
+- Standardize spacing.
+- Standardize buttons and cards.
+- Define global layout rules.
+
+**Phase 3 — Global Components**
+- Update header.
+- Update navigation.
+- Update dropdowns.
+- Update footer.
+- Implement reusable components.
+
+**Phase 4 — Page Standardization**
+- Update corporate pages.
+- Update product pages.
+- Update ERP module pages.
+- Update solution pages.
+- Update resource pages.
+- Preserve unique page functionality.
+
+**Phase 5 — Visual Refinement**
+- Improve image treatments.
+- Standardize section layouts.
+- Improve the central Optimax module ecosystem.
+- Refine animations.
+- Correct alignment and spacing.
+
+**Phase 6 — Responsive Optimization**
+- Test mobile.
+- Test tablet.
+- Test desktop.
+- Correct all layout issues.
+
+**Phase 7 — Final QA**
+- Test every route.
+- Test every CTA.
+- Test navigation.
+- Run production build.
+- Resolve errors.
+- Deliver a final audit report.
+
+# 16. DESIGN QUALITY RULES — NON-NEGOTIABLE
+
+1. Consistency takes priority over individual page creativity.
+2. Do not introduce new branding without approval.
+3. Do not use random gradients.
+4. Do not add decorative cards without a functional purpose.
+5. Do not introduce unnecessary badges or labels.
+6. Do not use inconsistent icon libraries or styles.
+7. Do not overcrowd sections.
+8. Do not use oversized typography without purpose.
+9. Do not introduce inconsistent button styles.
+10. Do not create different headers for different pages.
+11. Do not duplicate shared components.
+12. Do not sacrifice usability for animation.
+13. Do not remove existing functionality.
+14. Do not use generic imagery where actual Optimax product imagery exists.
+15. Do not force every page into the same content layout.
+
+# 17. FINAL ACCEPTANCE CRITERIA
+
+The project is complete only when:
+
+- Every public page follows the approved Optimax brand identity.
+- The entire website shares one coherent design system.
+- Navigation and footer are consistent.
+- Typography and spacing are standardized.
+- Buttons and interactive elements behave consistently.
+- Product and module pages follow recognizable templates.
+- The central Optimax ecosystem is visually balanced and interactive.
+- All pages work on mobile, tablet, and desktop.
+- All existing routes and functionality are preserved.
+- No broken images or navigation links remain.
+- No critical console errors remain.
+- Production build succeeds.
+- Accessibility and performance have been reviewed.
+
+# FINAL INSTRUCTION TO THE IMPLEMENTATION AGENT
+
+Approach this as a senior product designer, UX architect, and frontend engineer working together.
+
+Do not merely make the website prettier.
+
+Improve the underlying design consistency, usability, information architecture, and frontend maintainability.
+
+Start with a comprehensive audit. Identify the root causes of inconsistencies before making changes.
+
+Use the existing Optimax identity and approved visual assets as the source of truth.
+
+Make deliberate design decisions. Avoid unnecessary redesign, feature invention, and visual decoration.
+
+The final result should feel like a unified, premium enterprise technology company with a mature and recognizable digital identity.
+
+**The desired outcome: One Optimax brand. One consistent experience. Every page professionally connected.**
