@@ -8,17 +8,56 @@
 @tailwind utilities;
 
 :root {
-  --brand-blue: #0F4350;
-  --brand-blue-deep: #0B1B33;
-  --brand-green: #2EB270;
+  --color-primary-navy: #0B1B33;
+  --color-page: #FFFFFF;
+  --color-interactive: #0F4350;
+  --color-brand-accent: #2EB270;
+  --color-slate-900: #172B36;
+  --color-slate-700: #263D49;
+  --color-slate-500: #52636C;
+  --color-slate-200: #E5EBEF;
+  --color-slate-50: #F3F6F8;
+  --brand-blue: var(--color-interactive);
+  --brand-blue-deep: var(--color-primary-navy);
+  --brand-green: var(--color-brand-accent);
   --brand-green-hover: #47e797;
   --brand-hero: linear-gradient(112deg, #0B1B33 0%, #0B3549 56%, #0F4350 100%);
-  --brand-surface: #F3F6F8;
-  --brand-white: #FFFFFF;
-  --brand-text: #172B36;
-  --brand-muted: #64748B;
-  --brand-border: #E5EBEF;
-  /* Spacing scale */
+  --brand-surface: var(--color-slate-50);
+  --brand-surface-nav: #F8FAFB;
+  --brand-surface-hover: #E8EFF2;
+  --brand-white: var(--color-page);
+  --brand-text: var(--color-slate-900);
+  --brand-text-strong: var(--color-slate-700);
+  --brand-muted: var(--color-slate-500);
+  --brand-border: var(--color-slate-200);
+  --brand-border-strong: #DCE6EB;
+  --brand-action: var(--color-interactive);
+  --brand-action-hover: #0B3549;
+  --brand-focus: var(--brand-blue);
+  --font-family-base: "Manrope", "Segoe UI", sans-serif;
+  --type-display: clamp(2.75rem, 6vw, 4.5rem);
+  --type-h1: clamp(2.125rem, 4.2vw + 1rem, 3.25rem);
+  --type-h2: clamp(1.75rem, 2.8vw + 0.75rem, 2.5rem);
+  --type-h3: clamp(1.375rem, 1.8vw + 0.75rem, 1.75rem);
+  --type-h4: 1.25rem;
+  --type-body-large: 1.125rem;
+  --type-body: 1rem;
+  --type-body-small: 0.875rem;
+  --type-caption: 0.75rem;
+  --type-navigation: 0.875rem;
+  --type-button: 0.9375rem;
+  --leading-tight: 1.15;
+  --leading-heading: 1.25;
+  --leading-body: 1.65;
+  --content-width: 1200px;
+  --content-width-wide: 1320px;
+  --page-gutter: clamp(1rem, 4vw, 2rem);
+  --section-space: clamp(3.5rem, 7vw, 6rem);
+  --header-height: 72px;
+  --radius-control: 0.5rem;
+  --radius-card: 1rem;
+  --radius-panel: 1.5rem;
+  /* Shared spacing scale: 4, 8, 12, 16, 24, 32, 48, 64, 80, 96px. */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
@@ -36,9 +75,46 @@ html {
 }
 
 body {
-  background: var(--brand-surface);
+  background: var(--brand-white);
   color: var(--brand-text);
-  font-family: "Manrope", "Segoe UI", sans-serif;
+  font-family: var(--font-family-base);
+  font-size: var(--type-body);
+  line-height: var(--leading-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family-base);
+  line-height: var(--leading-heading);
+}
+
+.type-display {
+  font-size: var(--type-display);
+  line-height: var(--leading-tight);
+}
+
+.type-h1 {
+  font-size: var(--type-h1);
+  line-height: var(--leading-tight);
+}
+
+.type-h2 {
+  font-size: var(--type-h2);
+  line-height: var(--leading-heading);
+}
+
+.type-h3 {
+  font-size: var(--type-h3);
+  line-height: var(--leading-heading);
+}
+
+.type-h4 {
+  font-size: var(--type-h4);
+  line-height: var(--leading-heading);
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -66,9 +142,9 @@ button,
   justify-content: center;
   gap: 0.5rem;
   padding: 0.625rem 1.375rem;
-  border-radius: 0.5rem;
-  font-family: "Manrope", sans-serif;
-  font-size: 0.9375rem;
+  border-radius: var(--radius-control);
+  font-family: var(--font-family-base);
+  font-size: var(--type-button);
   font-weight: 600;
   line-height: 1.4;
   cursor: pointer;
@@ -78,19 +154,19 @@ button,
   white-space: nowrap;
 }
 
-/* Primary — green CTA */
+/* Primary — teal CTA */
 .btn-primary,
 .button-primary,
 .cta-button {
-  background-color: var(--brand-green);
-  border-color: var(--brand-green);
+  background-color: var(--brand-action);
+  border-color: var(--brand-action);
   color: #ffffff;
 }
 .btn-primary:hover,
 .button-primary:hover,
 .cta-button:hover {
-  background-color: var(--brand-green-hover);
-  border-color: var(--brand-green-hover);
+  background-color: var(--brand-action-hover);
+  border-color: var(--brand-action-hover);
 }
 
 .btn-primary,
@@ -99,8 +175,8 @@ button,
 .nav-demo-btn,
 .cloud-button-primary,
 .comparison-cta {
-  background-color: var(--brand-green) !important;
-  border-color: var(--brand-green) !important;
+  background-color: var(--brand-action) !important;
+  border-color: var(--brand-action) !important;
   color: #ffffff !important;
 }
 
@@ -110,8 +186,8 @@ button,
 .nav-demo-btn:hover,
 .cloud-button-primary:hover,
 .comparison-cta:hover {
-  background-color: var(--brand-green-hover) !important;
-  border-color: var(--brand-green-hover) !important;
+  background-color: var(--brand-action-hover) !important;
+  border-color: var(--brand-action-hover) !important;
   color: #ffffff !important;
 }
 
@@ -158,8 +234,9 @@ button,
 
 /* ===== GLOBAL FOCUS RING (Design Audit P2 — applies to all components) ===== */
 :focus-visible {
-  outline: 3px solid var(--brand-green);
+  outline: 3px solid var(--brand-white);
   outline-offset: 3px;
+  box-shadow: 0 0 0 6px var(--brand-focus);
   border-radius: 3px;
 }
 /* ===== END GLOBAL FOCUS RING ===== */
@@ -181,6 +258,12 @@ button,
 
 .product-page .product-hero h1 {
   color: var(--brand-white) !important;
+  font-size: var(--type-h1);
+  line-height: var(--leading-tight);
+}
+
+.product-page .product-hero :focus-visible {
+  outline-color: var(--brand-green-hover);
 }
 
 .product-page .product-hero h1 + p,
@@ -207,8 +290,8 @@ button,
 
 .product-page .product-hero a[style*="background-color: #2e6276"],
 .product-page .product-hero a[style*="background-color:#2e6276"] {
-  background-color: var(--brand-green) !important;
-  border-color: var(--brand-green) !important;
+  background-color: var(--brand-action) !important;
+  border-color: var(--brand-action) !important;
   color: #ffffff !important;
 }
 
@@ -865,15 +948,15 @@ video {
 
 /* Blog rich-text content — used on both post view and the editor */
 .prose-blog p { margin-bottom: 1.25rem; }
-.prose-blog h2 { font-size: 1.375rem; font-weight: 700; color: #272725; margin-top: 2rem; margin-bottom: 0.75rem; line-height: 1.35; }
-.prose-blog h3 { font-size: 1.1rem; font-weight: 700; color: #272725; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+.prose-blog h2 { font-size: 1.375rem; font-weight: 700; color: var(--brand-text); margin-top: 2rem; margin-bottom: 0.75rem; line-height: 1.35; }
+.prose-blog h3 { font-size: 1.1rem; font-weight: 700; color: var(--brand-text); margin-top: 1.5rem; margin-bottom: 0.5rem; }
 .prose-blog ul { list-style: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; }
 .prose-blog ol { list-style: decimal; padding-left: 1.5rem; margin-bottom: 1.25rem; }
 .prose-blog li { margin-bottom: 0.4rem; }
-.prose-blog strong { font-weight: 700; color: #272725; }
-.prose-blog a { color: #2e6276; text-decoration: underline; }
-.prose-blog a:hover { color: #245060; }
-.prose-blog blockquote { border-left: 4px solid #2e6276; padding-left: 1rem; margin: 1.5rem 0; color: #4b5563; font-style: italic; }
+.prose-blog strong { font-weight: 700; color: var(--brand-text); }
+.prose-blog a { color: var(--brand-action); text-decoration: underline; }
+.prose-blog a:hover { color: var(--brand-action-hover); }
+.prose-blog blockquote { border-left: 4px solid var(--brand-action); padding-left: 1rem; margin: 1.5rem 0; color: var(--brand-muted); font-style: italic; }
 .prose-blog img { max-width: 100%; border-radius: 0.75rem; margin: 1.25rem 0; }
 
 /* Editor placeholder */
@@ -907,11 +990,13 @@ video {
 }
 
 .product-hero a[href="/get-started"] {
-  background-color: var(--brand-green) !important;
+  background-color: var(--brand-action) !important;
+  border-color: var(--brand-action) !important;
 }
 
 .product-hero a[href="/get-started"]:hover {
-  background-color: var(--brand-green-hover) !important;
+  background-color: var(--brand-action-hover) !important;
+  border-color: var(--brand-action-hover) !important;
 }
 
 .product-hero a[href="#"] {
@@ -930,24 +1015,39 @@ video {
 }
 
 .product-hero ~ section a[href="/get-started"].bg-white {
-  background-color: var(--brand-green) !important;
+  background-color: var(--brand-action) !important;
+  border-color: var(--brand-action) !important;
   color: #ffffff !important;
 }
 
 .product-hero ~ section a[href="/get-started"].bg-white:hover {
-  background-color: var(--brand-green-hover) !important;
+  background-color: var(--brand-action-hover) !important;
+  border-color: var(--brand-action-hover) !important;
 }
 
 a[class*="bg-[#2e6276]"],
 button[class*="bg-[#2e6276]"] {
-  background-color: var(--brand-green) !important;
-  border-color: var(--brand-green) !important;
+  background-color: var(--brand-action) !important;
+  border-color: var(--brand-action) !important;
   color: #ffffff !important;
 }
 
 a[class*="bg-[#2e6276]"]:hover,
 button[class*="bg-[#2e6276]"]:hover {
-  background-color: var(--brand-green-hover) !important;
-  border-color: var(--brand-green-hover) !important;
+  background-color: var(--brand-action-hover) !important;
+  border-color: var(--brand-action-hover) !important;
   color: #ffffff !important;
+}
+
+a[class*="bg-[#2EB270]"],
+button[class*="bg-[#2EB270]"] {
+  background-color: var(--brand-action) !important;
+  border-color: var(--brand-action) !important;
+  color: #ffffff !important;
+}
+
+a[class*="bg-[#2EB270]"]:hover,
+button[class*="bg-[#2EB270]"]:hover {
+  background-color: var(--brand-action-hover) !important;
+  border-color: var(--brand-action-hover) !important;
 }

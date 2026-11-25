@@ -99,9 +99,9 @@ Establish global design tokens.
 
 | Token | Intended use |
 |---|---|
-| Primary Navy | #0B1B33 — primary brand identity |
-| White | #FFFFFF — primary page background |
-| Teal | Existing approved Optimax teal — interactive accent |
+| Primary Navy | — primary brand identity |
+| White |  — primary page background |
+| Teal | Existing approved Optimax  — interactive accent |
 | Brand Accent | Approved logo accent — selective emphasis |
 | Slate 900 | Primary headings |
 | Slate 700 | Body text |

@@ -3,21 +3,21 @@
 }
 
 :host .site-navigation {
-  min-height: 72px;
-  color: #172b36;
-  border-color: #dce6eb !important;
-  background: rgba(248, 250, 251, .97) !important;
+  min-height: var(--header-height);
+  color: var(--brand-text);
+  border-color: var(--brand-border-strong) !important;
+  background: var(--brand-surface-nav) !important;
   backdrop-filter: blur(18px);
   box-shadow: 0 1px 0 rgba(15, 67, 80, .06);
 }
 
 :host .site-navigation.nav-scrolled {
-  background: rgba(248, 250, 251, .98) !important;
+  background: var(--brand-surface-nav) !important;
   box-shadow: 0 8px 26px rgba(15, 43, 54, .1);
 }
 
 :host .site-navigation > div:first-child {
-  min-height: 72px;
+  min-height: var(--header-height);
 }
 
 :host .site-navigation a[aria-label="OptimaX home"] {
@@ -36,14 +36,14 @@
 
 :host .site-navigation .navbar-dropdown-wrapper > li > button,
 :host .site-navigation .navbar-dropdown-wrapper > li > a {
-  color: #263d49;
+  color: var(--brand-text-strong);
 }
 
 :host .site-navigation .navbar-dropdown-wrapper > li > button:hover,
 :host .site-navigation .navbar-dropdown-wrapper > li > a:hover,
 :host .site-navigation .navbar-dropdown-wrapper > li > button[aria-expanded="true"] {
-  color: #0b1b33;
-  background: #e8eff2;
+  color: var(--brand-blue-deep);
+  background: var(--brand-surface-hover);
 }
 
 :host .site-navigation .navbar-dropdown-wrapper > li > button:focus-visible,
@@ -52,7 +52,7 @@
 :host .site-navigation .mobile-menu-wrapper:focus-visible,
 :host .site-navigation .mobile-menu-wrapper a:focus-visible,
 :host .site-navigation .mobile-menu-wrapper button:focus-visible {
-  outline: 3px solid #176447;
+  outline: 3px solid var(--brand-focus);
   outline-offset: 3px;
 }
 
@@ -60,11 +60,11 @@
   min-height: 40px;
   justify-content: center;
   padding: 0 17px;
-  border: 1px solid #176447;
-  border-color: #176447 !important;
+  border: 1px solid var(--brand-action);
+  border-color: var(--brand-action) !important;
   border-radius: 7px;
   color: #fff !important;
-  background-color: #176447 !important;
+  background-color: var(--brand-action) !important;
   font-size: 14px;
   font-weight: 800;
   transition: background .2s ease, transform .2s ease;
@@ -72,41 +72,41 @@
 
 :host .site-navigation .nav-demo-btn:hover {
   color: #fff !important;
-  background-color: #10533a !important;
+  background-color: var(--brand-action-hover) !important;
   transform: translateY(-1px);
 }
 
 :host .site-navigation .mobile-menu-wrapper {
-  border-color: #dce6eb;
-  background: #f8fafb;
-  color: #172b36;
+  border-color: var(--brand-border-strong);
+  background: var(--brand-surface-nav);
+  color: var(--brand-text);
 }
 
 :host .site-navigation .mobile-menu-wrapper a,
 :host .site-navigation .mobile-menu-wrapper button {
-  color: #263d49;
+  color: var(--brand-text-strong);
 }
 
 :host .site-navigation .mobile-menu-wrapper a:hover,
 :host .site-navigation .mobile-menu-wrapper button:hover,
 :host .site-navigation .mobile-menu-wrapper button[aria-expanded="true"] {
-  color: #0b1b33;
-  background: #e8eff2;
+  color: var(--brand-blue-deep);
+  background: var(--brand-surface-hover);
 }
 
 :host .site-navigation .mobile-menu-wrapper a span {
-  color: #0f4350;
-  background-color: #e4eef0;
+  color: var(--brand-blue);
+  background-color: var(--brand-surface-hover);
 }
 
 :host .site-navigation .mobile-menu-wrapper .nav-demo-btn,
 :host .site-navigation .mobile-menu-wrapper .nav-demo-btn:hover {
   color: #fff;
-  background: #176447;
+  background: var(--brand-action);
 }
 
 :host .site-navigation .mobile-menu-wrapper .nav-demo-btn:hover {
-  background: #10533a;
+  background: var(--brand-action-hover);
 }
 
 :host .site-navigation > .mobile-menu-wrapper {
@@ -115,11 +115,11 @@
 }
 
 :host .site-navigation > .mobile-menu-wrapper > div {
-  border-color: #dce6eb;
+  border-color: var(--brand-border-strong);
 }
 
 :host .site-navigation > .mobile-menu-wrapper.opacity-100 {
-  max-height: calc(100dvh - 72px);
+  max-height: calc(100dvh - var(--header-height));
   overflow-y: auto;
   overscroll-behavior: contain;
 }

@@ -80,6 +80,8 @@ export class ForumHomeComponent implements OnInit {
 
   formatRelativeTime(dateStr: string): string {
     const date = new Date(dateStr);
+    if (!Number.isFinite(date.getTime())) return 'Date unavailable';
+
     const now = new Date();
     const diffMs = now.getTime() - date.getTime();
     const diffMins = Math.floor(diffMs / 60000);

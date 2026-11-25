@@ -23,10 +23,10 @@
           {{ industry?.description }}
         </p>
         <div class="flex flex-wrap gap-4">
-          <a href="/get-started" class="button button-primary px-7 py-3.5 font-bold rounded-xl text-sm">
+          <a routerLink="/get-started" class="button button-primary px-7 py-3.5 font-bold rounded-xl text-sm">
             Get Started Free
           </a>
-          <a href="/contact" class="px-7 py-3.5 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold rounded-xl transition-colors text-sm">
+          <a routerLink="/contact" class="px-7 py-3.5 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold rounded-xl transition-colors text-sm">
             Book a Demo
           </a>
         </div>
@@ -43,17 +43,17 @@
 
   <!-- Stats Row -->
   <section class="bg-[#0f4350] py-10 px-6 md:px-20">
-    <div class="max-w-4xl mx-auto grid grid-cols-3 gap-0 divide-x divide-white/20">
-      <div class="text-center px-6">
-        <div class="text-3xl md:text-4xl font-extrabold text-white mb-1">{{ industry?.stat1 }}</div>
+    <div class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-0 divide-y divide-white/20 sm:divide-x sm:divide-y-0">
+      <div class="text-center px-4 sm:px-6 py-3 sm:py-0">
+        <div class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-1">{{ industry?.stat1 }}</div>
         <div class="text-white/70 text-sm">{{ industry?.stat1label }}</div>
       </div>
-      <div class="text-center px-6">
-        <div class="text-3xl md:text-4xl font-extrabold text-white mb-1">{{ industry?.stat2 }}</div>
+      <div class="text-center px-4 sm:px-6 py-3 sm:py-0">
+        <div class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-1">{{ industry?.stat2 }}</div>
         <div class="text-white/70 text-sm">{{ industry?.stat2label }}</div>
       </div>
-      <div class="text-center px-6">
-        <div class="text-3xl md:text-4xl font-extrabold text-white mb-1">{{ industry?.stat3 }}</div>
+      <div class="text-center px-4 sm:px-6 py-3 sm:py-0">
+        <div class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-1">{{ industry?.stat3 }}</div>
         <div class="text-white/70 text-sm">{{ industry?.stat3label }}</div>
       </div>
     </div>
@@ -137,10 +137,10 @@
         Join hundreds of {{ industry?.name }} businesses already using OptimaX to streamline operations and grow faster.
       </p>
       <div class="flex flex-wrap justify-center gap-4">
-        <a href="/get-started" class="button button-primary px-8 py-4 font-bold rounded-xl text-base">
+        <a routerLink="/get-started" class="button button-primary px-8 py-4 font-bold rounded-xl text-base">
           Get Started Free
         </a>
-        <a href="/contact" class="px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold rounded-xl transition-colors text-base">
+        <a routerLink="/contact" class="px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold rounded-xl transition-colors text-base">
           Talk to Sales
         </a>
       </div>
@@ -152,14 +152,14 @@
     <div class="max-w-6xl mx-auto">
       <h2 class="text-2xl font-bold text-[#272725] mb-8 text-center">Explore other industries</h2>
       <div class="flex flex-wrap justify-center gap-3">
-        <a href="#" class="px-5 py-2.5 bg-white border border-gray-200 rounded-xl text-sm font-semibold text-gray-600 hover:bg-[#2e6276] hover:text-white hover:border-[#2e6276] transition-all">Retail &amp; E-commerce</a>
-        <a href="#" class="px-5 py-2.5 bg-white border border-gray-200 rounded-xl text-sm font-semibold text-gray-600 hover:bg-[#2e6276] hover:text-white hover:border-[#2e6276] transition-all">Manufacturing</a>
-        <a href="#" class="px-5 py-2.5 bg-white border border-gray-200 rounded-xl text-sm font-semibold text-gray-600 hover:bg-[#2e6276] hover:text-white hover:border-[#2e6276] transition-all">Healthcare</a>
-        <a href="#" class="px-5 py-2.5 bg-white border border-gray-200 rounded-xl text-sm font-semibold text-gray-600 hover:bg-[#2e6276] hover:text-white hover:border-[#2e6276] transition-all">Logistics &amp; Supply Chain</a>
-        <a href="#" class="px-5 py-2.5 bg-white border border-gray-200 rounded-xl text-sm font-semibold text-gray-600 hover:bg-[#2e6276] hover:text-white hover:border-[#2e6276] transition-all">Hospitality &amp; Restaurants</a>
-        <a href="#" class="px-5 py-2.5 bg-white border border-gray-200 rounded-xl text-sm font-semibold text-gray-600 hover:bg-[#2e6276] hover:text-white hover:border-[#2e6276] transition-all">Professional Services</a>
-        <a href="#" class="px-5 py-2.5 bg-white border border-gray-200 rounded-xl text-sm font-semibold text-gray-600 hover:bg-[#2e6276] hover:text-white hover:border-[#2e6276] transition-all">Education</a>
-        <a href="#" class="px-5 py-2.5 bg-white border border-gray-200 rounded-xl text-sm font-semibold text-gray-600 hover:bg-[#2e6276] hover:text-white hover:border-[#2e6276] transition-all">Construction</a>
+        <a routerLink="/industries/retail" class="px-5 py-2.5 bg-white border border-gray-200 rounded-xl text-sm font-semibold text-gray-600 hover:bg-[#2e6276] hover:text-white hover:border-[#2e6276] transition-all">Retail &amp; E-commerce</a>
+        <a routerLink="/industries/manufacturing" class="px-5 py-2.5 bg-white border border-gray-200 rounded-xl text-sm font-semibold text-gray-600 hover:bg-[#2e6276] hover:text-white hover:border-[#2e6276] transition-all">Manufacturing</a>
+        <a routerLink="/industries/healthcare" class="px-5 py-2.5 bg-white border border-gray-200 rounded-xl text-sm font-semibold text-gray-600 hover:bg-[#2e6276] hover:text-white hover:border-[#2e6276] transition-all">Healthcare</a>
+        <a routerLink="/industries/logistics" class="px-5 py-2.5 bg-white border border-gray-200 rounded-xl text-sm font-semibold text-gray-600 hover:bg-[#2e6276] hover:text-white hover:border-[#2e6276] transition-all">Logistics &amp; Supply Chain</a>
+        <a routerLink="/industries/hospitality" class="px-5 py-2.5 bg-white border border-gray-200 rounded-xl text-sm font-semibold text-gray-600 hover:bg-[#2e6276] hover:text-white hover:border-[#2e6276] transition-all">Hospitality &amp; Restaurants</a>
+        <a routerLink="/industries/professional-services" class="px-5 py-2.5 bg-white border border-gray-200 rounded-xl text-sm font-semibold text-gray-600 hover:bg-[#2e6276] hover:text-white hover:border-[#2e6276] transition-all">Professional Services</a>
+        <a routerLink="/industries/education" class="px-5 py-2.5 bg-white border border-gray-200 rounded-xl text-sm font-semibold text-gray-600 hover:bg-[#2e6276] hover:text-white hover:border-[#2e6276] transition-all">Education</a>
+        <a routerLink="/industries/construction" class="px-5 py-2.5 bg-white border border-gray-200 rounded-xl text-sm font-semibold text-gray-600 hover:bg-[#2e6276] hover:text-white hover:border-[#2e6276] transition-all">Construction</a>
       </div>
     </div>
   </section>

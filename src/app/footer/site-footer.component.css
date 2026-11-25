@@ -4,8 +4,8 @@
 
 .site-footer {
   padding: 64px max(calc((100vw - 1232px) / 2), 24px) 0;
-  color: #172b36;
-  background: #edf3f5;
+  color: var(--brand-text);
+  background: var(--brand-surface);
   font-family: inherit;
 }
 
@@ -23,7 +23,7 @@
 }
 
 .footer-brand > a:first-child:focus-visible {
-  outline: 3px solid #176447;
+  outline: 3px solid var(--brand-focus);
   outline-offset: 3px;
 }
 
@@ -37,7 +37,7 @@
 .footer-brand p,
 .footer-column p {
   max-width: 240px;
-  color: #52636c;
+  color: var(--brand-muted);
   font-size: 13px;
   line-height: 1.7;
 }
@@ -47,7 +47,7 @@
 }
 
 .footer-contact {
-  color: #176447;
+  color: var(--brand-action);
   font-size: 14px;
   font-weight: 800;
 }
@@ -60,14 +60,14 @@
 
 .footer-column h2 {
   margin: 2px 0 6px;
-  color: #172b36;
+  color: var(--brand-text);
   font-size: 14px;
   font-weight: 800;
 }
 
 .footer-column a {
   width: fit-content;
-  color: #475b66;
+  color: var(--brand-text-strong);
   font-size: 14px;
   text-decoration: none;
   transition: color .2s ease;
@@ -81,7 +81,7 @@
 .footer-column a:hover,
 .footer-bottom a:hover,
 .footer-contact:hover {
-  color: #0b1b33;
+  color: var(--brand-blue-deep);
 }
 
 .footer-community-row {
@@ -89,7 +89,7 @@
   min-height: 74px;
   align-items: center;
   gap: 12px;
-  border-top: 1px solid #d5e0e5;
+  border-top: 1px solid var(--brand-border);
 }
 
 .footer-social-link {
@@ -99,22 +99,22 @@
   place-items: center;
   border: 1px solid transparent;
   border-radius: 50%;
-  color: #475b66;
+  color: var(--brand-text-strong);
   transition: color .2s ease, background .2s ease, border-color .2s ease;
 }
 
 .footer-social-link:hover,
 .footer-social-link:focus-visible {
-  border-color: #b6d2c8;
-  background: #e1eeea;
-  color: #176447;
+  border-color: var(--brand-border-strong);
+  background: var(--brand-surface-hover);
+  color: var(--brand-action);
 }
 
 .footer-social-link:focus-visible,
 .footer-column a:focus-visible,
 .footer-contact:focus-visible,
 .footer-bottom a:focus-visible {
-  outline: 3px solid #176447;
+  outline: 3px solid var(--brand-focus);
   outline-offset: 3px;
 }
 
@@ -133,13 +133,13 @@
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  border-top: 1px solid #d5e0e5;
-  color: #52636c;
+  border-top: 1px solid var(--brand-border);
+  color: var(--brand-muted);
   font-size: 12px;
 }
 
 .footer-bottom a {
-  color: #334d59;
+  color: var(--brand-text-strong);
   text-decoration: none;
 }
 

@@ -110,11 +110,11 @@
 
         <!-- Comment list -->
         <div class="space-y-4 mb-6">
-          <div *ngFor="let comment of detail.comments" class="bg-white rounded-2xl border px-5 py-4" [class.border-[#2EB270]]="comment.isSolution" [class.border-gray-100]="!comment.isSolution">
+          <div *ngFor="let comment of detail.comments" class="bg-white rounded-2xl border px-5 py-4" [class.border-[#0F4350]]="comment.isSolution" [class.border-gray-100]="!comment.isSolution">
 
             <!-- Solution badge -->
             <div *ngIf="comment.isSolution" class="flex items-center gap-2 mb-3">
-              <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-[#2EB270]/10 text-[#2EB270] text-xs font-bold rounded-full">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-[#0F4350]/10 text-[#0F4350] text-xs font-bold rounded-full">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
                 </svg>
@@ -139,7 +139,7 @@
                       *ngIf="isThreadOwner() && !comment.isSolution"
                       (click)="markSolution(comment.id)"
                       title="Mark as solution"
-                      class="text-xs text-gray-400 hover:text-[#2EB270] transition-colors flex items-center gap-1 font-medium"
+                      class="text-xs text-gray-400 hover:text-[#0F4350] transition-colors flex items-center gap-1 font-medium"
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />

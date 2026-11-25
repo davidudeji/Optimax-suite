@@ -16,7 +16,7 @@
       <!-- Logged-in state -->
       <div *ngIf="forumAuthService.isLoggedIn()" class="flex flex-col sm:flex-row items-center justify-center gap-3">
         <div class="flex items-center gap-3 bg-white/10 rounded-xl px-4 py-2.5">
-          <div class="w-8 h-8 rounded-full bg-[#2EB270] flex items-center justify-center text-white text-sm font-bold">
+          <div class="w-8 h-8 rounded-full bg-[#0F4350] flex items-center justify-center text-white text-sm font-bold">
             {{ forumAuthService.getUser()?.name?.charAt(0)?.toUpperCase() || '?' }}
           </div>
           <span class="text-white text-sm font-semibold">{{ forumAuthService.getUser()?.name }}</span>
@@ -65,7 +65,7 @@
       </div>
       <div class="w-px h-8 bg-gray-200 hidden sm:block"></div>
       <div>
-        <p class="text-2xl font-extrabold text-[#2EB270]">Community</p>
+        <p class="text-2xl font-extrabold text-[#0F4350]">Community</p>
         <p class="text-xs text-gray-400 font-medium mt-0.5">Powered by you</p>
       </div>
     </div>
